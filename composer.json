@@ -13,8 +13,8 @@
 		}
 	],
 	"scripts": {
-		"phpcs": "phpcs wp-content/themes/cno-starter-theme/ --extensions=php --ignore=wp-content/themes/cno-starter-theme/dist/",
-		"phpcbf": "phpcbf wp-content/themes/cno-starter-theme/ --extensions=php --ignore=wp-content/themes/cno-starter-theme/dist/"
+		"phpcs": "phpcs wp-content/themes/together-were-more/ --extensions=php --ignore=wp-content/themes/together-were-more/dist/",
+		"phpcbf": "phpcbf wp-content/themes/together-were-more/ --extensions=php --ignore=wp-content/themes/together-were-more/dist/"
 	},
 	"config": {
 		"allow-plugins": {
