@@ -104,7 +104,7 @@ class Theme_Init {
 			'role-editor' => 'Role_Editor',
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
-			require_once $base_path . "/theme/{$utility_file}.php";
+			require_once $base_path . "/theme/class-{$utility_file}.php";
 			$class = __NAMESPACE__ . '\\' . $class_name;
 			new $class();
 		}

@@ -10,9 +10,10 @@ use ChoctawNation\Enqueue_Type;
 
 $loader = new Asset_Loader( 'frontPage', Enqueue_Type::both, 'pages' );
 
-get_header(); ?>
+get_header();
+?>
 <main <?php post_class( array( 'site-content', "page-{$post->post_name}" ) ); ?>>
-	<?php get_template_part( 'template-parts/section', 'hero', array( 'id' => $post->ID ) ); ?>
+	<?php // get_template_part( 'template-parts/section', 'hero', array( 'id' => $post->ID ) ); phpcs:ignore Squiz.PHP.CommentedOutCode.Found ?>
 	<section class="my-5 py-5">
 		<div class="container">
 			<div class="row row-cols-1 row-cols-lg-2 row-gap-3">
