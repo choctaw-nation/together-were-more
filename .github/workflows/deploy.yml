@@ -9,8 +9,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
-            WPE_ENV: # WP Engine environment name
-            theme_name: cno-starter-theme
+            WPE_ENV: twmprod
+            theme_name: together-were-more
         secrets: inherit
 
     deploy-stg:
@@ -18,8 +18,8 @@ jobs:
         if: github.ref == 'refs/heads/stg'
         uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
-            WPE_ENV: # WP Engine environment name
-            theme_name: cno-starter-theme
+            WPE_ENV: twmstg
+            theme_name: together-were-more
         secrets: inherit
 
     deploy-dev:
@@ -27,8 +27,8 @@ jobs:
         if: github.ref == 'refs/heads/dev'
         uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
-            WPE_ENV: # WP Engine environment name
-            theme_name: cno-starter-theme
+            WPE_ENV: twmdev
+            theme_name: together-were-more
         secrets: inherit
 
     # Run Playwright tests on Dev

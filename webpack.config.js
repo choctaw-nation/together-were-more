@@ -1,7 +1,7 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config.js' );
 
 /** The name of the theme. Alter me! */
-const THEME_NAME = 'cno-starter-theme';
+const THEME_NAME = 'together-were-more';
 
 /** The location of your theme. */
 const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;

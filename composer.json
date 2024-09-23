@@ -1,7 +1,7 @@
 {
-	"name": "choctaw-nation/template-theme",
+	"name": "choctaw-nation/together-were-more",
 	"description": "a template theme to fork",
-	"type": "library",
+	"type": "project",
 	"repositories": [
 		{
 			"type": "composer",

@@ -1,7 +1,7 @@
 {
-	"name": "cno-starter-theme",
-	"version": "2.4.0",
-	"description": "Custom WP theme for CNO sites",
+	"name": "together-were-more",
+	"version": "1.0.0",
+	"description": "Custom WP theme for Together We're More site",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
