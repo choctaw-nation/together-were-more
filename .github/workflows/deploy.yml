@@ -27,7 +27,7 @@ jobs:
         if: github.ref == 'refs/heads/dev'
         uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
-            WPE_ENV: twmdev
+            WPE_ENV: cnotwmdev
             theme_name: together-were-more
         secrets: inherit
 
