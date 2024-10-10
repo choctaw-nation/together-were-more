@@ -7,7 +7,7 @@
 
 ?>
 
-<footer class="footer container-fluid text-bg-primary py-3 d-flex flex-column align-items-center">
+<footer class="footer container-fluid text-bg-dark py-3 d-flex flex-column align-items-center">
 	<div class="row">
 		<?php
 		if ( has_nav_menu( 'footer_menu' ) ) {

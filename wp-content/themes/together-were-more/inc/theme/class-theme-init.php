@@ -75,13 +75,12 @@ class Theme_Init {
 		$acf_classes = array(
 			'generator',
 			'image',
-			// 'hero',
+			'hero',
+			'profile-hero',
 		);
 		foreach ( $acf_classes as $acf_class ) {
 			require_once $base_path . "/acf/acf-classes/class-{$acf_class}.php";
 		}
-		/** Sets up Initial ACF Fields for global Hero Sections */
-		// require_once $base_path . '/acf/acf-fields/initial-acf-fields.php'; phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 
 		$asset_loaders = array(
 			'enum-enqueue-type',
@@ -93,15 +92,15 @@ class Theme_Init {
 
 		$navwalkers = array(
 			'navwalker',
-			// 'mega-menu',
 		);
 		foreach ( $navwalkers as $navwalker ) {
 			require_once $base_path . "/theme/navwalkers/class-{$navwalker}.php";
 		}
 
 		$utility_files = array(
-			'allow-svg'   => 'Allow_SVG',
-			'role-editor' => 'Role_Editor',
+			'allow-svg'     => 'Allow_SVG',
+			'role-editor'   => 'Role_Editor',
+			'post-override' => 'Post_Override',
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";
@@ -142,9 +141,10 @@ class Theme_Init {
 	 * Adds scripts with the appropriate dependencies
 	 */
 	public function enqueue_cno_scripts() {
+		$this->register_scripts();
 		wp_enqueue_style(
 			'typekit',
-			'https://use.typekit.net/jky5sek.css',
+			'https://use.typekit.net/mud5elq.css',
 			array(),
 			null // phpcs:ignore
 		);
@@ -188,6 +188,25 @@ class Theme_Init {
 		);
 	}
 
+	/** Register the scripts and styles required by modules later */
+	private function register_scripts() {
+		$asset_file_base = get_template_directory() . '/dist';
+		$asset_file      = require_once $asset_file_base . '/modules/who-we-are.asset.php';
+		wp_register_script(
+			'who-we-are',
+			get_template_directory_uri() . '/dist/modules/who-we-are.js',
+			array( 'global' ),
+			$asset_file['version'],
+			array( 'strategy' => 'defer' )
+		);
+		wp_register_style(
+			'who-we-are',
+			get_template_directory_uri() . '/dist/modules/who-we-are.css',
+			array( 'global' ),
+			$asset_file['version'],
+		);
+	}
+
 	/**
 	 * Provide an array of handles to dequeue.
 	 *
@@ -203,6 +222,15 @@ class Theme_Init {
 	public function cno_theme_support() {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
+		$image_sizes = array(
+			'4k'                   => array( 3840, 2160 ), // hero
+			'profile-preview'      => array( 1982, 1115 ), // 991 x 557
+			'category-card'        => array( 1392, 783 ), // 696 x 392
+			'profile-preview-card' => array( 1008, 568 ), // 504 x 284
+		);
+		foreach ( $image_sizes as $name => $size ) {
+			add_image_size( $name, $size[0], $size[1], );
+		}
 
 		register_nav_menus(
 			array(

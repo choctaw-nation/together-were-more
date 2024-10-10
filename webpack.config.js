@@ -11,7 +11,7 @@ const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;
  *
  * **Be sure to import page scss in these files**
  */
-const appNames = [ 'front-page' ];
+const appNames = [];
 
 /**
  * For SCSS files (no leading `_`)
@@ -26,6 +26,7 @@ module.exports = {
 			return {
 				global: `.${ THEME_DIR }/src/index.js`,
 				'vendors/bootstrap': `.${ THEME_DIR }/src/js/vendors/bootstrap.js`,
+				'modules/who-we-are': `.${ THEME_DIR }/src/js/WhoWeAre.ts`,
 				...addEntries( appNames, 'pages' ),
 				...addEntries( styleSheets, 'styles' ),
 			};

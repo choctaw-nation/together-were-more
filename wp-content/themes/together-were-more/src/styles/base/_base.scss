@@ -1,14 +1,26 @@
 @use "../abstracts/variables" as v;
+@use "bootstrap/scss/vendor/rfs" as rfs;
 
 :root {
 	--font-headings: #{v.$font-headings};
 	--font-body: #{v.$font-body};
+	--font-script: #{v.$font-script};
 	--font-serif: #{v.$font-serif};
-
 	--transition-standard: #{v.$transition-standard};
+}
+
+html {
+	text-wrap: pretty;
 }
 
 ul,
 ol {
 	margin-left: 1.25rem;
+	@include rfs.font-size(1.35rem);
+}
+
+body,
+p,
+.text-content {
+	@include rfs.font-size(1.35rem);
 }
