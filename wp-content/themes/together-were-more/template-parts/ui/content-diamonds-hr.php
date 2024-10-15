@@ -27,7 +27,7 @@ $hr_classes[] = 'white' !== $color ? 'border-dark' : 'border-white';
 
 <div class="<?php echo join( ' ', $classes ); ?>">
 	<hr class="<?php echo join( ' ', $hr_classes ); ?>" />
-	<div class="diamonds" style="<?php echo "--color:{$color};"; ?>">
+	<div class="diamonds" style="<?php echo "--color:var(--bs-{$color});"; ?>">
 		<?php get_template_part( 'template-parts/ui/content', 'diamonds' ); ?>
 	</div>
 	<hr class="<?php echo join( ' ', $hr_classes ); ?>" />

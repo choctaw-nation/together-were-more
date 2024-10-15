@@ -191,19 +191,51 @@ class Theme_Init {
 	/** Register the scripts and styles required by modules later */
 	private function register_scripts() {
 		$asset_file_base = get_template_directory() . '/dist';
-		$asset_file      = require_once $asset_file_base . '/modules/who-we-are.asset.php';
+		$aos             = require_once $asset_file_base . '/vendors/aos.asset.php';
+		wp_register_script(
+			'aos',
+			get_template_directory_uri() . '/dist/vendors/aos.js',
+			array(),
+			$aos['version'],
+			array( 'strategy' => 'defer' )
+		);
+		$who_we_are = require_once $asset_file_base . '/modules/who-we-are.asset.php';
 		wp_register_script(
 			'who-we-are',
 			get_template_directory_uri() . '/dist/modules/who-we-are.js',
 			array( 'global' ),
-			$asset_file['version'],
+			$who_we_are['version'],
 			array( 'strategy' => 'defer' )
 		);
 		wp_register_style(
 			'who-we-are',
 			get_template_directory_uri() . '/dist/modules/who-we-are.css',
 			array( 'global' ),
-			$asset_file['version'],
+			$who_we_are['version'],
+		);
+
+		$current_feature = require_once $asset_file_base . '/modules/current-feature.asset.php';
+		wp_register_style(
+			'current-feature',
+			get_template_directory_uri() . '/dist/modules/current-feature.css',
+			array( 'global' ),
+			$current_feature['version'],
+		);
+		$lite_vimeo = require_once $asset_file_base . '/vendors/lite-vimeo.asset.php';
+		wp_register_script(
+			'lite-vimeo',
+			get_template_directory_uri() . '/dist/vendors/lite-vimeo.js',
+			array(),
+			$lite_vimeo['version'],
+			array( 'strategy' => 'async' )
+		);
+		$video_modal_trigger = require_once $asset_file_base . '/modules/video-modal-trigger.asset.php';
+		wp_register_script(
+			'video-modal-trigger',
+			get_template_directory_uri() . '/dist/modules/video-modal-trigger.js',
+			array( 'bootstrap', 'lite-vimeo' ),
+			$video_modal_trigger['version'],
+			array( 'strategy' => 'defer' )
 		);
 	}
 
@@ -249,6 +281,18 @@ class Theme_Init {
 		foreach ( $post_types as $post_type ) {
 			$this->disable_post_type_support( $post_type );
 		}
+
+		// Hide tags on posts
+		unregister_taxonomy_for_object_type( 'post_tag', 'post' );
+
+		// Hide category metabox for post type 'post'
+		add_action(
+			'admin_menu',
+			function () {
+				remove_meta_box( 'categorydiv', 'post', 'side' );
+				remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );
+			}
+		);
 	}
 
 	/**
