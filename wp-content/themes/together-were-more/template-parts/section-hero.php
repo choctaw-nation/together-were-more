@@ -5,7 +5,6 @@
  * @package ChoctawNation
  */
 
-
 $has_overlay = isset( $args['has_overlay'] ) ? $args['has_overlay'] : false;
 $the_overlay = $has_overlay && isset( $args['the_overlay'] ) ? $args['the_overlay'] : '<div class="image-overlay bg-black bg-opacity-25 position-absolute top-0 z-1 w-100 h-100"></div>';
 ?>
@@ -21,8 +20,8 @@ $the_overlay = $has_overlay && isset( $args['the_overlay'] ) ? $args['the_overla
 				<span class='h3 text-uppercase text-white'>Our stories make us more</span>
 				<?php
 				get_template_part(
-					'template-parts/ui/content',
-					'diamonds-hr',
+					'template-parts/ui/hr',
+					'diamonds',
 					array(
 						'class' => 'my-4',
 						'color' => 'white',

@@ -5,7 +5,6 @@
  * @package ChoctawNation
  */
 
-
 $featured_profile_id = isset( $args['featured_profile_id'] ) ? $args['featured_profile_id'] : false;
 if ( false === $featured_profile_id ) {
 	return;

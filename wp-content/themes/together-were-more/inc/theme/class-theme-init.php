@@ -72,12 +72,7 @@ class Theme_Init {
 		/** Loads the Theme Functions File (to keep the actual functions.php file clean) */
 		require_once $base_path . '/theme/theme-functions.php';
 
-		$acf_classes = array(
-			'generator',
-			'image',
-			'hero',
-			'profile-hero',
-		);
+		$acf_classes = array();
 		foreach ( $acf_classes as $acf_class ) {
 			require_once $base_path . "/acf/acf-classes/class-{$acf_class}.php";
 		}
@@ -191,14 +186,7 @@ class Theme_Init {
 	/** Register the scripts and styles required by modules later */
 	private function register_scripts() {
 		$asset_file_base = get_template_directory() . '/dist';
-		$aos             = require_once $asset_file_base . '/vendors/aos.asset.php';
-		wp_register_script(
-			'aos',
-			get_template_directory_uri() . '/dist/vendors/aos.js',
-			array(),
-			$aos['version'],
-			array( 'strategy' => 'defer' )
-		);
+
 		$who_we_are = require_once $asset_file_base . '/modules/who-we-are.asset.php';
 		wp_register_script(
 			'who-we-are',

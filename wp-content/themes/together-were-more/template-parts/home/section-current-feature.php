@@ -34,8 +34,8 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 					$last_name  = explode( ' ', $name )[1];
 					echo "<h2 class='featured__title text-gray text-uppercase'>{$first_name}<br />{$last_name}</h2>";
 					get_template_part(
-						'template-parts/ui/content',
-						'diamonds-hr',
+						'template-parts/ui/hr',
+						'diamonds',
 						array(
 							'color' => 'gold',
 							'class' => 'w-75 my-5',

@@ -5,10 +5,11 @@
  * @package ChoctawNation
  */
 
-$socials = get_field( 'social_media_channels', 'options' );
+$socials        = get_field( 'social_media_channels', 'options' );
+$texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 ?>
 <aside id='contact' class='position-relative'>
-	<Image src={texture} class='position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1' alt='' />
+	<img src="<?php echo $texture_bg_url; ?>" class='position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1' alt='' aria-hidden="true" />
 	<div class='row justify-content-center'>
 		<div class='col-lg-8 py-5 d-flex flex-column justify-content-center'>
 			<div class='col-lg-10 py-5 mx-auto'>
@@ -35,8 +36,8 @@ $socials = get_field( 'social_media_channels', 'options' );
 							</p>
 							<?php
 							get_template_part(
-								'template-parts/ui/content',
-								'diamonds-hr',
+								'template-parts/ui/hr',
+								'diamonds',
 								array(
 									'color' => 'gray',
 									'class' => 'my-4',
