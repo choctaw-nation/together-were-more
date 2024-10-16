@@ -1,0 +1,11 @@
+@use "../abstracts/mixins" as m;
+
+.post-preview-card {
+	&__overlay {
+		transition: background-color var(--transition-standard);
+	}
+
+	&:has(button:disabled) {
+		cursor: not-allowed;
+	}
+}
