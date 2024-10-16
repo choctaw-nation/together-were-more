@@ -30,6 +30,7 @@ module.exports = {
 				'modules/who-we-are': `.${ THEME_DIR }/src/js/WhoWeAre.ts`,
 				'modules/current-feature': `.${ THEME_DIR }/src/styles/components/current-feature.scss`,
 				'modules/video-modal-trigger': `.${ THEME_DIR }/src/js/VideoModalTrigger.ts`,
+				'pages/profile-swiper': `.${ THEME_DIR }/src/js/ProfileSwiper.ts`,
 				...addEntries( appNames, 'pages' ),
 				...addEntries( styleSheets, 'styles' ),
 			};

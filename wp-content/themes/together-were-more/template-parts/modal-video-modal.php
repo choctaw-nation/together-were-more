@@ -5,7 +5,6 @@
  * @package ChoctawNation
  */
 
-
 $video_id = isset( $args['video_id'] ) ? $args['video_id'] : false;
 if ( false === $video_id ) {
 	return;

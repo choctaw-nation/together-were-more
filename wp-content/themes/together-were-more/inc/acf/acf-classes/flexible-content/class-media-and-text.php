@@ -61,7 +61,16 @@ class Media_And_Text {
 	 * @param int   $id  The post ID
 	 */
 	public function __construct( array $acf, int $id ) {
-		$this->id             = $id;
+		$this->id = $id;
+		$this->init_props( $acf );
+	}
+
+	/**
+	 * Initialize the properties
+	 *
+	 * @param array $acf The ACF field args
+	 */
+	protected function init_props( array $acf ): void {
 		$this->is_quote       = $acf['is_quote'];
 		$this->is_video       = $acf['is_video'];
 		$this->text           = $this->is_quote ? acf_esc_html( $acf['quote'] ) : acf_esc_html( $acf['content'] );
@@ -129,6 +138,9 @@ class Media_And_Text {
 		if ( ! $this->is_quote ) {
 			$col_classes[] = 'text-gray';
 		}
+		if ( $this->is_quote ) {
+			$col_classes[] = 'd-flex flex-column justify-content-center';
+		}
 		return join( ' ', $col_classes );
 	}
 
@@ -145,7 +157,7 @@ class Media_And_Text {
 	 * @return string
 	 */
 	public function get_the_text(): string {
-		$markup = $this->is_quote ? '<blockquote class="font-script fs-3 mb-0">%s</blockquote>' : '<p>%s</p>';
+		$markup = $this->is_quote ? '<blockquote class="font-script fs-3 mb-0" data-aos="fade-in">%s</blockquote>' : '<p>%s</p>';
 		return sprintf( $markup, $this->text );
 	}
 
@@ -171,16 +183,17 @@ class Media_And_Text {
 		// return figure with image
 		$image_args = array(
 			'loading' => 'lazy',
-			'class'   => 'w-100 object-fit-cover',
+			'class'   => 'w-100 ' . ( $this->media_details['is_portrait'] ? 'object-fit-cover' : 'object-fit-contain h-100' ),
 		);
-		$markup     = '<figure class="mb-0 ratio ratio-3x2' . ( $this->media_details['is_portrait'] ? ' h-100' : '' ) . '" data-aos="fade-up">';
-		$markup    .= wp_get_attachment_image(
+
+		$markup  = '<figure class="mb-0 ratio ratio-3x2' . ( $this->media_details['is_portrait'] ? ' h-100' : '' ) . ( $this->is_quote ? '"' : '" data-aos="fade-up")' ) . '>';
+		$markup .= wp_get_attachment_image(
 			$this->media_details['photo'],
 			'large',
 			false,
 			$image_args
 		);
-		$markup    .= '</figure>';
+		$markup .= '</figure>';
 		return $markup;
 	}
 

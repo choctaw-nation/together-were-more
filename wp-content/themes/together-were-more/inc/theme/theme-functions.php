@@ -34,10 +34,10 @@ function cno_extract_vimeo_id( string $url ): string|false {
  * (Pass `false` as 3rd parameter in `get_field` to return raw url string.)
  * Returns web component or `false` if video is unlisted.
  *
- * @param string $url the video id
+ * @param string $video_id the video id
  * @param bool   $enable_tracking whether to enable tracking or not
  * @param string $custom_placeholder_url the custom placeholder URL
- * @return string|false the web component or false
+ * @return string the web component or false
  */
 function cno_generate_lite_vimeo( string $video_id, bool $enable_tracking = true, string $custom_placeholder_url = '' ): string {
 	$markup = "<lite-vimeo videoid='{$video_id}'";

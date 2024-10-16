@@ -67,6 +67,11 @@ class Video_Details {
 		);
 	}
 
+	/**
+	 * Gets the video details for the video in the ACF field
+	 *
+	 * @return array
+	 */
 	private function get_video_details(): array {
 		$video_id         = $this->extract_video_id();
 		$is_public        = $this->acf['is_public'];

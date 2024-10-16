@@ -73,8 +73,9 @@ class Theme_Init {
 		require_once $base_path . '/theme/theme-functions.php';
 
 		$acf_classes = array(
-			'video-details'  => null,
-			'media-and-text' => 'flexible-content',
+			'video-details'             => null,
+			'media-and-text'            => 'flexible-content',
+			'full-width-media-and-text' => 'flexible-content',
 		);
 		foreach ( $acf_classes as $acf_class => $folder ) {
 			if ( ! is_null( $folder ) ) {
