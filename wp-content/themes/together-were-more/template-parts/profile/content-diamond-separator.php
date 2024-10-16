@@ -6,13 +6,7 @@
  * @subpackage ACF
  */
 
-$color_map  = array(
-	'Artists'     => 'gold',
-	'Culture'     => 'plum',
-	'Inspire'     => 'violet',
-	'Competitors' => 'garnet',
-);
-$color      = $color_map[ get_the_category()[0]->name ];
+$color      = cno_get_category_color( get_the_category()[0]->name );
 $location   = isset( $args['position'] ) ? $args['position'] : null;
 $full_width = isset( $args['full_width'] ) ? $args['full_width'] : null;
 
