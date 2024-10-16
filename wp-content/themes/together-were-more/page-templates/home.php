@@ -6,6 +6,10 @@
  * @package ChoctawNation
  */
 
+use ChoctawNation\Asset_Loader;
+use ChoctawNation\Enqueue_Type;
+
+new Asset_Loader( 'home', Enqueue_Type::both, 'pages' );
 get_header();
 ?>
 <main <?php post_class(); ?>>
