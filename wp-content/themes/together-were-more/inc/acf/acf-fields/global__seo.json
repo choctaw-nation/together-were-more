@@ -1,0 +1,54 @@
+[
+    {
+        "key": "group_670844fda4c39",
+        "title": "Global — SEO",
+        "fields": [
+            {
+                "key": "field_670844fd615fc",
+                "label": "Brief Description",
+                "name": "archive_content",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "Used for SEO and in other places across the site. New lines ignored.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "rows": "",
+                "placeholder": "",
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ]
+        ],
+        "menu_order": 15,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]
