@@ -5,58 +5,21 @@
 }
 
 .logo {
-	--size: 7.5rem;
-	max-width: var(--size);
-	max-height: var(--size);
-}
+	--size: 5rem;
+	width: var(--size);
+	height: var(--size);
 
-#navbarNav {
-	.offcanvas-header .btn-close {
-		--bs-btn-close-color: white;
-		filter: var(--bs-btn-close-white-filter);
+	@include m.media-breakpoint-up(lg) {
+		--size: 7.5rem;
 	}
 }
 
-%dropdown-menu-visible {
-	position: absolute;
-	top: 5.3125rem;
-	display: block;
-}
+.navbar-nav#main-menu {
+	.nav-link {
+		--bs-nav-link-color: var(--bs-dark);
 
-.header-nav {
-	.menu-item {
-		--height-y: 3rem;
-		padding-bottom: var(--height-y);
-		margin: var(--height-y) 0.625rem 0;
-	}
-
-	.dropdown:hover {
-		.btn-group > a {
-			color: var(--bs-secondary);
+		@include m.media-breakpoint-up(lg) {
+			--bs-nav-link-color: white;
 		}
-
-		.dropdown-toggle {
-			color: var(--bs-secondary);
-		}
-
-		.dropdown-menu {
-			@extend %dropdown-menu-visible;
-		}
-	}
-
-	.dropdown-toggle {
-		--bs-btn-box-shadow: none;
-		--bs-btn-color: white;
-		--bs-btn-hover-color: var(--bs-secondary);
-		padding: 0;
-
-		&:hover {
-			box-shadow: none;
-			transform: none;
-		}
-	}
-
-	.dropdown-menu.show {
-		@extend %dropdown-menu-visible;
 	}
 }

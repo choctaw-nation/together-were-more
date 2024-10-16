@@ -66,3 +66,20 @@ function cno_generate_html_attributes( array $attributes ): string {
 	}
 	return $html;
 }
+
+/**
+ * Get the Bootstrap color for a category
+ *
+ * @param string $category_name The name of the category.
+ *
+ * @return string
+ */
+function cno_get_category_color( string $category_name ): string {
+	$color_map = array(
+		'Artists'     => 'gold',
+		'Culture'     => 'plum',
+		'Inspire'     => 'violet',
+		'Competitors' => 'garnet',
+	);
+	return $color_map[ $category_name ];
+}
