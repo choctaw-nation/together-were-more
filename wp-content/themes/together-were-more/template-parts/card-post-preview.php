@@ -8,7 +8,15 @@
 ?>
 <div class="post-preview-card d-flex flex-column h-100 position-relative">
 	<figure class="post-preview-card__cover mb-0 ratio ratio-16x9">
-		<?php the_post_thumbnail( 'profile-preview-card', array( 'class' => 'w-100 object-fit-cover' ) ); ?>
+		<?php
+		the_post_thumbnail(
+			'profile-preview-card',
+			array(
+				'class'   => 'w-100 object-fit-cover',
+				'loading' => 'lazy',
+			)
+		);
+		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
 		<figcaption class="h-auto text-white position-relative z-2 px-3">
 			<h3 class="fs-2 fw-bold text-uppercase">
