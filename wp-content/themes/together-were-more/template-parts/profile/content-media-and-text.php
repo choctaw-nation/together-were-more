@@ -8,8 +8,7 @@
 
 use ChoctawNation\ACF\Media_And_Text;
 
-extract( $args );
-$acf = new Media_And_Text( $args );
+$acf = new Media_And_Text( $args, get_the_ID() );
 
 
 ?>

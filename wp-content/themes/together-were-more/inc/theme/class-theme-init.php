@@ -72,8 +72,15 @@ class Theme_Init {
 		/** Loads the Theme Functions File (to keep the actual functions.php file clean) */
 		require_once $base_path . '/theme/theme-functions.php';
 
-		$acf_classes = array();
-		foreach ( $acf_classes as $acf_class ) {
+		$acf_classes = array(
+			'video-details'  => null,
+			'media-and-text' => 'flexible-content',
+		);
+		foreach ( $acf_classes as $acf_class => $folder ) {
+			if ( ! is_null( $folder ) ) {
+				require_once $base_path . "/acf/acf-classes/{$folder}/class-{$acf_class}.php";
+				continue;
+			}
 			require_once $base_path . "/acf/acf-classes/class-{$acf_class}.php";
 		}
 

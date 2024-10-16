@@ -13,6 +13,13 @@ namespace ChoctawNation\ACF;
  */
 class Media_And_Text {
 	/**
+	 * The post ID
+	 *
+	 * @var int $id
+	 */
+	protected int $id;
+
+	/**
 	 * The text type
 	 *
 	 * @var bool $is_quote
@@ -41,15 +48,43 @@ class Media_And_Text {
 	protected string $media_location;
 
 	/**
+	 * The array containing relevant photo or video details
+	 *
+	 * @var array $media_details
+	 */
+	protected array $media_details;
+
+	/**
 	 * Constructor
 	 *
 	 * @param array $acf The ACF field args
+	 * @param int   $id  The post ID
 	 */
-	public function __construct( array $acf ) {
-		$this->is_quote       = 'quote' === $acf['is_quote'];
-		$this->is_video       = 'video' === $acf['is_video'];
-		$this->text           = $this->is_quote ? acf_esc_html( $acf['quote'] ) : acf_esc_html( $acf['text'] );
+	public function __construct( array $acf, int $id ) {
+		$this->id             = $id;
+		$this->is_quote       = $acf['is_quote'];
+		$this->is_video       = $acf['is_video'];
+		$this->text           = $this->is_quote ? acf_esc_html( $acf['quote'] ) : acf_esc_html( $acf['content'] );
 		$this->media_location = $acf['media_location'];
+		$this->set_the_media_details( $acf );
+	}
+
+	/**
+	 * Set the media details array
+	 *
+	 * @param array $acf The ACF field args
+	 */
+	protected function set_the_media_details( array $acf ): void {
+		if ( $this->is_video ) {
+			$video_details       = array(
+				...$acf['video_details'],
+				'use_primary_video' => $acf['use_primary_video'],
+			);
+			$video_handler       = new Video_Details( $video_details, $this->id );
+			$this->media_details = $video_handler->get_the_video_details();
+		} else {
+			$this->media_details = $acf['photo_details'];
+		}
 	}
 
 	/**
@@ -128,15 +163,25 @@ class Media_And_Text {
 	 */
 	public function get_the_media(): string {
 		if ( $this->is_video ) {
-			// return lite-vimeo
+			$markup  = '<figure class="mb-0 ratio ratio-16x9">';
+			$markup .= $this->media_details['lite_vimeo'] ? $this->media_details['lite_vimeo'] : $this->media_details['fallback_iframe'];
+			$markup .= '</figure>';
+			return $markup;
 		}
 		// return figure with image
-		$markup  = '<figure class="mb-0 %s" data-aos="fade-up"><Image class="w-100 object-fit-cover" src="%s" alt="" loading="lazy" /></figure>';
-		$classes = 'ratio ratio-3x2';
-		if ( 'portrait' === $this->media_location ) {
-			$classes .= ' h-100';
-		}
-		return sprintf( $markup, $classes, $this->text );
+		$image_args = array(
+			'loading' => 'lazy',
+			'class'   => 'w-100 object-fit-cover',
+		);
+		$markup     = '<figure class="mb-0 ratio ratio-3x2' . ( $this->media_details['is_portrait'] ? ' h-100' : '' ) . '" data-aos="fade-up">';
+		$markup    .= wp_get_attachment_image(
+			$this->media_details['photo'],
+			'large',
+			false,
+			$image_args
+		);
+		$markup    .= '</figure>';
+		return $markup;
 	}
 
 	/**
