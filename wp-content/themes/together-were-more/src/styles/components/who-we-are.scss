@@ -1,0 +1,10 @@
+@use "bootstrap/scss/vendor/rfs" as rfs;
+
+.statement {
+	letter-spacing: 3px;
+	line-height: calc(4px + 2ex);
+
+	& {
+		@include rfs.font-size(11.25rem);
+	}
+}

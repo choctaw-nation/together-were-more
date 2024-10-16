@@ -1,5 +1,9 @@
 @use "../abstracts/mixins" as m;
 
+#site-header {
+	z-index: 1000;
+}
+
 .logo {
 	--size: 7.5rem;
 	max-width: var(--size);

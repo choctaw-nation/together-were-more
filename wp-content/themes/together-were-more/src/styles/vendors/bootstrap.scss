@@ -9,8 +9,23 @@
 * Also, you can add custom colors with the sass `map` below
 */
 
-$primary: v.$color-purple;
-$secondary: #6c757d;
+$primary: v.$color-plum;
+$secondary: v.$color-gold;
+
+// Custom Colors to extend the theme with
+$custom-colors: (
+	"plum": v.$color-plum,
+	"violet": v.$color-violet,
+	"garnet": v.$color-garnet,
+	"gray": v.$color-gray,
+	"gold": v.$color-gold,
+	"dark": #000,
+	"light": #fff,
+);
+
+$custom-aspect-ratios: (
+	"3x2": calc(2 / 3 * 100%),
+);
 
 // ================================================
 
@@ -18,20 +33,19 @@ $secondary: #6c757d;
 * Typography
 */
 $font-size-base: 1rem;
-$font-family-sans-serif: v.$font-body;
+$font-family-sans-serif: v.$font-headings;
 $font-family-monospace:
 	Monaspace Neon,
 	"Courier New",
 	monospace;
 
 // LINKS
-$link-color: $primary;
-$link-hover-color: rgba($primary, 0.8);
+$link-color: $secondary;
+$link-hover-color: rgba($secondary, 0.8);
 
 // HEADINGS
 $headings-font-family: v.$font-headings;
-$headings-font-weight: 600;
-$headings-color: $primary;
+$headings-font-weight: 700;
 
 /**
 * Minor Third Type Scale
@@ -44,6 +58,24 @@ $h3-font-size: $font-size-base * 2.074;
 $h4-font-size: $font-size-base * 1.728;
 $h5-font-size: $font-size-base * 1.44;
 $h6-font-size: $font-size-base * 1.2;
+
+/**
+* Display Type Scale
+* Perfect Fourth Typescale
+* @see https://typescale.com
+*/
+$display-font-sizes: (
+	1: 5.61rem,
+	2: 4.209rem,
+	3: 3.157rem,
+	4: 2.369rem,
+	5: 1.777rem,
+	6: 1.333rem,
+);
+
+$display-font-family: v.$font-headings;
+$display-font-weight: 700;
+$display-line-height: calc(2ex + 4px);
 
 // ================================================
 
@@ -69,7 +101,7 @@ $input-btn-padding-y-sm: 0.25rem;
 
 $navbar-light-active-color: $secondary;
 $navbar-light-hover-color: $secondary;
-$navbar-light-color: white;
+$navbar-light-color: $secondary;
 $navbar-light-icon-color: white;
 $navbar-light-toggler-border-color: white;
 $navbar-light-brand-color: white;
@@ -92,6 +124,8 @@ $offcanvas-color: white;
 */
 $enable-shadows: false;
 $enable-dark-mode: false;
+$enable-rounded: false;
+$enable-negative-margins: true;
 
 // ================================================
 
@@ -100,11 +134,8 @@ $enable-dark-mode: false;
 
 // Map Overrides Here (Optional)
 
-// Custom Colors to extend the theme with
-$custom-colors: (
-	"purple": v.$color-purple,
-);
 $theme-colors: map-merge($theme-colors, $custom-colors);
+$aspect-ratios: map-merge($aspect-ratios, $custom-aspect-ratios);
 
 // Required Bootstrap Modules
 @import "bootstrap/scss/maps";
@@ -119,7 +150,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // Override Bootstrap Buttons
 @each $color, $value in $theme-colors {
 	.btn-#{$color} {
-		@if $color == "primary" or $color == "purple" {
+		@if $color == "primary" {
 			/**
 			* Override the styles with the `button-variant` mixin
 			* @see https://getbootstrap.com/docs/5.3/components/buttons/#sass-loops
@@ -149,11 +180,11 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // @import "bootstrap/scss/images";
 // @import "bootstrap/scss/tables";
 // @import "bootstrap/scss/forms";
-// @import "bootstrap/scss/button-group";
+@import "bootstrap/scss/button-group";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar"; // Requires nav
 // @import "bootstrap/scss/card";
-// @import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/accordion";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";

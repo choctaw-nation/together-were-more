@@ -1,0 +1,64 @@
+@use "../../abstracts/mixins" as m;
+.swiper {
+	height: 80vh;
+
+	[data-hash="slide1"] {
+		.d-grid {
+			grid-template-rows: 1fr;
+			grid-template-columns: 1fr;
+			place-content: center;
+			place-items: center;
+
+			.cell {
+				grid-area: 1 / 1 / 2 / 2;
+
+				&--1 {
+					transform: translateX(-20%);
+				}
+
+				&--2 {
+					transform: translate(40%, 40%);
+
+					@include m.media-breakpoint-up(sm) {
+						transform: translate(60%, 40%);
+					}
+				}
+			}
+		}
+	}
+
+	[data-hash="slide3"] {
+		.media-container {
+			aspect-ratio: 1;
+
+			lite-vimeo::shadow {
+				aspect-ratio: 1 !important;
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+
+	[data-hash="slide4"] {
+		--offset: 5%;
+
+		img {
+			object-position: center bottom;
+		}
+
+		.inner-frame {
+			inset: var(--offset);
+
+			&__diamonds {
+				--color: white;
+				bottom: var(--offset);
+				left: calc(5% + var(--offset));
+				transform: translateY(50%);
+			}
+		}
+	}
+
+	[data-hash="slide5"] {
+		padding: 5rem;
+	}
+}

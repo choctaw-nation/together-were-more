@@ -1,0 +1,7 @@
+.hero {
+	height: clamp(300px, 80vh, 1000px);
+
+	&__bg-image {
+		object-position: center;
+	}
+}

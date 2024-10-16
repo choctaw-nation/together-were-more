@@ -11,7 +11,7 @@ const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;
  *
  * **Be sure to import page scss in these files**
  */
-const appNames = [ 'front-page' ];
+const appNames = [ 'single' ];
 
 /**
  * For SCSS files (no leading `_`)
@@ -26,6 +26,11 @@ module.exports = {
 			return {
 				global: `.${ THEME_DIR }/src/index.js`,
 				'vendors/bootstrap': `.${ THEME_DIR }/src/js/vendors/bootstrap.js`,
+				'vendors/lite-vimeo': `.${ THEME_DIR }/src/js/vendors/lite-vimeo.js`,
+				'modules/who-we-are': `.${ THEME_DIR }/src/js/WhoWeAre.ts`,
+				'modules/current-feature': `.${ THEME_DIR }/src/styles/components/current-feature.scss`,
+				'modules/video-modal-trigger': `.${ THEME_DIR }/src/js/VideoModalTrigger.ts`,
+				'pages/profile-swiper': `.${ THEME_DIR }/src/js/ProfileSwiper.ts`,
 				...addEntries( appNames, 'pages' ),
 				...addEntries( styleSheets, 'styles' ),
 			};

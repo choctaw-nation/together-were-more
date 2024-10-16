@@ -1,0 +1,18 @@
+@use "../abstracts/mixins" as m;
+.featured {
+	&__title {
+		--upper-font-size: 9rem;
+		font-size: clamp(3rem, 90vw, var(--upper-font-size));
+		line-height: 2ex;
+
+		@include m.media-breakpoint-down(xl) {
+			--upper-font-size: 7rem;
+		}
+		@include m.media-breakpoint-down(md) {
+			--upper-font-size: 4rem;
+		}
+	}
+	&__subtitle {
+		text-wrap: balance;
+	}
+}

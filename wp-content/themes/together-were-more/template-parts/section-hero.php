@@ -5,31 +5,36 @@
  * @package ChoctawNation
  */
 
-use ChoctawNation\ACF\Hero;
-
-$hero = new Hero( $args['id'], get_field( 'hero' ) );
+$has_overlay = isset( $args['has_overlay'] ) ? $args['has_overlay'] : false;
+$the_overlay = $has_overlay && isset( $args['the_overlay'] ) ? $args['the_overlay'] : '<div class="image-overlay bg-black bg-opacity-25 position-absolute top-0 z-1 w-100 h-100"></div>';
 ?>
 
-<section class="hero py-5 position-relative">
+<section class='hero position-relative overflow-hidden py-5 d-flex flex-column align-items-stretch justify-content-center'>
 	<?php
-	if ( $hero->has_background_image ) {
-		$hero->the_image( 'position-absolute top-0 w-100 h-100 z-n1 mx-auto' );
-	}
+	the_post_thumbnail( 'hero', array( 'class' => 'object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1' ) );
+	echo $the_overlay;
 	?>
-	<div class="container position-relative z-1">
-		<div class="row">
-			<div class="col">
-				<h1 class="text-white">
-					<?php $hero->the_headline(); ?>
-				</h1>
+	<div class='container position-relative z-2 py-5 text-center'>
+		<div class='row justify-content-center'>
+			<div class='col-10 col-lg-8'>
+				<span class='h3 text-uppercase text-white'>Our stories make us more</span>
 				<?php
-				if ( $hero->has_subheadline() ) {
-					echo '<p class="fs-5">' . $hero->get_the_subheadline() . '</p>';
-				}
-				if ( $hero->has_cta ) {
-					$hero->the_cta( 'btn btn-primary' );
-				}
+				get_template_part(
+					'template-parts/ui/hr',
+					'diamonds',
+					array(
+						'class' => 'my-4',
+						'color' => 'white',
+					)
+				);
 				?>
+			</div>
+		</div>
+		<div class='row row-cols-1'>
+			<div class='col'>
+				<h1 class='text-white fw-bolder display-1 text-uppercase'>
+					Together We're More
+				</h1>
 			</div>
 		</div>
 	</div>
