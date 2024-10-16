@@ -27,6 +27,8 @@ class Theme_Init {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_cno_scripts' ) );
 		add_action( 'after_setup_theme', array( $this, 'cno_theme_support' ) );
 		add_action( 'init', array( $this, 'alter_post_types' ) );
+		add_action( 'init', array( $this, 'remove_editor_capabilities' ) );
+
 		/**
 		 * Filter the priority of the Yoast SEO metabox
 		 */
@@ -289,6 +291,16 @@ class Theme_Init {
 				remove_meta_box( 'tagsdiv-post_tag', 'post', 'side' );
 			}
 		);
+	}
+
+	/**
+	 * Remove manage_categories capability from editor role.
+	 */
+	public function remove_editor_capabilities() {
+		$role = get_role( 'editor' );
+		if ( $role ) {
+			$role->remove_cap( 'manage_categories' );
+		}
 	}
 
 	/**
