@@ -6,7 +6,6 @@
  * @package ChoctawNation
  */
 
-// $meta = get_field( 'meta' );
 ?>
 <div class="d-flex flex-column h-100 position-relative">
 	<figure class="mb-0 ratio ratio-16x9">
@@ -25,7 +24,7 @@
 			<?php the_title(); ?>
 		</h3>
 		<p class="fs-5 text-uppercase mb-0">
-			<?php // echo $meta && $meta['title']; ?>
+			<?php echo get_field( 'meta' )['title']; ?>
 		</p>
 		<?php
 		get_template_part(
@@ -38,7 +37,7 @@
 		);
 		?>
 		<p>
-			<?php // the_field( 'archive_content' ); ?>
+			<?php the_field( 'archive_content' ); ?>
 		</p>
 		<div class="d-flex flex-wrap gap-3 justify-content-between align-items-center">
 			<?php
@@ -49,14 +48,14 @@
 					'class' => 'btn-outline-gray fs-6',
 				)
 			);
-			// get_template_part(
-			// 'template-parts/ui/button',
-			// 'video-modal-trigger',
-			// array(
-			// 'class'               => 'btn-outline-gray fs-6',
-			// 'featured_profile_id' => get_the_ID(),
-			// )
-			// );
+			get_template_part(
+				'template-parts/ui/button',
+				'video-modal-trigger',
+				array(
+					'class'               => 'btn-outline-gray fs-6',
+					'featured_profile_id' => get_the_ID(),
+				)
+			);
 			?>
 		</div>
 	</div>

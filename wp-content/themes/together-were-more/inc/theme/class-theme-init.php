@@ -338,7 +338,7 @@ class Theme_Init {
 			$category_nicename = $category->slug;
 			if ( $category->parent === $category->cat_ID ) {
 				$category->parent = 0;
-			} elseif ( $category->parent !== 0 ) {
+			} elseif ( 0 !== $category->parent ) {
 				$category_nicename = get_category_parents( $category->parent, false, '/', true ) . $category_nicename;
 			}
 			$category_rewrite[ '(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' ] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
