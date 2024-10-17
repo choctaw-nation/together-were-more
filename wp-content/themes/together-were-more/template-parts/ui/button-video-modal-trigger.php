@@ -10,7 +10,7 @@ if ( false === $featured_profile_id ) {
 	return;
 }
 wp_enqueue_script( 'video-modal-trigger' );
-$button_text = isset( $args['button_text'] ) ? $args['button_text'] : 'View Video';
+$button_text = isset( $args['button_text'] ) ? $args['button_text'] : '<i class="fa-light fa-play"></i> View Video';
 $classes     = isset( $args['class'] ) ? $args['class'] : '';
 if ( $classes && is_array( $classes ) ) {
 	$classes = implode( ' ', $classes );
@@ -27,7 +27,7 @@ while ( have_rows( 'meta_video_details', $featured_profile_id ) ) {
 
 $button_attributes = array(
 	'type'             => 'button',
-	'class'            => "btn modal-trigger {$classes}",
+	'class'            => "text-uppercase modal-trigger btn {$classes}",
 	'data-video-id'    => $video_id,
 	'data-modal-title' => $modal_title,
 	'data-bs-toggle'   => 'modal',

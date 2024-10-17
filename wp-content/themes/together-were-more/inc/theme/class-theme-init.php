@@ -28,6 +28,7 @@ class Theme_Init {
 		add_action( 'after_setup_theme', array( $this, 'cno_theme_support' ) );
 		add_action( 'init', array( $this, 'alter_post_types' ) );
 		add_action( 'init', array( $this, 'remove_editor_capabilities' ) );
+		add_action( 'init', array( $this, 'alter_categories' ) );
 
 		/**
 		 * Filter the priority of the Yoast SEO metabox
@@ -235,6 +236,20 @@ class Theme_Init {
 			$video_modal_trigger['version'],
 			array( 'strategy' => 'defer' )
 		);
+		$category_swiper = require_once $asset_file_base . '/modules/category-swiper.asset.php';
+		wp_register_script(
+			'category-swiper',
+			get_template_directory_uri() . '/dist/modules/category-swiper.js',
+			array( 'global' ),
+			$category_swiper['version'],
+			array( 'strategy' => 'defer' )
+		);
+		wp_register_style(
+			'category-swiper',
+			get_template_directory_uri() . '/dist/modules/category-swiper.css',
+			array( 'global' ),
+			$category_swiper['version'],
+		);
 	}
 
 	/**
@@ -301,6 +316,36 @@ class Theme_Init {
 		if ( $role ) {
 			$role->remove_cap( 'manage_categories' );
 		}
+	}
+
+	/** Alter the categories */
+	public function alter_categories() {
+		global $wp_rewrite;
+		$wp_rewrite->extra_permastructs['category'][0] = '%category%';
+
+		add_filter( 'category_rewrite_rules', array( $this, 'custom_category_rewrite_rules' ) );
+	}
+
+	/**
+	 * Custom category rewrite rules
+	 *
+	 * @param array $category_rewrite the category rewrite rules.
+	 */
+	public function custom_category_rewrite_rules( $category_rewrite ) {
+		$category_rewrite = array();
+		$categories       = get_categories( array( 'hide_empty' => false ) );
+		foreach ( $categories as $category ) {
+			$category_nicename = $category->slug;
+			if ( $category->parent === $category->cat_ID ) {
+				$category->parent = 0;
+			} elseif ( $category->parent !== 0 ) {
+				$category_nicename = get_category_parents( $category->parent, false, '/', true ) . $category_nicename;
+			}
+			$category_rewrite[ '(' . $category_nicename . ')/(?:feed/)?(feed|rdf|rss|rss2|atom)/?$' ] = 'index.php?category_name=$matches[1]&feed=$matches[2]';
+			$category_rewrite[ '(' . $category_nicename . ')/page/?([0-9]{1,})/?$' ]                  = 'index.php?category_name=$matches[1]&paged=$matches[2]';
+			$category_rewrite[ '(' . $category_nicename . ')/?$' ]                                    = 'index.php?category_name=$matches[1]';
+		}
+			return $category_rewrite;
 	}
 
 	/**

@@ -29,6 +29,7 @@ module.exports = {
 				'vendors/lite-vimeo': `.${ THEME_DIR }/src/js/vendors/lite-vimeo.js`,
 				'modules/who-we-are': `.${ THEME_DIR }/src/js/WhoWeAre.ts`,
 				'modules/current-feature': `.${ THEME_DIR }/src/styles/components/current-feature.scss`,
+				'modules/category-swiper': `.${ THEME_DIR }/src/js/CategorySwiper.ts`,
 				'modules/video-modal-trigger': `.${ THEME_DIR }/src/js/VideoModalTrigger.ts`,
 				'pages/profile-swiper': `.${ THEME_DIR }/src/js/ProfileSwiper.ts`,
 				...addEntries( appNames, 'pages' ),

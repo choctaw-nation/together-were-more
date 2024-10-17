@@ -1,0 +1,28 @@
+:where(#category-preview) {
+	.bg-image {
+		object-fit: cover;
+		object-position: left bottom;
+	}
+
+	:where(#header-container .diamonds) {
+		transform: translate(20%, 50%);
+	}
+
+	p.display-1 {
+		transition: opacity var(--transition-standard);
+	}
+}
+
+@keyframes bounce-left {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-25%);
+	}
+}
+
+.bounce-left {
+	animation: bounce-left 0.75s ease-in-out;
+}

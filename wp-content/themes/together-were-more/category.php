@@ -77,23 +77,15 @@ $color_overlay = cno_get_category_color( $category );
 		</section>
 		<section class="row row-cols-1 row-cols-lg-2 row-gap-5">
 			<?php
-			$profiles = new WP_Query(
-				array(
-					'posts'       => -1,
-					'post_status' => array( 'publish' ),
-					'category'    => $category,
-					'order'       => 'ASC',
-				)
-			);
-			if ( $profiles->have_posts() ) {
-				while ( $profiles->have_posts() ) {
-					$profiles->the_post();
+
+			if ( have_posts() ) {
+				while ( have_posts() ) {
+					the_post();
 					echo "<div class='col'>";
 					get_template_part( 'template-parts/card', 'profile-preview' );
 					echo '</div>';
 				}
 			}
-			wp_reset_postdata();
 			?>
 		</section>
 	</div>

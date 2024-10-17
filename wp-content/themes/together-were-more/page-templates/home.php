@@ -18,6 +18,7 @@ get_header();
 		'hero'               => 'section',
 		'who-we-are'         => 'home/section',
 		'current-feature'    => 'home/section',
+		'category-swiper'    => 'home/section',
 		'category-spotlight' => 'home/section',
 		'social-media'       => 'section',
 	);
