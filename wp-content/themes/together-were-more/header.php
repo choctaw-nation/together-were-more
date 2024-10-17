@@ -28,7 +28,7 @@
 				$hover_color        = cno_get_category_color( $category_spotlight );
 				?>
 				<a class="navbar-brand my-2 align-items-center fw-bold d-flex column-gap-3 flex-wrap" href="<?php echo esc_url( site_url() ); ?>" class="logo" aria-label="to Home Page"
-				   style="--bs-navbar-brand-hover-color:var(--bs-<?php echo $hover_color; ?>);">
+					style="--bs-navbar-brand-hover-color:var(--bs-<?php echo $hover_color; ?>);">
 					<?php
 					$logo = get_template_directory_uri() . '/src/assets/the-great-seal--white.svg';
 					echo "<img src='{$logo}' class='logo' alt='Choctaw Nation of Oklahoma Seal' loading='lazy' />";

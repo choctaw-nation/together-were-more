@@ -26,11 +26,13 @@ usort(
 		return $pos_a - $pos_b;
 	}
 );
-
-echo "<ul class='navbar-nav ms-lg-0 text-uppercase fs-5' id='main-menu'>";
-foreach ( $categories as $category ) {
-	echo '<li class="nav-item">';
-	echo "<a class='nav-link fw-bold' href='" . esc_url( get_category_link( $category->term_id ) ) . "' style='--bs-nav-link-hover-color:var(--bs-{$hover_color})'>" . esc_html( $category->name ) . '</a>';
-	echo '</li>';
-}
-echo '</ul>';
+?>
+<ul class='navbar-nav ms-lg-0 text-uppercase fs-5' id='main-menu'>
+	<?php foreach ( $categories as $category ) : ?>
+	<li class="nav-item">
+		<a class="nav-link fw-bold" href="<?php echo site_url( "/{$category->slug}" ); ?>" style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color})"; ?>">
+			<?php echo $category->name; ?>
+		</a>
+	</li>
+	<?php endforeach; ?>
+</ul>

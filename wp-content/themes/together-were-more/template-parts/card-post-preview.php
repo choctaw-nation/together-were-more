@@ -33,28 +33,17 @@
 		</p>
 		<?php
 		$category       = get_the_category();
-		$color_overlays = array(
-			'Artists'     => 'gold',
-			'Culture'     => 'violet',
-			'Inspiring'   => 'plum',
-			'Competitors' => 'garnet',
-		);
+		$color_overlay  = cno_get_category_color( $category[0]->name );
+		$button_classes = "btn-outline-{$color_overlay} mt-auto align-self-start fs-6";
 
-		$button_element = 'a';
-		$button_classes = "btn btn-outline-{$color_overlays[ $category[0]->name ]} text-uppercase mt-auto align-self-start fs-6";
-		$pronouns       = get_field( 'meta' )['pronouns'];
-		$button_text    = "See {$pronouns} Story";
-		$href           = "href='" . get_the_permalink() . "'";
 		if ( get_post_status() === 'future' ) {
-			$scheduled_date = get_the_date( 'M' );
-			$button_element = 'button';
-			$button_text   .= " in {$scheduled_date}";
-			$href           = null;
-
+			$pronouns    = get_field( 'meta' )['pronouns'];
+			$button_text = "<i class='fa-light fa-book'></i> See {$pronouns} Story in " . get_the_date( 'M' );
+			echo "<button class='btn {$button_classes} text-uppercase' disabled>{$button_text}</button>";
 		} else {
 			$button_classes .= ' stretched-link';
+			get_template_part( 'template-parts/ui/button', 'read-story', array( 'class' => $button_classes ) );
 		}
-		echo "<{$button_element} " . ( $href ?? '' ) . " class='{$button_classes}' " . ( 'button' === $button_element ? 'disabled' : '' ) . ">{$button_text}</{$button_element}>";
 		?>
 	</div>
 </div>

@@ -81,5 +81,8 @@ function cno_get_category_color( string $category_name ): string {
 		'Inspire'     => 'violet',
 		'Competitors' => 'garnet',
 	);
+	if ( ! isset( $color_map[ $category_name ] ) ) {
+		wp_die( "Category '{$category_name}' not found in color map.", 'Category Error', );
+	}
 	return $color_map[ $category_name ];
 }
