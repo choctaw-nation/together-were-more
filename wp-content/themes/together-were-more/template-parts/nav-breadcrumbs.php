@@ -20,7 +20,7 @@ if ( is_category() ) {
 if ( is_single() ) {
 	$breadcrumbs[] = array(
 		'title' => get_the_category()[0]->name,
-		'url'   => get_the_category()[0]->slug,
+		'url'   => '/' . get_the_category()[0]->slug,
 	);
 	$breadcrumbs[] = array(
 		'title' => get_the_title(),
