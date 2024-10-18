@@ -1,5 +1,19 @@
 @use "../abstracts/mixins" as m;
 .featured {
+	&__image {
+		@include m.media-breakpoint-up(lg) {
+			max-height: 800px;
+		}
+
+		img {
+			object-position: 20% center;
+
+			@include m.media-breakpoint-up(lg) {
+				object-position: 20% 60%;
+			}
+		}
+	}
+
 	&__title {
 		--upper-font-size: 9rem;
 		font-size: clamp(3rem, 90vw, var(--upper-font-size));
@@ -12,6 +26,7 @@
 			--upper-font-size: 4rem;
 		}
 	}
+
 	&__subtitle {
 		text-wrap: balance;
 	}
