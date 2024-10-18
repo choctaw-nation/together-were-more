@@ -11,7 +11,6 @@ jobs:
         with:
             WPE_ENV: twmprod
             theme_name: together-were-more
-            TOKEN: ${{ secrets.GITHUB_TOKEN}}
         secrets: inherit
 
     deploy-stg:
@@ -21,7 +20,6 @@ jobs:
         with:
             WPE_ENV: twmstg
             theme_name: together-were-more
-            TOKEN: ${{ secrets.GITHUB_TOKEN}}
         secrets: inherit
 
     deploy-dev:
@@ -31,7 +29,6 @@ jobs:
         with:
             WPE_ENV: cnotwmdev
             theme_name: together-were-more
-            TOKEN: ${{ secrets.GITHUB_TOKEN}}
         secrets: inherit
 
     # Run Playwright tests on Dev

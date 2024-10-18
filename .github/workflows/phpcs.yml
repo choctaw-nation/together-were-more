@@ -36,8 +36,6 @@ jobs:
         needs: check-changes
         if: needs.check-changes.outputs.changed_files  == 'true'
         uses: choctaw-nation/shared-github-actions/.github/workflows/phpcs.yml@main
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     get-previous-status:
         needs: check-changes
