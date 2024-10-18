@@ -28,6 +28,12 @@
 							<div class="modal-body text-dark">
 								<?php echo do_shortcode( '[gravityform id="1" ajax="true" title="false"]' ); ?>
 							</div>
+							<div class="modal-footer justify-content-start text-dark">
+								<p>This site is protected by reCAPTCHA and the Google
+									<a href="https://policies.google.com/privacy">Privacy Policy</a> and
+									<a href="https://policies.google.com/terms">Terms of Service</a> apply.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -35,10 +41,14 @@
 			<div class="col-auto">
 				<a href="<?php echo esc_url( site_url() ); ?>" class="text-decoration-none d-flex column-gap-3 align-items-center">
 					<?php
-						$logo = get_template_directory_uri() . '/src/assets/the-great-seal--white.svg';
-						echo "<img src='{$logo}' class='logo' alt='Choctaw Nation of Oklahoma Seal' loading='lazy' />";
+					$logo = get_template_directory_uri() . '/src/assets/the-great-seal--white.svg';
+					echo "<img src='{$logo}' class='logo' alt='Choctaw Nation of Oklahoma Seal' loading='lazy' />";
+
+					$front_page_id      = get_option( 'page_on_front' );
+					$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
+					$hover_color        = cno_get_category_color( $category_spotlight );
 					?>
-					<span aria-label="to Home Page" class="font-gill-sans fw-bold">
+					<span aria-label="to Home Page" class="font-gill-sans fw-bold footer-link-text" style="--cno-link-hover-color:<?php echo $hover_color; ?>">
 						Choctaw Nation of Oklahoma
 					</span>
 				</a>

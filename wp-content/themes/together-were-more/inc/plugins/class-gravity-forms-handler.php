@@ -18,7 +18,7 @@ class Gravity_Forms_Handler {
 	 */
 	public function __construct() {
 		add_filter( 'gform_submit_button', array( $this, 'update_submit_button_classes' ), 10, 1 );
-		add_action( 'admin_init', array( $this, 'add_gf_cap' ) );
+		add_action( 'admin_init', array( $this, 'allow_editors_to_manage_gf' ) );
 	}
 
 	/**
