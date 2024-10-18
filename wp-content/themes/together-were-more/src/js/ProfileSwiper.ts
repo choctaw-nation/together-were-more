@@ -8,6 +8,7 @@ import 'swiper/scss/mousewheel';
 import 'swiper/scss/hash-navigation';
 import 'swiper/scss/free-mode';
 import '../styles/components/single/swiper.scss';
+import { bounceSwiper } from './bounceSwiper';
 
 new Swiper( '.swiper', {
 	modules: [ A11y, Mousewheel, HashNavigation, FreeMode ],
@@ -19,7 +20,7 @@ new Swiper( '.swiper', {
 	loop: false,
 	freeMode: {
 		enabled: true,
-		sticky: true,
+		sticky: false,
 	},
 	mousewheel: {
 		enabled: true,
@@ -29,3 +30,5 @@ new Swiper( '.swiper', {
 		watchState: true,
 	},
 } );
+
+bounceSwiper( 'profile-swiper', '.swiper' );

@@ -1,4 +1,5 @@
 import '../styles/components/category-swiper.scss';
+import { bounceSwiper } from './bounceSwiper';
 
 import Swiper from 'swiper';
 import { A11y, Mousewheel, FreeMode } from 'swiper/modules';
@@ -59,27 +60,4 @@ function makeHeadlineTextInvisible( ev: Swiper ) {
 	}
 }
 
-// Intersection Observer to detect when the slider comes into view
-const sliderContainer = document.getElementById(
-	'category-preview'
-) as HTMLElement;
-const slider = sliderContainer.querySelector( '.swiper' ) as HTMLElement;
-const ANIMATION_DURATION = 1000 * 0.75;
-const observer = new IntersectionObserver(
-	( entries ) => {
-		entries.forEach( ( entry ) => {
-			if ( entry.isIntersecting ) {
-				slider.classList.add( 'bounce-left' );
-				// Remove the class after the animation to allow it to re-trigger
-				setTimeout( () => {
-					slider.classList.remove( 'bounce-left' );
-				}, ANIMATION_DURATION );
-			}
-		} );
-	},
-	{ threshold: 0.2 } // Adjust the threshold as needed
-);
-
-if ( slider ) {
-	observer.observe( slider );
-}
+bounceSwiper( 'category-preview', '.swiper' );
