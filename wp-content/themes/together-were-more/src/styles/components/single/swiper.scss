@@ -3,6 +3,12 @@
 .swiper {
 	height: 80vh;
 
+	#swipe-text {
+		bottom: 20%;
+		inset-inline-start: 20%;
+		z-index: 10;
+	}
+
 	[data-hash="slide1"] {
 		.d-grid {
 			grid-template-rows: 1fr;
