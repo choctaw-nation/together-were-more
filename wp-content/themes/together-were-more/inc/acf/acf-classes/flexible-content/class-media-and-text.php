@@ -183,10 +183,10 @@ class Media_And_Text {
 		// return figure with image
 		$image_args = array(
 			'loading' => 'lazy',
-			'class'   => 'w-100 ' . ( $this->media_details['is_portrait'] ? 'object-fit-cover' : 'object-fit-contain h-100' ),
+			'class'   => 'w-100 h-100 object-fit-' . ( $this->media_details['is_portrait'] ? 'cover' : 'contain' ),
 		);
 
-		$markup  = '<figure class="mb-0 ratio ratio-3x2' . ( $this->media_details['is_portrait'] ? ' h-100' : '' ) . ( $this->is_quote ? '"' : '" data-aos="fade-up")' ) . '>';
+		$markup  = '<figure class="mb-0 ' . ( $this->media_details['is_portrait'] ? ' portrait-container' : ' ratio ratio-3x2' ) . ( $this->is_quote ? '"' : '" data-aos="fade-up")' ) . '>';
 		$markup .= wp_get_attachment_image(
 			$this->media_details['photo'],
 			'large',
