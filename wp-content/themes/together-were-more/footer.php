@@ -48,7 +48,7 @@
 					$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
 					$hover_color        = cno_get_category_color( $category_spotlight );
 					?>
-					<span aria-label="to Home Page" class="font-gill-sans fw-bold footer-link-text" style="--cno-link-hover-color:<?php echo $hover_color; ?>">
+					<span aria-label="to Home Page" class="font-gill-sans fw-bold footer-link-text" style="--cno-link-hover-color:<?php echo "var(--bs-{$hover_color})"; ?>">
 						Choctaw Nation of Oklahoma
 					</span>
 				</a>
