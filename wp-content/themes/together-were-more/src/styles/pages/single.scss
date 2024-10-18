@@ -1,2 +1,6 @@
 @use "../components/single/hero";
 @use "../components/single/diamond-separator";
+
+.portrait-container {
+	aspect-ratio: 2 / 3;
+}
