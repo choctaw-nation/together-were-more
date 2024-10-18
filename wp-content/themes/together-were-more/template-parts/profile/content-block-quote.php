@@ -36,7 +36,7 @@ if ( ! empty( $args['class'] ) ) {
 	if ( $args['with_bg'] ) {
 		$bg_image = get_template_directory_uri() . '/src/assets/black-bg-chevron-noise.png';
 		if ( $bg_image ) {
-			echo "<img src='{$bg_image}' class='position-absolute top-0 w-100 h-100' aria-hidden='true' loading='lazy'/>";
+			echo "<img src='{$bg_image}' class='position-absolute top-0 w-100 h-100 object-fit-cover' aria-hidden='true' loading='lazy'/>";
 		}
 	}
 	?>

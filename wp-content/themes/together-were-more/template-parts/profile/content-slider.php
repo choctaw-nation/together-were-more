@@ -13,7 +13,7 @@ use ChoctawNation\Enqueue_Type;
 $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
 ?>
-<section class='container-fluid gx-0 position-relative'>
+<section class='container-fluid gx-0 position-relative' id="profile-swiper">
 	<img src="<?php echo $bg_image; ?>" class='position-absolute top-0 start-0 w-100 h-100' alt='' aria-hidden="true" />
 	<div class='swiper'>
 		<div class='swiper-wrapper h-100'>
@@ -62,10 +62,10 @@ new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
 				);
 				?>
 			</div>
-			<div data-hash='slide3' class='swiper-slide d-flex flex-column justify-content-center align-items-stretch p-5'>
+			<div data-hash='slide3' class='swiper-slide d-flex flex-column justify-content-center align-items-center p-5'>
 				<?php $slide_3 = $args['slide_3']; ?>
-				<figure class='h-100 d-flex flex-column justify-content-start align-items-center mb-0 row-gap-3 position-relative'>
-					<div class='media-container ratio ratio-1x1 h-75 w-auto'>
+				<figure class='h-100 d-flex flex-column justify-content-start align-items-center mb-0 row-gap-3 position-relative overflow-hidden'>
+					<div class='media-container w-100'>
 						<?php
 						if ( $slide_3['is_video'] ) {
 							$media_details = new Video_Details( $slide_3, $post->ID );
@@ -84,7 +84,7 @@ new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
 						}
 						?>
 					</div>
-					<figcaption class='px-5 fs-4 text-center w-75'>
+					<figcaption class='px-5 fs-4 text-center'>
 						<?php echo $slide_3['caption']; ?>
 					</figcaption>
 				</figure>

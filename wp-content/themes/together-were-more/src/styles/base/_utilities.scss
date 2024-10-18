@@ -13,3 +13,17 @@
 .font-serif {
 	font-family: var(--font-serif);
 }
+
+@keyframes bounce-left {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-25%);
+	}
+}
+
+.bounce-left {
+	animation: bounce-left 0.75s ease-in-out;
+}
