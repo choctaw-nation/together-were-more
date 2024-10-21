@@ -105,8 +105,8 @@ $color_overlay = cno_get_category_color( $category );
 					get_template_part( 'template-parts/card', 'profile-preview' );
 					echo '</div>';
 				}
+				wp_reset_postdata();
 				?>
-				<?php wp_reset_postdata(); ?>
 			</div>
 		</div>
 	</section>
