@@ -2,6 +2,10 @@
 
 # Changelog
 
+## v1.0.3
+
+- Fixed an issue where the homepage category spotlight was grabbing _every_ post and not just the latest 3 in a category.
+
 ## v1.0.2
 
 -   Removed upcoming posts from `category.php`
