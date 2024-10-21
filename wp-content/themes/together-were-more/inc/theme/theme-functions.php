@@ -89,3 +89,28 @@ function cno_get_category_color( ?string $category_name ): string {
 	}
 	return $color_map[ $category_name ];
 }
+
+/**
+ * Get an array of categories sorted by a custom order
+ * (Artists, Culture, Inspire, Competitors)
+ *
+ * @return WP_Term[]
+ */
+function cno_get_categories_array(): array {
+	$categories = get_categories(
+		array(
+			'hide_empty' => false,
+			'exclude'    => get_cat_ID( 'Uncategorized' ),
+		)
+	);
+	usort(
+		$categories,
+		function ( $a, $b ) {
+			$order = array( 'Artists', 'Culture', 'Inspire', 'Competitors' );
+			$pos_a = array_search( $a->name, $order, true );
+			$pos_b = array_search( $b->name, $order, true );
+			return $pos_a - $pos_b;
+		}
+	);
+	return $categories;
+}

@@ -44,18 +44,11 @@ wp_enqueue_script( 'category-swiper' );
 				<div class="swiper overflow-visible">
 					<div class="swiper-wrapper">
 						<?php
-						$categories = get_categories(
-							array(
-								'hide_empty' => false,
-								'exclude'    => get_cat_ID( 'Uncategorized' ),
-							)
-						);
+						$categories = cno_get_categories_array();
 						foreach ( $categories as $category ) {
-							?>
-						<div class="swiper-slide shadow">
-							<?php get_template_part( 'template-parts/card', 'category-preview', array( 'category' => $category ) ); ?>
-						</div>
-							<?php
+							echo "<div class='swiper-slide shadow'>";
+							get_template_part( 'template-parts/card', 'category-preview', array( 'category' => $category ) );
+							echo '</div>';
 						}
 						?>
 					</div>

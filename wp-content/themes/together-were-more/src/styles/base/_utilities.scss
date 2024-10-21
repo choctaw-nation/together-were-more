@@ -27,3 +27,17 @@
 .bounce-left {
 	animation: bounce-left 0.75s ease-in-out;
 }
+
+@keyframes bounce-left-small {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-10%);
+	}
+}
+
+.bounce-left-small {
+	animation: bounce-left-small 0.75s ease-in-out;
+}

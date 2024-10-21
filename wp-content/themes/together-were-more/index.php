@@ -47,14 +47,11 @@ if ( is_category() ) {
 	</section>
 	<div class="container-lg gx-0 d-flex flex-column row-gap-5 align-items-stretch mb-5">
 		<?php
-		if ( is_category() ) {
-			get_template_part( 'template-parts/category/section', 'first-section' );
-		} elseif ( is_search() ) {
+		if ( is_search() ) {
 			echo '<section class="row row-gap-4 flex-row-reverse justify-content-between">
 			<div class="col"><p class="fs-5 text-gray">Showing results for "' . get_search_query() . '"</p></div></section>';
 		}
 		?>
-
 		<section class="row row-cols-1 row-cols-lg-2 row-gap-5">
 			<?php
 			if ( have_posts() ) {
@@ -65,8 +62,7 @@ if ( is_category() ) {
 					echo '</div>';
 				}
 			} else {
-				echo "<div class='col'><p>No stories found.</p></div>";
-
+				echo '<div class="col-12 text-center"><p class="display-4 text-gray">No stories found.</p></div>';
 			}
 			?>
 		</section>
