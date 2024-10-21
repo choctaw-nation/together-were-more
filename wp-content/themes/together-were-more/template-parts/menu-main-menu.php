@@ -27,7 +27,7 @@ usort(
 	}
 );
 ?>
-<ul class='navbar-nav ms-lg-0 text-uppercase fs-5' id='main-menu'>
+<ul class="navbar-nav ms-lg-0 text-uppercase fs-5" id="main-menu">
 	<?php foreach ( $categories as $category ) : ?>
 	<li class="nav-item">
 		<a class="nav-link fw-bold" href="<?php echo site_url( "/{$category->slug}" ); ?>" style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color})"; ?>">
