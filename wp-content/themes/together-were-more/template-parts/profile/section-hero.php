@@ -23,19 +23,19 @@
 					<?php the_field( 'meta_title' ); ?>
 				</p>
 				<?php
-					get_template_part(
-						'template-parts/ui/button',
-						'video-modal-trigger',
-						array(
-							'featured_profile_id' => get_the_ID(),
-							'class'               => 'btn-outline-light fs-6',
-						)
-					);
-					?>
-				<div class="d-none d-md-flex mt-3 text-center text-white d-flex gap-3">
-					<p class="mb-0 text-uppercase">Share this story</p>
-					<?php get_template_part( 'template-parts/profile/content', 'social-share' ); ?>
-				</div>
+				get_template_part(
+					'template-parts/ui/button',
+					'video-modal-trigger',
+					array(
+						'featured_profile_id' => get_the_ID(),
+						'class'               => 'btn-outline-light fs-6',
+					)
+				);
+				?>
+				<!-- <div class="d-none d-md-flex mt-3 text-center text-white d-flex gap-3 align-items-center"> -->
+				<!-- <p class="mb-0 text-uppercase">Share this story</p> -->
+				<?php // get_template_part( 'template-parts/profile/content', 'social-share' ); phpcs:ignore Squiz.PHP.CommentedOutCode.Found ?>
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,9 @@
 // Intersection Observer to detect when the slider comes into view
-export function bounceSwiper( containerId: string, sliderClass: string ) {
+export function bounceSwiper(
+	containerId: string,
+	sliderClass: string,
+	animationClass?: string
+) {
 	const sliderContainer = document.getElementById(
 		containerId
 	) as HTMLElement;
@@ -9,7 +13,8 @@ export function bounceSwiper( containerId: string, sliderClass: string ) {
 		( entries ) => {
 			entries.forEach( ( entry ) => {
 				if ( entry.isIntersecting ) {
-					slider.classList.add( 'bounce-left' );
+					const className = animationClass || 'bounce-left';
+					slider.classList.add( className );
 					// Remove the class after the animation to allow it to re-trigger
 					setTimeout( () => {
 						slider.classList.remove( 'bounce-left' );

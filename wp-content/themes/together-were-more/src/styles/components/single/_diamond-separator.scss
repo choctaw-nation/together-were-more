@@ -1,3 +1,3 @@
-.diamond-separator {
+.diamond-separator:not(aside#socials .diamond-separator) {
 	width: clamp(200px, 30vw, 350px);
 }
