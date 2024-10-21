@@ -11,7 +11,13 @@ if ( empty( $category_name ) ) {
 	$category      = get_the_category();
 	$category_name = $category[0]->name;
 }
-$color = cno_get_category_color( $category_name );
+$color          = cno_get_category_color( $category_name );
+$diamonds_color = 'gray';
+if ( is_category() ) {
+	$diamonds_color = 'white';
+} elseif ( ! empty( $color ) ) {
+	$diamonds_color = $color;
+}
 ?>
 <div class="d-flex flex-column h-100 position-relative">
 	<figure class="mb-0 ratio ratio-16x9">
@@ -25,7 +31,7 @@ $color = cno_get_category_color( $category_name );
 		);
 		?>
 	</figure>
-	<div class="text-gray p-3 d-flex flex-column h-100">
+	<div class="p-3 d-flex flex-column h-100">
 		<h3 class="fs-2 fw-bold text-uppercase">
 			<?php the_title(); ?>
 		</h3>
@@ -37,7 +43,7 @@ $color = cno_get_category_color( $category_name );
 			'template-parts/ui/hr',
 			'diamonds',
 			array(
-				'color' => empty( $color ) ? 'gray' : $color,
+				'color' => $diamonds_color,
 				'class' => 'w-50',
 			)
 		);

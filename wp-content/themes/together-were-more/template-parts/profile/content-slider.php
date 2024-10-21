@@ -47,7 +47,7 @@ new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
 						?>
 					</div>
 				</div>
-				<span class="font-script position-absolute display-3" id="swipe-text" data-aos='fade-in'>Swipe -></span>
+				<span class="font-script position-absolute display-3" id="swipe-text" data-aos='fade-in' data-aos-offset="200">Swipe -></span>
 			</div>
 			<div data-hash='slide2' class='swiper-slide h-100'>
 				<?php

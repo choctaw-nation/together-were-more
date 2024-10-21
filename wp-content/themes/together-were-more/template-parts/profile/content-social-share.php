@@ -5,28 +5,16 @@
  * @package ChoctawNation
  */
 
-$socials = array(
-	array(
-		'href' => 'https://facebook.com',
-		'icon' => 'facebook',
-		'alt'  => 'Facebook',
-	),
-	array(
-		'href' => 'https://instagram.com',
-		'icon' => 'instagram',
-		'alt'  => 'Instagram',
-	),
-	array(
-		'href' => 'https://x.com',
-		'icon' => 'twitter',
-		'alt'  => 'Twitter',
-	),
-);
+$socials         = get_field( 'social_media_channels', 'options' );
+$allowed_socials = array( 'Facebook', 'Twitter', 'Instagram' );
 ?>
-<div class='socials d-flex gap-3 justify-content-evenly'>
-	<?php foreach ( $socials as $social ) : ?>
-	<a href="<?php echo esc_url( $social['href'] ); ?>" class="text-white d-block h-100" title="<?php echo esc_attr( $social['alt'] ); ?>">
-		<i class="fa-brands fa-<?php echo esc_attr( $social['icon'] ); ?>"></i>
-	</a>
-	<?php endforeach; ?>
+<div class="socials d-flex gap-3 justify-content-evenly text-white">
+	<?php
+	foreach ( $socials as $social ) {
+		if ( ! in_array( $social['social_platform']['title'], $allowed_socials, true ) ) {
+			continue;
+		}
+		echo "<a href='{$social['social_platform']['url']}' class='text-white d-block h-100 fs-3' title='{$social['social_platform']['title']}'>{$social['social_icon']}</a>";
+	}
+	?>
 </div>

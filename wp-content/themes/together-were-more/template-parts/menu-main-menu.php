@@ -11,21 +11,7 @@ if ( null === $hover_color ) {
 	$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
 	$hover_color        = cno_get_category_color( $category_spotlight );
 }
-$categories = get_categories(
-	array(
-		'hide_empty' => false,
-		'exclude'    => get_cat_ID( 'Uncategorized' ),
-	)
-);
-usort(
-	$categories,
-	function ( $a, $b ) {
-		$order = array( 'Artists', 'Culture', 'Inspire', 'Competitors' );
-		$pos_a = array_search( $a->name, $order, true );
-		$pos_b = array_search( $b->name, $order, true );
-		return $pos_a - $pos_b;
-	}
-);
+$categories = cno_get_categories_array();
 ?>
 <ul class="navbar-nav ms-lg-0 text-uppercase fs-5" id="main-menu">
 	<?php foreach ( $categories as $category ) : ?>
