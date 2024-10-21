@@ -17,8 +17,8 @@ $btn_color          = cno_get_category_color( $category_spotlight );
 			</div>
 			<div class="modal-body">
 				<form class="d-flex flex-wrap gap-2 mb-5">
-					<input type="search" class="form-control flex-grow-1" name="s" id="search-query" aria-label="Search for stories" placeholder="Search stories" />
-					<button type="submit" class="btn btn-<?php echo $btn_color; ?>">Submit</button>
+					<input type="search" class="form-control flex-grow-1 fs-6" name="s" id="search-query" aria-label="Search for stories" placeholder="Search stories" />
+					<button type="submit" class="btn btn-<?php echo $btn_color; ?> text-uppercase fs-6">Submit</button>
 				</form>
 				<div id="modal-search-results" class="d-flex flex-column row-gap-4 align-items-stretch">
 				</div>

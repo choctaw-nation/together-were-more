@@ -31,4 +31,4 @@ new Swiper( '.swiper', {
 	},
 } );
 
-bounceSwiper( 'profile-swiper', '.swiper' );
+bounceSwiper( 'profile-swiper', '.swiper', 'bounce-left-small' );
