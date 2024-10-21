@@ -29,6 +29,7 @@ class Theme_Init {
 		add_action( 'init', array( $this, 'alter_post_types' ) );
 		add_action( 'init', array( $this, 'remove_editor_capabilities' ) );
 		add_action( 'init', array( $this, 'alter_categories' ) );
+		add_action( 'pre_get_posts', array( $this, 'modify_category_query' ) );
 
 		/**
 		 * Filter the priority of the Yoast SEO metabox
@@ -107,6 +108,7 @@ class Theme_Init {
 			'allow-svg'     => 'Allow_SVG',
 			'role-editor'   => 'Role_Editor',
 			'post-override' => 'Post_Override',
+			'site-search'   => 'Site_Search',
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";
@@ -355,6 +357,17 @@ class Theme_Init {
 			$category_rewrite[ '(' . $category_nicename . ')/?$' ]                                    = 'index.php?category_name=$matches[1]';
 		}
 			return $category_rewrite;
+	}
+
+	/**
+	 * Modify the category query
+	 *
+	 * @param WP_Query $query the query object.
+	 */
+	public function modify_category_query( $query ) {
+		if ( $query->is_category() ) {
+			$query->set( 'post_status', array( 'publish', 'future' ) );
+		}
 	}
 
 	/**

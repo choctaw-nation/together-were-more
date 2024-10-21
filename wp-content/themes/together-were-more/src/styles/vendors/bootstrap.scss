@@ -196,7 +196,7 @@ $aspect-ratios: map-merge($aspect-ratios, $custom-aspect-ratios);
 // @import "bootstrap/scss/tooltip";
 // @import "bootstrap/scss/popover";
 // @import "bootstrap/scss/carousel";
-// @import "bootstrap/scss/spinners";
+@import "bootstrap/scss/spinners";
 // @import "bootstrap/scss/placeholders";
 
 // Helpers
