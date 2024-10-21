@@ -5,7 +5,6 @@
  * @package ChoctawNation
  */
 
-
 $front_page_id      = get_option( 'page_on_front' );
 $category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
 $btn_color          = cno_get_category_color( $category_spotlight );
