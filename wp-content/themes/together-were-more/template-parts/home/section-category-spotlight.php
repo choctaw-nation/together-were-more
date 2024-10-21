@@ -36,7 +36,7 @@ $spotlight = get_field( 'category_spotlight' )['category_to_spotlight'];
 		array(
 			'posts'       => 3,
 			'post_status' => array( 'publish', 'future' ),
-			'category'    => $spotlight,
+			'cat'         => $spotlight->term_id,
 			'order'       => 'ASC',
 		);
 		$spotlights         = new WP_Query( $posts_to_highlight );
