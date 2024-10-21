@@ -77,46 +77,7 @@ $color_overlay = cno_get_category_color( $category );
 			</div>
 		</div>
 	</section>
-	<?php
-	$upcoming_stories = new WP_Query(
-		array(
-			'post_type'      => 'post',
-			'post_status'    => 'future',
-			'posts_per_page' => -1,
-			'category_name'  => get_queried_object()->slug,
-			'orderby'        => 'date',
-			'order'          => 'DESC',
-		)
-	);
-	?>
-	<?php if ( $upcoming_stories->have_posts() ) : ?>
-	<section id="upcoming-stories" class="<?php echo "text-bg-{$color_overlay} py-5 mb-5"; ?>">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h2 class="display-3 text-center text-uppercase">Upcoming Stories</h2>
-				</div>
-			</div>
-			<div class="row row-cols-1 row-cols-lg-2 row-gap-5">
-				<?php
-				while ( $upcoming_stories->have_posts() ) {
-					$upcoming_stories->the_post();
-					echo "<div class='col'>";
-					get_template_part( 'template-parts/card', 'profile-preview' );
-					echo '</div>';
-				}
-				wp_reset_postdata();
-				?>
-			</div>
-		</div>
-	</section>
-	<?php endif; ?>
-	<section id="current-stories" class="container d-flex flex-column row-gap-4 mb-5">
-		<div class="row">
-			<div class="col">
-				<h2 class="display-3 text-center text-uppercase">Current Stories</h2>
-			</div>
-		</div>
+	<section class="container d-flex flex-column row-gap-4 mb-5">
 		<div class="row row-cols-1 row-cols-lg-2 row-gap-5">
 			<?php
 			if ( have_posts() ) {
