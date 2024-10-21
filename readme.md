@@ -2,6 +2,10 @@
 
 # Changelog
 
+## v1.0.1
+
+-   Fixed a bug where the query loop was modified when it wasn't supposed to be.
+
 ## v1.0.0
 
 -   Finished build
