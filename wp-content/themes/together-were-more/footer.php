@@ -6,7 +6,7 @@
  */
 
 ?>
-
+<?php get_template_part( 'template-parts/aside', 'social-media' ); ?>
 <footer class="footer container-fluid text-bg-gray d-flex flex-column align-items-center gx-0">
 	<div class="container">
 		<div class="row row-cols-1 row-cols-xl-2 row-gap-4 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
@@ -41,9 +41,6 @@
 			<div class="col-auto">
 				<a href="<?php echo esc_url( site_url() ); ?>" class="text-decoration-none d-flex column-gap-3 align-items-center">
 					<?php
-					$logo = get_template_directory_uri() . '/src/assets/the-great-seal--white.svg';
-					echo "<img src='{$logo}' class='logo' alt='Choctaw Nation of Oklahoma Seal' loading='lazy' />";
-
 					$front_page_id      = get_option( 'page_on_front' );
 					$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
 					$hover_color        = cno_get_category_color( $category_spotlight );

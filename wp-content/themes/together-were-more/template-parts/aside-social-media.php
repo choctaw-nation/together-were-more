@@ -16,7 +16,7 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 				<div class="container-fluid d-flex flex-column align-items-stretch row-gap-4">
 					<div class="row row-cols-5 justify-content-center">
 						<?php foreach ( $socials as $social ) : ?>
-						<?php
+							<?php
 							$url  = esc_url( $social['social_platform']['url'] );
 							$name = esc_attr( $social['social_platform']['title'] );
 							$icon = $social['social_icon'];

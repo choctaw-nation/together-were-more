@@ -70,17 +70,20 @@ function cno_generate_html_attributes( array $attributes ): string {
 /**
  * Get the Bootstrap color for a category
  *
- * @param string $category_name The name of the category.
+ * @param ?string $category_name The name of the category.
  *
  * @return string
  */
-function cno_get_category_color( string $category_name ): string {
+function cno_get_category_color( ?string $category_name ): string {
 	$color_map = array(
 		'Artists'     => 'gold',
 		'Culture'     => 'plum',
 		'Inspire'     => 'violet',
 		'Competitors' => 'garnet',
 	);
+	if ( empty( $category_name ) ) {
+		return 'gray';
+	}
 	if ( ! isset( $color_map[ $category_name ] ) ) {
 		wp_die( "Category '{$category_name}' not found in color map.", 'Category Error', );
 	}
