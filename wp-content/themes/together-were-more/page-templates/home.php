@@ -20,7 +20,6 @@ get_header();
 		'current-feature'    => 'home/section',
 		'category-swiper'    => 'home/section',
 		'category-spotlight' => 'home/section',
-		'social-media'       => 'aside',
 	);
 	foreach ( $sections as $part => $prefix ) {
 		get_template_part( "template-parts/{$prefix}", $part );
