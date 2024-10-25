@@ -49,7 +49,7 @@ $color_overlay = cno_get_category_color( $category );
 					<?php
 					echo wp_get_attachment_image(
 						$acf_settings['hero_image'],
-						'large',
+						'category-archive',
 						false,
 						array(
 							'class'   => 'w-100 object-fit-cover',
