@@ -281,7 +281,10 @@ class Theme_Init {
 			'4k'                   => array( 3840, 2160 ), // hero
 			'profile-preview'      => array( 1982, 1115 ), // 991 x 557
 			'category-card'        => array( 1392, 783 ), // 696 x 392
+			'category-archive'     => array( 2000, 1126 ), // 1000 x 563
 			'profile-preview-card' => array( 1008, 568 ), // 504 x 284
+			'story-portrait'       => array( 1392, 2088 ), // 696 x 1044
+			'story-landscape'       => array( 1392, 928 ), // 696 x 464
 		);
 		foreach ( $image_sizes as $name => $size ) {
 			add_image_size( $name, $size[0], $size[1], );
