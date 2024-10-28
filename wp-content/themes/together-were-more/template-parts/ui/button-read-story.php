@@ -27,7 +27,6 @@ $default_classes = array(
 	'text-uppercase',
 	'mt-auto',
 	'align-self-start',
-	'fs-6',
 );
 $button_classes  = array_merge( $default_classes, $classes );
 

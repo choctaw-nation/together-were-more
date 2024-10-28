@@ -23,20 +23,21 @@ wp_enqueue_script( 'who-we-are' );
 		)
 	);
 	?>
-	<div class='container position-relative z-1'>
-		<div class='row row-cols-1 justify-content-center'>
-			<div class='col-xl-6 text-center statements'>
-				<div class='statement text-white text-uppercase fw-bold'>
-					We are<br />
-					<p class='display-2 text-white text-uppercase lh-sm' id='statement-word' data-statements="artists,culture,inspiring,competitors,Choctaw Proud">
-						Choctaw Proud.
-					</p>
+	<div class="container position-relative z-1">
+		<div class="row row-cols-1 justify-content-center">
+			<div class="col-xl-6 text-center statements">
+				<div class="statement text-white text-uppercase fw-bold display-1">
+					We are
 				</div>
+				<?php $statements = array_map( fn( $word ) => esc_textarea( $word['statement'] ), $section['statements'] ); ?>
+				<p class="display-2 text-white text-uppercase" id="statement-word" data-statements="<?php echo implode( ',', $statements ); ?>">
+					Choctaw Proud.
+				</p>
 			</div>
 		</div>
-		<div class='row justify-content-center'>
-			<div class='col-lg-8 text-center'>
-				<p class='font-pill-gothic fw-lighter text-white'>
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<p class="font-pill-gothic fw-lighter text-white">
 					Anyone can be Choctaw Proud. The Choctaw Proud are humble,
 					appreciative people who value faith, family and culture. We
 					honor the past, live in the present and look to the future.

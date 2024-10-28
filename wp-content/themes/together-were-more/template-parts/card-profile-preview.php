@@ -12,14 +12,11 @@ if ( empty( $category_name ) ) {
 	$category_name = $category[0]->name;
 }
 $color          = cno_get_category_color( $category_name );
-$diamonds_color = 'gray';
-if ( is_category() ) {
-	$diamonds_color = 'white';
-} elseif ( ! empty( $color ) ) {
-	$diamonds_color = $color;
-}
+$diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
+
 ?>
 <div class="d-flex flex-column h-100 position-relative">
+	<?php if ( has_post_thumbnail() ) : ?>
 	<figure class="mb-0 ratio ratio-16x9">
 		<?php
 		the_post_thumbnail(
@@ -31,8 +28,9 @@ if ( is_category() ) {
 		);
 		?>
 	</figure>
+	<?php endif; ?>
 	<div class="p-3 d-flex flex-column h-100">
-		<h3 class="fs-2 fw-bold text-uppercase">
+		<h3 class="fs-2 fw-bold text-uppercase mb-0">
 			<?php the_title(); ?>
 		</h3>
 		<p class="fs-5 text-uppercase mb-0">
@@ -44,7 +42,7 @@ if ( is_category() ) {
 			'diamonds',
 			array(
 				'color' => $diamonds_color,
-				'class' => 'w-50',
+				'class' => 'w-50 my-2',
 			)
 		);
 		?>

@@ -189,7 +189,7 @@ class Media_And_Text {
 		$markup  = '<figure class="mb-0 ' . ( $this->media_details['is_portrait'] ? ' portrait-container' : ' ratio ratio-3x2' ) . ( $this->is_quote ? '"' : '" data-aos="fade-up")' ) . '>';
 		$markup .= wp_get_attachment_image(
 			$this->media_details['photo'],
-			'large',
+			$this->media_details['is_portrait'] ? 'story-portrait' : 'story-landscape',
 			false,
 			$image_args
 		);

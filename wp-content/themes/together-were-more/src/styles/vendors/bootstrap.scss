@@ -47,6 +47,7 @@ $link-hover-color: rgba($secondary, 0.8);
 // HEADINGS
 $headings-font-family: v.$font-headings;
 $headings-font-weight: 700;
+$headings-line-height: calc(4px + 2ex);
 
 /**
 * Minor Third Type Scale
@@ -84,7 +85,7 @@ $display-line-height: calc(2ex + 4px);
 * Buttons
 */
 $btn-transition: all v.$transition-standard;
-
+$btn-font-size: font-size(1.2rem);
 $input-btn-padding-x: 0.75rem;
 $input-btn-padding-y: 0.375rem;
 

@@ -26,11 +26,8 @@ $acf   = get_field( $category->name, 'options' );
 		);
 		?>
 	</div>
-	<div class="mx-3">
+	<div class="mx-5">
 		<div class="col-auto text-center">
-			<h3 class="text-uppercase fs-2 my-3 fw-normal">
-				<?php echo esc_textarea( $category->name ); ?>
-			</h3>
 			<?php
 			get_template_part(
 				'template-parts/ui/hr',
@@ -41,11 +38,15 @@ $acf   = get_field( $category->name, 'options' );
 				)
 			);
 			?>
+			<h3 class="text-uppercase fs-2 my-3 fw-normal">
+				<?php echo esc_textarea( $category->name ); ?>
+			</h3>
 		</div>
-		<p>
+		<div>
 			<?php echo acf_esc_html( $acf['content'] ); ?>
-		</p>
-		<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="btn btn-outline-gray text-uppercase stretched-link">See More
+		</div>
+		<?php $link_color = 'var(--bs-' . cno_get_category_color( $category->name ) . '-rgb)'; ?>
+		<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
 		</a>
 	</div>
 </div>
