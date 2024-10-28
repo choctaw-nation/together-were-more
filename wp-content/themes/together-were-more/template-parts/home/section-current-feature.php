@@ -31,7 +31,7 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 					$name       = get_the_title( $featured_profile_id );
 					$first_name = explode( ' ', $name )[0];
 					$last_name  = explode( ' ', $name )[1];
-					echo "<h2 class='featured__title text-gray text-uppercase'>{$first_name}<br />{$last_name}</h2>";
+					echo "<h2 class='featured__title text-gray text-uppercase mb-0'>{$first_name}<br />{$last_name}</h2>";
 					get_template_part(
 						'template-parts/ui/hr',
 						'diamonds',
@@ -52,7 +52,7 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 							'video-modal-trigger',
 							array(
 								'featured_profile_id' => $featured_profile_id,
-								'class'               => 'featured__btn btn-outline-gray lh-3 align-self-start fs-3 px-5 py-3',
+								'class'               => 'featured__btn btn-outline-gray align-self-start',
 							)
 						);
 						?>
@@ -63,7 +63,7 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 							'template-parts/ui/button',
 							'read-story',
 							array(
-								'class'      => 'featured__btn btn-outline-gray lh-3 align-self-start fs-3 px-5 py-3',
+								'class'      => 'featured__btn btn-outline-gray align-self-start',
 								'profile_id' => $featured_profile_id,
 							)
 						);

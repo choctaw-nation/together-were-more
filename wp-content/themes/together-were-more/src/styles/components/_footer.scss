@@ -1,4 +1,6 @@
 @use "../abstracts/mixins" as m;
+@use "./social-media";
+
 .footer-link-text {
 	--cno-link-color: white;
 	color: var(--cno-link-color);

@@ -2,14 +2,15 @@ import '../styles/components/category-swiper.scss';
 import { bounceSwiper } from './bounceSwiper';
 
 import Swiper from 'swiper';
-import { A11y, Mousewheel, FreeMode } from 'swiper/modules';
+import { A11y, Mousewheel, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/a11y';
 import 'swiper/scss/mousewheel';
 import 'swiper/scss/free-mode';
+import 'swiper/scss/pagination';
 
 new Swiper( '#category-preview .swiper', {
-	modules: [ A11y, Mousewheel, FreeMode ],
+	modules: [ A11y, Mousewheel, FreeMode, Pagination ],
 	slidesPerView: 1,
 	spaceBetween: 20,
 	grabCursor: true,
@@ -17,7 +18,7 @@ new Swiper( '#category-preview .swiper', {
 	autoHeight: false,
 	freeMode: {
 		enabled: true,
-		sticky: true,
+		sticky: false,
 	},
 	resistance: false,
 	mousewheel: {
@@ -26,6 +27,11 @@ new Swiper( '#category-preview .swiper', {
 	},
 	on: {
 		activeIndexChange: makeHeadlineTextInvisible,
+		init: addPaddingToContainer,
+	},
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
 	},
 } );
 
@@ -58,6 +64,17 @@ function makeHeadlineTextInvisible( ev: Swiper ) {
 	} else {
 		headline.style.opacity = '1';
 	}
+}
+
+function addPaddingToContainer( swiper: Swiper ) {
+	const container = document.getElementById(
+		'category-preview'
+	) as HTMLElement;
+	if ( ! container ) {
+		return;
+	}
+	const swiperHeight = swiper.el.clientHeight;
+	container.style.height = `calc(6rem + ${ swiperHeight }px)`;
 }
 
 bounceSwiper( 'category-preview', '.swiper' );
