@@ -11,4 +11,11 @@
 	p.display-1 {
 		transition: opacity var(--transition-standard);
 	}
+
+	.swiper {
+		--swiper-pagination-color: var(--bs-white);
+		--swiper-pagination-bullet-inactive-color: var(--bs-white);
+		--swiper-pagination-bullet-inactive-opacity: 0.4;
+		--swiper-pagination-bottom: -35px;
+	}
 }

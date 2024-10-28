@@ -18,8 +18,8 @@
 		);
 		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
-		<figcaption class="h-auto text-white position-relative z-2 px-3">
-			<h3 class="fs-2 fw-bold text-uppercase">
+		<figcaption class="h-auto text-white position-relative z-2 mx-5">
+			<h3 class="fs-2 fw-bold text-uppercase mb-0">
 				<?php the_title(); ?>
 			</h3>
 			<p class="fs-5 text-uppercase mb-0">
@@ -27,7 +27,7 @@
 			</p>
 		</figcaption>
 	</figure>
-	<div class="post-preview-card__body text-white p-3 d-flex flex-column h-100 z-2">
+	<div class="post-preview-card__body text-white py-3 px-5 d-flex flex-column h-100 z-2">
 		<p class="mb-5">
 			<?php the_field( 'archive_content' ); ?>
 		</p>
