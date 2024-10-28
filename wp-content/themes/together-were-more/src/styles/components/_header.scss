@@ -22,4 +22,13 @@
 			--bs-nav-link-color: white;
 		}
 	}
+
+	.search-icon {
+		color: white;
+		transition: color var(--transition-standard);
+
+		@include m.interaction() {
+			color: var(--hover-color);
+		}
+	}
 }
