@@ -30,12 +30,12 @@ wp_enqueue_script( 'category-swiper' );
 			</div>
 			<div class="offset-lg-5 col-lg-5 position-absolute z-2">
 				<div class="swiper overflow-visible">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide"></div>
+					<div class="swiper-wrapper align-items-stretch">
+						<div class="swiper-slide h-auto"></div>
 						<?php
 						$categories = cno_get_categories_array();
 						foreach ( $categories as $category ) {
-							echo "<div class='swiper-slide shadow'>";
+							echo "<div class='swiper-slide shadow h-auto'>";
 							get_template_part( 'template-parts/card', 'category-preview', array( 'category' => $category ) );
 							echo '</div>';
 						}

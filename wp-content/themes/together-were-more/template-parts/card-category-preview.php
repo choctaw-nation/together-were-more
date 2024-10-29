@@ -12,8 +12,8 @@ if ( false === $category ) {
 $color = cno_get_category_color( $category->name );
 $acf   = get_field( $category->name, 'options' );
 ?>
-<div class="bg-white pb-3 position-relative">
-	<div class="ratio ratio-16x9">
+<div class="bg-white h-100 d-flex flex-column">
+	<figure class="ratio ratio-16x9 mb-0">
 		<?php
 		echo wp_get_attachment_image(
 			$acf['hero_image'],
@@ -25,9 +25,9 @@ $acf   = get_field( $category->name, 'options' );
 			)
 		);
 		?>
-	</div>
-	<div class="mx-5">
-		<div class="col-auto text-center">
+	</figure>
+	<div class="mx-5 mb-3 d-flex flex-column flex-grow-1">
+		<div class="text-center">
 			<?php
 			get_template_part(
 				'template-parts/ui/hr',
@@ -42,11 +42,11 @@ $acf   = get_field( $category->name, 'options' );
 				<?php echo esc_textarea( $category->name ); ?>
 			</h3>
 		</div>
-		<div>
+		<div class="mb-3">
 			<?php echo acf_esc_html( $acf['content'] ); ?>
 		</div>
 		<?php $link_color = 'var(--bs-' . cno_get_category_color( $category->name ) . '-rgb)'; ?>
-		<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
+		<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link mt-auto d-block" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
 		</a>
 	</div>
 </div>
