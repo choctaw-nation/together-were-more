@@ -48,7 +48,7 @@
 					Choctaw Nation
 				</a>
 				<p class="mb-0">We are humble, resilient people who value faith, family, and culture. Honoring the past, living in the present, and looking to the future, we work hard to
-					succeed and give back to our communities</p>
+					succeed and give back to our communities.</p>
 			</div>
 		</div>
 		<div class="row border-top border-2 border-light gap-2 pt-4">
