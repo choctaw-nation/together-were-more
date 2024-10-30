@@ -27,7 +27,7 @@
 			</p>
 		</figcaption>
 	</figure>
-	<div class="post-preview-card__body text-white py-3 px-5 d-flex flex-column h-100 z-2">
+	<div class="post-preview-card__body text-white p-5 pt-3 d-flex flex-column h-100 z-2">
 		<p class="mb-5">
 			<?php the_field( 'archive_content' ); ?>
 		</p>

@@ -16,7 +16,6 @@
 				<button type="button" class="btn btn-outline-light text-uppercase" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
 					Share your story with us
 				</button>
-
 				<!-- Modal -->
 				<div class="modal fade" id="shareStoryModal" tabindex="-1" aria-labelledby="shareStoryModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered modal-lg">

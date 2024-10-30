@@ -15,7 +15,7 @@ get_header();
 <main <?php post_class(); ?>>
 	<?php
 	$sections = array(
-		'hero'               => 'section',
+		'hero'               => 'home/section',
 		'who-we-are'         => 'home/section',
 		'current-feature'    => 'home/section',
 		'category-swiper'    => 'home/section',

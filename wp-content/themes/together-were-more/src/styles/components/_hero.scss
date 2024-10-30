@@ -4,4 +4,22 @@
 	&__bg-image {
 		object-position: center;
 	}
+
+	.h1.text-uppercase {
+		letter-spacing: 8px;
+	}
+
+	.display-1 {
+		font-size: 140px;
+	}
+}
+
+.front-page-hero {
+	height: calc(100vh - 80px);
+
+	#scroll-down-icon {
+		--size: 40px;
+		width: var(--size);
+		height: var(--size);
+	}
 }

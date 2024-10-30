@@ -38,15 +38,16 @@ $acf   = get_field( $category->name, 'options' );
 				)
 			);
 			?>
-			<h3 class="text-uppercase fs-2 my-3 fw-normal">
+			<h3 class="text-uppercase fs-2 my-3 fw-normal" style="letter-spacing: 2px;">
 				<?php echo esc_textarea( $category->name ); ?>
 			</h3>
 		</div>
-		<div class="mb-3">
+		<div class=" mb-3 text-center">
 			<?php echo acf_esc_html( $acf['content'] ); ?>
+			<?php $link_color = 'var(--bs-' . cno_get_category_color( $category->name ) . '-rgb)'; ?>
+			<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
+			</a>
 		</div>
-		<?php $link_color = 'var(--bs-' . cno_get_category_color( $category->name ) . '-rgb)'; ?>
-		<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link mt-auto d-block" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
-		</a>
+
 	</div>
 </div>

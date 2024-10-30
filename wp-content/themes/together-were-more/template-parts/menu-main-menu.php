@@ -13,10 +13,10 @@ if ( null === $hover_color ) {
 }
 $categories = cno_get_categories_array();
 ?>
-<ul class="navbar-nav ms-lg-0 text-uppercase fs-5 align-items-center gap-3" id="main-menu">
+<ul class="navbar-nav ms-lg-0 text-uppercase fs-5 align-items-center gap-5" id="main-menu">
 	<?php foreach ( $categories as $category ) : ?>
 	<li class="nav-item">
-		<a class="nav-link px-0" href="<?php echo site_url( "/{$category->slug}" ); ?>" style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color})"; ?>">
+		<a class="nav-link px-0" href="<?php echo site_url( "/{$category->slug}" ); ?>" style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color});letter-spacing:2px"; ?>">
 			<?php echo $category->name; ?>
 		</a>
 	</li>
