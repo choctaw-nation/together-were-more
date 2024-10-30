@@ -76,10 +76,10 @@ function cno_generate_html_attributes( array $attributes ): string {
  */
 function cno_get_category_color( ?string $category_name ): string {
 	$color_map = array(
-		'Artists'     => 'gold',
-		'Culture'     => 'plum',
-		'Inspire'     => 'violet',
-		'Competitors' => 'garnet',
+		'Artists'       => 'gold',
+		'Culture'       => 'plum',
+		'Inspirational' => 'violet',
+		'Competitors'   => 'garnet',
 	);
 	if ( empty( $category_name ) ) {
 		return 'gray';

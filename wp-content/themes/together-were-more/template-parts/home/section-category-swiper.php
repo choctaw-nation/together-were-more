@@ -5,14 +5,14 @@
  * @package ChoctawNation
  */
 
-$acf = get_field( 'category_slider' );
+$acf_fields = get_field( 'category_slider' );
 wp_enqueue_style( 'category-swiper' );
 wp_enqueue_script( 'category-swiper' );
 ?>
 <section id="category-preview" class="position-relative overflow-hidden">
 	<?php
 	echo wp_get_attachment_image(
-		$acf['background_image'],
+		$acf_fields['background_image'],
 		'full',
 		false,
 		array(
@@ -25,7 +25,7 @@ wp_enqueue_script( 'category-swiper' );
 		<div class="row justify-content-center my-5 align-items-center position-relative">
 			<div class="col-lg-6">
 				<p class="display-1 text-white fw-normal text-center mb-0">
-					<?php echo esc_textarea( $acf['subheadline'] ); ?>
+					<?php echo esc_textarea( $acf_fields['subheadline'] ); ?>
 				</p>
 			</div>
 			<div class="offset-lg-5 col-lg-5 position-absolute z-2">
