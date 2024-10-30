@@ -66,7 +66,6 @@ class Site_Search {
 					'id'        => get_the_ID(),
 					'permalink' => get_permalink(),
 					'excerpt'   => get_field( 'archive_content' ),
-					'pronouns'  => $meta_fields['pronouns'],
 					'category'  => $meta_fields['category']->slug,
 				);
 			}

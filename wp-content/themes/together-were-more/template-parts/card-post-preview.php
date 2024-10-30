@@ -37,7 +37,6 @@
 		$button_classes = "btn-outline-{$color_overlay} mt-auto align-self-start fs-6";
 
 		if ( get_post_status() === 'future' ) {
-			$pronouns    = get_field( 'meta' )['pronouns'];
 			$button_text = 'Read Story in ' . get_the_date( 'M' );
 			echo "<button class='btn {$button_classes} text-uppercase' disabled>{$button_text}</button>";
 		} else {
