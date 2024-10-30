@@ -7,10 +7,10 @@
 
 ?>
 <?php get_template_part( 'template-parts/aside', 'social-media' ); ?>
-<footer class="footer container-fluid text-bg-dark d-flex flex-column align-items-stretch">
+<footer class="footer container-fluid gx-0 text-bg-dark d-flex flex-column align-items-stretch">
 	<div class="container-xxl">
-		<div class="row row-gap-4 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
-			<div class="col-sm-12 col-md-auto text-center text-md-start">
+		<div class="row row-gap-4 column-gap-2 gx-0 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
+			<div class="col-sm-12 col-md-5 text-center text-md-start">
 				<p class="h1 text-uppercase text-white mb-0">Are you Choctaw Proud?</p>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-outline-light text-uppercase" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col col-lg-5">
+			<div class="col col-lg-5 text-center text-md-start">
 				<?php
 				$front_page_id      = get_option( 'page_on_front' );
 				$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;

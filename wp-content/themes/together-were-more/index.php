@@ -11,7 +11,6 @@ if ( is_category() ) {
 	$color_overlay = cno_get_category_color( get_queried_object()->name );
 }
 ?>
-
 <main <?php post_class(); ?>>
 	<section class="hero position-relative overflow-hidden py-5 d-flex flex-column align-items-stretch justify-content-center mb-lg-5">
 		<img src="<?php echo $bg_image; ?>" class="object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1" />
@@ -23,13 +22,13 @@ if ( is_category() ) {
 		<div class="container py-5 text-center">
 			<div class="row justify-content-center">
 				<div class="col-10 col-lg-8">
-					<span class="h3 text-uppercase text-white">Our stories make us more</span>
+					<span class="h3 text-uppercase text-white ls-3">Our stories make us more</span>
 					<?php
 					get_template_part(
 						'template-parts/ui/hr',
 						'diamonds',
 						array(
-							'class' => 'my-4',
+							'class' => 'my-2',
 							'color' => 'white',
 						)
 					);
@@ -48,8 +47,8 @@ if ( is_category() ) {
 	<div class="container-lg gx-0 d-flex flex-column row-gap-5 align-items-stretch mb-5">
 		<?php
 		if ( is_search() ) {
-			echo '<section class="row row-gap-4 flex-row-reverse justify-content-between">
-			<div class="col"><p class="fs-5 text-gray">Showing results for "' . get_search_query() . '"</p></div></section>';
+			echo '<section class="container pt-5 gx-lg-0"><div class="row row-gap-4 flex-row-reverse justify-content-between">
+			<div class="col"><p class="fs-5 text-gray">Showing results for "' . get_search_query() . '"</p></div></div></section>';
 		}
 		?>
 		<section class="row row-cols-1 row-cols-lg-2 row-gap-5">

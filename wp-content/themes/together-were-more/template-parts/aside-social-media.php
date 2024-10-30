@@ -13,7 +13,7 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 py-5 d-flex flex-column justify-content-center gap-4">
-				<div class="row justify-content-center gap-4">
+				<div class="row justify-content-center align-items-center gap-4">
 					<?php foreach ( $socials as $social ) : ?>
 						<?php
 						$url  = esc_url( $social['social_platform']['url'] );

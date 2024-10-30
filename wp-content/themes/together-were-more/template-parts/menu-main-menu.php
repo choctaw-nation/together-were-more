@@ -24,7 +24,8 @@ $categories = cno_get_categories_array();
 	<?php endforeach; ?>
 	<li class="nav-item">
 		<button class="border-0 bg-transparent p-0" aria-label="search" data-bs-toggle="modal" data-bs-target="#site-search">
-			<figure class="mb-0 search-icon d-inline-block" style="<?php echo "--hover-color:var(--bs-{$hover_color});"; ?>">
+			<span class="d-lg-none text-uppercase ls-1">Search</span>
+			<figure class="mb-0 search-icon d-none d-lg-inline-block" style="<?php echo "--hover-color:var(--bs-{$hover_color});"; ?>">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 					<path
 							d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">

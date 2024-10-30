@@ -1,14 +1,14 @@
 @use "../abstracts/mixins" as m;
 
 .hero {
-	height: clamp(300px, 60vh, 600px);
-
 	&__bg-image {
 		object-position: center;
 	}
 
 	.display-1 {
-		font-size: 140px;
+		@include m.media-breakpoint-up(xl) {
+			font-size: 140px;
+		}
 	}
 }
 
@@ -27,12 +27,26 @@
 	}
 }
 
-body:has(.front-page-hero) {
-	.front-page-hero {
-		--header-height: 116px;
+.profile-hero {
+	height: clamp(300px, 60vh, 450px);
 
-		@include m.media-breakpoint-up(lg) {
-			--header-height: 128px;
+	@include m.media-breakpoint-up(lg) {
+		--header-height: 96px;
+		height: calc(100vh - var(--header-height));
+	}
+}
+
+// WP Admin Bar Fix
+
+$selectors: (".front-page-hero", ".profile-hero");
+@each $selector in $selectors {
+	body:has(#{$selector}) {
+		#{$selector} {
+			--header-height: 116px;
+
+			@include m.media-breakpoint-up(lg) {
+				--header-height: 128px;
+			}
 		}
 	}
 }

@@ -18,7 +18,7 @@
 		);
 		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
-		<figcaption class="h-auto text-white position-relative z-2 mx-5">
+		<figcaption class="h-auto text-white position-relative z-2 mx-5 mb-3">
 			<h3 class="fs-2 fw-bold text-uppercase mb-0">
 				<?php the_title(); ?>
 			</h3>
@@ -38,7 +38,7 @@
 
 		if ( get_post_status() === 'future' ) {
 			$pronouns    = get_field( 'meta' )['pronouns'];
-			$button_text = "<i class='fa-light fa-book'></i> See {$pronouns} Story in " . get_the_date( 'M' );
+			$button_text = 'Read Story in ' . get_the_date( 'M' );
 			echo "<button class='btn {$button_classes} text-uppercase' disabled>{$button_text}</button>";
 		} else {
 			$button_classes .= ' stretched-link';

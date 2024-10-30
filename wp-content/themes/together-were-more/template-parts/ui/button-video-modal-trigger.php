@@ -9,8 +9,9 @@ $featured_profile_id = isset( $args['featured_profile_id'] ) ? $args['featured_p
 if ( false === $featured_profile_id ) {
 	return;
 }
+// $pronouns = get_field( 'meta_pronouns', $featured_profile_id );
 wp_enqueue_script( 'video-modal-trigger' );
-$button_text = isset( $args['button_text'] ) ? $args['button_text'] : '<i class="fa-light fa-play"></i> View Video';
+$button_text = isset( $args['button_text'] ) ? $args['button_text'] : '<i class="fa-light fa-play"></i> Watch Video';
 $classes     = isset( $args['class'] ) ? $args['class'] : '';
 if ( $classes && is_array( $classes ) ) {
 	$classes = implode( ' ', $classes );
@@ -27,7 +28,7 @@ while ( have_rows( 'meta_video_details', $featured_profile_id ) ) {
 
 $button_attributes = array(
 	'type'             => 'button',
-	'class'            => "text-uppercase modal-trigger btn {$classes}",
+	'class'            => "text-uppercase modal-trigger pt-2 btn {$classes}",
 	'data-video-id'    => $video_id,
 	'data-modal-title' => $modal_title,
 	'data-bs-toggle'   => 'modal',
