@@ -10,7 +10,7 @@
 <footer class="footer container-fluid text-bg-dark d-flex flex-column align-items-stretch">
 	<div class="container-xxl">
 		<div class="row row-gap-4 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
-			<div class="col-auto text-center text-lg-start">
+			<div class="col-sm-12 col-md-auto text-center text-md-start">
 				<p class="h1 text-uppercase text-white mb-0">Are you Choctaw Proud?</p>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-outline-light text-uppercase" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
