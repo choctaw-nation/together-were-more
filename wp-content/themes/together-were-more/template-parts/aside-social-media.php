@@ -13,14 +13,14 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 py-5 d-flex flex-column justify-content-center gap-4">
-				<div class="row justify-content-center align-items-center gap-4">
+				<div class="socials-container row justify-content-center align-items-center gap-4">
 					<?php foreach ( $socials as $social ) : ?>
 						<?php
 						$url  = esc_url( $social['social_platform']['url'] );
 						$name = esc_attr( $social['social_platform']['title'] );
 						$icon = $social['social_icon'];
 						?>
-					<div class="social-container bg-gray rounded-circle p-3">
+					<div class="social-container bg-gray rounded-circle p-2">
 						<a class="social ratio ratio-1x1 d-block text-white fs-6" href="<?php echo $url; ?>" target="_blank" title="<?php echo "Follow us on {$name}"; ?>"
 							rel="noopener noreferrer">
 							<?php echo $icon; ?>

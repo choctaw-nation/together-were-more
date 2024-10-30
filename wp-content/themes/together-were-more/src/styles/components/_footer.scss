@@ -17,3 +17,11 @@
 		color: var(--cno-link-hover-color);
 	}
 }
+
+#socials {
+	.social-container {
+		--size: 3rem;
+		width: var(--size);
+		aspect-ratio: 1;
+	}
+}
