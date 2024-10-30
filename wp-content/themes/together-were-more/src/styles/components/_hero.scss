@@ -1,7 +1,52 @@
-.hero {
-	height: clamp(300px, 80vh, 1000px);
+@use "../abstracts/mixins" as m;
 
+.hero {
 	&__bg-image {
 		object-position: center;
+	}
+
+	.display-1 {
+		@include m.media-breakpoint-up(xl) {
+			font-size: 140px;
+		}
+	}
+}
+
+.front-page-hero {
+	--header-height: 84px;
+	height: calc(100vh - var(--header-height));
+
+	@include m.media-breakpoint-up(lg) {
+		--header-height: 96px;
+	}
+
+	#scroll-down-icon {
+		--size: 40px;
+		width: var(--size);
+		height: var(--size);
+		position: relative;
+
+		& svg {
+			position: absolute;
+			inset: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			height: 80%;
+		}
+	}
+}
+
+// WP Admin Bar Fix
+
+$selectors: (".front-page-hero", ".profile-hero");
+@each $selector in $selectors {
+	body:has(#{$selector}) {
+		#{$selector} {
+			--header-height: 116px;
+
+			@include m.media-breakpoint-up(lg) {
+				--header-height: 128px;
+			}
+		}
 	}
 }

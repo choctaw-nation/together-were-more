@@ -41,3 +41,15 @@
 .bounce-left-small {
 	animation: bounce-left-small 0.75s ease-in-out;
 }
+
+$letter-spacing: (
+	1: 2,
+	2: 4,
+	3: 8,
+);
+
+@each $key, $value in $letter-spacing {
+	.ls-#{$key} {
+		letter-spacing: #{$value}px;
+	}
+}

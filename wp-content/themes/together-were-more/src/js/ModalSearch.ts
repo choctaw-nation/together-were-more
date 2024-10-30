@@ -87,15 +87,14 @@ new ( class SiteSearchHandler {
 	}
 
 	private createListItem( result: SiteSearchResult ): HTMLLIElement {
-		const { name, title, id, permalink, excerpt, category, pronouns } =
-			result;
+		const { name, title, id, permalink, excerpt, category } = result;
 
 		const li = document.createElement( 'li' );
 		li.id = `post-${ id }`;
 		li.classList.add( 'position-relative', 'border-2', 'p-3' );
 		li.innerHTML = `<h2>${ name }</h2><p>${ title }</p><p>${ excerpt }</p><a href="${ permalink }" class="stretched-link text-uppercase btn btn-${ this.categoryColor(
 			category
-		) }">Read more</a>`;
+		) }">Read Story</a>`;
 		return li;
 	}
 
