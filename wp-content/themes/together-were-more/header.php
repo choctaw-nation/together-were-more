@@ -19,7 +19,7 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<header class="container-fluid gx-5 text-bg-dark position-sticky top-0 py-3" id="site-header">
+	<header class="container-fluid text-bg-dark position-sticky top-0 py-3" id="site-header">
 		<div class="row gx-0 justify-content-between align-items-center w-100">
 			<div class="col-auto flex-shrink-1">
 				<h2 class="my-2 align-items-center fw-bold d-flex column-gap-3 flex-wrap">

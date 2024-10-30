@@ -10,6 +10,7 @@ $section = get_field( 'who_we_are' );
 $img_id  = $section['background_image']['id'];
 wp_enqueue_style( 'who-we-are' );
 wp_enqueue_script( 'who-we-are' );
+$statements = array_map( fn( $word ) => esc_textarea( $word['statement'] ), $section['statements'] );
 ?>
 <section class='position-relative py-5 overflow-hidden' id='who-we-are'>
 	<?php
@@ -25,12 +26,11 @@ wp_enqueue_script( 'who-we-are' );
 	?>
 	<div class="container position-relative z-1">
 		<div class="row row-cols-1 justify-content-center">
-			<div class="col-xl-6 text-center statements">
-				<div class="statement text-white text-uppercase fw-bold display-1">
+			<div class="col-xl-6 text-center statements" aria-label="We are <?php echo implode( ',', $statements ); ?>">
+				<div class="statement text-white text-uppercase fw-bold display-1 ls-2" aria-hidden="hidden">
 					We are
 				</div>
-				<?php $statements = array_map( fn( $word ) => esc_textarea( $word['statement'] ), $section['statements'] ); ?>
-				<p class="display-2 text-white text-uppercase" id="statement-word" data-statements="<?php echo implode( ',', $statements ); ?>">
+				<p class="display-2 text-white text-uppercase" id="statement-word" data-statements="<?php echo implode( ',', $statements ); ?>" aria-hidden="true">
 					Choctaw Proud.
 				</p>
 			</div>
@@ -38,12 +38,7 @@ wp_enqueue_script( 'who-we-are' );
 		<div class="row justify-content-center">
 			<div class="col-lg-8 text-center">
 				<p class="font-pill-gothic fw-lighter text-white">
-					Anyone can be Choctaw Proud. The Choctaw Proud are humble,
-					appreciative people who value faith, family and culture. We
-					honor the past, live in the present and look to the future.
-					We are resilient people, overcoming adversity with grace and
-					dignity. Those who are Choctaw Proud work hard to be
-					successful and give back to their communities.
+					<?php echo esc_textarea( $section['body'] ); ?>
 				</p>
 			</div>
 		</div>

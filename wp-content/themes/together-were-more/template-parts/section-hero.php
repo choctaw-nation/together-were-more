@@ -17,7 +17,7 @@ $the_overlay = $has_overlay && isset( $args['the_overlay'] ) ? $args['the_overla
 	<div class="container position-relative z-2 py-5 text-center">
 		<div class="row justify-content-center">
 			<div class="col-10 col-lg-8">
-				<span class="h3 text-uppercase text-white mb-0">Our stories make us more</span>
+				<span class="h3 text-uppercase text-white mb-0 ls-3">Our stories make us more</span>
 				<?php
 				get_template_part(
 					'template-parts/ui/hr',

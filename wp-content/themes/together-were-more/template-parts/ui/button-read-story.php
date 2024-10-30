@@ -11,10 +11,10 @@ $profile_id = isset( $args['profile_id'] ) ? $args['profile_id'] : get_the_ID();
 
 $pronouns            = get_field( 'meta_pronouns', $profile_id );
 $post_status         = get_post_status( $profile_id );
-$default_button_text = "<i class='fa-light fa-book'></i> Read {$pronouns} Story";
+$default_button_text = 'Read Story';
 if ( 'future' === $post_status ) {
 	$month               = get_the_date( 'M', $profile_id );
-	$default_button_text = "<i class='fa-light fa-book'></i> Read {$pronouns} Story in {$month}";
+	$default_button_text = "Read Story in {$month}";
 	$button_element      = 'button';
 }
 $button_text = isset( $args['button_text'] ) ? $args['button_text'] : $default_button_text;
@@ -26,6 +26,7 @@ $default_classes = array(
 	'btn',
 	'text-uppercase',
 	'mt-auto',
+	'pt-2',
 	'align-self-start',
 );
 $button_classes  = array_merge( $default_classes, $classes );

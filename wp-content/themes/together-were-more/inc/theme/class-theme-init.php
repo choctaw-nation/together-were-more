@@ -29,6 +29,7 @@ class Theme_Init {
 		add_action( 'init', array( $this, 'alter_post_types' ) );
 		add_action( 'init', array( $this, 'remove_editor_capabilities' ) );
 		add_action( 'init', array( $this, 'alter_categories' ) );
+		add_filter( 'oembed_response_data', array( $this, 'disable_embeds_filter_oembed_response_data' ) );
 
 		/**
 		 * Filter the priority of the Yoast SEO metabox
@@ -39,6 +40,17 @@ class Theme_Init {
 				return 'low';
 			}
 		);
+	}
+
+	/**
+	 * Disable embeds filter oembed response data
+	 *
+	 * @param array $data the oembed response data.
+	 */
+	public function disable_embeds_filter_oembed_response_data( $data ) {
+		unset( $data['author_url'] );
+		unset( $data['author_name'] );
+		return $data;
 	}
 
 	/**

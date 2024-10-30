@@ -22,6 +22,7 @@ $quote_classes = array(
 	'font-script',
 	'mb-0',
 	'lh-lg',
+	'fs-3',
 );
 if ( ! empty( $args['class'] ) ) {
 	if ( is_array( $args['class'] ) ) {
