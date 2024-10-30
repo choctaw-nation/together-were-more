@@ -31,7 +31,7 @@ wp_enqueue_script( 'category-swiper' );
 			<div class="offset-lg-5 col-lg-5 position-absolute z-2">
 				<div class="swiper overflow-visible">
 					<div class="swiper-wrapper align-items-stretch">
-						<div class="swiper-slide h-auto"></div>
+						<div class="swiper-slide h-auto" aria-label="This slide is intentionally left blank"></div>
 						<?php
 						$categories = cno_get_categories_array();
 						foreach ( $categories as $category ) {
