@@ -18,7 +18,7 @@ new Swiper( '#category-preview .swiper', {
 	autoHeight: false,
 	freeMode: {
 		enabled: true,
-		sticky: false,
+		sticky: true,
 	},
 	resistance: false,
 	mousewheel: {
@@ -33,11 +33,14 @@ new Swiper( '#category-preview .swiper', {
 		el: '.swiper-pagination',
 		clickable: true,
 	},
+	a11y: {
+		enabled: true,
+	},
 } );
 
 const bootstrapBreakpoints = {
 	xs: 0,
-	sm: 576,
+	sm: 576.02,
 	md: 767.02,
 	lg: 991.02,
 	xl: 1200.02,
@@ -55,11 +58,11 @@ function makeHeadlineTextInvisible( ev: Swiper ) {
 		'#category-preview p.display-1'
 	) as HTMLParagraphElement;
 
-	const isMobile = window.innerWidth < bootstrapBreakpoints.lg;
+	// const isMobile = window.innerWidth < bootstrapBreakpoints.lg;
 	if ( ! headline ) {
 		return;
 	}
-	if ( ! isMobile && ev.activeIndex ) {
+	if ( ev.activeIndex ) {
 		headline.style.opacity = '0';
 	} else {
 		headline.style.opacity = '1';

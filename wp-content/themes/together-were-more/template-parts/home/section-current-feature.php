@@ -28,16 +28,14 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 		<div class="col py-5 px-4 d-flex flex-column justify-content-center align-items-center">
 			<div class="featured__content-container">
 				<?php
-					$name       = get_the_title( $featured_profile_id );
-					$first_name = explode( ' ', $name )[0];
-					$last_name  = explode( ' ', $name )[1];
-					echo "<h2 class='featured__title text-gray text-uppercase mb-0'>{$first_name}<br />{$last_name}</h2>";
+					$name = implode( '<br/>', explode( ' ', get_the_title( $featured_profile_id ) ) );
+					echo "<h2 class='featured__title text-gray text-uppercase mb-0'>{$name}</h2>";
 					get_template_part(
 						'template-parts/ui/hr',
 						'diamonds',
 						array(
 							'color' => 'gold',
-							'class' => 'w-75 my-5',
+							'class' => 'w-75 mt-4 mb-5',
 						)
 					);
 					?>
@@ -52,7 +50,7 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 							'video-modal-trigger',
 							array(
 								'featured_profile_id' => $featured_profile_id,
-								'class'               => 'featured__btn btn-outline-gray align-self-start',
+								'class'               => 'featured__btn btn-gray align-self-start',
 							)
 						);
 						?>
@@ -63,7 +61,7 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 							'template-parts/ui/button',
 							'read-story',
 							array(
-								'class'      => 'featured__btn btn-outline-gray align-self-start',
+								'class'      => 'featured__btn--story btn-outline-gray align-self-start',
 								'profile_id' => $featured_profile_id,
 							)
 						);

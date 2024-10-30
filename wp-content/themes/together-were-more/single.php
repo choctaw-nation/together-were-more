@@ -13,13 +13,12 @@ get_header();
 ?>
 
 <main <?php post_class(); ?>>
-
 	<?php
 	get_template_part( 'template-parts/profile/section', 'hero' );
 	get_template_part( 'template-parts/nav', 'breadcrumbs' );
 	$sections = get_field( 'article' );
 	if ( $sections ) {
-		echo "<article class='d-flex flex-column row-gap-5 align-items-stretch mb-5'>";
+		echo '<article class="d-flex flex-column row-gap-5 align-items-stretch mb-5">';
 		foreach ( $sections as $section ) {
 			$template     = str_replace( '_', '-', $section['acf_fc_layout'] );
 			$section_type = $section['acf_fc_layout'];
@@ -29,6 +28,6 @@ get_header();
 	}
 	?>
 </main>
-
 <?php
+// get_template_part( 'template-parts/profile/content', 'social-share' ); phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 get_footer();

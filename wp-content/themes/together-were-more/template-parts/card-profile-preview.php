@@ -15,7 +15,7 @@ $color          = cno_get_category_color( $category_name );
 $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
 
 ?>
-<div class="d-flex flex-column h-100 position-relative">
+<div class="d-flex flex-column h-100 position-relative card-profile-preview">
 	<?php if ( has_post_thumbnail() ) : ?>
 	<figure class="mb-0 ratio ratio-16x9">
 		<?php
@@ -51,6 +51,17 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 		</p>
 		<div class="d-flex flex-wrap gap-3 align-items-center">
 			<?php
+			$meta = get_field( 'meta' );
+			if ( ! empty( $meta['video_details']['video_url'] ) ) {
+				get_template_part(
+					'template-parts/ui/button',
+					'video-modal-trigger',
+					array(
+						'class'               => 'btn-gray fs-6',
+						'featured_profile_id' => get_the_ID(),
+					)
+				);
+			}
 			get_template_part(
 				'template-parts/ui/button',
 				'read-story',
@@ -58,17 +69,6 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 					'class' => 'btn-outline-gray fs-6',
 				)
 			);
-			$meta = get_field( 'meta' );
-			if ( ! empty( $meta['video_details']['video_url'] ) ) {
-				get_template_part(
-					'template-parts/ui/button',
-					'video-modal-trigger',
-					array(
-						'class'               => 'btn-outline-gray fs-6',
-						'featured_profile_id' => get_the_ID(),
-					)
-				);
-			}
 			?>
 		</div>
 	</div>

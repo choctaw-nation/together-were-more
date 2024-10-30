@@ -1,6 +1,13 @@
 @use "../abstracts/mixins" as m;
 @use "./social-media";
 
+.footer .container-xxl {
+	--bs-gutter-x: 6rem;
+	@include m.media-breakpoint-up(lg) {
+		--bs-gutter-x: 3rem;
+	}
+}
+
 .footer-link-text {
 	--cno-link-color: white;
 	color: var(--cno-link-color);
@@ -8,5 +15,13 @@
 
 	@include m.interaction() {
 		color: var(--cno-link-hover-color);
+	}
+}
+
+#socials {
+	.social-container {
+		--size: 3rem;
+		width: var(--size);
+		aspect-ratio: 1;
 	}
 }

@@ -1,27 +1,21 @@
 @use "../abstracts/mixins" as m;
+
 .featured {
 	&__image {
 		@include m.media-breakpoint-up(lg) {
 			max-height: 800px;
-		}
-
-		img {
-			object-position: 20% center;
-
-			@include m.media-breakpoint-up(lg) {
-				object-position: 20% 60%;
-			}
 		}
 	}
 
 	&__title {
 		--upper-font-size: 9rem;
 		font-size: clamp(3rem, 90vw, var(--upper-font-size));
-		line-height: 2ex;
+		line-height: 0.95;
 
 		@include m.media-breakpoint-down(xl) {
 			--upper-font-size: 7rem;
 		}
+
 		@include m.media-breakpoint-down(md) {
 			--upper-font-size: 4rem;
 		}
@@ -29,5 +23,15 @@
 
 	&__subtitle {
 		text-wrap: balance;
+	}
+
+	&__btn {
+		&--story {
+			--bs-btn-bg: white;
+
+			@include m.interaction() {
+				background-color: var(--bs-gray);
+			}
+		}
 	}
 }
