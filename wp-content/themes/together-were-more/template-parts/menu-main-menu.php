@@ -16,7 +16,8 @@ $categories = cno_get_categories_array();
 <ul class="navbar-nav ms-lg-0 text-uppercase fs-5 align-items-center gap-5" id="main-menu">
 	<?php foreach ( $categories as $category ) : ?>
 	<li class="nav-item">
-		<a class="nav-link px-0" href="<?php echo site_url( "/{$category->slug}" ); ?>" style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color});letter-spacing:2px"; ?>">
+		<a class="nav-link p-0 d-block border-bottom ls-1" href="<?php echo site_url( "/{$category->slug}" ); ?>"
+			style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color});--bs-border-hover-color:var(--bs-{$hover_color});"; ?>">
 			<?php echo $category->name; ?>
 		</a>
 	</li>

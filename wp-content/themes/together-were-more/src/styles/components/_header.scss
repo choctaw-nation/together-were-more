@@ -18,6 +18,16 @@
 .navbar-nav#main-menu {
 	.nav-link {
 		--bs-nav-link-color: var(--bs-dark);
+		--bs-border-color: transparent;
+
+		transition:
+			color var(--transition-standard),
+			border var(--transition-standard);
+
+		@include m.interaction() {
+			border-bottom: var(--bs-border-width) var(--bs-border-style)
+				var(--bs-border-hover-color) !important;
+		}
 
 		@include m.media-breakpoint-up(lg) {
 			--bs-nav-link-color: white;
