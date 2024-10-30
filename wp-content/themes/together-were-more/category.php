@@ -72,8 +72,10 @@ $color_overlay = cno_get_category_color( $category );
 						'class' => 'w-75 mx-auto my-3',
 					)
 				);
-				echo acf_esc_html( $acf_settings['content'] );
 				?>
+				<div class="text-center text-lg-start">
+					<?php echo acf_esc_html( $acf_settings['content'] ); ?>
+				</div>
 			</div>
 		</div>
 	</section>

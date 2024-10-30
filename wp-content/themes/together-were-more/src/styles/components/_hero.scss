@@ -1,7 +1,7 @@
 @use "../abstracts/mixins" as m;
 
 .hero {
-	height: clamp(300px, 80vh, 1000px);
+	height: clamp(300px, 60vh, 600px);
 
 	&__bg-image {
 		object-position: center;
