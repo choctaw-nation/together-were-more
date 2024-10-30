@@ -26,7 +26,7 @@ wp_enqueue_script( 'who-we-are' );
 	<div class="container position-relative z-1">
 		<div class="row row-cols-1 justify-content-center">
 			<div class="col-xl-6 text-center statements">
-				<div class="statement text-white text-uppercase fw-bold display-1">
+				<div class="statement text-white text-uppercase fw-bold display-1 ls-2">
 					We are
 				</div>
 				<?php $statements = array_map( fn( $word ) => esc_textarea( $word['statement'] ), $section['statements'] ); ?>

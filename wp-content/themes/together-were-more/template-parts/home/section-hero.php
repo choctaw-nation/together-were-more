@@ -28,7 +28,7 @@
 		</div>
 		<div class="row row-cols-1">
 			<div class="col">
-				<h1 class="text-white fw-bolder display-1 text-uppercase mb-0">
+				<h1 class="text-white fw-bolder display-1 text-uppercase mb-0 ls-3">
 					Together We're More
 				</h1>
 			</div>
@@ -36,9 +36,10 @@
 	</div>
 	<figure class="mb-0 ratio ratio-1x1 text-white border border-light border-2 rounded-circle position-absolute bottom-0 start-50 translate-middle z-2 p-4 overflow-hidden"
 			id="scroll-down-icon">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="text-white d-block" style="fill:currentColor">
-			<path style="fill:currentColor;stroke:currentColor"
-					d="M267.3 395.3c-6.2 6.2-16.4 6.2-22.6 0l-192-192c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L256 361.4 436.7 180.7c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-192 192z" />
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+			<path fill-rule="evenodd"
+					d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
 		</svg>
+
 	</figure>
 </section>

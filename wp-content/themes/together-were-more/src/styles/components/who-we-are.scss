@@ -2,8 +2,6 @@
 
 .statements {
 	.statement {
-		letter-spacing: 3px;
-
 		& {
 			@include rfs.font-size(11.25rem);
 		}

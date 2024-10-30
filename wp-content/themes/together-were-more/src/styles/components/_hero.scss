@@ -1,12 +1,10 @@
+@use "../abstracts/mixins" as m;
+
 .hero {
 	height: clamp(300px, 80vh, 1000px);
 
 	&__bg-image {
 		object-position: center;
-	}
-
-	.h1.text-uppercase {
-		letter-spacing: 8px;
 	}
 
 	.display-1 {
@@ -15,11 +13,26 @@
 }
 
 .front-page-hero {
-	height: calc(100vh - 80px);
+	--header-height: 84px;
+	height: calc(100vh - var(--header-height));
+
+	@include m.media-breakpoint-up(lg) {
+		--header-height: 96px;
+	}
 
 	#scroll-down-icon {
 		--size: 40px;
 		width: var(--size);
 		height: var(--size);
+	}
+}
+
+body:has(.front-page-hero) {
+	.front-page-hero {
+		--header-height: 116px;
+
+		@include m.media-breakpoint-up(lg) {
+			--header-height: 128px;
+		}
 	}
 }
