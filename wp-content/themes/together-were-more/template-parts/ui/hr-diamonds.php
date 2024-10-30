@@ -11,7 +11,6 @@ $color      = isset( $args['color'] ) ? $args['color'] : 'black';
 $custom_classes  = $class_list && is_array( $class_list ) ? $class_list : array( $class_list );
 $default_classes = array(
 	'diamond-separator',
-	'mb-0',
 	'd-flex',
 	'align-items-center',
 	'justify-content-center',
