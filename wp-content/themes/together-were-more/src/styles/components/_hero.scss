@@ -27,15 +27,6 @@
 	}
 }
 
-.profile-hero {
-	height: clamp(300px, 60vh, 450px);
-
-	@include m.media-breakpoint-up(lg) {
-		--header-height: 96px;
-		height: calc(100vh - var(--header-height));
-	}
-}
-
 // WP Admin Bar Fix
 
 $selectors: (".front-page-hero", ".profile-hero");

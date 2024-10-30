@@ -32,7 +32,3 @@ get_template_part(
 	)
 );
 ?>
-<div class="d-flex gap-3 mt-3 text-center align-items-center">
-	<p class="mb-0 text-uppercase">Share this story</p>
-	<?php get_template_part( 'template-parts/profile/content', 'social-share' ); ?>
-</div>
