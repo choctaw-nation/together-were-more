@@ -9,13 +9,17 @@
 .parallax-container {
 	position: relative;
 	height: auto;
+
 	@include m.media-breakpoint-up(lg) {
+		overflow: hidden;
 		height: 820px;
 	}
 }
+
 .parallax {
 	@include m.media-breakpoint-up(lg) {
 		position: absolute;
+		z-index: -1;
 		inset: 0;
 	}
 }
