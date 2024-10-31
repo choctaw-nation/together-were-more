@@ -1,4 +1,20 @@
+@use "../abstracts/mixins" as m;
 .social-container {
 	aspect-ratio: 1;
 	width: 4rem; // 64px
+	transition: background-color var(--transition-standard);
+
+	@include m.interaction() {
+		background-color: var(--hover-color) !important;
+	}
+}
+
+.socials-container {
+	@include m.media-breakpoint-down(sm) {
+		display: grid;
+		place-items: center;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 0rem !important;
+	}
 }

@@ -42,10 +42,10 @@ $acf_fields = get_field( strtolower( $category->name ), 'options' );
 				<?php echo esc_textarea( $category->name ); ?>
 			</h3>
 		</div>
-		<div class=" mb-3 text-center">
+		<div class="mb-3 text-center d-flex flex-column flex-grow-1">
 			<?php echo acf_esc_html( $acf_fields['content'] ); ?>
 			<?php $link_color = 'var(--bs-' . cno_get_category_color( $category->name ) . '-rgb)'; ?>
-			<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
+			<a href="<?php echo site_url( "/{$category->slug}" ); ?>" class="text-uppercase stretched-link mt-auto d-block" style="--bs-link-color-rgb:<?php echo $link_color; ?>">See More
 			</a>
 		</div>
 

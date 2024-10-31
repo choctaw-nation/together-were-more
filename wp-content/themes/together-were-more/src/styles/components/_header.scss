@@ -3,8 +3,12 @@
 #site-header {
 	z-index: 1000;
 
-	@include m.media-breakpoint-up(lg) {
+	@include m.media-breakpoint-up(sm) {
 		--bs-gutter-x: 6rem;
+	}
+
+	.btn-close {
+		opacity: 1;
 	}
 }
 
@@ -22,6 +26,7 @@
 		var(--bs-border-hover-color) !important;
 	filter: brightness(130%) saturate(120%);
 }
+
 .navbar-nav#main-menu {
 	.nav-link {
 		--bs-nav-link-color: var(--bs-dark);
@@ -66,11 +71,14 @@
 		}
 
 		figure {
-			color: white;
 			transition: color var(--transition-standard);
 
 			@include m.interaction() {
 				color: var(--hover-color);
+			}
+
+			@include m.media-breakpoint-up(lg) {
+				color: white;
 			}
 		}
 	}

@@ -35,8 +35,8 @@ $srcset_by_h = array_map(
 			);
 			?>
 		</div>
-		<div class="col py-5 px-4 d-flex flex-column justify-content-center align-items-center">
-			<div class="featured__content-container">
+		<div class="col py-5 px-4 d-flex flex-column justify-content-center align-items-center text-center text-lg-start">
+			<div class="featured__content-container d-flex flex-column align-items-stretch">
 				<?php
 					$name = implode( '<br/>', explode( ' ', get_the_title( $featured_profile_id ) ) );
 					echo "<h2 class='featured__title text-gray text-uppercase mb-0'>{$name}</h2>";
@@ -45,14 +45,14 @@ $srcset_by_h = array_map(
 						'diamonds',
 						array(
 							'color' => 'gold',
-							'class' => 'w-75 mt-2 mb-3 mt-lg-4 mb-lg-5',
+							'class' => 'w-75 mx-auto mx-lg-0 mt-2 mb-3 mt-lg-4 mb-lg-5',
 						)
 					);
 					?>
 				<p class="featured__subtitle text-uppercase font-pill-gothic text-gray fs-4 fw-normal">
 					<?php the_field( 'archive_content', $featured_profile_id ); ?>
 				</p>
-				<div class="row row-cols-auto gap-3">
+				<div class="row row-cols-auto gap-3 justify-content-center justify-content-lg-start">
 					<div class="col">
 						<?php
 						get_template_part(
