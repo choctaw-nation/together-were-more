@@ -31,7 +31,8 @@ if ( is_single() ) {
 	<ol class="breadcrumb list-unstyled m-0">
 		<?php foreach ( $breadcrumbs as $index => $breadcrumb ) : ?>
 			<?php $is_current = count( $breadcrumbs ) - 1 === $index; ?>
-		<li class="breadcrumb-item<?php echo $is_current ? ' active' : ''; ?>" <?php echo $is_current ? 'aria-current="page"' : ''; ?>>
+		<li class="breadcrumb-item<?php echo $is_current ? ' active' : ''; ?>" <?php echo $is_current ? 'aria-current="page"' : ''; ?>
+			style="--bs-link-color-rgb:var(--bs-<?php echo cno_get_primary_color(); ?>-rgb);">
 			<?php if ( ! $is_current ) : ?>
 			<a href="<?php echo esc_url( $breadcrumb['url'] ); ?>">
 				<?php echo esc_html( $breadcrumb['title'] ); ?>

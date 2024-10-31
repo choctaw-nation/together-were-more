@@ -11,9 +11,7 @@ $is_blank_template = strpos( $page_template, 'page-templates/blank.php' );
 if ( ! $is_blank_template ) {
 	get_template_part( 'template-parts/aside', 'social-media' );
 }
-$front_page_id      = get_option( 'page_on_front' );
-$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-$hover_color        = cno_get_category_color( $category_spotlight );
+$hover_color = cno_get_primary_color();
 ?>
 <footer class="footer container-fluid gx-0 text-bg-dark d-flex flex-column align-items-stretch">
 	<div class="container-xxl">

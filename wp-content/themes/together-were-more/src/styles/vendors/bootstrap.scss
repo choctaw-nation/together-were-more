@@ -42,7 +42,7 @@ $body-color: v.$color-gray;
 
 // LINKS
 $link-color: $secondary;
-$link-hover-color: rgba($secondary, 0.8);
+$link-hover-color: v.$color-gray;
 
 // HEADINGS
 $headings-font-family: v.$font-headings;

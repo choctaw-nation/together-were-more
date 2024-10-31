@@ -85,6 +85,14 @@
 	}
 
 	[data-hash="slide5"] {
-		padding: 5rem;
+		padding: 0rem;
+
+		@include m.media-breakpoint-up(md) {
+			padding: 3rem;
+		}
+
+		@include m.media-breakpoint-up(lg) {
+			padding: 5rem;
+		}
 	}
 }

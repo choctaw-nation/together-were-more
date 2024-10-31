@@ -30,7 +30,7 @@ $slide_3 = $args['slide_3'];
 			}
 			?>
 		</div>
-		<figcaption class="px-5 fs-4 text-center">
+		<figcaption class="px-lg-5 fs-4 text-center">
 			<?php echo $slide_3['caption']; ?>
 		</figcaption>
 	</figure>

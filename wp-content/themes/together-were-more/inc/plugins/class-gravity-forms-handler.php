@@ -30,12 +30,10 @@ class Gravity_Forms_Handler {
 	public function update_submit_button_classes( $button, ): string {
 		$dom = new \DOMDocument();
 		$dom->loadHTML( $button );
-		$input              = $dom->getElementsByTagName( 'input' )->item( 0 );
-		$classes            = $input->getAttribute( 'class' );
-		$front_page_id      = get_option( 'page_on_front' );
-		$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-		$btn_color          = cno_get_category_color( $category_spotlight );
-		$classes            = "btn btn-{$btn_color} text-uppercase";
+		$input     = $dom->getElementsByTagName( 'input' )->item( 0 );
+		$classes   = $input->getAttribute( 'class' );
+		$btn_color = cno_get_primary_color();
+		$classes   = "btn btn-{$btn_color} text-uppercase";
 		$input->setAttribute( 'class', $classes );
 		return $dom->saveHtml( $input );
 	}
