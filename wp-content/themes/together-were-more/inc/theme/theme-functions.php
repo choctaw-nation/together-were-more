@@ -116,9 +116,15 @@ function cno_get_categories_array(): array {
 }
 
 /**
- * Get the hover color based on the front-page category spotlight
+ * Gets the primary color based on the front-page category spotlight or the current category if loaded on a category archive or single post.
  */
-function cno_get_hover_color(): string {
+function cno_get_primary_color(): string {
+	if ( is_single() || is_category() ) {
+		if ( ! empty( get_the_category() ) ) {
+			$active_category = get_the_category()[0]->name;
+			return cno_get_category_color( $active_category );
+		}
+	}
 	$front_page_id      = get_option( 'page_on_front' );
 	$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
 	return cno_get_category_color( $category_spotlight );

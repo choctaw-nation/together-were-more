@@ -5,11 +5,9 @@
  * @package ChoctawNation
  */
 
-$front_page_id      = get_option( 'page_on_front' );
-$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-$btn_color          = cno_get_category_color( $category_spotlight );
+$btn_color = cno_get_primary_color();
 ?>
-<div class="modal fade" id="site-search" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="site-search" tabindex="-1" aria-hidden="true" data-primary-color="<?php echo $btn_color; ?>">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -20,7 +18,7 @@ $btn_color          = cno_get_category_color( $category_spotlight );
 					<input type="search" class="form-control flex-grow-1 fs-6" name="s" id="search-query" aria-label="Search for stories" placeholder="Search stories" />
 					<button type="submit" class="btn btn-outline-<?php echo $btn_color; ?> text-uppercase fs-6">Search</button>
 				</form>
-				<div id="modal-search-results" class="d-flex flex-column row-gap-4 align-items-stretch">
+				<div id="modal-search-results" class="d-flex flex-column row-gap-4 align-items-stretch text-dark" aria-live="polite">
 				</div>
 			</div>
 		</div>

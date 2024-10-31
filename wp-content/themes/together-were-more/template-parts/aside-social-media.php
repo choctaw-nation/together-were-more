@@ -7,10 +7,7 @@
 
 $socials        = get_field( 'social_media_channels', 'options' );
 $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
-
-$front_page_id      = get_option( 'page_on_front' );
-$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-$hover_color        = cno_get_category_color( $category_spotlight );
+$hover_color    = cno_get_primary_color();
 ?>
 <aside id="socials" class="position-relative overflow-x-hidden">
 	<img src="<?php echo $texture_bg_url; ?>" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="" aria-hidden="true" />

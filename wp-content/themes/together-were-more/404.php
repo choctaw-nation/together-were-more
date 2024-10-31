@@ -6,9 +6,7 @@
  */
 
 get_header();
-$front_page_id      = get_option( 'page_on_front' );
-$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-$button_color       = cno_get_category_color( $category_spotlight );
+$button_color = cno_get_primary_color();
 ?>
 <main id="main" class="site-main container py-5 mt-5">
 	<section class="error-404 not-found">
