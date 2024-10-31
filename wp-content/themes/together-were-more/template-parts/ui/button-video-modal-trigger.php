@@ -38,12 +38,15 @@ if ( $custom_thumbnail ) {
 	$button_attributes['data-custom-thumb'] = $custom_thumbnail;
 }
 echo '<button ' . cno_generate_html_attributes( $button_attributes ) . ">{$button_text}</button>";
-get_template_part(
-	'template-parts/modal',
-	'video-modal',
-	array(
-		'modal_title'      => $modal_title,
-		'video_id'         => $video_id,
-		'custom_thumbnail' => $custom_thumbnail,
-	)
-);
+if ( empty( $args['no_modal'] ) ) {
+	get_template_part(
+		'template-parts/modal',
+		'video-modal',
+		array(
+			'modal_title'      => $modal_title,
+			'video_id'         => $video_id,
+			'custom_thumbnail' => $custom_thumbnail,
+		)
+	);
+
+}

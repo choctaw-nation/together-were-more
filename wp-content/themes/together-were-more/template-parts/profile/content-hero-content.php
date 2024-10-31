@@ -27,6 +27,7 @@ get_template_part(
 	'template-parts/ui/button',
 	'video-modal-trigger',
 	array(
+		'no_modal'            => true,
 		'featured_profile_id' => get_the_ID(),
 		'class'               => 'fs-6' . ( 'white' === $color ? ' btn-outline-light' : " btn-outline-{$color}" ),
 	)

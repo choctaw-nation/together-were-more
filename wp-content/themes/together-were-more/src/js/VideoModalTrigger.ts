@@ -7,17 +7,15 @@ new ( class VideoModalTrigger {
 	/**
 	 * The triggering button element that opens the modal
 	 */
-	private trigger: HTMLElement;
+	private trigger: HTMLButtonElement;
 
 	/**
 	 * Constructor
 	 */
 	constructor() {
 		this.modalEl = document.getElementById( 'videoModal' ) as HTMLElement;
-		this.trigger = document.querySelector(
-			'.modal-trigger'
-		) as HTMLElement;
-		if ( this.modalEl && this.trigger ) {
+
+		if ( this.modalEl ) {
 			this.init();
 		}
 	}
@@ -26,6 +24,10 @@ new ( class VideoModalTrigger {
 	 * Wires up the event listener to reset the modal on close
 	 */
 	public init() {
+		this.modalEl.addEventListener( 'show.bs.modal', ( ev ) => {
+			this.trigger = ev.relatedTarget as HTMLButtonElement;
+		} );
+
 		this.modalEl.addEventListener( 'hide.bs.modal', () => {
 			this.rebootLiteVimeoComponent();
 		} );
@@ -69,7 +71,7 @@ new ( class VideoModalTrigger {
 	 * Get the video ID and custom thumbnail from the trigger element
 	 */
 	private getAttributesFromTrigger() {
-		const videoId = this.trigger.getAttribute( 'data-videoId' ) as string;
+		const videoId = this.trigger.getAttribute( 'data-video-id' ) as string;
 		const customThumbnail =
 			this.trigger.getAttribute( 'data-custom-thumb' );
 
