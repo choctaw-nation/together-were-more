@@ -5,14 +5,7 @@
  * @package ChoctawNation
  */
 
-$hover_color = isset( $args['hover_color'] ) ? $args['hover_color'] : null;
-if ( null === $hover_color ) {
-	$front_page_id      = get_option( 'page_on_front' );
-	$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-	$hover_color        = cno_get_category_color( $category_spotlight );
-}
-$categories = cno_get_categories_array();
-
+$categories      = cno_get_categories_array();
 $active_category = null;
 if ( is_single() || is_category() ) {
 	if ( ! empty( get_the_category() ) ) {
@@ -30,13 +23,9 @@ if ( is_single() || is_category() ) {
 		</a>
 	</li>
 	<?php endforeach; ?>
-	<?php
-	$front_page_id      = get_option( 'page_on_front' );
-	$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-	$hover_color        = cno_get_category_color( $category_spotlight );
-	?>
+	<?php $hover_color = cno_get_primary_color(); ?>
 	<li class="nav-item" style="<?php echo "--hover-color:var(--bs-{$hover_color});"; ?>">
-		<button class="border-0 bg-transparent p-0 search-button d-flex flex-row-reverse column-gap-2" aria-label="search" data-bs-toggle="modal" data-bs-target="#site-search">
+		<button class="nav-link border-0 bg-transparent p-0 search-button d-flex flex-row-reverse column-gap-2" aria-label="search" data-bs-toggle="modal" data-bs-target="#site-search">
 			<div class="d-lg-none text-uppercase ls-1 p-0 d-block border-bottom ls-1">Search</div>
 			<figure class="mb-0">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
