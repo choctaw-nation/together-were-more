@@ -114,3 +114,12 @@ function cno_get_categories_array(): array {
 	);
 	return $categories;
 }
+
+/**
+ * Get the hover color based on the front-page category spotlight
+ */
+function cno_get_hover_color(): string {
+	$front_page_id      = get_option( 'page_on_front' );
+	$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
+	return cno_get_category_color( $category_spotlight );
+}

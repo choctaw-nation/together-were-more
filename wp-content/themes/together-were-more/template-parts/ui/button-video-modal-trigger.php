@@ -11,7 +11,7 @@ if ( false === $featured_profile_id ) {
 }
 
 wp_enqueue_script( 'video-modal-trigger' );
-$button_text = isset( $args['button_text'] ) ? $args['button_text'] : '<i class="fa-light fa-play"></i> Watch Video';
+$button_text = isset( $args['button_text'] ) ? $args['button_text'] : '<i class="fa-light fa-play"></i>  Watch Video';
 $classes     = isset( $args['class'] ) ? $args['class'] : '';
 if ( $classes && is_array( $classes ) ) {
 	$classes = implode( ' ', $classes );

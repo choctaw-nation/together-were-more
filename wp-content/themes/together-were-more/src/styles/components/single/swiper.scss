@@ -34,7 +34,7 @@
 					transform: translate(40%, 40%);
 
 					@include m.media-breakpoint-up(sm) {
-						transform: translate(60%, 40%);
+						transform: translate(60%, 55%);
 					}
 				}
 			}

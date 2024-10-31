@@ -7,7 +7,7 @@
 
 $color = isset( $args['color'] ) ? $args['color'] : 'white';
 ?>
-<span class="h4 ls-3 text-uppercase mb-0">Our stories make us more</span>
+<span class="h4 ls-3 text-uppercase mb-0 fw-normal">Our stories make us more</span>
 <?php
 get_template_part(
 	'template-parts/ui/hr',
