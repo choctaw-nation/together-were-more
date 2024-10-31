@@ -11,10 +11,11 @@
 	the_post_thumbnail(
 		'hero',
 		array(
-			'class' => 'bg-image object-fit-cover position-absolute top-0 start-0 w-100 h-100',
+			'class' => 'bg-image object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1',
 		)
 	);
 	?>
+	<div class="bg-black bg-opacity-50 position-absolute w-100 h-100 top-0 z-n1"></div>
 	<div class="container-fluid position-relative py-5 d-none d-lg-block">
 		<div class="row justify-content-end align-items-center">
 			<div class="col-7 col-md-6 d-flex flex-column flex-wrap align-items-center py-5 text-white">

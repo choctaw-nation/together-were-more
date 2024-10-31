@@ -38,15 +38,6 @@ new Swiper( '#category-preview .swiper', {
 	},
 } );
 
-const bootstrapBreakpoints = {
-	xs: 0,
-	sm: 576.02,
-	md: 767.02,
-	lg: 991.02,
-	xl: 1200.02,
-	xxl: 1400.02,
-};
-
 /**
  * Toggles the opacity of the headline when the slider is/isn't on slide 1. Only fires on desktop sizes.
  *
