@@ -9,6 +9,15 @@ wp_enqueue_style( 'current-feature' );
 $featured_profile_id = get_field( 'current_feature' )['featured_profile'];
 
 $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
+
+$srcset_str  = wp_get_attachment_image_srcset( get_post_thumbnail_id( $featured_profile_id ), 'full' );
+$srcset_by_w = explode( ',', $srcset_str );
+$srcset_by_h = array_map(
+	function ( $srcset ) {
+		return substr( $srcset, 0, -1 ) . 'h';
+	},
+	$srcset_by_w
+);
 ?>
 <section class="featured container-fluid gx-0 overflow-hidden position-relative">
 	<img src="<?php echo $bg_image; ?>" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="" aria-hidden="true" loading="lazy" />
@@ -17,10 +26,11 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 			<?php
 			echo get_the_post_thumbnail(
 				$featured_profile_id,
-				'profile-preview',
+				'full',
 				array(
 					'class'   => 'w-100 object-fit-cover',
 					'loading' => 'lazy',
+					'srcset'  => implode( ', ', $srcset_by_h ),
 				)
 			);
 			?>
@@ -35,7 +45,7 @@ $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 						'diamonds',
 						array(
 							'color' => 'gold',
-							'class' => 'w-75 mt-4 mb-5',
+							'class' => 'w-75 mt-2 mb-3 mt-lg-4 mb-lg-5',
 						)
 					);
 					?>

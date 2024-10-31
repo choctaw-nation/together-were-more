@@ -21,7 +21,7 @@ $alignment_map = array(
 );
 $base_class    = 'diamond-separator ' . ( $full_width ? 'col-12' : 'col-7 col-lg-auto' );
 ?>
-<div class='container'>
+<div class="container">
 	<div class="<?php echo "row {$alignment_map[$location]} gx-0"; ?>">
 		<div class="<?php echo $base_class; ?>">
 			<?php

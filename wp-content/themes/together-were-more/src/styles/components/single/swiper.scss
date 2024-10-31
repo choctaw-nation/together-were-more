@@ -1,7 +1,14 @@
 @use "../../abstracts/mixins" as m;
 
 .swiper {
-	height: 80vh;
+	.slide-container {
+		--size: 80%;
+		aspect-ratio: 1;
+
+		@include m.media-breakpoint-down(md) {
+			width: var(--size);
+		}
+	}
 
 	#swipe-text {
 		bottom: 10%;
@@ -43,19 +50,15 @@
 			& > * {
 				height: 100%;
 			}
-
-			lite-vimeo::shadow {
-				aspect-ratio: 1 !important;
-				height: 100%;
-				width: 100%;
-			}
 		}
 
 		& figure {
 			max-width: 90vw;
+
 			@include m.media-breakpoint-up(md) {
 				max-width: 720px;
 			}
+
 			@include m.media-breakpoint-up(lg) {
 				max-width: 800px;
 			}

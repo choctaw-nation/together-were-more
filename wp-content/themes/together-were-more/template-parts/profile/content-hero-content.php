@@ -31,4 +31,3 @@ get_template_part(
 		'class'               => 'fs-6' . ( 'white' === $color ? ' btn-outline-light' : " btn-outline-{$color}" ),
 	)
 );
-?>
