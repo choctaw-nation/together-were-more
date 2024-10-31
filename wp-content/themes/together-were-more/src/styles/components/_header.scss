@@ -2,7 +2,10 @@
 
 #site-header {
 	z-index: 1000;
-	--bs-gutter-x: 6rem;
+
+	@include m.media-breakpoint-up(lg) {
+		--bs-gutter-x: 6rem;
+	}
 }
 
 .logo {

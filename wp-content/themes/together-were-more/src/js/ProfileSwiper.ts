@@ -22,12 +22,12 @@ new Swiper( '.swiper', {
 	slidesPerView: 1,
 	direction: 'horizontal',
 	spaceBetween: 5,
-	autoHeight: false,
+	autoHeight: true,
 	grabCursor: true,
 	loop: false,
 	freeMode: {
 		enabled: true,
-		sticky: false,
+		sticky: true,
 	},
 	mousewheel: {
 		enabled: true,
