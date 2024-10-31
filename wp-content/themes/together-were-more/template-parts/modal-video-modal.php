@@ -22,9 +22,6 @@ $custom_thumbnail = empty( $args['custom_thumbnail'] ) ? false : $args['custom_t
 			<div class="modal-body">
 				<?php echo "<lite-vimeo videoid='{$video_id}' enableTracking" . ( $custom_thumbnail ? "unlisted customPlaceholder='{$custom_thumbnail}'" : '' ) . '></lite-vimeo>'; ?>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
-			</div>
 		</div>
 	</div>
 </div>

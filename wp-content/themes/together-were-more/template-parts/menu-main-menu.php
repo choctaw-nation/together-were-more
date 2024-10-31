@@ -36,9 +36,9 @@ if ( is_single() || is_category() ) {
 	$hover_color        = cno_get_category_color( $category_spotlight );
 	?>
 	<li class="nav-item" style="<?php echo "--hover-color:var(--bs-{$hover_color});"; ?>">
-		<button class="border-0 bg-transparent p-0 search-button" aria-label="search" data-bs-toggle="modal" data-bs-target="#site-search">
-			<span class="d-lg-none text-uppercase ls-1 p-0 d-block border-bottom ls-1">Search</span>
-			<figure class="mb-0 d-none d-lg-inline-block">
+		<button class="border-0 bg-transparent p-0 search-button d-flex flex-row-reverse column-gap-2" aria-label="search" data-bs-toggle="modal" data-bs-target="#site-search">
+			<div class="d-lg-none text-uppercase ls-1 p-0 d-block border-bottom ls-1">Search</div>
+			<figure class="mb-0">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 					<path
 							d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">

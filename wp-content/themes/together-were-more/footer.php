@@ -11,14 +11,17 @@ $is_blank_template = strpos( $page_template, 'page-templates/blank.php' );
 if ( ! $is_blank_template ) {
 	get_template_part( 'template-parts/aside', 'social-media' );
 }
+$front_page_id      = get_option( 'page_on_front' );
+$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
+$hover_color        = cno_get_category_color( $category_spotlight );
 ?>
 <footer class="footer container-fluid gx-0 text-bg-dark d-flex flex-column align-items-stretch">
 	<div class="container-xxl">
 		<div class="row row-gap-4 column-gap-2 gx-0 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
 			<div class="col-sm-12 col-md-5 text-center text-md-start">
-				<p class="h1 text-uppercase text-white mb-0">Are you Choctaw Proud?</p>
+				<p class="h1 text-uppercase text-white">Are you Choctaw Proud?</p>
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-outline-light text-uppercase" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
+				<button type="button" class="<?php echo "btn btn-{$hover_color} text-uppercase"; ?>" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
 					Share your story with us
 				</button>
 				<!-- Modal -->
@@ -43,11 +46,6 @@ if ( ! $is_blank_template ) {
 				</div>
 			</div>
 			<div class="col col-lg-5 text-center text-md-start">
-				<?php
-				$front_page_id      = get_option( 'page_on_front' );
-				$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-				$hover_color        = cno_get_category_color( $category_spotlight );
-				?>
 				<a href="<?php echo esc_url( site_url() ); ?>" class="text-decoration-none font-gill-sans fw-bold footer-link-text"
 					style="--cno-link-hover-color:<?php echo "var(--bs-{$hover_color})"; ?>" aria-label="to Home Page">
 					Choctaw Nation
@@ -56,8 +54,9 @@ if ( ! $is_blank_template ) {
 					succeed and give back to our communities.</p>
 			</div>
 		</div>
-		<div class="row border-top border-2 border-light gap-2 pt-4 mb-3" <?php echo "style='--bs-link-color-rgb:255,255,255;--bs-link-hover-color-rgb:var(--bs-{$hover_color}-rgb);'"; ?>>
-			<div class="col-auto"><?php echo '<p class="mb-0">&copy;&nbsp;' . gmdate( 'Y' ) . '&nbsp;Choctaw Nation of Oklahoma</p>'; ?></div>
+		<div class="row border-top border-2 border-light gap-2 pt-4 mb-3 flex-column flex-lg-row justify-content-center justify-content-lg-start row-gap-3"
+			<?php echo "style='--bs-link-color-rgb:255,255,255;--bs-link-hover-color-rgb:var(--bs-{$hover_color}-rgb);'"; ?>>
+			<div class="col-auto text-center text-lg-start"><?php echo '<p class="mb-0">&copy;&nbsp;' . gmdate( 'Y' ) . '&nbsp;Choctaw Nation of Oklahoma</p>'; ?></div>
 			<?php if ( has_nav_menu( 'footer_menu' ) ) : ?>
 			<div class="col-auto">
 				<?php

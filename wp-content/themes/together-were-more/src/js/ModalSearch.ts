@@ -42,6 +42,9 @@ new ( class SiteSearchHandler {
 
 	private async performSearch() {
 		const query = this.searchInput.value;
+		if ( query.length < 3 ) {
+			return;
+		}
 		try {
 			const response = await fetch(
 				`${ window.cnoSiteData.rootUrl }/wp-json/cno/v1/search?s=${ query }`,
@@ -92,7 +95,7 @@ new ( class SiteSearchHandler {
 		const li = document.createElement( 'li' );
 		li.id = `post-${ id }`;
 		li.classList.add( 'position-relative', 'border-2', 'p-3' );
-		li.innerHTML = `<h2>${ name }</h2><p>${ title }</p><p>${ excerpt }</p><a href="${ permalink }" class="stretched-link text-uppercase btn btn-${ this.categoryColor(
+		li.innerHTML = `<h2>${ name }</h2><p>${ title }</p><p>${ excerpt }</p><a href="${ permalink }" class="stretched-link text-uppercase btn btn-outline-${ this.categoryColor(
 			category
 		) }">Read Story</a>`;
 		return li;

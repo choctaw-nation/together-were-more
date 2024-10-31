@@ -23,11 +23,7 @@
 		<div class="row gx-0 justify-content-between align-items-center w-100">
 			<div class="col-auto flex-shrink-1">
 				<h2 class="my-2 align-items-center fw-bold d-flex column-gap-3 flex-wrap">
-					<?php
-						$front_page_id      = get_option( 'page_on_front' );
-						$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-						$hover_color        = cno_get_category_color( $category_spotlight );
-					?>
+					<?php $hover_color = cno_get_hover_color(); ?>
 					<a class="navbar-brand fs-5 font-gill-sans" href="<?php echo esc_url( site_url() ); ?>" class="logo" aria-label="to Home Page"
 						style="--bs-navbar-brand-hover-color:var(--bs-<?php echo $hover_color; ?>);">
 						Choctaw Nation
@@ -45,7 +41,7 @@
 							$bg_texture = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 							echo "<img src='{$bg_texture}' loading='lazy' class='position-absolute object-fit-cover w-100 h-100 top-0 d-lg-none z-n1'/>";
 						?>
-						<div class="offcanvas-header mt-5">
+						<div class="offcanvas-header">
 							<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 						</div>
 						<?php get_template_part( 'template-parts/menu', 'main-menu' ); ?>

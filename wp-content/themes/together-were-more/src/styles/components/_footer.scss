@@ -2,8 +2,7 @@
 @use "./social-media";
 
 .footer .container-xxl {
-	// --bs-gutter-x: 3rem;
-	@include m.media-breakpoint-up(lg) {
+	@include m.media-breakpoint-up(sm) {
 		--bs-gutter-x: 6rem;
 	}
 }
