@@ -12,10 +12,18 @@ if ( null === $hover_color ) {
 	$hover_color        = cno_get_category_color( $category_spotlight );
 }
 $categories = cno_get_categories_array();
+
+$active_category = null;
+if ( is_single() || is_category() ) {
+	if ( ! empty( get_the_category() ) ) {
+		$active_category = get_the_category()[0]->slug;
+	}
+}
 ?>
 <ul class="navbar-nav ms-lg-0 text-uppercase fs-5 align-items-center gap-5" id="main-menu">
 	<?php foreach ( $categories as $category ) : ?>
-	<li class="nav-item">
+		<?php $hover_color = cno_get_category_color( $category->name ); ?>
+	<li class="<?php echo ( $category->slug === $active_category ) ? 'nav-item active fw-bold' : 'nav-item'; ?>">
 		<a class="nav-link p-0 d-block border-bottom ls-1" href="<?php echo site_url( "/{$category->slug}" ); ?>"
 			style="<?php echo "--bs-nav-link-hover-color:var(--bs-{$hover_color});--bs-border-hover-color:var(--bs-{$hover_color});"; ?>">
 			<?php echo $category->name; ?>
