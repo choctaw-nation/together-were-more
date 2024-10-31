@@ -18,6 +18,11 @@
 	}
 }
 
+%active {
+	border-bottom: var(--bs-border-width) var(--bs-border-style)
+		var(--bs-border-hover-color) !important;
+	filter: brightness(130%) saturate(120%);
+}
 .navbar-nav#main-menu {
 	.nav-link {
 		--bs-nav-link-color: var(--bs-dark);
@@ -25,15 +30,23 @@
 
 		transition:
 			color var(--transition-standard),
+			filter var(--transition-standard),
 			border var(--transition-standard);
 
 		@include m.interaction() {
-			border-bottom: var(--bs-border-width) var(--bs-border-style)
-				var(--bs-border-hover-color) !important;
+			@extend %active;
 		}
 
 		@include m.media-breakpoint-up(lg) {
 			--bs-nav-link-color: white;
+		}
+	}
+	.active .nav-link {
+		@extend %active;
+		color: var(--bs-nav-link-hover-color);
+
+		@include m.interaction() {
+			filter: unset;
 		}
 	}
 

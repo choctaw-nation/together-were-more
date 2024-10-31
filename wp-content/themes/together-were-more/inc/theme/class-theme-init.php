@@ -304,8 +304,7 @@ class Theme_Init {
 
 		register_nav_menus(
 			array(
-				'primary_menu' => __( 'Primary Menu', 'cno' ),
-				'footer_menu'  => __( 'Footer Menu', 'cno' ),
+				'footer_menu' => __( 'Footer Menu', 'cno' ),
 			)
 		);
 	}
