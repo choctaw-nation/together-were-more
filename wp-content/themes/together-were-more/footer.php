@@ -5,8 +5,13 @@
  * @package ChoctawNation
  */
 
+$page_template     = get_page_template();
+$is_blank_template = strpos( $page_template, 'page-templates/blank.php' );
+
+if ( ! $is_blank_template ) {
+	get_template_part( 'template-parts/aside', 'social-media' );
+}
 ?>
-<?php get_template_part( 'template-parts/aside', 'social-media' ); ?>
 <footer class="footer container-fluid gx-0 text-bg-dark d-flex flex-column align-items-stretch">
 	<div class="container-xxl">
 		<div class="row row-gap-4 column-gap-2 gx-0 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
