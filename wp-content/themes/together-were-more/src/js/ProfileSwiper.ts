@@ -27,7 +27,7 @@ new Swiper( '.swiper', {
 	loop: false,
 	freeMode: {
 		enabled: true,
-		sticky: false,
+		sticky: true,
 	},
 	mousewheel: {
 		enabled: true,
