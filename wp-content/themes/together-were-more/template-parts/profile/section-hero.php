@@ -15,7 +15,7 @@
 		)
 	);
 	?>
-	<div class="bg-black bg-opacity-50 position-absolute w-100 h-100 top-0 z-n1"></div>
+	<div class="d-none d-lg-block bg-black bg-opacity-50 position-absolute w-100 h-100 top-0 z-n1"></div>
 	<div class="container-fluid position-relative py-5 d-none d-lg-block">
 		<div class="row justify-content-end align-items-center">
 			<div class="col-7 col-md-6 d-flex flex-column flex-wrap align-items-center py-5 text-white">
@@ -33,3 +33,23 @@
 		</div>
 	</div>
 </div>
+<?php
+$modal_title      = get_the_title();
+$video_id         = false;
+$custom_thumbnail = false;
+while ( have_rows( 'meta_video_details' ) ) {
+	the_row();
+	$video_url        = get_sub_field( 'video_url', false );
+	$custom_thumbnail = get_sub_field( 'custom_thumbnail', false );
+	$video_id         = cno_extract_vimeo_id( $video_url, );
+}
+
+get_template_part(
+	'template-parts/modal',
+	'video-modal',
+	array(
+		'modal_title'      => $modal_title,
+		'video_id'         => $video_id,
+		'custom_thumbnail' => $custom_thumbnail,
+	)
+);
