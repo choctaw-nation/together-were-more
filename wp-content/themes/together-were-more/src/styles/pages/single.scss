@@ -12,7 +12,7 @@
 
 	@include m.media-breakpoint-up(lg) {
 		overflow: hidden;
-		height: 820px;
+		height: var(--figure-height, 820px);
 	}
 }
 

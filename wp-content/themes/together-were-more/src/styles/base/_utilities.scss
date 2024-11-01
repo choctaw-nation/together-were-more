@@ -1,3 +1,4 @@
+@use "bootstrap/scss/vendor/rfs" as rfs;
 .font-gill-sans {
 	font-family: var(--font-body);
 }
@@ -12,6 +13,10 @@
 
 .font-serif {
 	font-family: var(--font-serif);
+}
+
+.fs-base {
+	@include rfs.font-size(1rem);
 }
 
 @keyframes bounce-left {
