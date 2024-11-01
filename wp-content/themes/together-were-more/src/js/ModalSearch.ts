@@ -93,6 +93,9 @@ new ( class SiteSearchHandler {
 	 */
 	private async performSearch() {
 		const query = this.searchInput.value;
+		if ( query.length < 3 ) {
+			return;
+		}
 		try {
 			const response = await fetch(
 				`${ window.cnoSiteData.rootUrl }/wp-json/cno/v1/search?s=${ query }`
