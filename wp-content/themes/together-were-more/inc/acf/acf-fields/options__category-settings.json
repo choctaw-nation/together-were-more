@@ -91,58 +91,6 @@
 						"toolbar": "basic",
 						"media_upload": 0,
 						"delay": 0
-					},
-					{
-						"key": "field_67223a639ed69",
-						"label": "Override Category Name",
-						"name": "has_category_name_override",
-						"aria-label": "",
-						"type": "true_false",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"message": "Override Category Name",
-						"default_value": 0,
-						"allow_in_bindings": 0,
-						"ui_on_text": "Use Custom Name",
-						"ui_off_text": "Use Default Name",
-						"ui": 1
-					},
-					{
-						"key": "field_67223a539ed68",
-						"label": "Category Name Override",
-						"name": "category_name_override",
-						"aria-label": "",
-						"type": "text",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": [
-							[
-								{
-									"field": "field_67223a639ed69",
-									"operator": "==",
-									"value": "1"
-								}
-							]
-						],
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"default_value": "",
-						"maxlength": "",
-						"allow_in_bindings": 0,
-						"placeholder": "",
-						"prepend": "",
-						"append": ""
 					}
 				]
 			},
@@ -234,58 +182,6 @@
 						"toolbar": "basic",
 						"media_upload": 0,
 						"delay": 0
-					},
-					{
-						"key": "field_67223aff65657",
-						"label": "Override Category Name",
-						"name": "has_category_name_override",
-						"aria-label": "",
-						"type": "true_false",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"message": "Override Category Name",
-						"default_value": 0,
-						"allow_in_bindings": 0,
-						"ui_on_text": "Use Custom Name",
-						"ui_off_text": "Use Default Name",
-						"ui": 1
-					},
-					{
-						"key": "field_67223b0765658",
-						"label": "Category Name Override",
-						"name": "category_name_override",
-						"aria-label": "",
-						"type": "text",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": [
-							[
-								{
-									"field": "field_67223aff65657",
-									"operator": "==",
-									"value": "1"
-								}
-							]
-						],
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"default_value": "",
-						"maxlength": "",
-						"allow_in_bindings": 0,
-						"placeholder": "",
-						"prepend": "",
-						"append": ""
 					}
 				]
 			},
@@ -379,58 +275,6 @@
 						"toolbar": "basic",
 						"media_upload": 0,
 						"delay": 0
-					},
-					{
-						"key": "field_67223c33a098b",
-						"label": "Override Category Name",
-						"name": "has_category_name_override",
-						"aria-label": "",
-						"type": "true_false",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"message": "Override Category Name",
-						"default_value": 0,
-						"allow_in_bindings": 0,
-						"ui_on_text": "Use Custom Name",
-						"ui_off_text": "Use Default Name",
-						"ui": 1
-					},
-					{
-						"key": "field_67223c38a098c",
-						"label": "Category Name Override",
-						"name": "category_name_override",
-						"aria-label": "",
-						"type": "text",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": [
-							[
-								{
-									"field": "field_67223c33a098b",
-									"operator": "==",
-									"value": "1"
-								}
-							]
-						],
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"default_value": "",
-						"maxlength": "",
-						"allow_in_bindings": 0,
-						"placeholder": "",
-						"prepend": "",
-						"append": ""
 					}
 				]
 			},
@@ -522,58 +366,6 @@
 						"toolbar": "basic",
 						"media_upload": 0,
 						"delay": 0
-					},
-					{
-						"key": "field_67223c82a098d",
-						"label": "Override Category Name",
-						"name": "has_category_name_override",
-						"aria-label": "",
-						"type": "true_false",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": 0,
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"message": "Override Category Name",
-						"default_value": 0,
-						"allow_in_bindings": 0,
-						"ui_on_text": "Use Custom Name",
-						"ui_off_text": "Use Default Name",
-						"ui": 1
-					},
-					{
-						"key": "field_67223c84a098e",
-						"label": "Category Name Override",
-						"name": "category_name_override",
-						"aria-label": "",
-						"type": "text",
-						"instructions": "",
-						"required": 0,
-						"conditional_logic": [
-							[
-								{
-									"field": "field_67223c82a098d",
-									"operator": "==",
-									"value": "1"
-								}
-							]
-						],
-						"wrapper": {
-							"width": "",
-							"class": "",
-							"id": ""
-						},
-						"relevanssi_exclude": 0,
-						"default_value": "",
-						"maxlength": "",
-						"allow_in_bindings": 0,
-						"placeholder": "",
-						"prepend": "",
-						"append": ""
 					}
 				]
 			}
