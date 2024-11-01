@@ -134,6 +134,7 @@ class Media_And_Text {
 	public function get_the_text_col_classes(): string {
 		$col_classes = array(
 			'col-lg-6',
+			'flex-grow-1',
 		);
 		if ( ! $this->is_quote ) {
 			$col_classes[] = 'text-gray';
@@ -174,26 +175,34 @@ class Media_And_Text {
 	 * @return string
 	 */
 	public function get_the_media(): string {
+
+		$markup = '<div class="media-container"' . ( $this->is_quote && ! $this->is_video ? '' : ' data-aos="fade-up")' ) . '>';
 		if ( $this->is_video ) {
-			$markup  = '<figure class="mb-0 ratio ratio-16x9">';
+			$markup .= '<figure class="mb-0 ratio ratio-16x9">';
 			$markup .= $this->media_details['lite_vimeo'] ? $this->media_details['lite_vimeo'] : $this->media_details['fallback_iframe'];
 			$markup .= '</figure>';
 			return $markup;
 		}
 		// return figure with image
-		$image_args = array(
+		$image_args       = array(
 			'loading' => 'lazy',
-			'class'   => 'w-100 h-100 object-fit-' . ( $this->media_details['is_portrait'] ? 'cover' : 'contain' ),
+			'class'   => 'w-100 object-fit-cover' . ( $this->media_details['is_portrait'] ? ' h-100' : '' ),
 		);
-
-		$markup  = '<figure class="mb-0 ' . ( $this->media_details['is_portrait'] ? ' portrait-container' : ' ratio ratio-3x2' ) . ( $this->is_quote ? '"' : '" data-aos="fade-up")' ) . '>';
-		$markup .= wp_get_attachment_image(
+		$figure_classes   = array( 'mb-0' );
+		$figure_classes[] = $this->media_details['is_portrait'] ? 'portrait-container' : 'ratio ratio-3x2';
+		$markup          .= '<figure class="' . implode( ' ', $figure_classes ) . '">';
+		$markup          .= wp_get_attachment_image(
 			$this->media_details['photo'],
 			$this->media_details['is_portrait'] ? 'story-portrait' : 'story-landscape',
 			false,
 			$image_args
 		);
-		$markup .= '</figure>';
+		$markup          .= '</figure>';
+		$caption          = wp_get_attachment_caption( $this->media_details['photo'] );
+		if ( $caption ) {
+			$markup .= '<figcaption class="text-dark text-center fs-base fst-italic border-bottom border-1 border-dark mt-2">' . $caption . '</figcaption>';
+		}
+		$markup .= '</div>';
 		return $markup;
 	}
 
@@ -202,5 +211,12 @@ class Media_And_Text {
 	 */
 	public function the_media(): void {
 		echo $this->get_the_media();
+	}
+
+	/**
+	 * Determine if the photo/video media exists
+	 */
+	public function has_media(): bool {
+		return $this->is_video || ( false !== $this->media_details['photo'] );
 	}
 }
