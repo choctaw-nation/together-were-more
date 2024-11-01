@@ -54,7 +54,7 @@ $hover_color = cno_get_primary_color();
 		</div>
 		<div class="row border-top border-2 border-light gap-2 pt-4 mb-3 flex-column flex-lg-row justify-content-center justify-content-lg-start row-gap-3"
 			<?php echo "style='--bs-link-color-rgb:255,255,255;--bs-link-hover-color-rgb:var(--bs-{$hover_color}-rgb);'"; ?>>
-			<div class="col-auto text-center text-lg-start"><?php echo '<p class="mb-0">&copy;&nbsp;' . gmdate( 'Y' ) . '&nbsp;Choctaw Nation of Oklahoma</p>'; ?></div>
+			<div class="col-auto text-center text-lg-start fs-base"><?php echo '<p class="mb-0">&copy;&nbsp;' . gmdate( 'Y' ) . '&nbsp;Choctaw Nation of Oklahoma</p>'; ?></div>
 			<?php if ( has_nav_menu( 'footer_menu' ) ) : ?>
 			<div class="col-auto">
 				<?php
@@ -64,7 +64,7 @@ $hover_color = cno_get_primary_color();
 						'container'       => 'nav',
 						'container_class' => 'footer-nav',
 						'menu_class'      => 'nav justify-content-center justify-content-lg-start',
-						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'items_wrap'      => '<ul id="%1$s" class="%2$s fs-base">%3$s</ul>',
 					)
 				);
 				?>
