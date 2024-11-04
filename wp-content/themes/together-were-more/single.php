@@ -29,5 +29,5 @@ get_header();
 	?>
 </main>
 <?php
-// get_template_part( 'template-parts/profile/content', 'social-share' ); phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+get_template_part( 'template-parts/profile/content', 'social-share' );
 get_footer();
