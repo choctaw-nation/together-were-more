@@ -116,15 +116,18 @@ class Theme_Init {
 		}
 
 		$utility_files = array(
-			'allow-svg'     => 'Allow_SVG',
-			'role-editor'   => 'Role_Editor',
-			'post-override' => 'Post_Override',
-			'site-search'   => 'Site_Search',
+			'allow-svg'             => 'Allow_SVG',
+			'role-editor'           => 'Role_Editor',
+			'post-override'         => 'Post_Override',
+			'site-search'           => 'Site_Search',
+			'social-link-generator' => null,
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";
-			$class = __NAMESPACE__ . '\\' . $class_name;
-			new $class();
+			if ( $class_name ) {
+				$class = __NAMESPACE__ . '\\' . $class_name;
+				new $class();
+			}
 		}
 
 		$plugin_files = array(
