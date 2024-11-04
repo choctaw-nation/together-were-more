@@ -119,13 +119,19 @@ function cno_get_categories_array(): array {
  * Gets the primary color based on the front-page category spotlight or the current category if loaded on a category archive or single post.
  */
 function cno_get_primary_color(): string {
-	if ( is_single() || is_category() ) {
+	// Get Fallback color
+	$front_page_id   = get_option( 'page_on_front' );
+	$active_category = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
+
+	// Override the active category on single post or category archive pages
+	if ( is_single() ) {
 		if ( ! empty( get_the_category() ) ) {
 			$active_category = get_the_category()[0]->name;
-			return cno_get_category_color( $active_category );
 		}
+	} elseif ( is_category() ) {
+		$active_category = single_cat_title( '', false );
 	}
-	$front_page_id      = get_option( 'page_on_front' );
-	$category_spotlight = get_field( 'category_spotlight', $front_page_id )['category_to_spotlight']->name;
-	return cno_get_category_color( $category_spotlight );
+
+	// Return the color
+	return cno_get_category_color( $active_category );
 }

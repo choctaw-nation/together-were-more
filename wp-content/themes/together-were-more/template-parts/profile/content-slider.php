@@ -37,7 +37,7 @@ $pagination_color = cno_get_category_color( get_the_category( $post->ID )[0]->na
 <div class="container">
 	<div class="row">
 		<div class="col-12 position-relative">
-			<div class="swiper-pagination" style="<?php echo "--swiper-pagination-color:var(--bs-{$pagination_color});"; ?>"></div>
+			<div class="profile-swiper-pagination swiper-pagination" style="<?php echo "--swiper-pagination-color:var(--bs-{$pagination_color});"; ?>"></div>
 		</div>
 	</div>
 </div>
