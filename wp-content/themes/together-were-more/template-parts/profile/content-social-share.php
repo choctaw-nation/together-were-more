@@ -5,9 +5,9 @@
  * @package ChoctawNation
  */
 
-$socials         = get_field( 'social_media_channels', 'options' );
-$allowed_socials = array( 'Facebook', 'Twitter', 'Pinterest' );
-$bg_color        = cno_get_category_color( get_the_category()[0]->name );
+use ChoctawNation\Social_Link_Generator;
+
+$bg_color = cno_get_category_color( get_the_category()[0]->name );
 ?>
 <aside class="text-bg-dark">
 	<div class="container py-5">
@@ -16,18 +16,17 @@ $bg_color        = cno_get_category_color( get_the_category()[0]->name );
 				<p class="mb-0 text-uppercase">Share this story</p>
 				<div class="socials d-flex gap-3 justify-content-evenly">
 					<?php
-					foreach ( $socials as $social ) {
-						if ( ! in_array( $social['social_platform']['title'], $allowed_socials, true ) ) {
-							continue;
-						}
-						echo "<a href='{$social['social_platform']['url']}' data-aos='fade-in' class='text-{$bg_color}' title='{$social['social_platform']['title']}'>{$social['social_icon']}</a>";
-
+					$socials = array(
+						'Facebook'  => 'fa-brands fa-facebook-f',
+						'Twitter'   => 'fa-brands fa-x-twitter',
+						'Pinterest' => 'fa-brands fa-pinterest-p',
+						'Email'     => 'fa-light fa-envelope',
+					);
+					foreach ( $socials as $platform => $icon ) {
+						$link_generator = new Social_Link_Generator( get_the_permalink() );
+						$href           = $link_generator->get_the_href( $platform );
+						echo "<a href='{$href}' data-aos='fade-in' class='text-{$bg_color}' title='Share with {$platform}' target='_blank'><i class='{$icon}'></i></a>";
 					}
-					$post_title = get_the_title();
-					$permalink  = get_permalink();
-					$subject    = rawurlencode( "Together We're More Article: {$post_title}" );
-					$body       = rawurlencode( "Look at this great article on {$post_title}! {$permalink}" );
-					echo "<a href='mailto:?subject='{$subject}'&body={$body}' data-aos='fade-in' class='text-{$bg_color}' title='email'><i class='fa-light fa-envelope'></i></a>";
 					?>
 				</div>
 			</div>
