@@ -34,13 +34,16 @@ $spotlight = get_field( 'category_spotlight' )['category_to_spotlight'];
 		<?php
 		$posts_to_highlight =
 		array(
-			'posts'       => 3,
-			'post_status' => array( 'publish', 'future' ),
-			'cat'         => $spotlight->term_id,
-			'order'       => 'ASC',
+			'posts_per_page' => 3,
+			'post_status'    => array( 'publish', 'future' ),
+			'cat'            => $spotlight->term_id,
+			'order'          => 'DESC',
+			'orderby'        => 'date',
 		);
 		$spotlights         = new WP_Query( $posts_to_highlight );
+
 		if ( $spotlights->have_posts() ) {
+			$spotlights->posts = array_reverse( $spotlights->posts );
 			while ( $spotlights->have_posts() ) {
 				$spotlights->the_post();
 				echo "<div class='col'>";

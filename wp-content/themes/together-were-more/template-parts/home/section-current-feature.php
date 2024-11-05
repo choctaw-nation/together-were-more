@@ -21,14 +21,14 @@ $srcset_by_h = array_map(
 ?>
 <section class="featured container-fluid gx-0 overflow-hidden position-relative">
 	<img src="<?php echo $bg_image; ?>" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="" aria-hidden="true" loading="lazy" />
-	<div class="row row-cols-1 row-cols-lg-2 align-items-center justify-content-between">
-		<div class="col-lg-5 gx-0 featured__image">
+	<div class="row row-cols-1 row-cols-lg-2 align-items-stretch justify-content-between">
+		<div class="col-lg-5 gx-0 featured__image overflow-hidden">
 			<?php
 			echo get_the_post_thumbnail(
 				$featured_profile_id,
 				'full',
 				array(
-					'class'   => 'w-100 object-fit-cover',
+					'class'   => 'w-100 h-100 object-fit-cover',
 					'loading' => 'lazy',
 					'srcset'  => implode( ', ', $srcset_by_h ),
 				)

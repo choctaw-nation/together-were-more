@@ -27,7 +27,7 @@ if ( profileSwiper ) {
 		slidesPerView: 1,
 		direction: 'horizontal',
 		spaceBetween: 0,
-		autoHeight: true,
+		autoHeight: false,
 		grabCursor: true,
 		loop: false,
 		freeMode: {
