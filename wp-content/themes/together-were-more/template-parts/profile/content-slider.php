@@ -20,7 +20,11 @@ $pagination_color = cno_get_category_color( get_the_category( $post->ID )[0]->na
 		<div class="swiper-wrapper align-items-stretch">
 			<?php
 			for ( $i = 1; $i <= 5; $i++ ) {
-				echo "<div class='swiper-slide d-flex flex-column justify-content-center align-items-center' data-hash='slide{$i}'>";
+				$slide_classes = array( 'swiper-slide', 'd-flex', 'justify-content-center', 'align-items-center' );
+				if ( 3 === $i ) {
+					$slide_classes[] = 'pt-4';
+				}
+				echo "<div class='" . implode( ' ', $slide_classes ) . "' data-hash='slide{$i}'>";
 				get_template_part(
 					'template-parts/profile/content',
 					"slider-slide-{$i}",
