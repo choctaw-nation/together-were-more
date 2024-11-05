@@ -1,6 +1,7 @@
 @use "../../abstracts/mixins" as m;
 
 .swiper {
+	height: clamp(500px, 60vh, 60vh);
 	.slide-container {
 		--size: 80%;
 		aspect-ratio: 1;
@@ -12,32 +13,20 @@
 
 	#swipe-text {
 		bottom: 10%;
-		inset-inline-start: 10%;
-		z-index: 10;
 	}
 
 	[data-hash="slide1"] {
-		.d-grid {
-			grid-template-rows: 1fr;
-			grid-template-columns: 1fr;
-			place-content: center;
-			place-items: center;
+		img:nth-child(1) {
+			--size: 85%;
+			width: var(--size);
+			height: var(--size);
+			top: 50%;
+			transform: translateY(-50%);
+		}
 
-			.cell {
-				grid-area: 1 / 1 / 2 / 2;
-
-				&--1 {
-					transform: translateX(-20%);
-				}
-
-				&--2 {
-					transform: translate(40%, 40%);
-
-					@include m.media-breakpoint-up(sm) {
-						transform: translate(60%, 55%);
-					}
-				}
-			}
+		img:nth-child(2) {
+			bottom: -5%;
+			right: 5%;
 		}
 	}
 

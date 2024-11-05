@@ -7,7 +7,7 @@
 
 $slide_4 = $args['slide_4'];
 ?>
-<div class="slide-container h-auto position-relative">
+<div class="slide-container h-100 position-relative">
 	<?php
 	echo wp_get_attachment_image(
 		$slide_4['image'],
