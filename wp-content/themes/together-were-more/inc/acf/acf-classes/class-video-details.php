@@ -75,7 +75,7 @@ class Video_Details {
 	private function get_video_details(): array {
 		$video_id         = $this->extract_video_id();
 		$is_public        = $this->acf['is_public'];
-		$custom_thumbnail = $this->acf['custom_thumbnail'] ?: '';
+		$custom_thumbnail = $this->acf['custom_thumbnail'] ?: ''; // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
 		$fallback_iframe  = $this->acf['video_url'];
 		$lite_vimeo       = cno_generate_lite_vimeo( $video_id, true, $custom_thumbnail );
 		return array(
