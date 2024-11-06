@@ -56,7 +56,7 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 
 	</section>
 	<section class="container-lg gx-0 gx-lg-4 d-flex flex-column row-gap-4 mb-5">
-		<div class="row row-cols-1 row-cols-lg-2 row-gap-5 gx-0">
+		<div class="row row-cols-1 row-cols-lg-2 row-gap-5 gx-0 gx-lg-4">
 			<?php
 			if ( have_posts() ) {
 				while ( have_posts() ) {

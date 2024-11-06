@@ -2,6 +2,15 @@
 
 # Changelog
 
+## v1.1.2
+
+-   Fixed an issue where custom video broke single site
+-   Further style fixes
+
+## v1.1.1
+
+-   Fixed style bugs on homepage & profile-single
+
 ## v1.1.0
 
 -   Added Social Share (requires [CNO Plugin Facebook Share](https://github.com/choctaw-nation/cno-plugin-facebook-share) plugin)
