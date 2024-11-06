@@ -75,7 +75,7 @@ class Video_Details {
 	private function get_video_details(): array {
 		$video_id         = $this->extract_video_id();
 		$is_public        = $this->acf['is_public'];
-		$custom_thumbnail = $this->acf['custom_thumbnail'];
+		$custom_thumbnail = $this->acf['custom_thumbnail'] ?: '';
 		$fallback_iframe  = $this->acf['video_url'];
 		$lite_vimeo       = cno_generate_lite_vimeo( $video_id, true, $custom_thumbnail );
 		return array(
@@ -93,8 +93,8 @@ class Video_Details {
 	 * @return string
 	 */
 	private function extract_video_id(): string {
-		$pattern = '/src="https:\/\/player.vimeo.com\/video\/(\d+)\?/';
-		preg_match( $pattern, $this->acf['video_url'], $matches );
+		$pattern = '/src="https:\/\/player\.vimeo\.com\/video\/(\d+)[^"]*"/';
+		preg_match( $pattern, $this->acf['video_details']['video_url'], $matches );
 		return $matches[1];
 	}
 }

@@ -51,7 +51,7 @@ if ( is_category() ) {
 			<div class="col"><p class="fs-5 text-gray">Showing results for "' . get_search_query() . '"</p></div></div></section>';
 		}
 		?>
-		<section class="row row-cols-1 row-cols-lg-2 row-gap-5 gx-0">
+		<section class="row row-cols-1 row-cols-lg-2 row-gap-5 gx-0 gx-lg-4">
 			<?php
 			if ( have_posts() ) {
 				while ( have_posts() ) {
