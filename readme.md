@@ -2,6 +2,11 @@
 
 # Changelog
 
+## v1.1.3
+
+-   Fixed an issue where card body wasn't going the full width on lg+ sizes
+-   Fixed an issue where the swiper media's caption was breaking its container on `single.php` templates
+
 ## v1.1.2
 
 -   Fixed an issue where custom video broke single site
