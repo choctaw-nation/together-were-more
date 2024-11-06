@@ -29,7 +29,7 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 		?>
 	</figure>
 	<?php endif; ?>
-	<div class="p-3 d-flex flex-column h-100">
+	<div class="p-3 px-lg-0 d-flex flex-column h-100">
 		<h3 class="fs-2 fw-bold text-uppercase mb-0">
 			<?php the_title(); ?>
 		</h3>
