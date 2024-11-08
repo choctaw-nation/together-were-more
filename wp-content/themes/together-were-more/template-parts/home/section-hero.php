@@ -7,7 +7,16 @@
 
 ?>
 <section class="front-page-hero hero position-relative overflow-hidden py-5 d-flex flex-column align-items-stretch justify-content-center">
-	<?php the_post_thumbnail( 'hero', array( 'class' => 'object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1' ) ); ?>
+	<?php
+	the_post_thumbnail(
+		'hero',
+		array(
+			'class'           => 'object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1 skip-lazy',
+			'loading'         => 'eager',
+			'data-spai-eager' => true,
+		)
+	);
+	?>
 	<div class="image-overlay bg-black bg-opacity-50 position-absolute top-0 z-1 w-100 h-100"></div>
 	<div class="container position-relative z-2 py-5 text-center">
 		<div class="row justify-content-center">
