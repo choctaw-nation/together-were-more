@@ -17,7 +17,7 @@
 	"author": "Choctaw Nation of Oklahoma",
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
-		"@choctawnationofoklahoma/lite-vimeo": "^1.1.1",
+		"@choctawnationofoklahoma/lite-vimeo": "1.1.0",
 		"aos": "^2.3.4",
 		"bootstrap": "^5.3.3",
 		"swiper": "^11.1.14"
