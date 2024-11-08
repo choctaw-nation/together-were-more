@@ -74,9 +74,9 @@ class Video_Details {
 	 */
 	private function get_video_details(): array {
 		$video_id         = $this->extract_video_id();
-		$is_public        = $this->acf['is_public'];
-		$custom_thumbnail = $this->acf['custom_thumbnail'] ?: ''; // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
-		$fallback_iframe  = $this->acf['video_url'];
+		$is_public        = $this->acf['video_details']['is_public'];
+		$custom_thumbnail = $this->acf['video_details']['custom_thumbnail'] ?: ''; // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
+		$fallback_iframe  = $this->acf['video_details']['video_url'];
 		$lite_vimeo       = cno_generate_lite_vimeo( $video_id, true, $custom_thumbnail );
 		return array(
 			'video_id'         => $video_id,
