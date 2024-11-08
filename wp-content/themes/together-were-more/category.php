@@ -15,7 +15,7 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 
 <main <?php post_class( 'mb-5' ); ?>>
 	<section class="mb-lg-5 position-relative">
-		<img src="<?php echo $texture_bg_url; ?>" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="" aria-hidden="true" />
+		<img src="<?php echo $texture_bg_url; ?>" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="" aria-hidden="true" loading="eager" data-spai-eager />
 		<div class="container-lg pt-0 pt-lg-5 pb-5">
 			<div class="row row-gap-4 flex-row-reverse justify-content-between">
 				<div class="col-lg-7 px-0 px-lg-4">
@@ -26,8 +26,9 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 							'category-archive',
 							false,
 							array(
-								'class'   => 'w-100 object-fit-cover',
-								'loading' => 'lazy',
+								'class'           => 'w-100 object-fit-cover',
+								'loading'         => 'eager',
+								'data-spai-eager' => true,
 							)
 						);
 						?>
