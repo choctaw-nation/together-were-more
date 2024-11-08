@@ -2,6 +2,14 @@
 
 # Changelog
 
+## v1.1.4
+
+-   Updated lite-vimeo package to latest version to enable GTM Tracking
+-   Fixed incorrect aria value
+-   Fixed accessibility issue on cards (not enough contrast).
+-   Removed lazy loading from hero images
+-   Fixed an issue where video loader wasn't accessing ACF properties correctly
+
 ## v1.1.3
 
 -   Fixed an issue where card body wasn't going the full width on lg+ sizes

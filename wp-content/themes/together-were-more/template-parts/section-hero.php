@@ -11,7 +11,14 @@ $the_overlay = $has_overlay && isset( $args['the_overlay'] ) ? $args['the_overla
 
 <section class="hero position-relative overflow-hidden py-5 d-flex flex-column align-items-stretch justify-content-center">
 	<?php
-	the_post_thumbnail( 'hero', array( 'class' => 'object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1' ) );
+	the_post_thumbnail(
+		'hero',
+		array(
+			'class'           => 'object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1 skip-lazy',
+			'loading'         => 'eager',
+			'data-spai-eager' => true,
+		)
+	);
 	echo $the_overlay;
 	?>
 	<div class="container position-relative z-2 py-5 text-center">

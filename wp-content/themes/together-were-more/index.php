@@ -13,7 +13,7 @@ if ( is_category() ) {
 ?>
 <main <?php post_class(); ?>>
 	<section class="hero position-relative overflow-hidden py-5 d-flex flex-column align-items-stretch justify-content-center mb-lg-5">
-		<img src="<?php echo $bg_image; ?>" class="object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1" />
+		<img src="<?php echo $bg_image; ?>" class="object-fit-cover position-absolute top-0 start-0 w-100 h-100 z-n1" loading="eager" data-spai-eager />
 		<?php
 		if ( is_category() ) {
 			echo "<div class='image-overlay bg-{$color_overlay} position-absolute top-0 w-100 h-100' style='mix-blend-mode:screen'></div>";

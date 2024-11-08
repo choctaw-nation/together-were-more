@@ -1,6 +1,6 @@
 {
 	"name": "together-were-more",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Custom WP theme for Together We're More site",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
@@ -17,13 +17,13 @@
 	"author": "Choctaw Nation of Oklahoma",
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
-		"@choctawnationofoklahoma/lite-vimeo": "^1.1.0",
+		"@choctawnationofoklahoma/lite-vimeo": "^1.1.1",
 		"aos": "^2.3.4",
 		"bootstrap": "^5.3.3",
 		"swiper": "^11.1.14"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.3.0",
+		"@wordpress/scripts": "^30.4.0",
 		"eslint-config-react-app": "^7.0.1"
 	},
 	"overrides": {
