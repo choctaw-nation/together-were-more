@@ -2,6 +2,10 @@
 
 # Changelog
 
+## v1.1.5
+
+-   Updated lite-vimeo package to latest version to fix bugs
+
 ## v1.1.4
 
 -   Updated lite-vimeo package to latest version to enable GTM Tracking
