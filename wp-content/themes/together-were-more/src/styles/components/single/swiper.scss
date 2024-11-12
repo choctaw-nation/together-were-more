@@ -21,8 +21,6 @@
 	}
 
 	[data-hash="slide1"] {
-		width: 80%;
-
 		img:nth-child(1) {
 			--size: 85%;
 			width: var(--size);
@@ -35,6 +33,10 @@
 			bottom: -5%;
 			right: 5%;
 		}
+	}
+
+	[data-hash="slide2"] {
+		max-width: 60vw;
 	}
 
 	[data-hash="slide3"] {
