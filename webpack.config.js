@@ -31,7 +31,8 @@ module.exports = {
 				'modules/current-feature': `.${ THEME_DIR }/src/styles/components/current-feature.scss`,
 				'modules/category-swiper': `.${ THEME_DIR }/src/js/CategorySwiper.ts`,
 				'modules/video-modal-trigger': `.${ THEME_DIR }/src/js/VideoModalTrigger.ts`,
-				'pages/profile-swiper': `.${ THEME_DIR }/src/js/ProfileSwiper.ts`,
+				'pages/profile-swiper': `.${ THEME_DIR }/src/js/single/ProfileSwiper.ts`,
+				'pages/gallery-swiper': `.${ THEME_DIR }/src/js/single/GallerySwiper.ts`,
 				...addEntries( appNames, 'pages' ),
 				...addEntries( styleSheets, 'styles' ),
 			};

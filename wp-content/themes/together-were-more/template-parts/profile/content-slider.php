@@ -27,7 +27,7 @@ $pagination_color = cno_get_category_color( get_the_category( $post->ID )[0]->na
 					'align-items-center',
 				);
 				if ( 3 === $i ) {
-					$slide_classes[] = 'pt-4';
+					$slide_classes[] = 'my-4';
 				}
 				echo "<div class='" . implode( ' ', $slide_classes ) . "' data-hash='slide{$i}'>";
 				get_template_part(

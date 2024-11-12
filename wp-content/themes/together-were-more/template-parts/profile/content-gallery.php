@@ -10,7 +10,7 @@ use ChoctawNation\Enqueue_Type;
 
 $gallery = $args;
 $photos  = $gallery['photos'];
-new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
+new Asset_Loader( 'gallery-swiper', Enqueue_Type::both, 'pages' );
 
 $primary_color = cno_get_primary_color();
 ?>
