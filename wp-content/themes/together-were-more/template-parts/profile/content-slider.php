@@ -20,7 +20,12 @@ $pagination_color = cno_get_category_color( get_the_category( $post->ID )[0]->na
 		<div class="swiper-wrapper align-items-stretch">
 			<?php
 			for ( $i = 1; $i <= 5; $i++ ) {
-				$slide_classes = array( 'swiper-slide', 'd-flex', 'justify-content-center', 'align-items-center' );
+				$slide_classes = array(
+					'swiper-slide',
+					'd-flex',
+					'flex-column',
+					'align-items-center',
+				);
 				if ( 3 === $i ) {
 					$slide_classes[] = 'pt-4';
 				}

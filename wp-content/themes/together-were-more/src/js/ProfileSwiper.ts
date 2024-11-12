@@ -24,7 +24,7 @@ const profileSwiper = document.querySelector< HTMLElement >(
 if ( profileSwiper ) {
 	new Swiper( profileSwiper, {
 		modules: [ A11y, Mousewheel, FreeMode, Pagination ],
-		slidesPerView: 1,
+		slidesPerView: 'auto',
 		direction: 'horizontal',
 		spaceBetween: 0,
 		autoHeight: false,
@@ -32,7 +32,7 @@ if ( profileSwiper ) {
 		loop: false,
 		freeMode: {
 			enabled: true,
-			sticky: true,
+			sticky: false,
 		},
 		mousewheel: {
 			enabled: true,

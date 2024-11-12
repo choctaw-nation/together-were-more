@@ -2,6 +2,11 @@
 
 .swiper {
 	height: clamp(500px, 60vh, 60vh);
+
+	.swiper-slide {
+		width: fit-content;
+	}
+
 	.slide-container {
 		--size: 80%;
 		aspect-ratio: 1;
@@ -16,6 +21,8 @@
 	}
 
 	[data-hash="slide1"] {
+		width: 80%;
+
 		img:nth-child(1) {
 			--size: 85%;
 			width: var(--size);
@@ -41,8 +48,6 @@
 		}
 
 		& figure {
-			max-width: 90vw;
-
 			@include m.media-breakpoint-up(md) {
 				max-width: 720px;
 			}
