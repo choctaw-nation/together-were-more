@@ -1,50 +1,14 @@
 import Swiper from 'swiper';
-import {
-	A11y,
-	Mousewheel,
-	FreeMode,
-	Pagination,
-	Navigation,
-} from 'swiper/modules';
+import { A11y, Mousewheel, Pagination, Navigation } from 'swiper/modules';
 
 // Styles
 import 'swiper/scss';
 import 'swiper/scss/a11y';
 import 'swiper/scss/mousewheel';
-import 'swiper/scss/free-mode';
 import 'swiper/scss/pagination';
 import 'swiper/scss/navigation';
-import '../styles/components/single/swiper.scss';
-import { bounceSwiper } from './bounceSwiper';
-import { bootstrapBreakpoints } from './utilities';
+import { bootstrapBreakpoints } from '../utilities';
 
-const profileSwiper = document.querySelector< HTMLElement >(
-	'#profile-swiper .swiper'
-);
-if ( profileSwiper ) {
-	new Swiper( profileSwiper, {
-		modules: [ A11y, Mousewheel, FreeMode, Pagination ],
-		slidesPerView: 'auto',
-		direction: 'horizontal',
-		spaceBetween: 0,
-		autoHeight: false,
-		grabCursor: true,
-		loop: false,
-		freeMode: {
-			enabled: true,
-			sticky: false,
-		},
-		mousewheel: {
-			enabled: true,
-			forceToAxis: true,
-		},
-		pagination: {
-			el: '.profile-swiper-pagination',
-			clickable: true,
-		},
-	} );
-	bounceSwiper( 'profile-swiper', '.swiper', 'bounce-left-small' );
-}
 const gallerySwiper =
 	document.querySelector< HTMLElement >( '#gallery-swiper' );
 if ( gallerySwiper ) {
@@ -74,7 +38,7 @@ if ( gallerySwiper ) {
 				slidesPerView: 2,
 				slidesPerGroup: 2,
 			},
-			[ bootstrapBreakpoints[ 'lg' ] ]: {
+			[ bootstrapBreakpoints[ 'xl' ] ]: {
 				slidesPerView: 3,
 				slidesPerGroup: 3,
 			},
