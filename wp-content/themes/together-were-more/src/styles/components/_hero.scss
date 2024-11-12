@@ -11,26 +11,3 @@
 		}
 	}
 }
-
-.front-page-hero {
-	height: calc(100vh - var(--header-height, 84px));
-
-	@include m.media-breakpoint-up(lg) {
-		height: calc(100vh - var(--header-height, 93px));
-	}
-
-	#scroll-down-icon {
-		--size: 40px;
-		width: var(--size);
-		height: var(--size);
-		position: relative;
-
-		& svg {
-			position: absolute;
-			inset: 50%;
-			transform: translate(-50%, -50%);
-			width: 80%;
-			height: 80%;
-		}
-	}
-}

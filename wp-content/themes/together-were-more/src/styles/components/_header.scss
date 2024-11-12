@@ -21,12 +21,6 @@
 	}
 }
 
-%active {
-	border-bottom: var(--bs-border-width) var(--bs-border-style)
-		var(--bs-border-hover-color) !important;
-	filter: brightness(130%) saturate(120%);
-}
-
 .navbar-nav#main-menu {
 	.nav-link {
 		--bs-nav-link-color: var(--bs-dark);
@@ -46,7 +40,7 @@
 		}
 	}
 	.active .nav-link {
-		@extend %active;
+		@extend %active_menu_state;
 		color: var(--bs-nav-link-hover-color);
 
 		@include m.interaction() {

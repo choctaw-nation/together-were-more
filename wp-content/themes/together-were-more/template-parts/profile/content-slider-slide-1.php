@@ -6,7 +6,6 @@
  */
 
 $slide_1 = $args['slide_1'];
-
 ?>
 
 <div class="slide-container h-100 position-relative">

@@ -45,19 +45,20 @@ new Swiper( '#category-preview .swiper', {
  * @returns void
  */
 function makeHeadlineTextInvisible( ev: Swiper ) {
-	const headline = document.querySelector(
-		'#category-preview p.display-1'
-	) as HTMLParagraphElement;
+	const headlineEls = document.querySelectorAll< HTMLParagraphElement >(
+		'#category-preview .col-lg-6 > p'
+	);
 
-	// const isMobile = window.innerWidth < bootstrapBreakpoints.lg;
-	if ( ! headline ) {
+	if ( ! headlineEls.length ) {
 		return;
 	}
-	if ( ev.activeIndex ) {
-		headline.style.opacity = '0';
-	} else {
-		headline.style.opacity = '1';
-	}
+	headlineEls.forEach( ( headline ) => {
+		if ( ev.activeIndex ) {
+			headline.style.opacity = '0';
+		} else {
+			headline.style.opacity = '1';
+		}
+	} );
 }
 
 function addPaddingToContainer( swiper: Swiper ) {

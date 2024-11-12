@@ -2,3 +2,39 @@
 @use "../abstracts/mixins" as m;
 
 @use "../components/post-preview-card";
+
+.front-page-hero {
+	height: calc(100vh - var(--header-height, 84px));
+
+	@include m.media-breakpoint-up(lg) {
+		height: calc(100vh - var(--header-height, 93px));
+	}
+
+	img {
+		--left-align: 30%;
+		object-position: var(--left-align) center;
+
+		@include m.media-breakpoint-up(sm) {
+			--left-align: 20%;
+		}
+
+		@include m.media-breakpoint-up(md) {
+			--left-align: 15%;
+		}
+	}
+
+	#scroll-down-icon {
+		--size: 40px;
+		width: var(--size);
+		height: var(--size);
+		position: relative;
+
+		& svg {
+			position: absolute;
+			inset: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			height: 80%;
+		}
+	}
+}
