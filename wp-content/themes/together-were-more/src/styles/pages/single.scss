@@ -23,3 +23,15 @@
 		inset: 0;
 	}
 }
+
+.social-share-bar {
+	.socials a {
+		@include m.interaction() {
+			filter: unset;
+		}
+
+		@include m.media-breakpoint-up(lg) {
+			filter: brightness(130%) saturate(120%);
+		}
+	}
+}

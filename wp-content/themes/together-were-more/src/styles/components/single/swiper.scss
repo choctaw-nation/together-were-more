@@ -2,6 +2,11 @@
 
 .swiper {
 	height: clamp(500px, 60vh, 60vh);
+
+	.swiper-slide {
+		width: fit-content;
+	}
+
 	.slide-container {
 		--size: 80%;
 		aspect-ratio: 1;
@@ -30,25 +35,32 @@
 		}
 	}
 
+	[data-hash="slide2"] {
+		@include m.media-breakpoint-up(lg) {
+			width: clamp(650px, 50vw, 900px);
+		}
+	}
+
 	[data-hash="slide3"] {
+		figure {
+			height: 100%;
+
+			@include m.media-breakpoint-up(md) {
+				max-width: 720px;
+				height: 75%;
+			}
+
+			@include m.media-breakpoint-up(lg) {
+				max-width: 800px;
+			}
+		}
+
 		.media-container {
 			aspect-ratio: 1;
 			max-width: 90vw;
 
 			& > * {
 				height: 100%;
-			}
-		}
-
-		& figure {
-			max-width: 90vw;
-
-			@include m.media-breakpoint-up(md) {
-				max-width: 720px;
-			}
-
-			@include m.media-breakpoint-up(lg) {
-				max-width: 800px;
 			}
 		}
 	}

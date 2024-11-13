@@ -2,13 +2,11 @@
 
 .featured {
 	&__image {
-		// max-height: 800px;
-
-		// img {
-		// 	@include m.media-breakpoint-down(lg) {
-		// 		height: 100%;
-		// 	}
-		// }
+		img {
+			@include m.media-breakpoint-up(lg) {
+				object-position: 20% center;
+			}
+		}
 	}
 
 	&__title {

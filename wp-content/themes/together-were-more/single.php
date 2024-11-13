@@ -29,5 +29,5 @@ get_header();
 	?>
 </main>
 <?php
-get_template_part( 'template-parts/profile/content', 'social-share' );
+get_template_part( 'template-parts/profile/aside', 'social-share' );
 get_footer();
