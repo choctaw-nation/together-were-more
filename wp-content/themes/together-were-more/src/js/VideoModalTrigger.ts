@@ -26,6 +26,7 @@ new ( class VideoModalTrigger {
 	public init() {
 		this.modalEl.addEventListener( 'show.bs.modal', ( ev ) => {
 			this.trigger = ev.relatedTarget as HTMLButtonElement;
+			this.rebootLiteVimeoComponent();
 		} );
 
 		this.modalEl.addEventListener( 'hide.bs.modal', () => {
