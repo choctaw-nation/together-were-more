@@ -2,11 +2,15 @@
 
 # Changelog
 
+## v1.1.7
+
+-   Fixed a bug where "watch video" button launched a modal with the incorrect video.
+
 ## v1.1.6
 
-- Fix the homepage photo treatment
-- Fix social share colors to meet WCAG contrast guidelines
-- Update `single.php` profile swiper
+-   Fix the homepage photo treatment
+-   Fix social share colors to meet WCAG contrast guidelines
+-   Update `single.php` profile swiper
 
 ## v1.1.5
 
