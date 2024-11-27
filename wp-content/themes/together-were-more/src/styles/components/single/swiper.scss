@@ -1,7 +1,8 @@
 @use "../../abstracts/mixins" as m;
 
 .swiper {
-	height: clamp(500px, 60vh, 60vh);
+	height: 500px;
+	// height: clamp(500px, 60vh, 60vh);
 
 	.swiper-slide {
 		width: fit-content;
@@ -21,6 +22,9 @@
 	}
 
 	[data-hash="slide1"] {
+		width: 500px;
+		aspect-ratio: 1;
+
 		img:nth-child(1) {
 			--size: 85%;
 			width: var(--size);
@@ -37,17 +41,14 @@
 
 	[data-hash="slide2"] {
 		@include m.media-breakpoint-up(lg) {
-			width: clamp(650px, 50vw, 900px);
+			max-width: 900px;
 		}
 	}
 
 	[data-hash="slide3"] {
 		figure {
-			height: 100%;
-
 			@include m.media-breakpoint-up(md) {
 				max-width: 720px;
-				height: 75%;
 			}
 
 			@include m.media-breakpoint-up(lg) {

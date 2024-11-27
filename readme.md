@@ -2,6 +2,10 @@
 
 # Changelog
 
+## v1.1.8
+
+-   Fixed Safari bugs
+
 ## v1.1.7
 
 -   Fixed a bug where "watch video" button launched a modal with the incorrect video.
