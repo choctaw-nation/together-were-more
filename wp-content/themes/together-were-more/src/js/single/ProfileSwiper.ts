@@ -13,19 +13,21 @@ new ( class ProfileSwiperHandler {
 	/**
 	 * The Swiper element
 	 */
-	private swiperEl: HTMLElement | null;
+	private swiperEl: HTMLElement;
 
 	/**
 	 * The Swiper instance
 	 */
-	private swiper: Swiper | null;
+	private swiper: Swiper;
 
 	constructor() {
-		this.swiperEl = document.querySelector< HTMLElement >(
+		const swiperEl = document.querySelector< HTMLElement >(
 			'#profile-swiper .swiper'
 		);
-		if ( ! this.swiperEl ) {
+		if ( ! swiperEl ) {
 			return;
+		} else {
+			this.swiperEl = swiperEl;
 		}
 		this.initSwiper();
 		if ( this.swiper ) {
@@ -56,7 +58,7 @@ new ( class ProfileSwiperHandler {
 	 * Initializes the Swiper
 	 */
 	private initSwiper() {
-		this.swiper = new Swiper( this.swiperEl!, {
+		this.swiper = new Swiper( this.swiperEl, {
 			modules: [ A11y, Mousewheel, FreeMode, Pagination ],
 			slidesPerView: 'auto',
 			direction: 'horizontal',
@@ -98,7 +100,6 @@ new ( class ProfileSwiperHandler {
 	 */
 	private bounceSwiper() {
 		let start: number | null = null;
-
 		requestAnimationFrame( ( time ) => this.animate( time, start ) );
 	}
 
@@ -114,15 +115,13 @@ new ( class ProfileSwiperHandler {
 		const elapsed = time - start;
 		const progress = Math.min( elapsed / duration, 1 );
 		const easedProgress = this.easeInOut( progress );
-		const translateValue =
-			( this.swiper!.slides[ 0 ].offsetWidth / 2 ) * -1;
-
-		this.swiper!.setTranslate( easedProgress * translateValue );
+		const translateValue = ( this.swiper.slides[ 0 ].offsetWidth / 2 ) * -1;
+		this.swiper.setTranslate( easedProgress * translateValue );
 
 		if ( progress < 1 ) {
 			requestAnimationFrame( ( t ) => this.animate( t, start ) );
 		} else {
-			this.swiper!.slidePrev( 400 );
+			this.swiper.slidePrev( 400 );
 		}
 	}
 } )();
