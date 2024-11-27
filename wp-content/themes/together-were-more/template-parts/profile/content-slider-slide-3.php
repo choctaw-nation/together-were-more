@@ -10,7 +10,7 @@ $slide_3 = $args['slide_3'];
 ?>
 
 <figure class="slide-container mb-0 position-relative d-flex flex-column justify-content-start align-items-center row-gap-2">
-	<div class="media-container w-75">
+	<div class="media-container w-75 mh-100">
 		<?php
 		if ( $slide_3['is_video'] ) {
 			$media_details = new Video_Details( $slide_3, $post->ID );
