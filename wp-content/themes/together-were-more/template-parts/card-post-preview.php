@@ -34,7 +34,7 @@
 		<?php
 		$category       = get_the_category();
 		$color_overlay  = cno_get_category_color( $category[0]->name );
-		$button_classes = "btn-outline-{$color_overlay} mt-auto align-self-start fs-6";
+		$button_classes = "btn-outline-{$color_overlay} mt-auto align-self-start fs-6 post-preview-card__cta-button";
 
 		if ( get_post_status() === 'future' ) {
 			$button_text = 'Read Story in ' . get_the_date( 'M' );

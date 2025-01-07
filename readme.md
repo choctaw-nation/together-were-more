@@ -2,6 +2,17 @@
 
 # Changelog
 
+## v1.1.9
+
+-   Added new webpack config to remove empty `.js` files
+-   Updated packages
+-   Updated profile swiper styles
+-   Updated homepage colors of `.category-spotlight` to be accessible
+-   Updated Logo hover color to be accessible (matches the rest of the nav links)
+-   Fixed: Category Spotlight colors were wrong
+-   Fixed: Site header now uses `--wp-admin--admin-bar--height` instead of `.top-0` for sticky positioning
+-   Removed dead files
+
 ## v1.1.8
 
 -   Fixed Safari bugs

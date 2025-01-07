@@ -8,4 +8,13 @@
 	&:has(button:disabled) {
 		cursor: not-allowed;
 	}
+
+	&__cta-button {
+		--bs-btn-disabled-opacity: 1;
+		filter: var(--cno-accessible-color-filter);
+
+		@include m.interaction() {
+			filter: unset;
+		}
+	}
 }

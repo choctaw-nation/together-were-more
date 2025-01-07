@@ -8,8 +8,8 @@
 
 $color_overlays = array(
 	'Artists'     => 'gold',
-	'Culture'     => 'violet',
-	'Inspiring'   => 'plum',
+	'Culture'     => 'plum',
+	'Inspiring'   => 'violet',
 	'Competitors' => 'garnet',
 );
 

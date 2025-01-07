@@ -31,7 +31,7 @@
 		}
 
 		@include m.media-breakpoint-up(lg) {
-			filter: brightness(130%) saturate(120%);
+			filter: var(--cno-accessible-color-filter);
 		}
 	}
 }
