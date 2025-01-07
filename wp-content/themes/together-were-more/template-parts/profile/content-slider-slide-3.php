@@ -9,8 +9,8 @@ use ChoctawNation\ACF\Video_Details;
 $slide_3 = $args['slide_3'];
 ?>
 
-<figure class="slide-container mb-0 position-relative d-flex flex-column justify-content-start align-items-center row-gap-2">
-	<div class="media-container w-75 mh-100">
+<figure class="slide-container mb-0 position-relative d-flex flex-column justify-content-center align-items-center row-gap-2 h-100 flex-grow-1">
+	<div class="media-container ratio ratio-1x1 w-75">
 		<?php
 		if ( $slide_3['is_video'] ) {
 			$media_details = new Video_Details( $slide_3, $post->ID );
