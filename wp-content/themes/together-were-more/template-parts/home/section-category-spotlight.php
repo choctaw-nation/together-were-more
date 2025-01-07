@@ -6,20 +6,14 @@
  * @package ChoctawNation
  */
 
-$color_overlays = array(
-	'Artists'     => 'gold',
-	'Culture'     => 'plum',
-	'Inspiring'   => 'violet',
-	'Competitors' => 'garnet',
-);
-
 $bg_image  = get_template_directory_uri() . '/src/assets/black-bg-chevron-noise.png';
 $spotlight = get_field( 'category_spotlight' )['category_to_spotlight'];
+$bg_color  = cno_get_category_color( $spotlight->name );
 ?>
 <section id="category-spotlight" class="overflow-hidden">
 	<div class="banner position-relative py-4">
 		<img src="<?php echo $bg_image; ?>" class="position-absolute top-0 start-0 w-100 h-100 z-n1 object-fit-cover z-1" alt="" aria-hidden="true" loading="lazy" />
-		<div class="<?php echo "overlay position-absolute top-0 w-100 h-100 z-2 bg-{$color_overlays[$spotlight->name]}"; ?>" style="mix-blend-mode: screen;">
+		<div class="<?php echo "overlay position-absolute top-0 w-100 h-100 z-2 bg-{$bg_color}"; ?>" style="mix-blend-mode: screen;">
 		</div>
 		<div class="container position-relative z-3">
 			<div class="row">

@@ -2,7 +2,11 @@
 
 #site-header {
 	z-index: 1000;
-	top: var(--wp-admin--admin-bar--height, 0);
+	top: 0;
+
+	@media screen and (min-width: 600.02px) {
+		top: var(--wp-admin--admin-bar--height, 0);
+	}
 
 	@include m.media-breakpoint-up(sm) {
 		--bs-gutter-x: 6rem;
@@ -11,6 +15,7 @@
 	.btn-close {
 		opacity: 1;
 	}
+
 	:where(&) .navbar-brand {
 		@include m.interaction() {
 			filter: var(--cno-accessible-color-filter);

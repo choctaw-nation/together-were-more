@@ -5,8 +5,16 @@
 	$new-list: ();
 
 	@each $property in $properties {
-		$new-list: list.append($new-list, #{$property} v.$transition--standard, comma);
+		$new-list: list.append(
+			$new-list,
+			#{$property} v.$transition--standard,
+			comma
+		);
 	}
 
 	@return $new-list;
+}
+
+@function get-category-color($category) {
+	@return map-get(v.$category-colors, $category);
 }
