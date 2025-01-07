@@ -6,7 +6,7 @@
  */
 
 $slide_5 = $args['slide_5'];
-echo "<div class='slide-container h-100 p-4'>";
+echo "<div class='image-container p-4 p-md-5'>";
 echo wp_get_attachment_image(
 	$slide_5['image'],
 	'full',
