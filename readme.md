@@ -1,6 +1,30 @@
 # Together We're More
 
+## Color Map Reference
+
+```javascript
+const colorMap = {
+	Artists: 'gold',
+	Culture: 'plum',
+	Inspirational: 'violet',
+	Competitors: 'garnet',
+};
+```
+
 # Changelog
+
+## v1.1.9
+
+-   Added new webpack config to remove empty `.js` files
+-   Added a new SCSS function to get the correct color based on the above (newly added) color map (mirrors the php function)
+-   Updated packages
+-   Updated profile swiper styles
+-   Updated homepage colors of `.category-spotlight` to be accessible
+-   Updated Logo hover color to be accessible (matches the rest of the nav links)
+-   Fixed: Category Spotlight colors were wrong
+-   Fixed: Links on profiles are now the correct color (were using default gold)
+-   Fixed: Site header now uses `--wp-admin--admin-bar--height` instead of `.top-0` for sticky positioning
+-   Removed dead files
 
 ## v1.1.8
 

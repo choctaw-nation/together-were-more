@@ -8,6 +8,8 @@
 	--font-script: #{v.$font-script};
 	--font-serif: #{v.$font-serif};
 	--transition-standard: #{v.$transition-standard};
+
+	--cno-accessible-color-filter: brightness(130%) saturate(120%);
 }
 
 html {

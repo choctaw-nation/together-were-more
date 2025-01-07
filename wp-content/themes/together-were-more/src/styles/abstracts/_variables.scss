@@ -22,3 +22,10 @@ $color-gold: #c5a352;
 $color-violet: #6d6b94;
 $color-garnet: #7b2f2d;
 $color-gray: #707070;
+
+$category-colors: (
+	"artists": $color-gold,
+	"culture": $color-plum,
+	"inspirational": $color-violet,
+	"competitors": $color-garnet,
+);

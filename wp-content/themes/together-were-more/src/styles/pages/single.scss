@@ -1,6 +1,20 @@
 @use "../abstracts/mixins" as m;
+@use "../abstracts/functions" as fn;
 @use "../components/single/hero";
 @use "../components/single/diamond-separator";
+
+// Link Customizer
+$categories: ("artists", "culture", "inspirational", "competitors");
+
+@each $category in $categories {
+	:where(.single .category-#{$category}) a {
+		color: fn.get-category-color($category);
+
+		@include m.interaction() {
+			filter: var(--cno-accessible-color-filter);
+		}
+	}
+}
 
 .portrait-container {
 	aspect-ratio: 2 / 3;
@@ -26,12 +40,9 @@
 
 .social-share-bar {
 	.socials a {
+		filter: var(--cno-accessible-color-filter);
 		@include m.interaction() {
 			filter: unset;
-		}
-
-		@include m.media-breakpoint-up(lg) {
-			filter: brightness(130%) saturate(120%);
 		}
 	}
 }
