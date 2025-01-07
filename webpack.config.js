@@ -1,23 +1,10 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config.js' );
+const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 
-/** The name of the theme. Alter me! */
 const THEME_NAME = 'together-were-more';
-
-/** The location of your theme. */
 const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;
 
-/**
- * Array of strings modeled after folder names (e.g. 'about-choctaw'). Inside of these folders, an `index.ts` file is expected. If that's not what you want, consider editing the `addEntries` function below.
- *
- * **Be sure to import page scss in these files**
- */
 const appNames = [ 'home', 'single' ];
-
-/**
- * For SCSS files (no leading `_`)
- * Array of strings modeled after scss names (e.g. 'we-are-choctaw')
- */
-const styleSheets = []; // for scss only
 
 module.exports = {
 	...defaultConfig,
@@ -34,7 +21,6 @@ module.exports = {
 				'pages/profile-swiper': `.${ THEME_DIR }/src/js/single/ProfileSwiper.ts`,
 				'pages/gallery-swiper': `.${ THEME_DIR }/src/js/single/GallerySwiper.ts`,
 				...addEntries( appNames, 'pages' ),
-				...addEntries( styleSheets, 'styles' ),
 			};
 		},
 
@@ -42,6 +28,12 @@ module.exports = {
 			path: __dirname + `${ THEME_DIR }/dist`,
 			filename: `[name].js`,
 		},
+		plugins: [
+			...defaultConfig.plugins,
+			new RemoveEmptyScriptsPlugin( {
+				stage: RemoveEmptyScriptsPlugin.STAGE_AFTER_PROCESS_PLUGINS,
+			} ),
+		],
 	},
 };
 
