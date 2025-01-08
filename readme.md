@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## v1.1.10
+
+-   On mobile devices, set the height of the profile slider === 100vw (keeps slides at square ratio, but equal to the device viewport width when < 500px)
+
 ## v1.1.9
 
 -   Added new webpack config to remove empty `.js` files
