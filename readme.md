@@ -16,6 +16,7 @@ const colorMap = {
 ## v1.1.10
 
 -   On mobile devices, set the height of the profile slider === 100vw (keeps slides at square ratio, but equal to the device viewport width when < 500px)
+-   Adjusted "swipe" text color, size and location over the first slide
 
 ## v1.1.9
 
