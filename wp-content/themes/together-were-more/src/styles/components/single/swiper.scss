@@ -18,7 +18,12 @@
 	}
 
 	#swipe-text {
-		bottom: 10%;
+		left: -5%;
+		bottom: -5px;
+
+		@include m.media-breakpoint-up(sm) {
+			left: 5%;
+		}
 	}
 
 	[data-hash="slide1"] {

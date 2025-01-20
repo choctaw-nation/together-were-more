@@ -29,5 +29,5 @@ $slide_1 = $args['slide_1'];
 		)
 	);
 	?>
-	<span class="font-script position-absolute start-0 display-3 z-3 text-dark" id="swipe-text" data-aos="fade-in" data-aos-offset="200">Swipe -></span>
+	<span class="font-script position-absolute fs-3 z-3 text-dark" id="swipe-text" data-aos="fade-in" data-aos-offset="200">Swipe &rightarrow;</span>
 </div>
