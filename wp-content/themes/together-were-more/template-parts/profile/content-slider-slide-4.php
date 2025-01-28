@@ -19,9 +19,4 @@ $slide_4 = $args['slide_4'];
 		)
 	);
 	?>
-	<div class="inner-frame border border-1 border-white position-absolute z-2">
-	</div>
-	<div class="inner-frame__diamonds position-absolute z-2">
-		<?php get_template_part( 'template-parts/ui/content', 'diamonds' ); ?>
-	</div>
 </div>

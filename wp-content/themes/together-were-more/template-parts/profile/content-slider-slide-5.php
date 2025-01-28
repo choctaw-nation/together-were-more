@@ -6,7 +6,9 @@
  */
 
 $slide_5 = $args['slide_5'];
-echo "<div class='ratio ratio-1x1 w-75'>";
+?>
+<div class="ratio ratio-1x1">
+<?php
 echo wp_get_attachment_image(
 	$slide_5['image'],
 	'full',
@@ -16,4 +18,5 @@ echo wp_get_attachment_image(
 		'loading' => 'lazy',
 	)
 );
-echo '</div>';
+?>
+</div>
