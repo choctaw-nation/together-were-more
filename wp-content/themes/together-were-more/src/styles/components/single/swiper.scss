@@ -26,21 +26,6 @@
 		}
 	}
 
-	[data-hash="slide1"] {
-		img:nth-child(1) {
-			--size: 85%;
-			width: var(--size);
-			height: var(--size);
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		img:nth-child(2) {
-			bottom: -5%;
-			right: 5%;
-		}
-	}
-
 	[data-hash="slide3"] {
 		.media-container {
 			aspect-ratio: 1;
@@ -48,25 +33,6 @@
 
 			& > * {
 				height: 100%;
-			}
-		}
-	}
-
-	[data-hash="slide4"] {
-		--offset: 5%;
-
-		img {
-			object-position: center bottom;
-		}
-
-		.inner-frame {
-			inset: var(--offset);
-
-			&__diamonds {
-				--color: white;
-				bottom: var(--offset);
-				left: calc(5% + var(--offset));
-				transform: translateY(50%);
 			}
 		}
 	}
