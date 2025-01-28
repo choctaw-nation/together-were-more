@@ -16,6 +16,7 @@ const colorMap = {
 ## v2.0.0
 
 -   Added `.inset-0` utility class
+-   Updated diamond hr style so the diamonds are smaller and the gap between the svg and the `hr` elements is smaller
 
 ### Profile Swiper Updates
 
