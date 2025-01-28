@@ -15,16 +15,7 @@ $slide_1 = $args['slide_1'];
 		'full',
 		false,
 		array(
-			'class'   => 'object-fit-scale position-absolute',
-			'loading' => 'lazy',
-		)
-	);
-	echo wp_get_attachment_image(
-		$slide_1['transparent_image'],
-		'large',
-		false,
-		array(
-			'class'   => 'w-50 h-50 object-fit-scale z-2 position-absolute',
+			'class'   => 'object-fit-container w-100 h-100',
 			'loading' => 'lazy',
 		)
 	);

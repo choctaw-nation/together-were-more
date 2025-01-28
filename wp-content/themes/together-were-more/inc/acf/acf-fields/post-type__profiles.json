@@ -998,18 +998,19 @@
 									},
 									{
 										"key": "field_670ed3ba79edf",
-										"label": "Transparent Image",
+										"label": "DEPRECATED",
 										"name": "transparent_image",
 										"aria-label": "",
 										"type": "image",
-										"instructions": "Must be transparent or able to be overlaid appropriately",
-										"required": 1,
+										"instructions": "Will be removed in upcoming theme updates.",
+										"required": 0,
 										"conditional_logic": 0,
 										"wrapper": {
 											"width": "",
 											"class": "",
 											"id": ""
 										},
+										"relevanssi_exclude": 1,
 										"return_format": "id",
 										"library": "uploadedTo",
 										"min_width": "",
@@ -1516,6 +1517,6 @@
 		"hide_on_screen": "",
 		"active": true,
 		"description": "",
-		"show_in_rest": 0
+		"show_in_rest": 1
 	}
 ]

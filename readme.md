@@ -13,6 +13,17 @@ const colorMap = {
 
 # Changelog
 
+## v2.0.0
+
+-   Added `.inset-0` utility class
+-   Updated diamond hr style so the diamonds are smaller and the gap between the svg and the `hr` elements is smaller
+
+### Profile Swiper Updates
+
+-   Updated profile swiper api to only use 1 photo for the first slide
+    -   Slide 1 field "transparent image" has been marked "DEPRECATED" to be removed in a future version
+-   Slides 4 and 5 have their custom styles removed as they are now only 1 photo with the required design elements set.
+
 ## v1.1.10
 
 -   On mobile devices, set the height of the profile slider === 100vw (keeps slides at square ratio, but equal to the device viewport width when < 500px)
