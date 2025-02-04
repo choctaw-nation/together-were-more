@@ -29,7 +29,7 @@ $slide_3 = $args['slide_3'];
 		}
 		?>
 	</div>
-	<figcaption class="fs-base text-center">
+	<figcaption class="fs-base text-center lh-sm">
 		<?php echo $slide_3['caption']; ?>
 	</figcaption>
 </figure>
