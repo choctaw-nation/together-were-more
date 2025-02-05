@@ -37,3 +37,16 @@ p,
 		height: 12px;
 	}
 }
+
+/**
+* Leaving here for now.
+* This was a designer's nitpick.
+* It's very easy to fix, but l'm leaving it off at Blake's request.
+*/
+
+// .container,
+// .container-fluid {
+// 	@include m.media-breakpoint-down(sm) {
+// 		--bs-gutter-x: 3rem;
+// 	}
+// }
