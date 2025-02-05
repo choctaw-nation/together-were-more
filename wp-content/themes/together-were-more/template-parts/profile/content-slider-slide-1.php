@@ -15,7 +15,7 @@ $slide_1 = $args['slide_1'];
 		'full',
 		false,
 		array(
-			'class'   => 'object-fit-container w-100 h-100',
+			'class'   => 'object-fit-contain w-100 h-100',
 			'loading' => 'lazy',
 		)
 	);
