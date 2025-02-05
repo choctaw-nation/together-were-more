@@ -9,8 +9,8 @@ use ChoctawNation\ACF\Video_Details;
 $slide_3 = $args['slide_3'];
 ?>
 
-<figure class="slide-container mb-0 position-relative d-flex flex-column justify-content-center align-items-center row-gap-2 h-100 flex-grow-1">
-	<div class="media-container ratio ratio-1x1 w-75">
+<figure class="slide-container mb-0 position-relative d-flex flex-column justify-content-center align-items-center row-gap-2">
+	<div class="media-container w-100">
 		<?php
 		if ( $slide_3['is_video'] ) {
 			$media_details = new Video_Details( $slide_3, $post->ID );
@@ -29,7 +29,7 @@ $slide_3 = $args['slide_3'];
 		}
 		?>
 	</div>
-	<figcaption class="px-lg-5 fs-5 text-center">
+	<figcaption class="fs-base text-center lh-sm">
 		<?php echo $slide_3['caption']; ?>
 	</figcaption>
 </figure>

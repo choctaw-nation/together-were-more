@@ -8,17 +8,8 @@
 		aspect-ratio: 1;
 	}
 
-	.slide-container {
-		--size: 80%;
-		aspect-ratio: 1;
-
-		@include m.media-breakpoint-down(md) {
-			width: var(--size);
-		}
-	}
-
 	#swipe-text {
-		left: -5%;
+		left: 5%;
 		bottom: -5px;
 
 		@include m.media-breakpoint-up(sm) {
@@ -27,13 +18,18 @@
 	}
 
 	[data-hash="slide3"] {
+		--max-width: 85%;
+
 		.media-container {
 			aspect-ratio: 1;
-			max-width: 90vw;
+			max-width: var(--max-width);
 
 			& > * {
 				height: 100%;
 			}
+		}
+		figcaption {
+			max-width: var(--max-width);
 		}
 	}
 }
