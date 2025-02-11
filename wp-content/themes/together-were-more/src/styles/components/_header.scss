@@ -1,4 +1,5 @@
 @use "../abstracts/mixins" as m;
+@use "../abstracts/functions" as fn;
 
 #site-header {
 	z-index: 1000;
@@ -37,10 +38,7 @@
 		--bs-nav-link-color: var(--bs-dark);
 		--bs-border-color: transparent;
 
-		transition:
-			color var(--transition-standard),
-			filter var(--transition-standard),
-			border var(--transition-standard);
+		transition: fn.transition(color, filter, border);
 
 		@include m.interaction() {
 			@extend %active_menu_state;
@@ -48,14 +46,6 @@
 
 		@include m.media-breakpoint-up(lg) {
 			--bs-nav-link-color: white;
-		}
-	}
-	.active .nav-link {
-		@extend %active_menu_state;
-		color: var(--bs-nav-link-hover-color);
-
-		@include m.interaction() {
-			filter: unset;
 		}
 	}
 

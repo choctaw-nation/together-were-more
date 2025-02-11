@@ -5,14 +5,12 @@
  * @package ChoctawNation
  */
 
-$slide_2 = $args['slide_2'];
-
-get_template_part(
-	'template-parts/profile/content',
-	'block-quote',
-	array(
-		'content' => $slide_2['quote'],
-		'with_bg' => true,
-		'class'   => 'display-5 text-center',
-	)
-);
+$bg_image_src = get_template_directory_uri() . '/src/assets/black-bg-chevron-noise.png';
+$quote_text   = acf_esc_html( $args['slide_2']['quote'] );
+?>
+<blockquote class="blockquote position-relative mb-0 text-white py-5 px-3 d-flex align-items-center justify-content-center h-100">
+	<img src="<?php echo $bg_image_src; ?>" class='position-absolute top-0 w-100 h-100 object-fit-cover' aria-hidden='true' loading='lazy' />
+	<p class="font-script mb-0 lh-base fs-2 fw-lighter text-center" data-aos='fade-in'>
+		<?php echo $quote_text; ?>
+	</p>
+</blockquote>

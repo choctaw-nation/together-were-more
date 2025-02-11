@@ -2,98 +2,34 @@
 
 .swiper {
 	height: 500px;
-	// height: clamp(500px, 60vh, 60vh);
+	max-height: 100vw;
 
 	.swiper-slide {
-		width: fit-content;
-	}
-
-	.slide-container {
-		--size: 80%;
 		aspect-ratio: 1;
-
-		@include m.media-breakpoint-down(md) {
-			width: var(--size);
-		}
 	}
 
 	#swipe-text {
-		bottom: 10%;
-	}
+		left: 5%;
+		bottom: -5px;
 
-	[data-hash="slide1"] {
-		width: 500px;
-		aspect-ratio: 1;
-
-		img:nth-child(1) {
-			--size: 85%;
-			width: var(--size);
-			height: var(--size);
-			top: 50%;
-			transform: translateY(-50%);
-		}
-
-		img:nth-child(2) {
-			bottom: -5%;
-			right: 5%;
-		}
-	}
-
-	[data-hash="slide2"] {
-		@include m.media-breakpoint-up(lg) {
-			max-width: 900px;
+		@include m.media-breakpoint-up(sm) {
+			left: 5%;
 		}
 	}
 
 	[data-hash="slide3"] {
-		figure {
-			@include m.media-breakpoint-up(md) {
-				max-width: 720px;
-			}
-
-			@include m.media-breakpoint-up(lg) {
-				max-width: 800px;
-			}
-		}
+		--max-width: 85%;
 
 		.media-container {
 			aspect-ratio: 1;
-			max-width: 90vw;
+			max-width: var(--max-width);
 
 			& > * {
 				height: 100%;
 			}
 		}
-	}
-
-	[data-hash="slide4"] {
-		--offset: 5%;
-
-		img {
-			object-position: center bottom;
-		}
-
-		.inner-frame {
-			inset: var(--offset);
-
-			&__diamonds {
-				--color: white;
-				bottom: var(--offset);
-				left: calc(5% + var(--offset));
-				transform: translateY(50%);
-			}
-		}
-	}
-
-	[data-hash="slide5"] {
-		padding: 0rem;
-
-		@include m.media-breakpoint-up(md) {
-			padding: 3rem;
-		}
-
-		@include m.media-breakpoint-up(lg) {
-			padding: 5rem;
+		figcaption {
+			max-width: var(--max-width);
 		}
 	}
 }

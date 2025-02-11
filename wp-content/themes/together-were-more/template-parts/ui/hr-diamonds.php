@@ -15,7 +15,7 @@ $default_classes = array(
 	'align-items-center',
 	'justify-content-center',
 	'position-relative',
-	'column-gap-3',
+	'column-gap-2',
 );
 
 $classes = array_merge( $default_classes, $custom_classes );

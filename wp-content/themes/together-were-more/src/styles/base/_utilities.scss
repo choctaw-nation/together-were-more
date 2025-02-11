@@ -1,4 +1,8 @@
 @use "bootstrap/scss/vendor/rfs" as rfs;
+.inset-0 {
+	inset: 0;
+}
+
 .font-gill-sans {
 	font-family: var(--font-body);
 }

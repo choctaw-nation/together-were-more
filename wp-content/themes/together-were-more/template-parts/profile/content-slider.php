@@ -24,11 +24,11 @@ $pagination_color = cno_get_category_color( get_the_category( $post->ID )[0]->na
 					'swiper-slide',
 					'd-flex',
 					'flex-column',
+					'justify-content-center',
 					'align-items-center',
+					'w-auto',
+					'h-100',
 				);
-				if ( 3 === $i ) {
-					$slide_classes[] = 'my-4';
-				}
 				echo "<div class='" . implode( ' ', $slide_classes ) . "' data-hash='slide{$i}'>";
 				get_template_part(
 					'template-parts/profile/content',
