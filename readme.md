@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.0.1
+
+-   Fix Swiper dispaly on Safari
+
 ## v2.0.0
 
 -   Added `.inset-0` utility class
