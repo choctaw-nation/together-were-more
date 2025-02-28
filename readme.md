@@ -13,6 +13,15 @@ const colorMap = {
 
 # Changelog
 
+## 2.0.1
+
+-   Fixed: Profile Swiper doesn't render correctly on Webkit vs Chromium
+-   Chore: Updated packages
+
+### Dev Note
+
+Something about how the `lite-vimeo` component calls the thumbnail in causes some odd rendering, but it only occurs on Safari (Webkit engine). The hack is to initialize the Swiper with the video container (`.media-container`) with height set to 100% (`.h-100`). However, this then causes a layout bug on Chromium, so I also removed the `.h-100` class when the swiper bounces to hide the layout issue.
+
 ## v2.0.0
 
 -   Added `.inset-0` utility class

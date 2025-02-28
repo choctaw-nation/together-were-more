@@ -1,6 +1,6 @@
 {
 	"name": "together-were-more",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Custom WP theme for Together We're More site",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
@@ -20,10 +20,10 @@
 		"@choctawnationofoklahoma/lite-vimeo": "^1.2.2",
 		"aos": "^2.3.4",
 		"bootstrap": "^5.3.3",
-		"swiper": "^11.2.0"
+		"swiper": "^11.2.4"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.8.1",
+		"@wordpress/scripts": "^30.12.0",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	}
 }
