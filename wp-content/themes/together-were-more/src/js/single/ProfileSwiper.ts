@@ -41,6 +41,7 @@ new ( class ProfileSwiperHandler {
 								entry.rootBounds!.top
 							) {
 								this.bounceSwiper();
+								this.toggleHeightClass();
 							}
 						}
 					} );
@@ -77,6 +78,9 @@ new ( class ProfileSwiperHandler {
 			pagination: {
 				el: '.profile-swiper-pagination',
 				clickable: true,
+			},
+			on: {
+				init: this.toggleHeightClass.bind( this ),
 			},
 		} );
 	}
@@ -122,6 +126,18 @@ new ( class ProfileSwiperHandler {
 			requestAnimationFrame( ( t ) => this.animate( t, start ) );
 		} else {
 			this.swiper.slidePrev( 400 );
+		}
+	}
+
+	/**
+	 * Fixes a weird edge case with `lite-vimeo` and Webkit where the image doesn't render properly.
+	 */
+	private toggleHeightClass() {
+		const mediaContainer = this.swiperEl.querySelector(
+			'figure .media-container'
+		);
+		if ( mediaContainer ) {
+			mediaContainer.classList.toggle( 'h-100' );
 		}
 	}
 } )();
