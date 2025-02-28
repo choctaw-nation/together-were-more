@@ -16,6 +16,7 @@ const colorMap = {
 ## 2.0.1
 
 -   Fixed: Profile Swiper doesn't render correctly on Webkit vs Chromium
+-   Chore: Updated packages
 
 ### Dev Note
 
