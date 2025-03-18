@@ -7,6 +7,10 @@
 	@include m.interaction() {
 		background-color: var(--hover-color) !important;
 	}
+
+	.social svg {
+		height: 100% !important;
+	}
 }
 
 .socials-container {
