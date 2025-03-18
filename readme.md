@@ -13,6 +13,11 @@ const colorMap = {
 
 # Changelog
 
+## 2.0.2
+
+-   Fixed: Social Icons now appear the correct height
+-   Chore: Updated packages
+
 ## 2.0.1
 
 -   Fixed: Profile Swiper doesn't render correctly on Webkit vs Chromium
