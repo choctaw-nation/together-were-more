@@ -130,13 +130,23 @@ new ( class ProfileSwiperHandler {
 	}
 
 	/**
-	 * Fixes a weird edge case with `lite-vimeo` and Webkit where the image doesn't render properly.
+	 * Fixes a weird edge case with `lite-vimeo`, Swiper and browsers' rendering engines where the video facade doesn't render properly.
 	 */
 	private toggleHeightClass() {
 		const mediaContainer = this.swiperEl.querySelector(
 			'figure .media-container'
 		);
-		if ( mediaContainer ) {
+		if ( ! mediaContainer ) {
+			return;
+		}
+		const browser = navigator.userAgent.toLowerCase();
+
+		const browserIsChrome = browser.includes( 'chrome' );
+		if ( browserIsChrome ) {
+			// Chrome fix
+			mediaContainer.classList.remove( 'h-100' );
+		} else {
+			// Webkit & Firefox fix
 			mediaContainer.classList.toggle( 'h-100' );
 		}
 	}
