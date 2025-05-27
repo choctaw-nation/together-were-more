@@ -13,6 +13,11 @@ const colorMap = {
 
 # Changelog
 
+## 2.0.3
+
+-   Fixed: The profile swiper bug fixe for Webkit introduced a new (but similar) issue on Chrome, so that is now properly handled.
+-   Chore: Update Packages
+
 ## 2.0.2
 
 -   Fixed: Social Icons now appear the correct height
@@ -42,7 +47,6 @@ Something about how the `lite-vimeo` component calls the thumbnail in causes som
 
 -   On mobile devices, set the height of the profile slider === 100vw (keeps slides at square ratio, but equal to the device viewport width when < 500px)
 -   Adjusted "swipe" text color, size and location over the first slide
-
 
 ## v1.1.9
 
