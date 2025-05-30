@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.0.4
+
+-   Fixed: Hero photo is now positioned correctly on desktop sizes in the homepage 'current-feature' section
+
 ## 2.0.3
 
 -   Fixed: The profile swiper bug fixe for Webkit introduced a new (but similar) issue on Chrome, so that is now properly handled.
