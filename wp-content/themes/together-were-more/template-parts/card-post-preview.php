@@ -9,13 +9,18 @@
 <div class="post-preview-card d-flex flex-column h-100 position-relative">
 	<figure class="post-preview-card__cover mb-0 ratio ratio-16x9">
 		<?php
-		the_post_thumbnail(
-			'profile-preview-card',
-			array(
-				'class'   => 'w-100 object-fit-cover',
-				'loading' => 'lazy',
-			)
-		);
+		$profile_image = get_field('profile_image');
+		if ($profile_image && isset($profile_image['url'])) {
+			echo '<img src="' . esc_url($profile_image['url']) . '" alt="' . esc_attr($profile_image['alt'] ?? get_the_title()) . '" class="w-100 object-fit-cover" loading="lazy">';
+		} else {
+			the_post_thumbnail(
+				'profile-preview-card',
+				array(
+					'class'   => 'w-100 object-fit-cover',
+					'loading' => 'lazy',
+				)
+			);
+		}
 		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
 		<figcaption class="h-auto text-white position-relative z-2 mx-5 mb-3">
