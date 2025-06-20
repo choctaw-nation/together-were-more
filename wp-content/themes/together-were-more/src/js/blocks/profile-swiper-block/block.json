@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cno/twm-profile-swiper-block",
+	"version": "1.0.0",
+	"title": "Profile Swiper Block",
+	"category": "theme",
+	"icon": "block-default",
+	"keywords": [ "swiper", "carousel", "slider" ],
+	"description": "A php block that renders the Profile Swiper",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.tsx",
+	"viewScript": "file:./view.ts",
+	"render": "file:./render.php"
+}
