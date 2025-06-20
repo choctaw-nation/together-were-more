@@ -4,6 +4,7 @@ const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const THEME_NAME = 'together-were-more';
 const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;
 
+const blockEditor = [ 'editDefaultBlocks' ];
 const appNames = [ 'home', 'single' ];
 
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
 	...{
 		entry: () => {
 			return {
+				...defaultConfig.entry(),
 				global: `.${ THEME_DIR }/src/index.js`,
 				'vendors/bootstrap': `.${ THEME_DIR }/src/js/vendors/bootstrap.js`,
 				'vendors/lite-vimeo': `.${ THEME_DIR }/src/js/vendors/lite-vimeo.js`,
@@ -21,6 +23,7 @@ module.exports = {
 				'pages/profile-swiper': `.${ THEME_DIR }/src/js/single/ProfileSwiper.ts`,
 				'pages/gallery-swiper': `.${ THEME_DIR }/src/js/single/GallerySwiper.ts`,
 				...addEntries( appNames, 'pages' ),
+				...addEntries( blockEditor, 'admin' ),
 			};
 		},
 
@@ -39,30 +42,55 @@ module.exports = {
 
 /**
  * Helper function to add entries to the entries object. It takes an array of strings in either kebab-case or snake_case and returns an object with the key as the entry name and the value as the path to the entry file.
- * @param {array} array - Array of strings
- * @param {string} type - The type of entry. Either 'pages' or 'styles'
+ * @param {string[]} fileNames - Array of strings
+ * @param {'pages'|'styles'|'admin'|'blocks'} type - The type of entry. Either 'pages' or 'styles'
  */
-function addEntries( array, type ) {
-	if ( ! Array.isArray( array ) ) {
-		throw new Error( `Expecting an array, received ${ typeof array }!` );
+function addEntries( fileNames, type ) {
+	if ( ! Array.isArray( fileNames ) ) {
+		throw new Error(
+			`Expecting an array, received ${ typeof fileNames }!`
+		);
 	}
-	if ( 0 >= array.length ) {
+	if ( 0 >= fileNames.length ) {
 		return {};
 	}
 	const entries = {};
-	array.forEach( ( asset ) => {
-		const assetOutput = snakeToCamel( asset );
-		if ( type === 'styles' ) {
-			entries[
-				`pages/${ assetOutput }`
-			] = `.${ THEME_DIR }/src/styles/pages/${ asset }.scss`;
-		} else if ( type === 'pages' ) {
-			entries[
-				`pages/${ assetOutput }`
-			] = `.${ THEME_DIR }/src/js/${ asset }/index.ts`;
+	const typeOutput = {
+		styles: {
+			outputDir: ( assetOutput ) => `pages/${ assetOutput }`,
+			path: ( asset ) =>
+				`.${ THEME_DIR }/src/styles/pages/${ asset }.scss`,
+		},
+		pages: {
+			outputDir: ( assetOutput ) => `pages/${ assetOutput }`,
+			path: ( asset ) => `.${ THEME_DIR }/src/js/${ asset }/index.ts`,
+		},
+		admin: {
+			outputDir: ( assetOutput ) => `admin/${ assetOutput }`,
+			path: ( asset ) => `.${ THEME_DIR }/src/js/gutenberg/${ asset }.ts`,
+		},
+		blocks: {
+			outputDir: ( assetOutput ) => `theme-blocks/${ assetOutput }/index`,
+			path: ( asset ) =>
+				`.${ THEME_DIR }/src/js/blocks/${ asset }/index.tsx`,
+		},
+	};
+	fileNames.forEach( ( fileName ) => {
+		const assetOutput = snakeToCamel( fileName );
+		if ( Object.hasOwn( typeOutput, type ) ) {
+			const output = typeOutput[ type ];
+			if ( type === 'blocks' ) {
+				entries[ output.outputDir( fileName ) ] =
+					output.path( fileName );
+			} else {
+				entries[ output.outputDir( assetOutput ) ] =
+					output.path( fileName );
+			}
 		} else {
 			throw new Error(
-				`Invalid type! Expected "styles" or "pages", received "${ type }"`
+				`Invalid type! Expected one of ${ Object.keys(
+					typeOutput
+				).join( ', ' ) }, received "${ type }"`
 			);
 		}
 	} );

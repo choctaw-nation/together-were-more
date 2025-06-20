@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 3.0.0
+
+-   New! Posts are now powered by the Block Editor
+
 ## 2.0.4
 
 -   Fixed: Hero photo is now positioned correctly on desktop sizes in the homepage 'current-feature' section

@@ -7,7 +7,7 @@
 $categories: ("artists", "culture", "inspirational", "competitors");
 
 @each $category in $categories {
-	:where(.single .category-#{$category}) a {
+	:root :where(.single .category-#{$category}) a {
 		color: fn.get-category-color($category);
 
 		@include m.interaction() {

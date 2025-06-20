@@ -121,6 +121,7 @@ class Theme_Init {
 			'post-override'         => 'Post_Override',
 			'site-search'           => 'Site_Search',
 			'social-link-generator' => null,
+			'gutenberg-handler'     => 'Gutenberg_Handler',
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";
@@ -186,7 +187,7 @@ class Theme_Init {
 			'vendors',
 			array(
 				'scripts' => array(),
-				'styles'  => array(),
+				'styles'  => array( 'wp-block-library', 'global-styles' ),
 			)
 		);
 
@@ -212,9 +213,7 @@ class Theme_Init {
 		$this->remove_wordpress_styles(
 			array(
 				'classic-theme-styles',
-				'wp-block-library',
 				'dashicons',
-				'global-styles',
 			)
 		);
 	}
@@ -382,7 +381,6 @@ class Theme_Init {
 	 */
 	private function disable_post_type_support( string $post_type ) {
 		$supports = array(
-			'editor',
 			'comments',
 			'trackbacks',
 			'revisions',
