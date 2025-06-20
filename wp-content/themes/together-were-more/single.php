@@ -8,7 +8,12 @@
 use ChoctawNation\Asset_Loader;
 use ChoctawNation\Enqueue_Type;
 
-new Asset_Loader( 'single', Enqueue_Type::both, 'pages' );
+$is_gutenberg = ! empty( get_the_content() );
+if ( $is_gutenberg ) {
+	new Asset_Loader( 'singleGutenberg', Enqueue_Type::both, 'pages' );
+} else {
+	new Asset_Loader( 'single', Enqueue_Type::both, 'pages' );
+}
 get_header();
 ?>
 
@@ -16,7 +21,7 @@ get_header();
 	<?php
 	get_template_part( 'template-parts/profile/section', 'hero' );
 	get_template_part( 'template-parts/nav', 'breadcrumbs' );
-	if ( ! empty( get_the_content() ) ) {
+	if ( $is_gutenberg ) {
 		the_content();
 	} else {
 		$sections = get_field( 'article' );

@@ -1,0 +1,15 @@
+@use "../../abstracts/mixins" as m;
+@use "../../abstracts/functions" as fn;
+
+// Link Customizer
+$categories: ("artists", "culture", "inspirational", "competitors");
+
+@each $category in $categories {
+	:root :where(.single .category-#{$category}) a {
+		color: fn.get-category-color($category);
+
+		@include m.interaction() {
+			filter: var(--cno-accessible-color-filter);
+		}
+	}
+}

@@ -5,7 +5,7 @@ const THEME_NAME = 'together-were-more';
 const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;
 
 const blockEditor = [ 'editDefaultBlocks' ];
-const appNames = [ 'home', 'single' ];
+const appNames = [ 'home', 'single', 'single-gutenberg' ];
 
 module.exports = {
 	...defaultConfig,
