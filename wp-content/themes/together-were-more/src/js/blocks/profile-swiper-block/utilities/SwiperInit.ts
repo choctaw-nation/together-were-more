@@ -24,7 +24,7 @@ export function mergeParams( options: {
 	[ key: string ]: any;
 } ): SwiperOptions {
 	const parameters = {
-		modules: [ Autoplay, Navigation, Pagination, A11y ],
+		modules: [ Autoplay, Pagination, A11y ],
 		autoHeight: options?.autoHeight ?? false,
 		autoplay: options?.autoplay ?? false,
 		centeredSlides: options?.centeredSlides ?? false,

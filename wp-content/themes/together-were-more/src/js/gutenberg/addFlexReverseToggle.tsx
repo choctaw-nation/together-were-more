@@ -110,6 +110,7 @@ class FlexReverse {
 						<InspectorControls>
 							<PanelBody title="Flex Direction">
 								<ToggleControl
+									__nextHasNoMarginBottom
 									label="Reverse Direction"
 									checked={ isDirectionReversed }
 									onChange={ ( value ) =>
