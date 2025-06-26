@@ -9,9 +9,17 @@
 	"keywords": [ "swiper", "carousel", "slider" ],
 	"description": "A php block that renders the Profile Swiper",
 	"supports": {
-		"html": false
+		"html": false,
+		"reusable": false,
+		"multiple": false
+	},
+	"attributes": {
+		"paginationColor": {
+			"type": "string",
+			"default": "gray"
+		}
 	},
 	"editorScript": "file:./index.tsx",
-	"viewScript": "file:./view.ts",
-	"render": "file:./render.php"
+	"style": "file:./index.css",
+	"viewScript": "file:./view.ts"
 }
