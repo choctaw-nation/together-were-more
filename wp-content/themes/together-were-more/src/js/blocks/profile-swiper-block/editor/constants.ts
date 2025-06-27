@@ -22,6 +22,7 @@ const SLIDE_ATTRIBUTES = {
 		},
 	},
 };
+
 /**
  * This is the default block we'll use for our slide.
  */
@@ -101,6 +102,10 @@ const TEMPLATE = [
 			...SLIDE_ATTRIBUTES,
 			metadata: {
 				name: 'Slide 3 (Video)',
+			},
+			layout: {
+				type: 'flex',
+				orientation: 'vertical',
 			},
 		},
 		[ [ 'cno/twm-profile-swiper-video-slide' ] ],

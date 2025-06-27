@@ -1,16 +1,26 @@
 import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
-import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
+
+import './style.scss';
+import SwiperVideoSlide from './SwiperVideoSlide';
+import BlockControls from './BlockControls';
 
 registerBlockType( metadata.name, {
-	edit: ( { attributes, setAttributes } ) => {
-		return <p>A video & caption slide will go here</p>;
+	edit: ( props ) => {
+		return (
+			<>
+				<BlockControls { ...props } />
+				<SwiperVideoSlide
+					editorView={ true }
+					caption={ props.attributes.videoCaption }
+				/>
+			</>
+		);
 	},
-	save: () => (
-		<div
-			{ ...useInnerBlocksProps(
-				useBlockProps.save( { className: 'profile-swiper-block' } )
-			) }
+	save: ( { attributes } ) => (
+		<SwiperVideoSlide
+			editorView={ false }
+			caption={ attributes.videoCaption }
 		/>
 	),
 } );

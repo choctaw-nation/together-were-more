@@ -5,7 +5,7 @@
 	"version": "1.0.0",
 	"title": "Profile Swiper Video Slide",
 	"category": "theme",
-	"icon": "block-default",
+	"icon": "video-alt3",
 	"description": "Renders a video inside of a swiper slide.",
 	"supports": {
 		"html": false,
@@ -14,17 +14,12 @@
 		"inserter": false
 	},
 	"attributes": {
-		"videoId": {
-			"type": "string"
-		},
-		"customThumbnail": {
-			"type": "object"
-		},
 		"videoCaption": {
 			"type": "string",
 			"default": ""
 		}
 	},
 	"parent": [ "cno/twm-profile-swiper-block" ],
-	"editorScript": "file:./index.tsx"
+	"editorScript": "file:./index.tsx",
+	"style": "file:./style-index.css"
 }
