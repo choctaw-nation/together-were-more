@@ -20,6 +20,8 @@
 		}
 	},
 	"editorScript": "file:./index.tsx",
-	"style": "file:./index.css",
-	"viewScript": "file:./view.ts"
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.ts",
+	"viewStyle": "file:./view.css"
 }

@@ -1,28 +1,50 @@
 import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
+import { useEffect } from '@wordpress/element';
+import { useRefEffect } from '@wordpress/compose';
+import { useSelect } from '@wordpress/data';
 
-import { useEffect, useRef } from '@wordpress/element';
-import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
+
+import './editor.scss';
+
 import { innerBlocksArgs } from './constants';
 
+import { SwiperInit } from '../shared/SwiperInit';
+
 export default function Edit( { attributes, setAttributes } ) {
-	const blockProps = useBlockProps( {} );
-	const swiperRef = useRef( null );
+	const paginationColor = {
+		'--swiper-pagination-color': `var(--wp--preset--color--${ attributes.paginationColor })`,
+	} as Record< string, string >;
+
+	const categoryName = useSelect( ( select ) => {
+		const { getEntityRecords } = select( 'core' );
+		const post = select( 'core/editor' ).getCurrentPost();
+		if ( ! post || ! post.categories || post.categories.length === 0 )
+			return null;
+		const categories = getEntityRecords( 'taxonomy', 'category', {
+			include: post.categories,
+		} );
+		return categories && categories.length > 0
+			? categories[ 0 ].slug
+			: null;
+	}, [] );
+
 	useEffect( () => {
-		if ( swiperRef.current ) {
+		if ( ! categoryName ) {
+			return;
+		}
+		setAttributes( { paginationColor: categoryName } );
+	}, [ categoryName ] );
+
+	const swiperRef = useRefEffect( ( swiper ) => {
+		if ( swiper ) {
 			try {
-				new Swiper( swiperRef.current, {
+				SwiperInit( swiper, {
 					modules: [ Pagination ],
-					slidesPerView: 'auto',
-					direction: 'horizontal',
-					spaceBetween: 0,
-					autoHeight: false,
 					pagination: {
-						el: '.swiper-pagination',
 						clickable: false,
 					},
+
 					on: {
 						init: ( swiper ) => {
 							swiper.disable();
@@ -33,7 +55,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				console.error( 'Swiper initialization failed:', error );
 			}
 		}
-	}, [ swiperRef ] );
+	}, [] );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{ className: 'swiper-wrapper' },
@@ -41,14 +63,17 @@ export default function Edit( { attributes, setAttributes } ) {
 	);
 	return (
 		<>
-			<div { ...blockProps }>
+			<div { ...useBlockProps() }>
 				<div className="swiper-row">
 					<div className="swiper" ref={ swiperRef }>
 						<div { ...innerBlocksProps } />
 					</div>
 				</div>
 				<div className="swiper-row">
-					<div className="swiper-pagination"></div>
+					<div
+						className="swiper-pagination"
+						style={ paginationColor }
+					></div>
 				</div>
 			</div>
 		</>
