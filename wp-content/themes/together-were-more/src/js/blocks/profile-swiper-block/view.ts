@@ -1,22 +1,27 @@
-// import './view.scss';
-/**
- * Shared Swiper config.
- */
-import { SwiperInit } from './utilities/SwiperInit';
-document.addEventListener( 'DOMContentLoaded', () => {
-	const containers = document.querySelectorAll( '.swiper' );
-	if ( ! containers.length ) {
+import './view.scss';
+import { SwiperInit } from './shared/SwiperInit';
+
+function initSwiper() {
+	const container = document.querySelector(
+		'.wp-block-cno-twm-profile-swiper-block .swiper'
+	);
+	if ( ! container ) {
 		return;
 	}
+	try {
+		SwiperInit( container, {
+			on: {
+				slideChange: () => {
+					const swipeText = document.getElementById( 'swipe-text' );
+					if ( swipeText ) {
+						swipeText.style.display = 'none';
+					}
+				},
+			},
+		} );
+	} catch ( e ) {
+		console.error( e );
+	}
+}
 
-	// Loop through all sliders and assign Swiper object.
-	containers.forEach( ( element ) => {
-		try {
-			SwiperInit( element, JSON.parse( element.dataset.swiper ) );
-		} catch ( e ) {
-			// eslint-disable-next-line no-console
-			console.error( e );
-			return;
-		}
-	} );
-} );
+document.addEventListener( 'DOMContentLoaded', initSwiper, { once: true } );

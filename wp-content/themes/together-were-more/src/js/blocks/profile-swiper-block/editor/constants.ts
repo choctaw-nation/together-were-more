@@ -1,6 +1,8 @@
 const SLIDE_ATTRIBUTES = {
 	align: 'center',
-	className: 'swiper-slide',
+	className: 'swiper-slide swiper-slide__media',
+	templateLock: 'all',
+	lock: { move: true, remove: true },
 	layout: {
 		type: 'constrained',
 		orientation: 'vertical',
@@ -32,16 +34,25 @@ const SWIPER_SLIDE = 'core/group';
 const IMAGE_SLIDE = [ 'core/image', {} ];
 const QUOTE_SLIDE = [
 	'core/quote',
-	{},
+	{
+		spacing: {
+			padding: {
+				top: 'var:preset|spacing|xl',
+				bottom: 'var:preset|spacing|xl',
+				left: 'var:preset|spacing|base',
+				right: 'var:preset|spacing|base',
+			},
+		},
+	},
 	[
 		[
 			'core/paragraph',
 			{
 				placeholder: 'Quote text here',
-				fontSize: 'h5',
+				fontSize: 'h2',
+				textColor: 'white',
 				fontFamily: 'script',
 				align: 'center',
-				color: 'white',
 			}, // your default attributes
 		],
 	],
@@ -49,56 +60,70 @@ const QUOTE_SLIDE = [
 
 const TEMPLATE = [
 	[
-		[
-			SWIPER_SLIDE,
-			{
-				...SLIDE_ATTRIBUTES,
-				metadata: {
-					name: 'Slide 1',
+		SWIPER_SLIDE,
+		{
+			...SLIDE_ATTRIBUTES,
+			metadata: {
+				name: 'Slide 1 (Image)',
+			},
+			className: 'swiper-slide swiper-slide__media',
+		},
+		[ IMAGE_SLIDE ],
+	],
+	[
+		SWIPER_SLIDE,
+		{
+			...SLIDE_ATTRIBUTES,
+			metadata: { name: 'Slide 2 (Quote)' },
+			className: 'swiper-slide swiper-slide__quote',
+			style: {
+				spacing: {
+					padding: {},
+				},
+				background: {
+					backgroundImage: {
+						url: '/wp-content/uploads/2024/10/black-bg-chevron-noise.jpg',
+						id: 89,
+						source: 'file',
+						title: 'black-bg-chevron-noise',
+					},
+					backgroundSize: 'cover',
 				},
 			},
-			[ IMAGE_SLIDE ],
-		],
-		[
-			SWIPER_SLIDE,
-			{
-				...SLIDE_ATTRIBUTES,
-				metadata: {
-					name: 'Slide 2 (Quote)',
-				},
+			backgroundColor: 'black',
+			textColor: 'white',
+		},
+		[ QUOTE_SLIDE ],
+	],
+	[
+		SWIPER_SLIDE,
+		{
+			...SLIDE_ATTRIBUTES,
+			metadata: {
+				name: 'Slide 3 (Video)',
 			},
-			[ QUOTE_SLIDE ],
-		],
-		[
-			SWIPER_SLIDE,
-			{
-				...SLIDE_ATTRIBUTES,
-				metadata: {
-					name: 'Slide 3 (Video)',
-				},
+		},
+		[ [ 'cno/twm-profile-swiper-video-slide' ] ],
+	],
+	[
+		SWIPER_SLIDE,
+		{
+			...SLIDE_ATTRIBUTES,
+			metadata: {
+				name: 'Slide 4 (Image)',
 			},
-			[ [ 'cno/twm-profile-swiper-video-slide' ] ],
-		],
-		[
-			SWIPER_SLIDE,
-			{
-				...SLIDE_ATTRIBUTES,
-				metadata: {
-					name: 'Slide 4 (Image)',
-				},
+		},
+		[ IMAGE_SLIDE ],
+	],
+	[
+		SWIPER_SLIDE,
+		{
+			...SLIDE_ATTRIBUTES,
+			metadata: {
+				name: 'Slide 5 (Image)',
 			},
-			[ IMAGE_SLIDE ],
-		],
-		[
-			SWIPER_SLIDE,
-			{
-				...SLIDE_ATTRIBUTES,
-				metadata: {
-					name: 'Slide 5 (Image)',
-				},
-			},
-			[ IMAGE_SLIDE ],
-		],
+		},
+		[ IMAGE_SLIDE ],
 	],
 ];
 
