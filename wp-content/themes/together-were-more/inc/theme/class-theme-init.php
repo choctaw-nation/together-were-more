@@ -260,6 +260,13 @@ class Theme_Init {
 			$video_modal_trigger['version'],
 			array( 'strategy' => 'defer' )
 		);
+		wp_register_script(
+			'video-modal-trigger-no-lv',
+			get_template_directory_uri() . '/dist/modules/video-modal-trigger.js',
+			array( 'bootstrap' ),
+			$video_modal_trigger['version'],
+			array( 'strategy' => 'defer' )
+		);
 		$category_swiper = require_once $asset_file_base . '/modules/category-swiper.asset.php';
 		wp_register_script(
 			'category-swiper',
