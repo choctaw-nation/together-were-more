@@ -3,6 +3,11 @@
 @use "swiper/css/pagination";
 
 .wp-block-cno-twm-profile-swiper-block {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: var(--wp--preset--spacing--xl);
+
 	.swiper-row {
 		position: relative;
 
@@ -11,10 +16,6 @@
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
-			display: flex;
-			flex-direction: column;
-			align-items: stretch;
-			gap: var(--wp--preset--spacing--xl);
 		}
 	}
 
@@ -50,6 +51,7 @@
 
 			p {
 				line-height: 1.5;
+				font-size: calc(1.3738rem + 1.4856vw) !important;
 
 				@include m.media-breakpoint-up(xl) {
 					font-size: 2.488rem !important;
