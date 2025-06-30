@@ -22,6 +22,7 @@ class Gutenberg_Handler {
 		add_filter( 'block_editor_settings_all', array( $this, 'restrict_gutenberg_ui' ), 10, 1 );
 		add_filter( 'allowed_block_types_all', array( $this, 'restrict_block_types' ), 10, 2 );
 		add_filter( 'use_block_editor_for_post_type', array( $this, 'handle_page_templates' ) );
+		add_filter( 'image_size_names_choose', array( $this, 'custom_image_sizes' ), );
 	}
 
 	/**
@@ -228,5 +229,23 @@ class Gutenberg_Handler {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Customizes the list of image sizes available in the Block Editor.
+	 */
+	public function custom_image_sizes( $sizes ) {
+		if ( ! $this->is_admin() ) {
+			return $sizes;
+		}
+		// Remove the 'Large' image size from the list of available sizes.
+		unset( $sizes['large'] );
+		return array_merge(
+			$sizes,
+			array(
+				'4k'                             => '4k',
+				'profile-swiper-video-thumbnail' => 'Profile Swiper Video Thumbnail',
+			)
+		);
 	}
 }
