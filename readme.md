@@ -13,9 +13,12 @@ const colorMap = {
 
 # Changelog
 
-## 3.0.0
+## 2.1.0
 
--   New! Posts are now powered by the Block Editor
+-   Added: Posts can now powered by the Block Editor
+-   Added: ACF Field registration is handled with acf-json
+-   Added: Images powered by the Block Editor now have lightbox support
+-   Updated: `lite-vimeo` package has been upgraded to v1.3.0 for compatibility with the Block Editor's Lite Vimeo plugin
 
 ## 2.0.4
 
