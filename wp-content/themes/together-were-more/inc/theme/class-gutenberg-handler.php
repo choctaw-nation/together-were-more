@@ -232,8 +232,10 @@ class Gutenberg_Handler {
 
 	/**
 	 * Customizes the list of image sizes available in the Block Editor.
+	 *
+	 * @param array $sizes the sizes array to update
 	 */
-	public function custom_image_sizes( $sizes ) {
+	public function custom_image_sizes( array $sizes ) {
 		if ( ! $this->is_admin() ) {
 			return $sizes;
 		}
