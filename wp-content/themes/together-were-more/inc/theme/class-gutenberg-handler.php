@@ -222,9 +222,8 @@ class Gutenberg_Handler {
 		$current_template     = get_page_template_slug( $post );
 		$homepage_id          = (int) get_option( 'page_on_front' );
 		$is_homepage          = ( $homepage_id && $homepage_id === $post->ID );
-		$disallowed_templates = array();
+		$disallowed_templates = array( 'templates/single-classic-post.php' );
 		if ( in_array( $current_template, $disallowed_templates, true ) || $is_homepage ) {
-			// Side effect to remove the classic editor on the pages as well
 			remove_post_type_support( 'page', 'editor' );
 			return false;
 		}
