@@ -16,10 +16,12 @@ export default function handleFadeAnimations() {
 
 	// Observe elements
 	document
-		.querySelectorAll(
-			'figure.wp-block-image img:not(.wp-block-cno-twm-profile-swiper-block img)'
-		)
-		.forEach( ( img ) => {
+		.querySelectorAll( 'figure.wp-block-image img' )
+		.forEach( ( img, index ) => {
+			if ( 0 === index ) {
+				// Skip the first image
+				return;
+			}
 			// Exclude if any ancestor is .wp-block-cno-twm-profile-swiper-block
 			if ( ! img.closest( '.wp-block-cno-twm-profile-swiper-block' ) ) {
 				img.classList.add( 'fade-up-init' ); // Initial state
