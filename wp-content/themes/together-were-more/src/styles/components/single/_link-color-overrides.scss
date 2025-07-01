@@ -13,3 +13,12 @@ $categories: ("artists", "culture", "inspirational", "competitors");
 		}
 	}
 }
+
+.social-share-bar {
+	.socials a {
+		filter: var(--cno-accessible-color-filter);
+		@include m.interaction() {
+			filter: unset;
+		}
+	}
+}

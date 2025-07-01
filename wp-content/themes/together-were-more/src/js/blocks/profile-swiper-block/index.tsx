@@ -13,7 +13,7 @@ registerBlockType( metadata.name, {
 			'--swiper-pagination-color': `var(--wp--preset--color--${ attributes.paginationColor })`,
 		} as Record< string, string >;
 		return (
-			<div { ...useBlockProps.save() }>
+			<div { ...useBlockProps.save() } id="profile-swiper">
 				<div className="swiper-row">
 					<div className="swiper">
 						<div
