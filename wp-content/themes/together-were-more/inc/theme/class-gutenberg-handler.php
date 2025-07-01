@@ -73,7 +73,7 @@ class Gutenberg_Handler {
 		$blocks_path = get_template_directory() . '/dist';
 		$manifest    = $blocks_path . '/blocks-manifest.php';
 		if ( file_exists( $manifest ) ) {
-			wp_register_block_types_from_metadata_collection( $blocks_path . '/js/blocks', $blocks_path . '/blocks-manifest.php' );
+			\wp_register_block_types_from_metadata_collection( $blocks_path . '/js/blocks', $blocks_path . '/blocks-manifest.php' );
 		}
 	}
 
