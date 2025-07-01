@@ -1,0 +1,401 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"color": {
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"duotone": [],
+			"gradients": [],
+			"palette": [
+				{
+					"color": "#c5a352",
+					"name": "Artists (Gold)",
+					"slug": "artists"
+				},
+				{
+					"color": "#853f6f",
+					"name": "Culture (Plum)",
+					"slug": "culture"
+				},
+				{
+					"color": "#6d6b94",
+					"name": "Inspirational (Violet)",
+					"slug": "inspirational"
+				},
+				{
+					"color": "#7b2f2d",
+					"name": "Competitors (Garnet)",
+					"slug": "competitors"
+				},
+				{
+					"color": "#707070",
+					"name": "Gray",
+					"slug": "gray"
+				},
+				{
+					"color": "white",
+					"name": "White",
+					"slug": "white"
+				},
+				{
+					"color": "#000000",
+					"name": "Black",
+					"slug": "black"
+				}
+			]
+		},
+		"blocks": {
+			"core/group": {
+				"background": {
+					"backgroundImage": true,
+					"backgroundSize": true
+				}
+			},
+			"core/image": {
+				"layout": {
+					"allowEditing": true
+				},
+				"appearanceTools": true,
+				"lightbox": {
+					"enabled": true
+				}
+			}
+		},
+		"dimensions": {
+			"aspectRatio": true
+		},
+		"layout": {
+			"allowCustomContentAndWideSize": false,
+			"allowEditing": true,
+			"contentSize": "768px",
+			"wideSize": "1320px"
+		},
+		"shadow": {
+			"defaultPresets": false
+		},
+		"spacing": {
+			"blockGap": true,
+			"customSpacingSize": false,
+			"defaultSpacingSizes": false,
+			"margin": true,
+			"padding": true,
+			"spacingSizes": [
+				{
+					"name": "None",
+					"size": "0",
+					"slug": "none"
+				},
+				{
+					"name": "Extra Small",
+					"size": ".25rem",
+					"slug": "xs"
+				},
+				{
+					"name": "Small",
+					"size": ".5rem",
+					"slug": "sm"
+				},
+				{
+					"name": "Base",
+					"size": "1rem",
+					"slug": "base"
+				},
+				{
+					"name": "Large",
+					"size": "1.5rem",
+					"slug": "lg"
+				},
+				{
+					"name": "Extra Large",
+					"size": "3rem",
+					"slug": "xl"
+				}
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"defaultFontSizes": false,
+			"dropCap": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"adobe-handwriting-ernie\", cursive, sans-serif",
+					"name": "Ernie",
+					"slug": "script"
+				},
+				{
+					"fontFamily": "pill-gothic-300mg, \"Helvetica Neue\", \"Noto Sans\", \"Liberation Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+					"name": "Pill Gothic 300mg",
+					"slug": "pill-gothic-300mg"
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "root",
+					"size": "1rem",
+					"name": "Root",
+					"fluid": false
+				},
+				{
+					"slug": "base",
+					"size": "1.35rem",
+					"name": "Body",
+					"fluid": false
+				},
+				{
+					"slug": "h6",
+					"size": "25.92px",
+					"name": "Small (H6)",
+					"fluid": true
+				},
+				{
+					"slug": "h5",
+					"size": "31.1px",
+					"name": "Medium (H5)",
+					"fluid": true
+				},
+				{
+					"slug": "h4",
+					"size": "37.32px",
+					"name": "Large (H4)",
+					"fluid": true
+				},
+				{
+					"slug": "h3",
+					"size": "44.79px",
+					"name": "XL (H3)",
+					"fluid": true
+				},
+				{
+					"slug": "h2",
+					"size": "53.75px",
+					"name": "2XL (H2)",
+					"fluid": true
+				},
+				{
+					"slug": "h1",
+					"size": "64.5px",
+					"name": "3XL (H1)",
+					"fluid": true
+				}
+			],
+			"fontWeight": true,
+			"lineHeight": false,
+			"textDecoration": false
+		},
+		"border": {
+			"color": true,
+			"radius": false,
+			"width": true,
+			"style": false
+		},
+		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"spacing": {
+			"margin": {
+				"bottom": "0",
+				"left": "0",
+				"right": "0",
+				"top": "0"
+			},
+			"padding": {
+				"bottom": "0",
+				"left": "1.5rem",
+				"right": "1.5rem",
+				"top": "0"
+			},
+			"blockGap": "var:preset|spacing|base"
+		},
+		"blocks": {
+			"core/heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg"
+				}
+			},
+			"core/list": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"fontSize": "var:preset|font-size|base"
+				}
+			},
+			"core/list-item": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"fontSize": "var:preset|font-size|base"
+				}
+			},
+			"core/paragraph": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"fontSize": "var:preset|font-size|base"
+				},
+				"spacing": {
+					"margin": {
+						"bottom": "1rem",
+						"top": "0"
+					}
+				}
+			},
+			"core/quote": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|script",
+					"fontSize": "var:preset|font-size|h-3",
+					"lineHeight": "2"
+				}
+			},
+			"core/buttons": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"fontSize": "var:preset|font-size|base"
+				}
+			},
+			"core/button": {
+				"border": {
+					"radius": "0",
+					"width": "2px",
+					"color": "var:preset|color|artists"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var:preset|spacing|sm",
+						"right": "var:preset|spacing|lg",
+						"bottom": "var:preset|spacing|sm",
+						"left": "var:preset|spacing|lg"
+					},
+					"blockGap": "var:preset|spacing|base"
+				},
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"fontSize": "var:preset|font-size|base"
+				},
+				"color": {
+					"background": "var:preset|color|artists",
+					"text": "var:preset|color|white"
+				}
+			},
+			"core/cover": {
+				"spacing": {
+					"padding": {
+						"top": "0",
+						"right": "0",
+						"bottom": "0",
+						"left": "0"
+					},
+					"blockGap": "var:preset|spacing|base"
+				}
+			},
+			"core/group": {
+				"spacing": {
+					"blockGap": "var:preset|spacing|base"
+				}
+			},
+			"core/image": {
+				"variations": {
+					"rounded": {
+						"border": {
+							"radius": "0"
+						}
+					}
+				}
+			}
+		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontSize": "var:preset|font-size|h-1"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|h-2"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var:preset|font-size|h-3"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontSize": "var:preset|font-size|g-4"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontSize": "var:preset|font-size|h-5"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontSize": "var:preset|font-size|h-6"
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"lineHeight": "calc(4px + 2ex)",
+					"fontWeight": "700"
+				},
+				"spacing": {
+					"margin": {
+						"bottom": "0.5rem",
+						"top": "0"
+					}
+				},
+				"css": "text-wrap:balance"
+			},
+			"link": {
+				"css": "transition: color var(--transition-standard);text-underline-offset:.25em",
+				"color": {
+					"text": "var:preset|color|artists"
+				},
+				":hover": {
+					"color": {
+						"text": "#c5ae52cc"
+					}
+				},
+				":visited": {
+					"color": {
+						"text": "var:preset|color|artists"
+					}
+				}
+			},
+			"caption": {
+				"color": {
+					"text": "var:preset|color|black"
+				},
+				"typography": {
+					"fontSize": "var:preset|font-size|root",
+					"fontFamily": "var:preset|font-family|pill-gothic-300-mg",
+					"fontStyle": "italic",
+					"textAlign": "center"
+				},
+				"border": {
+					"bottom": {
+						"color": "var:preset|color|black",
+						"width": "1px",
+						"style": "solid"
+					}
+				},
+				"spacing": {
+					"margin": {
+						"top": "var:preset|spacing|sm",
+						"bottom": "0"
+					}
+				}
+			}
+		},
+		"typography": {
+			"fontSize": "var:preset|font-size|base",
+			"lineHeight": "1.5",
+			"fontWeight": "400",
+			"fontFamily": "var:preset|font-family|pill-gothic-300-mg"
+		}
+	}
+}

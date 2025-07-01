@@ -121,6 +121,8 @@ class Theme_Init {
 			'post-override'         => 'Post_Override',
 			'site-search'           => 'Site_Search',
 			'social-link-generator' => null,
+			'gutenberg-handler'     => 'Gutenberg_Handler',
+			'acf-handler'           => 'ACF_Handler',
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";
@@ -186,7 +188,7 @@ class Theme_Init {
 			'vendors',
 			array(
 				'scripts' => array(),
-				'styles'  => array(),
+				'styles'  => array( 'wp-block-library', 'global-styles' ),
 			)
 		);
 
@@ -212,9 +214,7 @@ class Theme_Init {
 		$this->remove_wordpress_styles(
 			array(
 				'classic-theme-styles',
-				'wp-block-library',
 				'dashicons',
-				'global-styles',
 			)
 		);
 	}
@@ -261,6 +261,13 @@ class Theme_Init {
 			$video_modal_trigger['version'],
 			array( 'strategy' => 'defer' )
 		);
+		wp_register_script(
+			'video-modal-trigger-no-lv',
+			get_template_directory_uri() . '/dist/modules/video-modal-trigger.js',
+			array( 'bootstrap' ),
+			$video_modal_trigger['version'],
+			array( 'strategy' => 'defer' )
+		);
 		$category_swiper = require_once $asset_file_base . '/modules/category-swiper.asset.php';
 		wp_register_script(
 			'category-swiper',
@@ -293,13 +300,14 @@ class Theme_Init {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		$image_sizes = array(
-			'4k'                   => array( 3840, 2160 ), // hero
-			'profile-preview'      => array( 1982, 1115 ), // 991 x 557
-			'category-card'        => array( 1392, 783 ), // 696 x 392
-			'category-archive'     => array( 2000, 1126 ), // 1000 x 563
-			'profile-preview-card' => array( 1008, 568 ), // 504 x 284
-			'story-portrait'       => array( 1392, 2088 ), // 696 x 1044
-			'story-landscape'      => array( 1392, 928 ), // 696 x 464
+			'4k'                             => array( 3840, 2160 ), // hero
+			'profile-preview'                => array( 1982, 1115 ), // 991 x 557
+			'category-card'                  => array( 1392, 783 ), // 696 x 392
+			'category-archive'               => array( 2000, 1126 ), // 1000 x 563
+			'profile-preview-card'           => array( 1008, 568 ), // 504 x 284
+			'story-portrait'                 => array( 1392, 2088 ), // 696 x 1044
+			'story-landscape'                => array( 1392, 928 ), // 696 x 464
+			'profile-swiper-video-thumbnail' => array( 850, 850 ), // 425 x 425
 		);
 		foreach ( $image_sizes as $name => $size ) {
 			add_image_size( $name, $size[0], $size[1], );
@@ -382,7 +390,6 @@ class Theme_Init {
 	 */
 	private function disable_post_type_support( string $post_type ) {
 		$supports = array(
-			'editor',
 			'comments',
 			'trackbacks',
 			'revisions',
