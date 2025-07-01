@@ -72,8 +72,31 @@ class Gutenberg_Handler {
 	public function register_block_assets() {
 		$blocks_path = get_template_directory() . '/dist';
 		$manifest    = $blocks_path . '/blocks-manifest.php';
-		if ( file_exists( $manifest ) ) {
-			\wp_register_block_types_from_metadata_collection( $blocks_path . '/js/blocks', $blocks_path . '/blocks-manifest.php' );
+		if ( ! file_exists( $manifest ) ) {
+			return;
+		}
+		if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
+			wp_register_block_types_from_metadata_collection( $blocks_path . '/js/blocks', $blocks_path . '/blocks-manifest.php' );
+			return;
+		}
+
+		/**
+		 * Registers the block(s) metadata from the `blocks-manifest.php` file.
+		 * Added to WordPress 6.7 to improve the performance of block type registration.
+		 *
+		 * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
+		 */
+		if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
+			wp_register_block_metadata_collection( $blocks_path . '/js/blocks', $blocks_path . '/blocks-manifest.php' );
+		}
+		/**
+		 * Registers the block type(s) in the `blocks-manifest.php` file.
+		 *
+		 * @see https://developer.wordpress.org/reference/functions/register_block_type/
+		 */
+		$manifest_data = require $manifest;
+		foreach ( array_keys( $manifest_data ) as $block_type ) {
+			register_block_type( "{$blocks_path}/js/blocks/{$block_type}" );
 		}
 	}
 
