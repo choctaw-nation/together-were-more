@@ -1,0 +1,200 @@
+{
+    "key": "group_670846027265f",
+    "title": "Post Type — Profiles",
+    "fields": [
+        {
+            "key": "field_670846425ee17",
+            "label": "Meta Details",
+            "name": "meta",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_670847bdd0d4e",
+                    "label": "Category",
+                    "name": "category",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "category",
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 1,
+                    "return_format": "object",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "bidirectional": 0,
+                    "multiple": 0,
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_670846025ee16",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_67b75e5c3795a",
+                    "label": "Bitly Link",
+                    "name": "bitly_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Should be a chocta.ws URL generated through a Bitly campaign.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 1,
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_670846705ee18",
+                    "label": "Video Details",
+                    "name": "video_details",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_670846865ee19",
+                            "label": "Video URL",
+                            "name": "video_url",
+                            "aria-label": "",
+                            "type": "oembed",
+                            "instructions": "Vimeo URLs must not have a trailing slash!",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "width": "",
+                            "height": "",
+                            "allow_in_bindings": 0
+                        },
+                        {
+                            "key": "field_6708469d5ee1a",
+                            "label": "Vimeo Visibility",
+                            "name": "is_public",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Video is public?",
+                            "default_value": 0,
+                            "allow_in_bindings": 0,
+                            "ui_on_text": "Public",
+                            "ui_off_text": "Unlisted",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_670846d95ee1b",
+                            "label": "Custom Thumbnail",
+                            "name": "custom_thumbnail",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6708469d5ee1a",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "library": "uploadedTo",
+                            "min_width": 1290,
+                            "min_height": 720,
+                            "min_size": "",
+                            "max_width": 3840,
+                            "max_height": 2160,
+                            "max_size": "",
+                            "mime_types": "webp,jpg",
+                            "allow_in_bindings": 0,
+                            "preview_size": "large"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "modified": 1751306667
+}

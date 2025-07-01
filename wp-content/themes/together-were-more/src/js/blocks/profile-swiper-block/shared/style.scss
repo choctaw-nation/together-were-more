@@ -1,0 +1,62 @@
+@use "../../../../styles/abstracts/mixins" as m;
+@use "swiper/css";
+@use "swiper/css/pagination";
+
+.wp-block-cno-twm-profile-swiper-block {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: var(--wp--preset--spacing--xl);
+
+	.swiper-row {
+		position: relative;
+
+		&:first-child {
+			background-image: url(/wp-content/themes/together-were-more/src/assets/white-texture.jpeg);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+
+	.swiper {
+		height: 500px;
+		max-height: 100vw;
+	}
+
+	.swiper-slide {
+		aspect-ratio: 1;
+		width: auto !important;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		& > * {
+			height: 100%;
+		}
+
+		&__media {
+			& > * {
+				aspect-ratio: 1;
+			}
+		}
+
+		&__quote blockquote {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			p {
+				line-height: 1.5;
+				font-size: calc(1.3738rem + 1.4856vw) !important;
+
+				@include m.media-breakpoint-up(xl) {
+					font-size: 2.488rem !important;
+				}
+			}
+		}
+	}
+}

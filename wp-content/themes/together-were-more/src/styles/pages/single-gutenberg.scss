@@ -1,0 +1,61 @@
+@use "../components/single/link-color-overrides";
+@use "../components/single/hero";
+
+/* General Animation Styles */
+.animate {
+	animation-fill-mode: both;
+	animation-timing-function: ease-in-out;
+	animation-duration: 550ms;
+	opacity: 1; /* Make visible after animation */
+}
+
+/* Initial State for Images (Fade Up) */
+.fade-up-init {
+	opacity: 0;
+	transform: translateY(50px);
+	transition:
+		transform 550ms ease-in-out,
+		opacity 550ms ease-in-out;
+}
+
+.fade-up-init.animate {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Initial State for Blockquotes (Fade In) */
+.fade-in-init {
+	opacity: 0;
+	transition: opacity 550ms ease-in-out;
+}
+
+.fade-in-init.animate {
+	opacity: 1;
+}
+
+// AOS Support
+/* General AOS Initialization State */
+[data-aos="fade-in"] {
+	opacity: 0; /* Start invisible */
+	transition: opacity 550ms ease-in-out;
+}
+
+/* Trigger Animation when Element is Visible */
+[data-aos="fade-in"].animate {
+	opacity: 1; /* Fully visible */
+	transform: translateY(0); /* Reset offset */
+}
+
+/* Handle Delays Dynamically */
+[data-aos-delay="50"] {
+	transition-delay: 0.05s;
+}
+[data-aos-delay="100"] {
+	transition-delay: 0.1s;
+}
+[data-aos-delay="150"] {
+	transition-delay: 0.15s;
+}
+[data-aos-delay="200"] {
+	transition-delay: 0.2s;
+}
