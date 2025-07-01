@@ -1,5 +1,6 @@
 import './view.scss';
 import { SwiperInit } from './shared/SwiperInit';
+import { bounceSwiper } from '../../bounceSwiper';
 
 function initSwiper() {
 	const container = document.querySelector(
@@ -24,4 +25,14 @@ function initSwiper() {
 	}
 }
 
-document.addEventListener( 'DOMContentLoaded', initSwiper, { once: true } );
+document.addEventListener(
+	'DOMContentLoaded',
+	() => {
+		initSwiper();
+		bounceSwiper( {
+			containerId: 'profile-swiper',
+			animationClass: 'bounce-left-small',
+		} );
+	},
+	{ once: true }
+);
