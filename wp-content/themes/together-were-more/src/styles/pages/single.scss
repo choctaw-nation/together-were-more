@@ -30,12 +30,3 @@
 		inset: 0;
 	}
 }
-
-.social-share-bar {
-	.socials a {
-		filter: var(--cno-accessible-color-filter);
-		@include m.interaction() {
-			filter: unset;
-		}
-	}
-}
