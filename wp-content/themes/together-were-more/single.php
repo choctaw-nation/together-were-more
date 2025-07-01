@@ -20,7 +20,7 @@ get_header();
 <main <?php post_class(); ?>>
 	<?php
 	get_template_part( 'template-parts/profile/section', 'hero' );
-	get_template_part( 'template-parts/nav', 'breadcrumbs' );
+	get_template_part( 'template-parts/nav', 'breadcrumbs', array( 'is_gutenberg' => $is_gutenberg ) );
 	if ( $is_gutenberg ) {
 		the_content();
 	} else {
