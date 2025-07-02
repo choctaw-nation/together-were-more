@@ -1,0 +1,13 @@
+@use "../../../styles/abstracts/mixins" as m;
+@use "swiper/css/a11y";
+@use "swiper/css/free-mode";
+@use "swiper/css/mousewheel";
+
+#swipe-text {
+	left: 5%;
+	bottom: -5px;
+
+	@include m.media-breakpoint-up(sm) {
+		left: 5%;
+	}
+}

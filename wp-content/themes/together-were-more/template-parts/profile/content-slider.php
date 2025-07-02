@@ -9,8 +9,8 @@
 use ChoctawNation\Asset_Loader;
 use ChoctawNation\Enqueue_Type;
 
-$bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
+$bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
 
 $pagination_color = cno_get_category_color( get_the_category( $post->ID )[0]->name );
 ?>

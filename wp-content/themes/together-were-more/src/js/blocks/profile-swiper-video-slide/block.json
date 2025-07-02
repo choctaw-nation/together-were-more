@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "cno/twm-profile-swiper-video-slide",
+	"version": "1.0.0",
+	"title": "Profile Swiper Video Slide",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Renders a video inside of a swiper slide.",
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"multiple": true,
+		"inserter": false
+	},
+	"attributes": {
+		"videoCaption": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": [ "cno/twm-profile-swiper-block" ],
+	"editorScript": "file:./index.tsx",
+	"style": "file:./style-index.css"
+}
