@@ -10,7 +10,7 @@ if ( false === $featured_profile_id ) {
 	return;
 }
 
-if ( empty( get_the_content() ) ) {
+if ( ! is_single() || ( is_single() && empty( get_the_content() ) ) ) {
 	wp_enqueue_script( 'video-modal-trigger' );
 } else {
 	wp_enqueue_script( 'video-modal-trigger-no-lv' );
