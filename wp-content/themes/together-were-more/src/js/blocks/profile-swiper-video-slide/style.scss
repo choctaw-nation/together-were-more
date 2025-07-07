@@ -1,0 +1,33 @@
+@use "../../../styles/abstracts/mixins" as m;
+
+.wp-block-cno-twm-profile-swiper-video-slide {
+	--max-width: 85%;
+	max-width: var(--max-width);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	row-gap: 0;
+	height: 100%;
+
+	@include m.media-breakpoint-up(sm) {
+		row-gap: 0.5rem;
+	}
+
+	figcaption {
+		max-width: var(--max-width);
+		font-size: var(--wp--preset--font-size--root);
+		line-height: 1.25;
+		text-align: center;
+	}
+
+	.wp-block-cno-lite-vimeo-cno-plugin-lite-vimeo-block {
+		aspect-ratio: 1;
+		max-width: var(--max-width);
+		width: 100%;
+
+		& > * {
+			height: 100%;
+		}
+	}
+}

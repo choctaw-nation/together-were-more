@@ -72,4 +72,4 @@ function addPaddingToContainer( swiper: Swiper ) {
 	container.style.height = `calc(6rem + ${ swiperHeight }px)`;
 }
 
-bounceSwiper( 'category-preview', '.swiper' );
+bounceSwiper( { containerId: 'category-preview' } );

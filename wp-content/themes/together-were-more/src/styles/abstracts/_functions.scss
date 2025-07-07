@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "sass:map";
 @use "../abstracts/variables" as v;
 
 @function transition($properties...) {
@@ -16,5 +17,5 @@
 }
 
 @function get-category-color($category) {
-	@return map-get(v.$category-colors, $category);
+	@return map.get(v.$category-colors, $category);
 }

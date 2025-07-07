@@ -13,6 +13,13 @@ const colorMap = {
 
 # Changelog
 
+## 2.1.0
+
+-   Added: Posts can now powered by the Block Editor
+-   Added: ACF Field registration is handled with acf-json
+-   Added: Images powered by the Block Editor now have lightbox support
+-   Updated: `lite-vimeo` package has been upgraded to v1.3.0 for compatibility with the Block Editor's Lite Vimeo plugin
+
 ## 2.0.4
 
 -   Fixed: Hero photo is now positioned correctly on desktop sizes in the homepage 'current-feature' section

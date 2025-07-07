@@ -1,20 +1,13 @@
 @use "../abstracts/mixins" as m;
-@use "../abstracts/functions" as fn;
+@use "../components/single/link-color-overrides";
 @use "../components/single/hero";
 @use "../components/single/diamond-separator";
 
-// Link Customizer
-$categories: ("artists", "culture", "inspirational", "competitors");
-
-@each $category in $categories {
-	:where(.single .category-#{$category}) a {
-		color: fn.get-category-color($category);
-
-		@include m.interaction() {
-			filter: var(--cno-accessible-color-filter);
-		}
-	}
-}
+/**
+* Utility CSS Classes below
+* These are meant to be used with ACF fields.
+* They may have no effect on Blocks.
+*/
 
 .portrait-container {
 	aspect-ratio: 2 / 3;
@@ -35,14 +28,5 @@ $categories: ("artists", "culture", "inspirational", "competitors");
 		position: absolute;
 		z-index: -1;
 		inset: 0;
-	}
-}
-
-.social-share-bar {
-	.socials a {
-		filter: var(--cno-accessible-color-filter);
-		@include m.interaction() {
-			filter: unset;
-		}
 	}
 }

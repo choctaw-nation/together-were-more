@@ -50,3 +50,19 @@ p,
 // 		--bs-gutter-x: 3rem;
 // 	}
 // }
+
+blockquote.wp-block-quote {
+	@include m.media-breakpoint-up(lg) {
+		flex: 0 0 auto;
+		width: calc(2 / 3 * 100%);
+	}
+
+	p.fade-in-init {
+		text-wrap: balance;
+		font-size: calc(1.3324rem + 0.9888vw) !important;
+
+		@include m.media-breakpoint-up(xl) {
+			font-size: 2.074rem !important;
+		}
+	}
+}

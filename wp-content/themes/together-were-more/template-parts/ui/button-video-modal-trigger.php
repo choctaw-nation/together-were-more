@@ -10,7 +10,11 @@ if ( false === $featured_profile_id ) {
 	return;
 }
 
-wp_enqueue_script( 'video-modal-trigger' );
+if ( ! is_single() || ( is_single() && empty( get_the_content() ) ) ) {
+	wp_enqueue_script( 'video-modal-trigger' );
+} else {
+	wp_enqueue_script( 'video-modal-trigger-no-lv' );
+}
 $button_text = isset( $args['button_text'] ) ? $args['button_text'] : '<i class="fa-light fa-play"></i>  Watch Video';
 $classes     = isset( $args['class'] ) ? $args['class'] : '';
 if ( $classes && is_array( $classes ) ) {
