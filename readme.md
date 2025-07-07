@@ -13,6 +13,13 @@ const colorMap = {
 
 # Changelog
 
+## 2.1.1
+
+-   Fixed: Profile Preview Cards on archive pages are now equal height on desktop screens (buttons line up)
+-   Fixed: Search page no longer throws error
+-   Fixed: Search page "showing results" message has been updated when no query is set
+-   Fixed: Archive pages now support pagination
+
 ## 2.1.0
 
 -   Added: Posts can now powered by the Block Editor
