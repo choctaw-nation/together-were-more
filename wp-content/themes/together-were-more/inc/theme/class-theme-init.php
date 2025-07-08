@@ -134,7 +134,7 @@ class Theme_Init {
 
 		$plugin_files = array(
 			'gravity-forms-handler' => 'Gravity_Forms_Handler',
-			'media-press-handler'   => 'Media_Press_Handler',
+			'mediapress-handler'    => 'MediaPress_Handler',
 		);
 		foreach ( $plugin_files as $plugin_file => $class_name ) {
 			require_once $base_path . "/plugins/class-{$plugin_file}.php";

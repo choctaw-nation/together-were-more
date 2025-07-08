@@ -7,6 +7,8 @@
  * @package ChoctawNation
  */
 
+use ChoctawNation\Plugins\MediaPress_Fields;
+
 /**
  * Takes raw ACF field (vimeo only) URL and returns the video id.
  * (Pass `false` as 3rd parameter in `get_field` to return raw url string.)
@@ -134,4 +136,32 @@ function cno_get_primary_color(): string {
 
 	// Return the color
 	return cno_get_category_color( $active_category );
+}
+
+/**
+ * Get a field value from MediaPress_Fields class.
+ *
+ * @param string   $field_name The name of the field to retrieve.
+ * @param int|null $post_id    The ID of the post to retrieve the field from. Defaults to 0 (current post).
+ * @param bool     $should_escape Whether to escape the field value. Defaults to true.
+ *
+ * @return mixed The value of the field, or null if not found.
+ */
+function mp_get_field( string $field_name, int|null $post_id = null, bool $should_escape = true ): mixed {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+	$mediapress_fields = new MediaPress_Fields( $post_id );
+	return $mediapress_fields->get_field( $field_name, $should_escape );
+}
+
+/**
+ * Echoes a field value from MediaPress_Fields class.
+ *
+ * @param string   $field_name The name of the field to retrieve.
+ * @param int|null $post_id    The ID of the post to retrieve the field from. Defaults to 0 (current post).
+ * @param bool     $should_escape Whether to escape the field value. Defaults to true.
+ */
+function mp_the_field( string $field_name, int|null $post_id = null, bool $should_escape = true ): void {
+	echo mp_get_field( $field_name, $post_id, $should_escape );
 }

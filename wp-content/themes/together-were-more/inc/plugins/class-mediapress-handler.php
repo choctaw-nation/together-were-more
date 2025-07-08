@@ -12,7 +12,7 @@ namespace ChoctawNation\Plugins;
 /**
  * Media Press Handler
  */
-class Media_Press_Handler {
+class MediaPress_Handler {
 	/**
 	 * Path to the Media Press configuration files.
 	 *
@@ -24,7 +24,11 @@ class Media_Press_Handler {
 	 */
 	public function __construct() {
 		$this->config_dir = get_template_directory() . '/inc/plugins/mediapress-configs';
+		if ( ! file_exists( $this->config_dir ) ) {
+			return;
+		}
 		$this->load_media_press_configs();
+		require_once get_template_directory() . '/inc/plugins/class-mediapress-fields.php';
 	}
 
 	/**
