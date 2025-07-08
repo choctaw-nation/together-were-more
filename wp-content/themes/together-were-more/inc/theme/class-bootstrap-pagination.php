@@ -72,7 +72,7 @@ class Bootstrap_Pagination {
 		}
 		$color_override = cno_get_primary_color();
 		$props          = array( 'active-bg', 'active-border-color', 'color', 'focus-box-shadow' );
-		$style_string   = '';
+		$style_string   = array();
 		foreach ( $props as $prop ) {
 			if ( 'focus-box-shadow' === $prop ) {
 				/**
@@ -80,12 +80,12 @@ class Bootstrap_Pagination {
 				 *
 				 * @see /src/styles/base/_base.scss for more
 				 */
-				$style_string .= "--bs-pagination-{$prop}:0 0 0 .25rem rgba(var(--bs-{$color_override}-rgb),.25);";
+				$style_string[] = "--bs-pagination-{$prop}:0 0 0 .25rem rgba(var(--bs-{$color_override}-rgb),.25)";
 			} else {
-				$style_string .= "--bs-pagination-{$prop}: var(--bs-{$color_override})";
+				$style_string[] = "--bs-pagination-{$prop}:var(--bs-{$color_override})";
 			}
 		}
-		$markup = '<ul class="pagination flex-wrap mb-0 ms-0" style="' . esc_attr( $style_string ) . '">';
+		$markup = '<ul class="pagination flex-wrap mb-0 ms-0" style="' . esc_attr( implode( ';', $style_string ) ) . '">';
 		if ( 0 === $mid_size ) {
 			// Show all paginated links
 			foreach ( $this->get_paginated_links_array() as $link ) {
