@@ -44,7 +44,10 @@ class Gutenberg_Handler {
 			array(),
 			null // phpcs:ignore
 		);
+
 		new Asset_Loader( 'editDefaultBlocks', Enqueue_Type::script, 'admin', array() );
+
+		new Asset_Loader( 'mediapressCustomFilters', Enqueue_Type::script, 'admin', array() );
 	}
 
 	/**

@@ -19,6 +19,14 @@ class MediaPress_Handler {
 	 * @var string $config_dir
 	 */
 	private $config_dir;
+
+	/**
+	 * Flag to check if Media Press configurations are available.
+	 *
+	 * @var bool $has_config
+	 */
+	public bool $has_config = false;
+
 	/**
 	 * Constructor
 	 */
@@ -42,6 +50,7 @@ class MediaPress_Handler {
 		foreach ( $files as $filter => $file ) {
 			$config_path = $this->config_dir . '/' . $file;
 			if ( file_exists( $config_path ) ) {
+				$this->has_config = true;
 				add_filter( "mediapress_{$filter}_config_path", fn() => $config_path );
 			}
 		}

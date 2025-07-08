@@ -4,7 +4,7 @@ const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const THEME_NAME = 'together-were-more';
 const THEME_DIR = `/wp-content/themes/${ THEME_NAME }`;
 
-const blockEditor = [ 'editDefaultBlocks' ];
+const blockEditor = [ 'editDefaultBlocks', 'mediapressCustomFilters' ];
 const appNames = [ 'home', 'single', 'single-gutenberg' ];
 
 module.exports = {
