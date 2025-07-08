@@ -78,7 +78,7 @@
 			},
 			"messages": {
 				"pass": "Homepage current feature image is set",
-				"fail": "Homepage current feature image is required"
+				"fail": "Homepage current feature image not set! Will use featured image instead."
 			},
 			"postTypes": [ "post" ]
 		},
@@ -90,19 +90,34 @@
 				"sourceKey": "meta.homepage_alternate_description"
 			},
 			"messages": {
-				"pass": "Homepage alternate description is set"
+				"pass": "Homepage alternate description is set",
+				"fail": " Homepage alternate description not set! Will use excerpt instead."
 			},
 			"postTypes": [ "post" ]
 		},
 		{
-			"name": "meta_vimeo_url",
+			"name": "meta_profile_title",
 			"type": "blocking",
 			"check": {
 				"type": "exists",
-				"sourceKey": "meta.vimeo_url"
+				"sourceKey": "meta.meta_profile_title"
 			},
 			"messages": {
-				"pass": "Homepage alternate description is set"
+				"pass": "Profile title is set",
+				"fail": "Profile title is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_bitly",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.meta_bitly"
+			},
+			"messages": {
+				"pass": "Bitly link is set",
+				"fail": "Bitly link is required"
 			},
 			"postTypes": [ "post" ]
 		},
@@ -111,7 +126,7 @@
 			"type": "blocking",
 			"check": {
 				"type": "exists",
-				"sourceKey": "meta.vimeo_url"
+				"sourceKey": "meta.meta_vimeo_url"
 			},
 			"messages": {
 				"pass": "Vimeo URL is set",
@@ -124,10 +139,11 @@
 			"type": "non_blocking",
 			"check": {
 				"type": "exists",
-				"sourceKey": "meta.vimeo_custom_thumbnail"
+				"sourceKey": "meta.meta_vimeo_custom_thumbnail"
 			},
 			"messages": {
-				"pass": "Vimeo custom thumbnail is set"
+				"pass": "Vimeo custom thumbnail is set",
+				"fail": "Vimeo custom thumbnail is not set."
 			},
 			"postTypes": [ "post" ]
 		}
