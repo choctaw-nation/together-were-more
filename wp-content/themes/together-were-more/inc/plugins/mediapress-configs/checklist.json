@@ -1,0 +1,135 @@
+{
+	"$schema": "checklist-config-schema.json",
+	"items": [
+		{
+			"name": "excerpt_at_least_120_characters",
+			"type": "non_blocking",
+			"check": {
+				"type": "min",
+				"min": 120,
+				"sourceKey": "excerpt"
+			},
+			"messages": {
+				"pass": "Excerpt is at least 120 characters",
+				"fail": "Excerpt is too short! It must be at least 120 characters"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "excerpt_at_most_160_characters",
+			"type": "blocking",
+			"check": {
+				"type": "max",
+				"max": 160,
+				"sourceKey": "excerpt"
+			},
+			"messages": {
+				"pass": "Excerpt is at most 160 characters",
+				"fail": "Excerpt is too long! It must be no more than 160 characters"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "category_selected",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "categories"
+			},
+			"messages": {
+				"pass": "A category is selected",
+				"fail": "Must select a category"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "one_category_selected",
+			"type": "blocking",
+			"check": {
+				"type": "max",
+				"sourceKey": "categories",
+				"max": 1
+			},
+			"messages": {
+				"pass": "A single category is selected",
+				"fail": "Must assign only one category!"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "featured_image_exists",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "featured_media"
+			},
+			"messages": {
+				"pass": "Featured image is set",
+				"fail": "Featured image is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "homepage_current_feature",
+			"type": "non_blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.homepage_current_feature_image"
+			},
+			"messages": {
+				"pass": "Homepage current feature image is set",
+				"fail": "Homepage current feature image is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "homepage_alternate_description",
+			"type": "non_blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.homepage_alternate_description"
+			},
+			"messages": {
+				"pass": "Homepage alternate description is set"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_vimeo_url",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.vimeo_url"
+			},
+			"messages": {
+				"pass": "Homepage alternate description is set"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_vimeo_url",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.vimeo_url"
+			},
+			"messages": {
+				"pass": "Vimeo URL is set",
+				"fail": "Vimeo URL is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_vimeo_custom_thumbnail",
+			"type": "non_blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.vimeo_custom_thumbnail"
+			},
+			"messages": {
+				"pass": "Vimeo custom thumbnail is set"
+			},
+			"postTypes": [ "post" ]
+		}
+	]
+}
