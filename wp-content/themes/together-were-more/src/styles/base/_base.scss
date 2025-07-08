@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as v;
+@use "../abstracts/functions" as fn;
 @use "../abstracts/mixins" as m;
 @use "bootstrap/scss/vendor/rfs" as rfs;
 
@@ -64,5 +65,27 @@ blockquote.wp-block-quote {
 		@include m.media-breakpoint-up(xl) {
 			font-size: 2.074rem !important;
 		}
+	}
+}
+
+// Pagination Link Customizer
+$categories: ("artists", "culture", "inspirational", "competitors");
+
+$standard-bootstrap-box-shadow: 0 0 0 0.25rem;
+$twenty-five-percent-alpha: 40; // 25% alpha in hex is 40
+
+@each $category in $categories {
+	:root :where(.category.category-#{$category}) .pagination {
+		// Builds the focus box shadow color to match the standard bootstrap settings
+		// and sets the category color (in hex) to 25% alpha.
+		$focus-box-shadow: #{$standard-bootstrap-box-shadow}
+			#{fn.get-category-color($category)}#{$twenty-five-percent-alpha};
+
+		--bs-pagination-color: #{fn.get-category-color($category)};
+		--bs-pagination-active-bg: #{fn.get-category-color($category)};
+		--bs-pagination-active-border-color: #{fn.get-category-color(
+				$category
+			)};
+		--bs-pagination-focus-box-shadow: #{$focus-box-shadow};
 	}
 }

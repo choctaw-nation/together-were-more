@@ -5,6 +5,8 @@
  * @package ChoctawNation
  */
 
+use ChoctawNation\Bootstrap_Pagination;
+
 get_header();
 $bg_image       = get_template_directory_uri() . '/src/assets/black-bg-chevron-noise.png';
 $category       = get_queried_object()->name;
@@ -71,6 +73,16 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 			}
 			?>
 		</div>
+		<?php
+		if ( have_posts() ) {
+			$paginator = new Bootstrap_Pagination();
+			if ( $paginator->can_paginate ) {
+				echo '<div class="row my-5"><div class="col-auto">';
+				$paginator->the_pagination();
+				echo '</div></div>';
+			}
+		}
+		?>
 	</section>
 </main>
 <?php
