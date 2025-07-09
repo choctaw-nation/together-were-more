@@ -1,0 +1,85 @@
+{
+	"$schema": "checklist-config-schema.json",
+	"items": [
+		{
+			"name": "excerpt_is_valid",
+			"type": "custom",
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "category_is_valid",
+			"type": "custom",
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "featured_image_exists",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "featured_media"
+			},
+			"messages": {
+				"pass": "Featured image is set",
+				"fail": "Featured image is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "homepage_current_feature",
+			"type": "non_blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.homepage_current_feature_image"
+			},
+			"messages": {
+				"pass": "Homepage current feature image is set",
+				"fail": "Homepage current feature image not set! Will use featured image instead."
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "homepage_alternate_description",
+			"type": "non_blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.homepage_alternate_description"
+			},
+			"messages": {
+				"pass": "Homepage alternate description is set",
+				"fail": " Homepage alternate description not set! Will use excerpt instead."
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_profile_title",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.meta_profile_title"
+			},
+			"messages": {
+				"pass": "Profile title is set",
+				"fail": "Profile title is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_bitly",
+			"type": "blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.meta_bitly"
+			},
+			"messages": {
+				"pass": "Bitly link is set",
+				"fail": "Bitly link is required"
+			},
+			"postTypes": [ "post" ]
+		},
+		{
+			"name": "meta_vimeo_url",
+			"type": "custom",
+			"postTypes": [ "post" ]
+		}
+	]
+}

@@ -39,7 +39,7 @@ if ( $is_gutenberg ) {
 		<div class="<?php echo 'col' . ( $is_gutenberg ? ' px-xxl-0' : '' ); ?>">
 			<ol class="breadcrumb list-unstyled m-0 w-100">
 				<?php foreach ( $breadcrumbs as $index => $breadcrumb ) : ?>
-				<?php $is_current = count( $breadcrumbs ) - 1 === $index; ?>
+					<?php $is_current = count( $breadcrumbs ) - 1 === $index; ?>
 				<li class="breadcrumb-item<?php echo $is_current ? ' active' : ''; ?>" <?php echo $is_current ? 'aria-current="page"' : ''; ?>
 					style="--bs-link-color-rgb:var(--bs-<?php echo cno_get_primary_color(); ?>-rgb);">
 					<?php if ( ! $is_current ) : ?>
@@ -47,7 +47,7 @@ if ( $is_gutenberg ) {
 						<?php echo esc_html( $breadcrumb['title'] ); ?>
 					</a>
 					<?php else : ?>
-					<?php echo esc_html( $breadcrumb['title'] ); ?>
+						<?php echo esc_html( $breadcrumb['title'] ); ?>
 					<?php endif; ?>
 				</li>
 				<?php endforeach; ?>
