@@ -110,7 +110,10 @@ class MediaPress_Fields {
 			return null; // Field not found.
 		}
 		try {
-			$value         = get_post_meta( $this->post_id, $field_name, true );
+			$value = get_post_meta( $this->post_id, $field_name, true );
+			if ( empty( $value ) ) {
+				return null;
+			}
 			$escape_method = $this->get_escape_method( $field_name );
 			if ( $should_escape ) {
 				$value = $escape_method( $value );
@@ -185,7 +188,7 @@ class MediaPress_Fields {
 		if ( in_array( $type, array_keys( $this->escape_methods ), true ) ) {
 			return $this->escape_methods[ $type ];
 		} else {
-			throw new Error( "Couldn't find an escape method for: $type" );
+			throw new Error( "Couldn't find an escape method for: $type" ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 		}
 	}
 
