@@ -30,16 +30,6 @@ class Theme_Init {
 		add_action( 'init', array( $this, 'remove_editor_capabilities' ) );
 		add_action( 'init', array( $this, 'alter_categories' ) );
 		add_filter( 'oembed_response_data', array( $this, 'disable_embeds_filter_oembed_response_data' ) );
-
-		/**
-		 * Filter the priority of the Yoast SEO metabox
-		 */
-		add_filter(
-			'wpseo_metabox_prio',
-			function (): string {
-				return 'low';
-			}
-		);
 	}
 
 	/**
@@ -135,6 +125,8 @@ class Theme_Init {
 
 		$plugin_files = array(
 			'gravity-forms-handler' => 'Gravity_Forms_Handler',
+			'mediapress-handler'    => 'MediaPress_Handler',
+			'yoast-handler'         => 'Yoast_Handler',
 		);
 		foreach ( $plugin_files as $plugin_file => $class_name ) {
 			require_once $base_path . "/plugins/class-{$plugin_file}.php";

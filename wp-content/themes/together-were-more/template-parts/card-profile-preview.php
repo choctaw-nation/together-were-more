@@ -53,7 +53,7 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 		<div class="mt-auto d-flex flex-wrap gap-3 align-items-center">
 			<?php
 			$meta = get_field( 'meta' );
-			if ( ! empty( $meta['video_details']['video_url'] ) ) {
+			if ( mp_get_field( 'meta_vimeo_url' ) || ! empty( $meta['video_details']['video_url'] ) ) {
 				get_template_part(
 					'template-parts/ui/button',
 					'video-modal-trigger',
