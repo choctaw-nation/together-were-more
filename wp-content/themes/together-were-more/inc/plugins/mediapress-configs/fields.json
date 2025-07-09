@@ -1,0 +1,99 @@
+{
+	"$schema": "fields-config-schema.json",
+	"fields": [
+		{
+			"name": "homepage_current_feature_image",
+			"type": "image",
+			"label": "Homepage Hero Image",
+			"description": "The image used on the homepage hero section when the post is featured",
+			"source": {
+				"type": "postMeta",
+				"key": "homepage_current_feature_image",
+				"registerFor": [ "post" ]
+			}
+		},
+		{
+			"name": "homepage_alternate_description",
+			"type": "textarea",
+			"label": "Homepage Alternate Description",
+			"description": "The alternate description for the homepage hero section when the post is featured",
+			"source": {
+				"type": "postMeta",
+				"key": "homepage_alternate_description",
+				"registerFor": [ "post" ]
+			}
+		},
+		{
+			"name": "meta_profile_title",
+			"type": "text",
+			"label": "Profile Title",
+			"description": "The title of the profile",
+			"source": {
+				"type": "postMeta",
+				"key": "meta_profile_title",
+				"registerFor": [ "post" ]
+			}
+		},
+		{
+			"name": "meta_bitly",
+			"type": "text",
+			"label": "Bitly Link",
+			"description": "The Bitly link for the profile",
+			"source": {
+				"type": "postMeta",
+				"key": "meta_bitly",
+				"registerFor": [ "post" ]
+			}
+		},
+		{
+			"name": "meta_vimeo_url",
+			"type": "text",
+			"label": "Vimeo URL",
+			"description": "The Vimeo URL",
+			"source": {
+				"type": "postMeta",
+				"key": "meta_vimeo_url",
+				"registerFor": [ "post" ]
+			}
+		},
+		{
+			"name": "meta_vimeo_custom_thumbnail",
+			"type": "image",
+			"label": "Vimeo Custom Thumbnail",
+			"description": "The custom thumbnail for the Vimeo video",
+			"source": {
+				"type": "postMeta",
+				"key": "meta_vimeo_custom_thumbnail",
+				"registerFor": [ "post" ]
+			}
+		}
+	],
+	"fieldGroups": [
+		{
+			"name": "homepage",
+			"label": "Homepage",
+			"fields": [
+				"homepage_current_feature_image",
+				"homepage_alternate_description"
+			],
+			"context": {
+				"type": "postType",
+				"key": "post"
+			}
+		},
+		{
+			"name": "meta",
+			"label": "Meta",
+			"fields": [
+				"meta_vimeo_url",
+				"meta_vimeo_custom_thumbnail",
+				"meta_profile_title",
+				"meta_bitly"
+			],
+			"context": {
+				"type": "postType",
+				"key": "post"
+			}
+		}
+	]
+}

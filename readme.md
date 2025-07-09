@@ -13,6 +13,17 @@ const colorMap = {
 
 # Changelog
 
+## 2.2.0
+
+-   Added: MediaPress!
+    -   Added new `mp_get_field` and `mp_the_field` functions to mimic ACF functions
+    -   MediaPress gracefully falls back to ACF in template-parts if no value exists (yet)
+-   Added: Yoast_Handler class
+    -   Controls meta-description fallbacks where it hasn't been switched to the excerpt
+    -   Migrated custom field filter the new class
+-   Chore: Refactored handleFadeAnimations file to class structure for easier expansion (and less code duplication) to other elements
+-   Chore: Fixed blockquote styles
+
 ## 2.1.1
 
 -   Fixed: Profile Preview Cards on archive pages are now equal height on desktop screens (buttons line up)

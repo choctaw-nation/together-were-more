@@ -6,7 +6,20 @@
  */
 
 $featured_profile_id = isset( $args['featured_profile_id'] ) ? $args['featured_profile_id'] : false;
-if ( false === $featured_profile_id ) {
+$video_url           = mp_get_field( 'meta_vimeo_url', $featured_profile_id );
+$video_id            = $video_url ? cno_extract_vimeo_id( $video_url ) : null;
+$custom_thumbnail    = mp_get_field( 'meta_custom_thumbnail', $featured_profile_id );
+if ( empty( $video_id ) ) {
+	while ( have_rows( 'meta_video_details', $featured_profile_id ) ) {
+		the_row();
+		$video_url = get_sub_field( 'video_url', false );
+		$video_id  = cno_extract_vimeo_id( $video_url, );
+		if ( ! $custom_thumbnail ) {
+			$custom_thumbnail = get_sub_field( 'custom_thumbnail', false );
+		}
+	}
+}
+if ( false === $featured_profile_id || empty( $video_id ) ) {
 	return;
 }
 
@@ -20,15 +33,8 @@ $classes     = isset( $args['class'] ) ? $args['class'] : '';
 if ( $classes && is_array( $classes ) ) {
 	$classes = implode( ' ', $classes );
 }
-$modal_title      = get_the_title( $featured_profile_id );
-$video_id         = false;
-$custom_thumbnail = false;
-while ( have_rows( 'meta_video_details', $featured_profile_id ) ) {
-	the_row();
-	$video_url        = get_sub_field( 'video_url', false );
-	$custom_thumbnail = get_sub_field( 'custom_thumbnail', false );
-	$video_id         = cno_extract_vimeo_id( $video_url, );
-}
+$modal_title = get_the_title( $featured_profile_id );
+
 
 $button_attributes = array(
 	'type'             => 'button',
