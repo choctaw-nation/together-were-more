@@ -37,13 +37,18 @@
 </div>
 <?php
 $modal_title      = get_the_title();
-$video_id         = false;
-$custom_thumbnail = false;
-while ( have_rows( 'meta_video_details' ) ) {
-	the_row();
-	$video_url        = get_sub_field( 'video_url', false );
-	$custom_thumbnail = get_sub_field( 'custom_thumbnail', false );
-	$video_id         = cno_extract_vimeo_id( $video_url, );
+$video_url        = mp_get_field( 'meta_vimeo_url' );
+$video_id         = $video_url ? cno_extract_vimeo_id( $video_url ) : null;
+$custom_thumbnail = mp_get_field( 'meta_vimeo_custom_thumbnail' );
+if ( ! $video_id ) {
+	while ( have_rows( 'meta_video_details' ) ) {
+		the_row();
+		$video_url = get_sub_field( 'video_url', false );
+		$video_id  = cno_extract_vimeo_id( $video_url, );
+		if ( ! $custom_thumbnail ) {
+			$custom_thumbnail = get_sub_field( 'custom_thumbnail', false );
+		}
+	}
 }
 
 get_template_part(

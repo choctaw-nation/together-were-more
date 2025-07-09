@@ -1,61 +1,80 @@
-export default function handleFadeAnimations() {
-	const observer = new IntersectionObserver(
-		( entries, observer ) => {
-			entries.forEach( ( entry ) => {
-				if ( entry.isIntersecting ) {
-					const target = entry.target;
-					target.classList.add( 'animate' );
-					observer.unobserve( target ); // Remove observer after animation
-				}
-			} );
-		},
-		{
-			threshold: 0.2, // Trigger when 10% of the element is visible
-		}
-	);
+class FadeAnimator {
+	private FADE_IN_CLASS: string;
+	private FADE_UP_CLASS: string;
+	private profileSwiperBlockSelector: string;
 
-	// Observe elements
-	document
-		.querySelectorAll( 'figure.wp-block-image img' )
-		.forEach( ( img, index ) => {
-			if ( 0 === index ) {
-				// Skip the first image
-				return;
-			}
-			// Exclude if any ancestor is .wp-block-cno-twm-profile-swiper-block
-			if ( ! img.closest( '.wp-block-cno-twm-profile-swiper-block' ) ) {
-				img.classList.add( 'fade-up-init' ); // Initial state
-				observer.observe( img );
-			}
-		} );
+	private fadeInSelectors: string[];
 
-	document
-		.querySelectorAll(
-			'.wp-block-quote > *:not(.wp-block-cno-twm-profile-swiper-block *)'
-		)
-		.forEach( ( blockquote ) => {
-			if (
-				! blockquote.closest( '.wp-block-cno-twm-profile-swiper-block' )
-			) {
-				blockquote.classList.add( 'fade-in-init' ); // Initial state
-				observer.observe( blockquote );
-			}
-		} );
+	private observer: IntersectionObserver;
 
-	document
-		.querySelectorAll(
-			'[data-aos="fade-in"]:not(.wp-block-cno-twm-profile-swiper-block [data-aos="fade-in"])'
-		)
-		.forEach( ( element ) => {
-			if (
-				! element.closest( '.wp-block-cno-twm-profile-swiper-block' )
-			) {
-				observer.observe( element );
-			}
-		} );
-	const swipeText = document.getElementById( 'swipe-text' );
-	if ( swipeText ) {
-		swipeText.classList.add( 'fade-in-init' ); // Initial state
-		observer.observe( swipeText );
+	constructor() {
+		this.FADE_IN_CLASS = 'fade-in-init';
+		this.FADE_UP_CLASS = 'fade-up-init';
+		this.profileSwiperBlockSelector = `.wp-block-cno-twm-profile-swiper-block`;
+		this.fadeInSelectors = [
+			'.wp-block-quote > *',
+			'.has-script-font-family:not(.wp-block-quote .has-script-font-family)',
+			`[data-aos="fade-in"]:not(${ this.profileSwiperBlockSelector } [data-aos="fade-in"])`,
+		];
 	}
+
+	private initObserver() {
+		this.observer = new IntersectionObserver(
+			( entries, observer ) => {
+				entries.forEach( ( entry ) => {
+					if ( entry.isIntersecting ) {
+						const target = entry.target;
+						target.classList.add( 'animate' );
+						observer.unobserve( target ); // Remove observer after animation
+					}
+				} );
+			},
+			{
+				threshold: 0.2, // Trigger when 20% of the element is visible
+			}
+		);
+	}
+
+	private addFadeIn( selector: string ) {
+		document.querySelectorAll( selector ).forEach( ( element ) => {
+			if ( ! element.closest( this.profileSwiperBlockSelector ) ) {
+				element.classList.add( this.FADE_IN_CLASS ); // Initial state
+				this.observer.observe( element );
+			}
+		} );
+	}
+
+	private addFadeUp( element: Element ) {
+		if ( ! element.closest( this.profileSwiperBlockSelector ) ) {
+			element.classList.add( this.FADE_UP_CLASS ); // Initial state
+			this.observer.observe( element );
+		}
+	}
+
+	handleFadeAnimations() {
+		this.initObserver();
+		this.fadeInSelectors.forEach( ( selector ) => {
+			this.addFadeIn( selector );
+		} );
+		const swipeText = document.getElementById( 'swipe-text' );
+		if ( swipeText ) {
+			swipeText.classList.add( this.FADE_IN_CLASS );
+			this.observer.observe( swipeText );
+		}
+
+		document
+			.querySelectorAll( 'figure.wp-block-image img' )
+			.forEach( ( img, index ) => {
+				if ( 0 === index ) {
+					// Skip the first image
+					return;
+				}
+				this.addFadeUp( img );
+			} );
+	}
+}
+
+export default function handleFadeAnimations() {
+	const fadeAnimator = new FadeAnimator();
+	fadeAnimator.handleFadeAnimations();
 }
