@@ -5,6 +5,8 @@
  * @package ChoctawNation
  */
 
+use ChoctawNation\Bootstrap_Pagination;
+
 get_header();
 $bg_image = get_template_directory_uri() . '/src/assets/black-bg-chevron-noise.png';
 if ( is_category() ) {
@@ -45,12 +47,18 @@ if ( is_category() ) {
 		</div>
 	</section>
 	<div class="container-lg gx-0 d-flex flex-column row-gap-5 align-items-stretch mb-5">
-		<?php
-		if ( is_search() ) {
-			echo '<section class="container pt-5 gx-lg-0"><div class="row row-gap-4 flex-row-reverse justify-content-between">
-			<div class="col"><p class="fs-5 text-gray">Showing results for "' . get_search_query() . '"</p></div></div></section>';
-		}
-		?>
+		<?php if ( is_search() ) : ?>
+		<section class="container pt-5 gx-lg-0">
+			<div class="row row-gap-4 flex-row-reverse justify-content-between">
+				<div class="col">
+					<?php $search_query = get_search_query(); ?>
+					<p class="fs-5 text-gray">
+						<?php echo ! empty( $search_query ) ? "Showing results for \"{$search_query}\"" : 'Showing All Stories'; ?>
+					</p>
+				</div>
+			</div>
+		</section>
+		<?php endif; ?>
 		<section class="row row-cols-1 row-cols-lg-2 row-gap-5 gx-0 gx-lg-4">
 			<?php
 			if ( have_posts() ) {
@@ -65,6 +73,17 @@ if ( is_category() ) {
 			}
 			?>
 		</section>
+		<?php
+		if ( have_posts() ) {
+			$paginator = new Bootstrap_Pagination();
+			if ( $paginator->can_paginate ) {
+				echo '<div class="row"><div class="col-auto">';
+				$mid_size = $wp_query->max_num_pages < 5 ? 0 : 2;
+				$paginator->the_pagination( $mid_size );
+				echo '</div></div>';
+			}
+		}
+		?>
 	</div>
 </main>
 <?php

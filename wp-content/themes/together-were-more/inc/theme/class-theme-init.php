@@ -123,6 +123,7 @@ class Theme_Init {
 			'social-link-generator' => null,
 			'gutenberg-handler'     => 'Gutenberg_Handler',
 			'acf-handler'           => 'ACF_Handler',
+			'bootstrap-pagination'  => null,
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";

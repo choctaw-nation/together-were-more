@@ -6,7 +6,8 @@
  * @package ChoctawNation
  */
 
-$category_name = get_queried_object()->name;
+$category      = get_queried_object();
+$category_name = $category->name ?? '';
 if ( empty( $category_name ) ) {
 	$category      = get_the_category();
 	$category_name = $category[0]->name;
@@ -49,7 +50,7 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 		<p>
 			<?php the_field( 'archive_content' ); ?>
 		</p>
-		<div class="d-flex flex-wrap gap-3 align-items-center">
+		<div class="mt-auto d-flex flex-wrap gap-3 align-items-center">
 			<?php
 			$meta = get_field( 'meta' );
 			if ( ! empty( $meta['video_details']['video_url'] ) ) {
