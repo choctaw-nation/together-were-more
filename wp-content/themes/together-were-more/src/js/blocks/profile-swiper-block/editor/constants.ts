@@ -89,6 +89,7 @@ const TEMPLATE = [
 						title: 'black-bg-chevron-noise',
 					},
 					backgroundSize: 'cover',
+					backgroundPosition: '50% 50%',
 				},
 			},
 			backgroundColor: 'black',
