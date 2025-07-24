@@ -18,6 +18,7 @@ const colorMap = {
 -   Added: Common post patterns have been registered with the `patterns` directory
 -   Fixed: Blockquote now handles text sizes and line-heights better
 -   Fixed: Social Icons in pre-footer are now clickable on entire hover area
+-   Fixed: Email "Share This Story" link now has href properly set
 
 ## 2.2.0
 
