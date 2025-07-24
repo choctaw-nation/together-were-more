@@ -65,6 +65,11 @@
 				"lightbox": {
 					"enabled": true
 				}
+			},
+			"core/quote": {
+				"typography": {
+					"lineHeight": true
+				}
 			}
 		},
 		"dimensions": {

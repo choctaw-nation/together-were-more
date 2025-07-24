@@ -48,15 +48,6 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-
-			p {
-				line-height: 1.5;
-				font-size: calc(1.3738rem + 1.4856vw) !important;
-
-				@include m.media-breakpoint-up(xl) {
-					font-size: 2.488rem !important;
-				}
-			}
 		}
 	}
 }
