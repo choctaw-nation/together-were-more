@@ -5,17 +5,29 @@
  * @package ChoctawNation
  */
 
+$alternate_image_id = mp_get_field( 'homepage_current_feature_image', get_the_ID() );
+$image_size         = 'profile-preview-card';
+$image_args         = array(
+	'class'   => 'w-100 object-fit-cover',
+	'loading' => 'lazy',
+);
 ?>
 <div class="post-preview-card d-flex flex-column h-100 position-relative">
 	<figure class="post-preview-card__cover mb-0 ratio ratio-16x9">
 		<?php
-		the_post_thumbnail(
-			'profile-preview-card',
-			array(
-				'class'   => 'w-100 object-fit-cover',
-				'loading' => 'lazy',
-			)
-		);
+		if ( $alternate_image_id ) {
+			echo wp_get_attachment_image(
+				$alternate_image_id,
+				$image_size,
+				false,
+				$image_args
+			);
+		} else {
+			the_post_thumbnail(
+				$image_size,
+				$image_args
+			);
+		}
 		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
 		<figcaption class="h-auto text-white position-relative z-2 mx-5 mb-3">
@@ -29,7 +41,15 @@
 	</figure>
 	<div class="post-preview-card__body text-white p-5 pt-3 d-flex flex-column h-100 z-2">
 		<p class="mb-5">
-			<?php the_field( 'archive_content' ); ?>
+			<?php
+			if ( ! empty( $homepage_alt_description ) ) {
+				echo $homepage_alt_description;
+			} elseif ( empty( get_the_excerpt( $featured_profile_id ) ) ) {
+				echo get_field( 'archive_content', $featured_profile_id );
+			} else {
+				echo get_the_excerpt( $featured_profile_id );
+			}
+			?>
 		</p>
 		<?php
 		$category       = get_the_category();
