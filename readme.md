@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.3.1
+
+-   Fixed: Homepage alternate images are now being used in the correct spots.
+
 ## 2.3.0
 
 -   Added: Common post patterns have been registered with the `patterns` directory
