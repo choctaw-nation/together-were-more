@@ -13,6 +13,12 @@ const colorMap = {
 
 # Changelog
 
+## 2.3.0
+
+-   Added: Common post patterns have been registered with the `patterns` directory
+-   Fixed: Blockquote now handles text sizes and line-heights better
+-   Fixed: Social Icons in pre-footer are now clickable on entire hover area
+
 ## 2.2.0
 
 -   Added: MediaPress!
