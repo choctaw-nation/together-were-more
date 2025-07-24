@@ -1,17 +1,4 @@
 @use "../abstracts/mixins" as m;
-.social-container {
-	aspect-ratio: 1;
-	width: 4rem; // 64px
-	transition: background-color var(--transition-standard);
-
-	@include m.interaction() {
-		background-color: var(--hover-color) !important;
-	}
-
-	.social svg {
-		height: 100% !important;
-	}
-}
 
 .socials-container {
 	@include m.media-breakpoint-down(sm) {
@@ -20,5 +7,25 @@
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-columns: repeat(3, 1fr);
 		column-gap: 0rem !important;
+	}
+
+	.social-icon {
+		aspect-ratio: 1;
+
+		svg {
+			height: 100% !important;
+			width: 100% !important;
+		}
+
+		&__container {
+			--size: 3rem;
+			width: var(--size);
+			aspect-ratio: 1;
+			transition: background-color var(--transition-standard);
+
+			@include m.interaction() {
+				background-color: var(--hover-color) !important;
+			}
+		}
 	}
 }

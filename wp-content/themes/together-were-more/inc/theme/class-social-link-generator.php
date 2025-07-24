@@ -59,7 +59,7 @@ class Social_Link_Generator {
 			$permalink  = get_permalink();
 			$subject    = rawurlencode( "Together We're More Article: {$post_title}" );
 			$body       = rawurlencode( "Look at this great article about {$post_title}! {$permalink}" );
-			return "mailto:?subject='{$subject}'&body={$body}";
+			return "mailto:?subject={$subject}&body={$body}";
 		}
 		if ( 'Pinterest' === $platform ) {
 			return 'https://pinterest.com/pin/create/button/?url=' . rawurlencode( get_the_permalink() ) . '&media=' . rawurlencode( get_the_post_thumbnail_url() ) . '&description=' . rawurlencode( get_the_title() . "'s story on the Together We're More site by the Choctaw Nation of Oklahoma." );
