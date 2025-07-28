@@ -114,6 +114,7 @@ class Theme_Init {
 			'gutenberg-handler'     => 'Gutenberg_Handler',
 			'acf-handler'           => 'ACF_Handler',
 			'bootstrap-pagination'  => null,
+			'rest-router'           => 'Rest_Router',
 		);
 		foreach ( $utility_files as $utility_file => $class_name ) {
 			require_once $base_path . "/theme/class-{$utility_file}.php";
