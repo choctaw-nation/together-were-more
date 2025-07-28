@@ -27,8 +27,8 @@
 		<div class="wp-block-column is-vertically-aligned-center">
 			<!-- wp:image {"id":584,"sizeSlug":"full","linkDestination":"none"} -->
 			<figure class="wp-block-image size-full"><img
-					 src="https://together-were-more.local/wp-content/uploads/2025/08/BioPortrait-corey-berlin-august-marathon-runner-Together-Were-more-TWM-togetherweremore-Choctaw-nation-scaled.jpg"
-					 alt="" class="wp-image-584" /></figure>
+					src="https://together-were-more.local/wp-content/uploads/2025/08/BioPortrait-corey-berlin-august-marathon-runner-Together-Were-more-TWM-togetherweremore-Choctaw-nation-scaled.jpg"
+					alt="" class="wp-image-584" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->
