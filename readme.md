@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.3.2
+
+-   Fixed: Profiles now correctly look up MediaPress fields before reverting to ACF fields
+
 ## 2.3.1
 
 -   Fixed: Homepage alternate images are now being used in the correct spots.

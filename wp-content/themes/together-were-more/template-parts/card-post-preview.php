@@ -5,7 +5,7 @@
  * @package ChoctawNation
  */
 
-$alternate_image_id = mp_get_field( 'homepage_current_feature_image', get_the_ID() );
+$alternate_image_id = mp_get_field( 'homepage_current_feature_image' );
 $image_size         = 'profile-preview-card';
 $image_args         = array(
 	'class'   => 'w-100 object-fit-cover',
@@ -35,7 +35,10 @@ $image_args         = array(
 				<?php the_title(); ?>
 			</h3>
 			<p class="fs-5 text-uppercase mb-0">
-				<?php echo get_field( 'meta' )['title']; ?>
+				<?php
+				$subtitle = mp_get_field( 'meta_profile_title' );
+				echo ! empty( $subtitle ) ? $subtitle : get_field( 'meta' )['title'];
+				?>
 			</p>
 		</figcaption>
 	</figure>
@@ -44,10 +47,10 @@ $image_args         = array(
 			<?php
 			if ( ! empty( $homepage_alt_description ) ) {
 				echo $homepage_alt_description;
-			} elseif ( empty( get_the_excerpt( $featured_profile_id ) ) ) {
-				echo get_field( 'archive_content', $featured_profile_id );
+			} elseif ( empty( get_the_excerpt() ) ) {
+				echo get_field( 'archive_content', );
 			} else {
-				echo get_the_excerpt( $featured_profile_id );
+				echo get_the_excerpt();
 			}
 			?>
 		</p>

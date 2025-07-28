@@ -16,14 +16,14 @@ $hover_color    = cno_get_primary_color();
 			<div class="col-lg-8 py-5 d-flex flex-column justify-content-center gap-4">
 				<div class="socials-container row justify-content-center align-items-center gap-4" style="--hover-color:<?php echo "var(--bs-{$hover_color});"; ?>">
 					<?php foreach ( $socials as $social ) : ?>
-					<?php
+						<?php
 						$url  = esc_url( $social['social_platform']['url'] );
 						$name = esc_attr( $social['social_platform']['title'] );
 						$icon = $social['social_icon'];
 						?>
 					<div class="social-icon__container bg-gray rounded-circle p-2 position-relative">
 						<a class="social-icon h-100 d-block text-white fs-6 stretched-link" href="<?php echo $url; ?>" target="_blank" title="<?php echo "Follow us on {$name}"; ?>"
-						   rel="noopener noreferrer">
+							rel="noopener noreferrer">
 							<?php echo $icon; ?>
 						</a>
 					</div>
