@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.4.0
+
+-   Added: New Rest Route for federating content to the nation site
+
 ## 2.3.2
 
 -   Fixed: Profiles now correctly look up MediaPress fields before reverting to ACF fields
