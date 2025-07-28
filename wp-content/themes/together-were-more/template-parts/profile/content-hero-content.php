@@ -20,7 +20,14 @@ get_template_part(
 ?>
 <h2 class="display-1 text-uppercase mb-0 text-center"><?php the_title(); ?></h2>
 <p class="text-center fw-light display-5 text-uppercase mb-3">
-	<?php the_field( 'meta_title' ); ?>
+	<?php
+	$mp_title = mp_get_field( 'meta_profile_title' );
+	if ( $mp_title ) {
+		echo esc_html( $mp_title );
+	} else {
+		the_field( 'meta_title' );
+	}
+	?>
 </p>
 <?php
 get_template_part(
