@@ -1,6 +1,6 @@
 {
 	"name": "together-were-more",
-	"version": "1.1.7",
+	"version": "1.1.8",
 	"description": "Custom WP theme for Together We're More site",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
@@ -21,15 +21,15 @@
 		"@choctawnationofoklahoma/wp-flex-reverse-toggle": "^1.1.1",
 		"aos": "^2.3.4",
 		"bootstrap": "^5.3.7",
-		"swiper": "^11.2.8"
+		"swiper": "^11.2.10"
 	},
 	"devDependencies": {
-		"@wordpress/block-editor": "^15.0.0",
-		"@wordpress/blocks": "^15.0.0",
-		"@wordpress/components": "^30.0.0",
-		"@wordpress/compose": "^7.27.0",
-		"@wordpress/data": "^10.27.0",
-		"@wordpress/scripts": "^30.20.0",
+		"@wordpress/block-editor": "^15.2.0",
+		"@wordpress/blocks": "^15.2.0",
+		"@wordpress/components": "^30.2.0",
+		"@wordpress/compose": "^7.29.0",
+		"@wordpress/data": "^10.29.0",
+		"@wordpress/scripts": "^30.22.0",
 		"webpack-remove-empty-scripts": "^1.1.1"
 	}
 }
