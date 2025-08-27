@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.4.1 - [August 27, 2025]
+
+-   Tweak: New Font sizes declared in theme.json
+
 ## 2.4.0
 
 -   Added: New Rest Route for federating content to the nation site

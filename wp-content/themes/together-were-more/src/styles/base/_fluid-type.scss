@@ -1,0 +1,129 @@
+@use "sass:math";
+@use "sass:list";
+
+// VARIABLES
+
+/**
+ * Type Scales
+ */
+$minor-third: 1.2;
+$major-third: 1.25;
+$perfect-fourth: 1.333;
+
+/**
+ * Lists & Defaults
+ */
+$default-type-steps: "sm", "base", "md", "lg", "xl", "xxl", "xxxl", "xxxxl";
+$display-steps: (6, 5, 4, 3, 2, 1);
+$default-type-scale: $minor-third;
+
+// FUNCTIONS
+@function rnd($number, $places: 3) {
+	$n: 1;
+
+	@if $places > 0 {
+		@for $i from 1 through $places {
+			$n: $n * 10;
+		}
+	}
+
+	@return math.div(math.round($number * $n), $n);
+}
+
+@function to-rems($px) {
+	$rems: math.div($px, 16px) * 1rem;
+
+	@return $rems;
+}
+
+/**
+ * Conditionally writes a clamped fluid type value based on a minimum and maximum pixel size.
+*/
+@function clamped($min-px, $max-px, $min-bp: 390px, $max-bp: 1320px) {
+	$slope: math.div($max-px - $min-px, $max-bp - $min-bp);
+	$slope-vw: rnd($slope * 100);
+	$intercept-rems: rnd(to-rems($min-px - $slope * $min-bp));
+	$min-rems: rnd(to-rems($min-px));
+	$max-rems: rnd(to-rems($max-px));
+	$preferred: "calc(#{$slope-vw}vw + #{$intercept-rems})";
+
+	@debug $preferred;
+	@return clamp(#{$min-rems}, #{$preferred}, #{$max-rems});
+}
+
+@mixin generate-type-scale(
+	$type-scale: $default-type-scale,
+	$prefix: "font-size",
+	$type-steps: $default-type-steps,
+	$type-base-index: list.index($default-type-steps, "base")
+) {
+	$type-base-min: 16px;
+	$type-base-max: 20px;
+
+	@for $i from 1 through list.length($type-steps) {
+		$step: list.nth($type-steps, $i);
+		$min: $type-base-min * math.pow($type-scale, $i - $type-base-index);
+		$max: $type-base-max * math.pow($type-scale, $i - $type-base-index);
+
+		--#{$prefix}-#{$step}: #{clamped($min, $max)};
+	}
+}
+
+// ACTUAL CSS DECLARATIONS
+:root {
+	@include generate-type-scale;
+	@include generate-type-scale(
+		$perfect-fourth,
+		"fs-display",
+		$display-steps,
+		1
+	);
+}
+
+@each $step in $display-steps {
+	.display-#{$step} {
+		font-size: var(--fs-display-#{$step}) !important;
+	}
+}
+
+small,
+.small {
+	font-size: var(--font-size-sm);
+}
+
+p,
+ol,
+ul,
+li,
+a {
+	font-size: var(--font-size-base);
+}
+
+.fs-base,
+.fs-root {
+	font-size: var(--font-size-base) !important;
+}
+
+.fs-6 {
+	font-size: var(--font-size-md) !important;
+}
+
+.fs-5 {
+	font-size: var(--font-size-lg) !important;
+}
+
+.fs-4 {
+	font-size: var(--font-size-xl) !important;
+}
+
+.fs-3 {
+	font-size: var(--font-size-xxl) !important;
+}
+
+.fs-2 {
+	font-size: var(--font-size-xxxl) !important;
+}
+
+.fs-1 {
+	font-size: var(--font-size-xxxxl) !important;
+}
