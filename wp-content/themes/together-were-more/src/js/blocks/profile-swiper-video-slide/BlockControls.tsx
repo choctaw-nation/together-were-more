@@ -1,5 +1,6 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import { Panel, PanelBody, TextareaControl } from '@wordpress/components';
+
 export default function BlockControls({ attributes, setAttributes }) {
 	return (
 		<InspectorControls>

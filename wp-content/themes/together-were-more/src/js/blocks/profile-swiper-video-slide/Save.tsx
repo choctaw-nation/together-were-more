@@ -8,7 +8,7 @@ export default function Save({ attributes }) {
 	return (
 		<SwiperVideoSlide
 			innerBlocksProps={innerBlocksProps}
-			caption={attributes.caption}
+			caption={attributes.videoCaption}
 			captionStyles={attributes.captionStyles}
 		>
 			{children}

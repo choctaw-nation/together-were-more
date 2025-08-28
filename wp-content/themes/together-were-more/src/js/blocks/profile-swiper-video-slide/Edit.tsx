@@ -20,7 +20,7 @@ export default function Edit(props) {
 			<BlockControls {...props} />
 			<SwiperVideoSlide
 				innerBlocksProps={innerBlocksProps}
-				caption={props.attributes.caption}
+				caption={props.attributes.videoCaption}
 				captionStyles={props.attributes.captionStyles}
 			>
 				{children}
