@@ -15,6 +15,19 @@ export default {
 				message: 'Expected mixin name to be kebab-case',
 			},
 		],
+		'custom-property-pattern': [
+			'^--(wp--[a-z]+(--[a-z0-9]+)*)|([a-z]+(-[a-z0-9]+)*)$',
+			{
+				message:
+					'Custom properties must be kebab-case, or WordPress-style (--wp--preset--type--value)',
+			},
+		],
+		'scss/percent-placeholder-pattern': [
+			'^[a-z]+(_[a-z0-9]+)*$',
+			{
+				message: 'Expected placeholder name to be snake_case',
+			},
+		],
 	},
 	ignoreFiles: [
 		'wp-content/themes/**/src/styles/vendors/bootstrap.scss',
@@ -30,7 +43,7 @@ export default {
 			customSyntax: 'postcss-html',
 		},
 		{
-			files: ['**/*.jsx', '**/*.tsx', '**/.*.js', '**/*.ts'],
+			files: ['**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts'],
 			customSyntax: 'postcss-js',
 		},
 	],
