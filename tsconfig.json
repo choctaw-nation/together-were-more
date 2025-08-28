@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es6",
-		"lib": [ "dom", "dom.iterable", "esnext" ],
+		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"checkJs": true,
 		"skipLibCheck": true,
@@ -17,9 +17,9 @@
 		"jsx": "preserve",
 		"typeRoots": [
 			"./node_modules/@types",
-			"./wp-content/themes/cno-starter-theme/src/js/**/types"
+			"./wp-content/themes/**/src/js/**/types"
 		]
 	},
-	"include": [ "wp-content/themes/cno-starter-theme/src/js/**/*" ],
-	"exclude": [ "node_modules" ]
+	"include": ["./wp-content/themes/**/src/**/*"],
+	"exclude": ["node_modules"]
 }

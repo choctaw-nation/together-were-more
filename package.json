@@ -39,6 +39,7 @@
 		"@wordpress/scripts": "^30.22.0",
 		"eslint": "^9.34.0",
 		"eslint-config-prettier": "^10.1.8",
+		"eslint-import-resolver-typescript": "^4.4.4",
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"globals": "^16.3.0",
 		"stylelint": "^16.23.1",

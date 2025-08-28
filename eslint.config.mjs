@@ -34,13 +34,20 @@ export default defineConfig([
 			'jsdoc/require-returns-description': 'off',
 			'jsdoc/check-param-names': 'off',
 			'no-console': 'warn',
-			'import/no-unresolved': 'off',
 		},
 	},
 	{
 		files: ['wp-content/themes/**/src/js/**/*.{js,ts,jsx,tsx}'],
 		languageOptions: {
 			globals: globals.browser,
+		},
+		settings: {
+			'import/resolver': {
+				node: {
+					extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				},
+				typescript: {},
+			},
 		},
 	},
 ]);
