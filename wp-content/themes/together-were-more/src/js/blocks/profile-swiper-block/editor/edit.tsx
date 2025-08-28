@@ -17,11 +17,11 @@ export default function Edit({ attributes, setAttributes }) {
 	} as Record<string, string>;
 
 	const categoryName = useSelect((select) => {
-		const { getEntityRecords } = select('core');
 		const post = select('core/editor').getCurrentPost();
 		if (!post || !post.categories || post.categories.length === 0) {
 			return null;
 		}
+		const { getEntityRecords } = select('core');
 		const categories = getEntityRecords('taxonomy', 'category', {
 			include: post.categories,
 		});
@@ -33,7 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 			return;
 		}
 		setAttributes({ paginationColor: categoryName });
-	}, [categoryName]);
+	}, [categoryName, setAttributes]);
 
 	const swiperRef = useRefEffect((swiper) => {
 		if (swiper) {
@@ -45,12 +45,13 @@ export default function Edit({ attributes, setAttributes }) {
 					},
 
 					on: {
-						init: (swiper) => {
-							swiper.disable();
+						init: (swi) => {
+							swi.disable();
 						},
 					},
 				});
 			} catch (error) {
+				// eslint-disable-next-line no-console
 				console.error('Swiper initialization failed:', error);
 			}
 		}
