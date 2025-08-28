@@ -181,6 +181,7 @@ new (class SiteSearchHandler {
 	 * @return void
 	 */
 	private handleError(error: any) {
+		// eslint-disable-next-line no-console
 		console.error('Error:', error);
 		this.searchResults.innerHTML = '<p>Error loading results</p>';
 	}

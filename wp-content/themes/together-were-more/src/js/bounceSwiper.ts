@@ -17,6 +17,7 @@ export function bounceSwiper(args: {
 	};
 	const swiperContainer = document.getElementById(containerId);
 	if (!swiperContainer) {
+		// eslint-disable-next-line no-console
 		console.error(
 			"Bounce Swiper Error: Couldn't find expected element!",
 			swiperContainer
@@ -25,6 +26,7 @@ export function bounceSwiper(args: {
 	}
 	const swiper = swiperContainer.querySelector<HTMLElement>(swiperClass);
 	if (!swiper) {
+		// eslint-disable-next-line no-console
 		console.error(
 			"Bounce Swiper Error: Couldn't find expected elements!",
 			swiper
