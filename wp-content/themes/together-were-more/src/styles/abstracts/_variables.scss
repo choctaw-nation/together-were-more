@@ -5,10 +5,10 @@ $transition-standard: 0.15s ease-in-out;
 ///////////// */
 
 $font-headings: pill-gothic-300mg, "Helvetica Neue", "Noto Sans",
-	"Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+	"Liberation Sans", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
 	"Segoe UI Symbol", "Noto Color Emoji";
 $font-body: gill-sans-nova, "Helvetica Neue", "Noto Sans", "Liberation Sans",
-	Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+	arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 	"Noto Color Emoji";
 $font-script: "adobe-handwriting-ernie", cursive, sans-serif;
 $font-serif: "Times New Roman", sans-serif;
@@ -22,7 +22,6 @@ $color-gold: #c5a352;
 $color-violet: #6d6b94;
 $color-garnet: #7b2f2d;
 $color-gray: #707070;
-
 $category-colors: (
 	"artists": $color-gold,
 	"culture": $color-plum,

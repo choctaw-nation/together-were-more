@@ -9,7 +9,6 @@
 	--font-script: #{v.$font-script};
 	--font-serif: #{v.$font-serif};
 	--transition-standard: #{v.$transition-standard};
-
 	--cno-accessible-color-filter: brightness(130%) saturate(120%);
 }
 
@@ -20,6 +19,7 @@ html {
 ul,
 ol {
 	margin-left: 1.25rem;
+
 	@include rfs.font-size(1.35rem);
 }
 
@@ -72,7 +72,6 @@ blockquote {
 
 // Pagination Link Customizer
 $categories: ("artists", "culture", "inspirational", "competitors");
-
 $standard-bootstrap-box-shadow: 0 0 0 0.25rem;
 $twenty-five-percent-alpha: 40; // 25% alpha in hex is 40
 
