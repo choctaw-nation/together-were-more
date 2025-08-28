@@ -6,22 +6,22 @@ function initSwiper() {
 	const container = document.querySelector(
 		'.wp-block-cno-twm-profile-swiper-block .swiper'
 	);
-	if ( ! container ) {
+	if (!container) {
 		return;
 	}
 	try {
-		SwiperInit( container, {
+		SwiperInit(container, {
 			on: {
 				slideChange: () => {
-					const swipeText = document.getElementById( 'swipe-text' );
-					if ( swipeText ) {
+					const swipeText = document.getElementById('swipe-text');
+					if (swipeText) {
 						swipeText.style.display = 'none';
 					}
 				},
 			},
-		} );
-	} catch ( e ) {
-		console.error( e );
+		});
+	} catch (e) {
+		console.error(e);
 	}
 }
 
@@ -29,10 +29,10 @@ document.addEventListener(
 	'DOMContentLoaded',
 	() => {
 		initSwiper();
-		bounceSwiper( {
+		bounceSwiper({
 			containerId: 'profile-swiper',
 			animationClass: 'bounce-left-small',
-		} );
+		});
 	},
 	{ once: true }
 );

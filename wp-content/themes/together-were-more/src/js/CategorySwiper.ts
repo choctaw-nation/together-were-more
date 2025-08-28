@@ -9,8 +9,8 @@ import 'swiper/scss/mousewheel';
 import 'swiper/scss/free-mode';
 import 'swiper/scss/pagination';
 
-new Swiper( '#category-preview .swiper', {
-	modules: [ A11y, Mousewheel, FreeMode, Pagination ],
+new Swiper('#category-preview .swiper', {
+	modules: [A11y, Mousewheel, FreeMode, Pagination],
 	slidesPerView: 1,
 	spaceBetween: 20,
 	grabCursor: true,
@@ -36,40 +36,40 @@ new Swiper( '#category-preview .swiper', {
 	a11y: {
 		enabled: true,
 	},
-} );
+});
 
 /**
  * Toggles the opacity of the headline when the slider is/isn't on slide 1. Only fires on desktop sizes.
  *
  * @param {Swiper} ev - The Swiper instance
- * @returns void
+ * @return void
  */
-function makeHeadlineTextInvisible( ev: Swiper ) {
-	const headlineEls = document.querySelectorAll< HTMLParagraphElement >(
+function makeHeadlineTextInvisible(ev: Swiper) {
+	const headlineEls = document.querySelectorAll<HTMLParagraphElement>(
 		'#category-preview .col-lg-6 > p'
 	);
 
-	if ( ! headlineEls.length ) {
+	if (!headlineEls.length) {
 		return;
 	}
-	headlineEls.forEach( ( headline ) => {
-		if ( ev.activeIndex ) {
+	headlineEls.forEach((headline) => {
+		if (ev.activeIndex) {
 			headline.style.opacity = '0';
 		} else {
 			headline.style.opacity = '1';
 		}
-	} );
+	});
 }
 
-function addPaddingToContainer( swiper: Swiper ) {
+function addPaddingToContainer(swiper: Swiper) {
 	const container = document.getElementById(
 		'category-preview'
 	) as HTMLElement;
-	if ( ! container ) {
+	if (!container) {
 		return;
 	}
 	const swiperHeight = swiper.el.clientHeight;
-	container.style.height = `calc(6rem + ${ swiperHeight }px)`;
+	container.style.height = `calc(6rem + ${swiperHeight}px)`;
 }
 
-bounceSwiper( { containerId: 'category-preview' } );
+bounceSwiper({ containerId: 'category-preview' });
