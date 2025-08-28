@@ -2,7 +2,9 @@ import globals from 'globals';
 import { fixupConfigRules, includeIgnoreFile } from '@eslint/compat';
 import wordpressConfig from '@wordpress/eslint-plugin';
 import prettierConfig from 'eslint-config-prettier';
+/* eslint-disable import/no-unresolved */
 import { globalIgnores, defineConfig } from 'eslint/config';
+/* eslint-enable import/no-unresolved */
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath, URL } from 'url';

@@ -22,12 +22,6 @@ export default {
 					'Custom properties must be kebab-case, or WordPress-style (--wp--preset--type--value)',
 			},
 		],
-		'scss/percent-placeholder-pattern': [
-			'^[a-z]+(_[a-z0-9]+)*$',
-			{
-				message: 'Expected placeholder name to be snake_case',
-			},
-		],
 	},
 	ignoreFiles: [
 		'wp-content/themes/**/src/styles/vendors/bootstrap.scss',
