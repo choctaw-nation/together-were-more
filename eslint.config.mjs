@@ -1,6 +1,6 @@
-import eslint from '@eslint/js';
-import wordpressPlugin from '@wordpress/eslint-plugin';
+import globals from 'globals';
 import { fixupConfigRules, includeIgnoreFile } from '@eslint/compat';
+import wordpressConfig from '@wordpress/eslint-plugin';
 import prettierConfig from 'eslint-config-prettier';
 import { globalIgnores, defineConfig } from 'eslint/config';
 import { FlatCompat } from '@eslint/eslintrc';
@@ -17,29 +17,30 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+	prettierConfig,
 	globalIgnores([
 		'webpack.config.js',
 		'wp-content/themes/**/src/js/gutenberg/mediapress-filters/types.ts',
 	]),
 	includeIgnoreFile(gitignorePath, 'Ignore .gitignore files'),
-	prettierConfig,
+	...fixupConfigRules(compat.config(wordpressConfig.configs.recommended)),
 	{
-		extends: [
-			...fixupConfigRules(
-				compat.config(wordpressPlugin.configs.recommended)
-			),
-		],
-		languageOptions: {
-			parserOptions: {
-				ecmaFeatures: {
-					jsx: true, // enable JSX parsing
-				},
-			},
+		rules: {
+			'jsdoc/require-jsdoc': 'off',
+			'jsdoc/require-param': 'off',
+			'jsdoc/require-param-type': 'off',
+			'jsdoc/require-returns-type': 'off',
+			'jsdoc/require-returns-check': 'off',
+			'jsdoc/require-returns-description': 'off',
+			'jsdoc/check-param-names': 'off',
+			'no-console': 'warn',
+			'import/no-unresolved': 'off',
 		},
-		settings: {
-			react: {
-				version: 'detect',
-			},
+	},
+	{
+		files: ['wp-content/themes/**/src/js/**/*.{js,ts,jsx,tsx}'],
+		languageOptions: {
+			globals: globals.browser,
 		},
 	},
 ]);

@@ -6,6 +6,7 @@
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
 	],
+	"type": "module",
 	"scripts": {
 		"build": "wp-scripts build --blocks-manifest --webpack-copy-php --source-path=wp-content/themes/together-were-more/src/ --output-path=wp-content/themes/together-were-more/dist/",
 		"check-engines": "wp-scripts check-engines",

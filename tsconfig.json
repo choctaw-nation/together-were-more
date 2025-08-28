@@ -20,6 +20,6 @@
 			"./wp-content/themes/cno-starter-theme/src/js/**/types"
 		]
 	},
-	"include": [ "./wp-content/themes/cno-starter-theme/src/js/**/*" ],
+	"include": [ "wp-content/themes/cno-starter-theme/src/js/**/*" ],
 	"exclude": [ "node_modules" ]
 }
