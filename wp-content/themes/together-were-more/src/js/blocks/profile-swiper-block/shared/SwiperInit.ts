@@ -18,7 +18,7 @@ export function SwiperInit(
 	options: SwiperOptions | null = null
 ): Swiper {
 	const parameters = {
-		modules: [ Pagination, A11y, FreeMode, Mousewheel ],
+		modules: [Pagination, A11y, FreeMode, Mousewheel],
 		slidesPerView: 'auto',
 		slidesPerGroup: 1,
 		direction: 'horizontal',
@@ -35,22 +35,20 @@ export function SwiperInit(
 		},
 	} as SwiperOptions;
 
-	return new Swiper( container as HTMLElement, {
+	return new Swiper(container as HTMLElement, {
 		...parameters,
 		...options,
-	} );
+	});
 }
 
 /**
  * Converts passed params into Swiper options.
  * @param options The options to be passed to the Swiper instance.
- * @returns SwiperOptions
+ * @return SwiperOptions
  */
-export function mergeParams( options: {
-	[ key: string ]: any;
-} ): SwiperOptions {
+export function mergeParams(options: { [key: string]: any }): SwiperOptions {
 	const parameters = {
-		modules: [ Autoplay, Pagination, A11y ],
+		modules: [Autoplay, Pagination, A11y],
 		autoHeight: options?.autoHeight ?? false,
 		autoplay: options?.autoplay ?? false,
 		centeredSlides: options?.centeredSlides ?? false,
@@ -59,14 +57,14 @@ export function mergeParams( options: {
 		spaceBetween: options?.spaceBetween ?? 0,
 		loop: options?.loop ?? false,
 	} as SwiperOptions;
-	if ( options?.navigation.enabled ) {
+	if (options?.navigation.enabled) {
 		parameters.navigation = {
-			nextEl: `.swiper-${ options.navigation.uuidClass }`,
-			prevEl: `.swiper-${ options.navigation.uuidClass } `,
+			nextEl: `.swiper-${options.navigation.uuidClass}`,
+			prevEl: `.swiper-${options.navigation.uuidClass} `,
 			enabled: true,
 		};
 	}
-	if ( options?.pagination ) {
+	if (options?.pagination) {
 		parameters.pagination = {
 			el: '.swiper-pagination',
 			clickable: true,
@@ -74,16 +72,15 @@ export function mergeParams( options: {
 			type: 'bullets',
 		};
 	}
-	if ( options?.slidesPerGroup || options?.slidesPerView ) {
+	if (options?.slidesPerGroup || options?.slidesPerView) {
 		parameters.breakpoints = {
 			991: {},
 		};
-		if ( options?.slidesPerView ) {
-			parameters.breakpoints[ 991 ].slidesPerView = options.slidesPerView;
+		if (options?.slidesPerView) {
+			parameters.breakpoints[991].slidesPerView = options.slidesPerView;
 		}
-		if ( options?.slidesPerGroup ) {
-			parameters.breakpoints[ 991 ].slidesPerGroup =
-				options.slidesPerGroup;
+		if (options?.slidesPerGroup) {
+			parameters.breakpoints[991].slidesPerGroup = options.slidesPerGroup;
 		}
 	}
 	return parameters;

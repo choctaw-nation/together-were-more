@@ -2,25 +2,10 @@ import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
 
 import './style.scss';
-import SwiperVideoSlide from './SwiperVideoSlide';
-import BlockControls from './BlockControls';
+import Edit from './Edit';
+import Save from './Save';
 
-registerBlockType( metadata.name, {
-	edit: ( props ) => {
-		return (
-			<>
-				<BlockControls { ...props } />
-				<SwiperVideoSlide
-					editorView={ true }
-					caption={ props.attributes.videoCaption }
-				/>
-			</>
-		);
-	},
-	save: ( { attributes } ) => (
-		<SwiperVideoSlide
-			editorView={ false }
-			caption={ attributes.videoCaption }
-		/>
-	),
-} );
+registerBlockType(metadata.name, {
+	edit: Edit,
+	save: Save,
+});

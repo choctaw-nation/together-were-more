@@ -2,9 +2,7 @@
 
 .statements {
 	.statement {
-		& {
-			@include rfs.font-size(11.25rem);
-		}
+		@include rfs.font-size(11.25rem);
 	}
 
 	p {

@@ -1,4 +1,4 @@
-new ( class VideoModalTrigger {
+new (class VideoModalTrigger {
 	/**
 	 * The Bootstrap Modal element
 	 */
@@ -13,9 +13,9 @@ new ( class VideoModalTrigger {
 	 * Constructor
 	 */
 	constructor() {
-		this.modalEl = document.getElementById( 'videoModal' ) as HTMLElement;
+		this.modalEl = document.getElementById('videoModal') as HTMLElement;
 
-		if ( this.modalEl ) {
+		if (this.modalEl) {
 			this.init();
 		}
 	}
@@ -24,14 +24,14 @@ new ( class VideoModalTrigger {
 	 * Wires up the event listener to reset the modal on close
 	 */
 	public init() {
-		this.modalEl.addEventListener( 'show.bs.modal', ( ev ) => {
+		this.modalEl.addEventListener('show.bs.modal', (ev) => {
 			this.trigger = ev.relatedTarget as HTMLButtonElement;
 			this.rebootLiteVimeoComponent();
-		} );
+		});
 
-		this.modalEl.addEventListener( 'hide.bs.modal', () => {
+		this.modalEl.addEventListener('hide.bs.modal', () => {
 			this.rebootLiteVimeoComponent();
-		} );
+		});
 	}
 
 	/**
@@ -41,29 +41,29 @@ new ( class VideoModalTrigger {
 		const modalBody = this.modalEl.querySelector(
 			'.modal-body'
 		) as HTMLElement;
-		if ( ! modalBody ) {
+		if (!modalBody) {
 			return;
 		}
 
 		modalBody.innerHTML = '';
 		const liteVimeo = this.generateLiteVideoComponent();
-		modalBody.appendChild( liteVimeo );
+		modalBody.appendChild(liteVimeo);
 	}
 
 	/**
 	 * Generates the lite-vimeo component
 	 *
-	 * @returns HTMLElement the lite-vimeo component
+	 * @return HTMLElement the lite-vimeo component
 	 */
 	private generateLiteVideoComponent(): HTMLElement {
 		const { videoId, customThumbnail } = this.getAttributesFromTrigger();
-		const liteVimeo = document.createElement( 'lite-vimeo' );
-		liteVimeo.setAttribute( 'videoid', videoId );
-		liteVimeo.setAttribute( 'enableTracking', 'true' );
+		const liteVimeo = document.createElement('lite-vimeo');
+		liteVimeo.setAttribute('videoid', videoId);
+		liteVimeo.setAttribute('enableTracking', 'true');
 
-		if ( customThumbnail ) {
-			liteVimeo.setAttribute( 'custom-thumb', customThumbnail );
-			liteVimeo.setAttribute( 'unlisted', 'true' );
+		if (customThumbnail) {
+			liteVimeo.setAttribute('custom-thumb', customThumbnail);
+			liteVimeo.setAttribute('unlisted', 'true');
 		}
 		return liteVimeo;
 	}
@@ -72,10 +72,9 @@ new ( class VideoModalTrigger {
 	 * Get the video ID and custom thumbnail from the trigger element
 	 */
 	private getAttributesFromTrigger() {
-		const videoId = this.trigger.getAttribute( 'data-video-id' ) as string;
-		const customThumbnail =
-			this.trigger.getAttribute( 'data-custom-thumb' );
+		const videoId = this.trigger.getAttribute('data-video-id') as string;
+		const customThumbnail = this.trigger.getAttribute('data-custom-thumb');
 
 		return { videoId, customThumbnail };
 	}
-} )();
+})();

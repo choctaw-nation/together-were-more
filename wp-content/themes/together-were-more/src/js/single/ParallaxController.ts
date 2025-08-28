@@ -1,18 +1,18 @@
 import { bootstrapBreakpoints } from '../utilities';
 
 export default class ParallaxController {
-	private parallaxElements: NodeListOf< HTMLElement >;
+	private parallaxElements: NodeListOf<HTMLElement>;
 
 	private observer: IntersectionObserver;
 
 	constructor() {
 		const parallaxElements =
-			document.querySelectorAll< HTMLElement >( '.parallax' );
-		if ( ! parallaxElements ) {
+			document.querySelectorAll<HTMLElement>('.parallax');
+		if (!parallaxElements) {
 			return;
 		}
 		this.parallaxElements = parallaxElements;
-		if ( window.innerWidth >= bootstrapBreakpoints.lg ) {
+		if (window.innerWidth >= bootstrapBreakpoints.lg) {
 			this.setParallaxContainerHeights();
 			this.handleParallax();
 		}
@@ -23,29 +23,27 @@ export default class ParallaxController {
 	 *
 	 * @param reInit - Whether to re-initialize the parallax effect
 	 */
-	setParallaxContainerHeights( reInit = false ) {
-		if ( window.innerWidth < bootstrapBreakpoints.lg ) {
+	setParallaxContainerHeights(reInit = false) {
+		if (window.innerWidth < bootstrapBreakpoints.lg) {
 			window.removeEventListener(
 				'scroll',
-				this.activateParallax.bind( this )
+				this.activateParallax.bind(this)
 			);
-			this.parallaxElements.forEach( this.resetPosition );
+			this.parallaxElements.forEach(this.resetPosition);
 			return;
 		}
-		this.parallaxElements.forEach( ( element ) => {
-			const parent = element.closest< HTMLElement >(
-				'.parallax-container'
-			);
-			const img = element.querySelector< HTMLImageElement >( 'img' );
-			if ( ! parent || ! img ) {
+		this.parallaxElements.forEach((element) => {
+			const parent = element.closest<HTMLElement>('.parallax-container');
+			const img = element.querySelector<HTMLImageElement>('img');
+			if (!parent || !img) {
 				return;
 			}
 			parent.style.setProperty(
 				'--figure-height',
-				`${ img.offsetHeight }px`
+				`${img.offsetHeight}px`
 			);
-		} );
-		if ( reInit ) {
+		});
+		if (reInit) {
 			this.handleParallax();
 		}
 	}
@@ -60,44 +58,44 @@ export default class ParallaxController {
 			threshold: 0.3, // Trigger the observer when x% of the element is visible
 		};
 
-		this.observer = new IntersectionObserver( ( entries ) => {
-			entries.forEach( ( entry ) => {
-				if ( entry.isIntersecting ) {
+		this.observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
 					window.addEventListener(
 						'scroll',
-						this.activateParallax.bind( this )
+						this.activateParallax.bind(this)
 					);
 				} else {
 					window.removeEventListener(
 						'scroll',
-						this.activateParallax.bind( this )
+						this.activateParallax.bind(this)
 					);
-					this.parallaxElements.forEach( this.resetPosition );
+					this.parallaxElements.forEach(this.resetPosition);
 				}
-			} );
-		}, observerOptions );
+			});
+		}, observerOptions);
 
-		this.parallaxElements.forEach( ( element ) => {
-			this.observer.observe( element );
-		} );
+		this.parallaxElements.forEach((element) => {
+			this.observer.observe(element);
+		});
 	}
 
 	/**
 	 * Activate the parallax effect on the given elements
 	 */
 	private activateParallax() {
-		if ( window.innerWidth < bootstrapBreakpoints.lg ) {
+		if (window.innerWidth < bootstrapBreakpoints.lg) {
 			return;
 		}
-		this.parallaxElements.forEach( ( element ) => {
+		this.parallaxElements.forEach((element) => {
 			const speed = 0.5; // Adjust the speed of the parallax effect
 			const rect = element.getBoundingClientRect();
 			const offsetDistance =
-				window.innerHeight / 2 - ( rect.top + rect.height / 2 ); // Calculate the distance from the center of the element to the center of the viewport
+				window.innerHeight / 2 - (rect.top + rect.height / 2); // Calculate the distance from the center of the element to the center of the viewport
 			const offset =
 				offsetDistance * speed < 0 ? 0 : offsetDistance * speed;
-			element.style.transform = `translateY(${ offset }px)`;
-		} );
+			element.style.transform = `translateY(${offset}px)`;
+		});
 	}
 
 	/**
@@ -105,7 +103,7 @@ export default class ParallaxController {
 	 *
 	 * @param element - The element to reset
 	 */
-	private resetPosition( element: HTMLElement ) {
+	private resetPosition(element: HTMLElement) {
 		element.style.transform = 'translateY(0)';
 	}
 }

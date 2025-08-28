@@ -1,6 +1,5 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
-
 @use "../components/post-preview-card";
 
 .front-page-hero {
@@ -12,6 +11,7 @@
 
 	img {
 		--left-align: 30%;
+
 		object-position: var(--left-align) center;
 
 		@include m.media-breakpoint-up(sm) {
@@ -25,6 +25,7 @@
 
 	#scroll-down-icon {
 		--size: 40px;
+
 		width: var(--size);
 		height: var(--size);
 		position: relative;

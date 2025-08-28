@@ -35,6 +35,7 @@
 }
 
 // AOS Support
+
 /* General AOS Initialization State */
 [data-aos="fade-in"] {
 	opacity: 0; /* Start invisible */
@@ -51,12 +52,15 @@
 [data-aos-delay="50"] {
 	transition-delay: 0.05s;
 }
+
 [data-aos-delay="100"] {
 	transition-delay: 0.1s;
 }
+
 [data-aos-delay="150"] {
 	transition-delay: 0.15s;
 }
+
 [data-aos-delay="200"] {
 	transition-delay: 0.2s;
 }
