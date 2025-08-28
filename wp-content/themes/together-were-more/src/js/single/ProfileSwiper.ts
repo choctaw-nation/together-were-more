@@ -9,7 +9,7 @@ import 'swiper/scss/free-mode';
 import 'swiper/scss/pagination';
 import '../../styles/components/single/swiper.scss';
 
-new ( class ProfileSwiperHandler {
+new (class ProfileSwiperHandler {
 	/**
 	 * The Swiper element
 	 */
@@ -21,21 +21,21 @@ new ( class ProfileSwiperHandler {
 	private swiper: Swiper;
 
 	constructor() {
-		const swiperEl = document.querySelector< HTMLElement >(
+		const swiperEl = document.querySelector<HTMLElement>(
 			'#profile-swiper .swiper'
 		);
-		if ( ! swiperEl ) {
+		if (!swiperEl) {
 			return;
-		} else {
-			this.swiperEl = swiperEl;
 		}
+		this.swiperEl = swiperEl;
+
 		this.initSwiper();
-		if ( this.swiper ) {
+		if (this.swiper) {
 			// Create Intersection Observer
 			const observer = new IntersectionObserver(
-				( entries: IntersectionObserverEntry[] ) => {
-					entries.forEach( ( entry ) => {
-						if ( entry.isIntersecting ) {
+				(entries: IntersectionObserverEntry[]) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
 							if (
 								entry.boundingClientRect.top >
 								entry.rootBounds!.top
@@ -44,14 +44,14 @@ new ( class ProfileSwiperHandler {
 								this.toggleHeightClass();
 							}
 						}
-					} );
+					});
 				},
 				{
 					threshold: 0.7, // Adjust threshold as needed
 				}
 			);
 
-			observer.observe( this.swiperEl );
+			observer.observe(this.swiperEl);
 		}
 	}
 
@@ -59,8 +59,8 @@ new ( class ProfileSwiperHandler {
 	 * Initializes the Swiper
 	 */
 	private initSwiper() {
-		this.swiper = new Swiper( this.swiperEl, {
-			modules: [ A11y, Mousewheel, FreeMode, Pagination ],
+		this.swiper = new Swiper(this.swiperEl, {
+			modules: [A11y, Mousewheel, FreeMode, Pagination],
 			slidesPerView: 'auto',
 			direction: 'horizontal',
 			spaceBetween: 0,
@@ -80,21 +80,21 @@ new ( class ProfileSwiperHandler {
 				clickable: true,
 			},
 			on: {
-				init: this.toggleHeightClass.bind( this ),
+				init: this.toggleHeightClass.bind(this),
 			},
-		} );
+		});
 	}
 
 	/**
 	 * An easeInOut function for the bounce effect
 	 *
 	 * @param t time
-	 * @returns the time
+	 * @return the time
 	 */
-	private easeInOut( progress: number ): number {
+	private easeInOut(progress: number): number {
 		return progress < 0.5
 			? 4 * progress * progress * progress
-			: 1 - Math.pow( -2 * progress + 2, 3 ) / 2;
+			: 1 - Math.pow(-2 * progress + 2, 3) / 2;
 	}
 
 	/**
@@ -103,29 +103,31 @@ new ( class ProfileSwiperHandler {
 	 * @param swiper The swiper instance
 	 */
 	private bounceSwiper() {
-		let start: number | null = null;
-		requestAnimationFrame( ( time ) => this.animate( time, start ) );
+		const start: number | null = null;
+		requestAnimationFrame((time) => this.animate(time, start));
 	}
 
 	/**
 	 * Animates the swiper to preview the next slide
 	 *
-	 * @param time The time
+	 * @param time  The time
 	 * @param start The start time
 	 */
-	private animate( time: number, start: number | null ) {
+	private animate(time: number, start: number | null) {
 		const duration = 400;
-		if ( ! start ) start = time;
+		if (!start) {
+			start = time;
+		}
 		const elapsed = time - start;
-		const progress = Math.min( elapsed / duration, 1 );
-		const easedProgress = this.easeInOut( progress );
-		const translateValue = ( this.swiper.slides[ 0 ].offsetWidth / 2 ) * -1;
-		this.swiper.setTranslate( easedProgress * translateValue );
+		const progress = Math.min(elapsed / duration, 1);
+		const easedProgress = this.easeInOut(progress);
+		const translateValue = (this.swiper.slides[0].offsetWidth / 2) * -1;
+		this.swiper.setTranslate(easedProgress * translateValue);
 
-		if ( progress < 1 ) {
-			requestAnimationFrame( ( t ) => this.animate( t, start ) );
+		if (progress < 1) {
+			requestAnimationFrame((t) => this.animate(t, start));
 		} else {
-			this.swiper.slidePrev( 400 );
+			this.swiper.slidePrev(400);
 		}
 	}
 
@@ -136,18 +138,18 @@ new ( class ProfileSwiperHandler {
 		const mediaContainer = this.swiperEl.querySelector(
 			'figure .media-container'
 		);
-		if ( ! mediaContainer ) {
+		if (!mediaContainer) {
 			return;
 		}
 		const browser = navigator.userAgent.toLowerCase();
 
-		const browserIsChrome = browser.includes( 'chrome' );
-		if ( browserIsChrome ) {
+		const browserIsChrome = browser.includes('chrome');
+		if (browserIsChrome) {
 			// Chrome fix
-			mediaContainer.classList.remove( 'h-100' );
+			mediaContainer.classList.remove('h-100');
 		} else {
 			// Webkit & Firefox fix
-			mediaContainer.classList.toggle( 'h-100' );
+			mediaContainer.classList.toggle('h-100');
 		}
 	}
-} )();
+})();

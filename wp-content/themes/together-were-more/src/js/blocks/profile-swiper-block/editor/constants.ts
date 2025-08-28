@@ -32,7 +32,7 @@ const SWIPER_SLIDE = 'core/group';
  * These are the default inner blocks we'll use
  * when our DEFAULT_BLOCK is inserted.
  */
-const IMAGE_SLIDE = [ 'core/image', {} ];
+const IMAGE_SLIDE = ['core/image', {}];
 const QUOTE_SLIDE = [
 	'core/quote',
 	{
@@ -69,7 +69,7 @@ const TEMPLATE = [
 			},
 			className: 'swiper-slide swiper-slide__media',
 		},
-		[ IMAGE_SLIDE ],
+		[IMAGE_SLIDE],
 	],
 	[
 		SWIPER_SLIDE,
@@ -95,7 +95,7 @@ const TEMPLATE = [
 			backgroundColor: 'black',
 			textColor: 'white',
 		},
-		[ QUOTE_SLIDE ],
+		[QUOTE_SLIDE],
 	],
 	[
 		SWIPER_SLIDE,
@@ -109,7 +109,7 @@ const TEMPLATE = [
 				orientation: 'vertical',
 			},
 		},
-		[ [ 'cno/twm-profile-swiper-video-slide' ] ],
+		[['cno/twm-profile-swiper-video-slide']],
 	],
 	[
 		SWIPER_SLIDE,
@@ -119,7 +119,7 @@ const TEMPLATE = [
 				name: 'Slide 4 (Image)',
 			},
 		},
-		[ IMAGE_SLIDE ],
+		[IMAGE_SLIDE],
 	],
 	[
 		SWIPER_SLIDE,
@@ -129,12 +129,12 @@ const TEMPLATE = [
 				name: 'Slide 5 (Image)',
 			},
 		},
-		[ IMAGE_SLIDE ],
+		[IMAGE_SLIDE],
 	],
 ];
 
 export const innerBlocksArgs = {
-	allowedBlocks: [ 'core/group' ],
+	allowedBlocks: ['core/group'],
 	defaultBlock: {
 		name: SWIPER_SLIDE,
 		attributes: { ...SLIDE_ATTRIBUTES, metadata: { name: 'Slide' } },

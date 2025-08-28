@@ -1,30 +1,20 @@
-import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
+import type React from 'react';
 
-export default function SwiperVideoSlide( {
-	editorView = false,
+export default function SwiperVideoSlide({
+	children,
+	innerBlocksProps,
 	caption,
+	captionStyles,
 }: {
-	editorView: boolean;
+	children: React.ReactNode;
+	innerBlocksProps: any;
 	caption: string;
-} ) {
-	const { children, ...innerBlocksProps } = editorView
-		? useInnerBlocksProps( useBlockProps(), {
-				allowedBlocks: [ 'cno-lite-vimeo/cno-plugin-lite-vimeo-block' ],
-				defaultBlock: {
-					name: 'cno-lite-vimeo/cno-plugin-lite-vimeo-block',
-				},
-				directInsert: true,
-				orientation: 'horizontal',
-				template: [ [ 'cno-lite-vimeo/cno-plugin-lite-vimeo-block' ] ],
-				renderAppender: false,
-				templateInsertUpdatesSelection: true,
-		  } )
-		: useInnerBlocksProps.save( useBlockProps.save() );
-	const captionStyles = editorView ? {} : {};
+	captionStyles?: React.CSSProperties;
+}) {
 	return (
-		<figure { ...innerBlocksProps }>
-			{ children }
-			<figcaption style={ captionStyles }>{ caption }</figcaption>
+		<figure {...innerBlocksProps}>
+			{children}
+			<figcaption style={captionStyles}>{caption}</figcaption>
 		</figure>
 	);
 }
