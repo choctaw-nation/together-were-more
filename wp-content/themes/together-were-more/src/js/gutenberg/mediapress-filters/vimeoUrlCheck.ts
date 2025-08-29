@@ -39,14 +39,13 @@ export default function vimeoUrlCheck( item: ChecklistItem ): ChecklistItem {
 				message:
 					'Vimeo URL is unlisted but no custom thumbnail has been set!',
 			};
-		} else {
-			return {
-				...item,
-				status: 'COMPLETED',
-				message:
-					'(Unlisted) Vimeo URL is set and custom thumbnail is provided',
-			};
 		}
+		return {
+			...item,
+			status: 'COMPLETED',
+			message:
+				'(Unlisted) Vimeo URL is set and custom thumbnail is provided',
+		};
 	}
 	return {
 		...item,

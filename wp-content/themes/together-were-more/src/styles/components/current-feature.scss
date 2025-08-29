@@ -11,6 +11,7 @@
 
 	&__title {
 		--upper-font-size: 9rem;
+
 		font-size: clamp(3rem, 90vw, var(--upper-font-size));
 		line-height: 0.95;
 
@@ -31,7 +32,7 @@
 		&--story {
 			--bs-btn-bg: white;
 
-			@include m.interaction() {
+			@include m.interaction {
 				background-color: var(--bs-gray);
 			}
 		}

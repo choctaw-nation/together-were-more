@@ -53,7 +53,7 @@ new ( class VideoModalTrigger {
 	/**
 	 * Generates the lite-vimeo component
 	 *
-	 * @returns HTMLElement the lite-vimeo component
+	 * @return HTMLElement the lite-vimeo component
 	 */
 	private generateLiteVideoComponent(): HTMLElement {
 		const { videoId, customThumbnail } = this.getAttributesFromTrigger();
@@ -73,8 +73,7 @@ new ( class VideoModalTrigger {
 	 */
 	private getAttributesFromTrigger() {
 		const videoId = this.trigger.getAttribute( 'data-video-id' ) as string;
-		const customThumbnail =
-			this.trigger.getAttribute( 'data-custom-thumb' );
+		const customThumbnail = this.trigger.getAttribute( 'data-custom-thumb' );
 
 		return { videoId, customThumbnail };
 	}

@@ -5,7 +5,7 @@
 	z-index: 1000;
 	top: 0;
 
-	@media screen and (min-width: 600.02px) {
+	@media screen and (width >= 600.02px) {
 		top: var(--wp-admin--admin-bar--height, 0);
 	}
 
@@ -18,13 +18,13 @@
 	}
 
 	:where(&) .navbar-brand {
-		@include m.interaction() {
+		@include m.interaction {
 			filter: var(--cno-accessible-color-filter);
 		}
 	}
 }
 
-%active_menu_state {
+%active-menu-state {
 	border-bottom: var(--bs-border-width) var(--bs-border-style)
 		var(--bs-border-hover-color) !important;
 
@@ -40,8 +40,8 @@
 
 		transition: fn.transition(color, filter, border);
 
-		@include m.interaction() {
-			@extend %active_menu_state;
+		@include m.interaction {
+			@extend %active-menu-state;
 		}
 
 		@include m.media-breakpoint-up(lg) {
@@ -50,10 +50,11 @@
 	}
 
 	.active .nav-link {
-		@extend %active_menu_state;
+		@extend %active-menu-state;
+
 		color: var(--bs-nav-link-hover-color);
 
-		@include m.interaction() {
+		@include m.interaction {
 			filter: unset;
 		}
 	}
@@ -68,7 +69,7 @@
 		figure {
 			transition: color var(--transition-standard);
 
-			@include m.interaction() {
+			@include m.interaction {
 				color: var(--hover-color);
 			}
 
@@ -79,9 +80,10 @@
 	}
 
 	.nav-item {
-		@include m.interaction() {
+		@include m.interaction {
 			.search-button span {
 				--bs-border-color: var(--hover-color);
+
 				color: var(--hover-color);
 			}
 		}

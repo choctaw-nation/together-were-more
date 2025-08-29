@@ -110,7 +110,7 @@ new ( class SiteSearchHandler {
 	/**
 	 * Display search results in the search results element.
 	 * @param results The search results to display.
-	 * @returns void
+	 * @return void
 	 */
 	private displayResults( results: SiteSearchResult[] ) {
 		this.searchResults.innerHTML = '';
@@ -121,7 +121,9 @@ new ( class SiteSearchHandler {
 		const ul = document.createElement( 'ul' );
 		ul.classList.add( 'list-unstyled', 'm-0', 'p-0' );
 		results.forEach( ( result, index ) => {
-			if ( 2 <= index ) return;
+			if ( 2 <= index ) {
+				return;
+			}
 			const li = this.createListItem( result );
 			ul.appendChild( li );
 		} );
@@ -143,7 +145,7 @@ new ( class SiteSearchHandler {
 	/**
 	 * Create a list item element for a search result.
 	 * @param result The search result to create a list item for.
-	 * @returns HTMLLIElement
+	 * @return HTMLLIElement
 	 */
 	private createListItem( result: SiteSearchResult ): HTMLLIElement {
 		const { name, title, id, permalink, excerpt, category } = result;
@@ -161,9 +163,9 @@ new ( class SiteSearchHandler {
 	/**
 	 * Get the color for a category.
 	 * @param category The category to get the color for.
-	 * @returns string
+	 * @return string
 	 */
-	private categoryColor( category: SiteSearchResult[ 'category' ] ): string {
+	private categoryColor( category: SiteSearchResult['category'] ): string {
 		const categoryMap = {
 			artists: 'gold',
 			culture: 'plum',
@@ -176,9 +178,10 @@ new ( class SiteSearchHandler {
 	/**
 	 * Handle an error.
 	 * @param error The error to handle.
-	 * @returns void
+	 * @return void
 	 */
 	private handleError( error: any ) {
+		// eslint-disable-next-line no-console
 		console.error( 'Error:', error );
 		this.searchResults.innerHTML = '<p>Error loading results</p>';
 	}
