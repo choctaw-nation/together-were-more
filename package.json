@@ -1,6 +1,6 @@
 {
 	"name": "together-were-more",
-	"version": "1.2.0",
+	"version": "1.1.8",
 	"description": "Custom WP theme for Together We're More site",
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
