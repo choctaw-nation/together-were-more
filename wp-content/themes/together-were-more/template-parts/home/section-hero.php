@@ -21,7 +21,7 @@
 	<div class="container position-relative z-2 py-5 text-center">
 		<div class="row justify-content-center">
 			<div class="col-10 col-lg-8">
-				<span class="h1 text-uppercase text-white mb-0 fw-normal ls-3">Our stories make us more</span>
+				<span class="hero__subtitle h3 text-uppercase text-white mb-0 fw-normal ls-3">Our stories make us more</span>
 				<?php
 				get_template_part(
 					'template-parts/ui/hr',
@@ -36,7 +36,7 @@
 		</div>
 		<div class="row row-cols-1">
 			<div class="col">
-				<h1 class="text-white fw-bolder display-1 text-uppercase mb-0">
+				<h1 class="hero__title text-white fw-bolder text-uppercase mb-0">
 					Together We're More
 				</h1>
 			</div>
