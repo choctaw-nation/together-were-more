@@ -5,7 +5,7 @@ import './style.scss';
 import Edit from './Edit';
 import Save from './Save';
 
-registerBlockType(metadata.name, {
+registerBlockType( metadata.name, {
 	edit: Edit,
 	save: Save,
-});
+} );

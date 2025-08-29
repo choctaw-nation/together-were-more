@@ -1,6 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-	extends: ['stylelint-config-standard-scss'],
+	extends: [ 'stylelint-config-standard-scss' ],
 	rules: {
 		'color-named': 'always-where-possible',
 		'scss/at-function-pattern': [
@@ -29,15 +29,15 @@ export default {
 	],
 	overrides: [
 		{
-			files: ['**/*.scss'],
+			files: [ '**/*.scss' ],
 			customSyntax: 'postcss-scss',
 		},
 		{
-			files: ['**/*.html', '**/*.php'],
+			files: [ '**/*.html', '**/*.php' ],
 			customSyntax: 'postcss-html',
 		},
 		{
-			files: ['**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts'],
+			files: [ '**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts' ],
 			customSyntax: 'postcss-js',
 		},
 	],

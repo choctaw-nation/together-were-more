@@ -2,10 +2,10 @@
 	"name": "together-were-more",
 	"version": "1.2.0",
 	"description": "Custom WP theme for Together We're More site",
-	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
 	],
+	"prettier": "@wordpress/prettier-config",
 	"scripts": {
 		"build": "wp-scripts build --blocks-manifest --webpack-copy-php --source-path=wp-content/themes/together-were-more/src/ --output-path=wp-content/themes/together-were-more/dist/",
 		"check-engines": "wp-scripts check-engines",
@@ -35,6 +35,7 @@
 		"@wordpress/compose": "^7.29.0",
 		"@wordpress/data": "^10.29.0",
 		"@wordpress/eslint-plugin": "^22.15.0",
+		"@wordpress/prettier-config": "^4.29.0",
 		"@wordpress/scripts": "^30.22.0",
 		"eslint": "^9.34.0",
 		"eslint-config-prettier": "^10.1.8",
@@ -44,7 +45,6 @@
 		"stylelint": "^16.23.1",
 		"stylelint-config-standard-scss": "^15.0.1",
 		"stylelint-scss": "^6.12.1",
-		"typescript-eslint": "^8.41.0",
 		"webpack-remove-empty-scripts": "^1.1.1"
 	}
 }

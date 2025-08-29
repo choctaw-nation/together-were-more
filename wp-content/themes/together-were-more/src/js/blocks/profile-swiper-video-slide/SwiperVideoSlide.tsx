@@ -1,6 +1,6 @@
 import type React from 'react';
 
-export default function SwiperVideoSlide({
+export default function SwiperVideoSlide( {
 	children,
 	innerBlocksProps,
 	caption,
@@ -10,11 +10,11 @@ export default function SwiperVideoSlide({
 	innerBlocksProps: any;
 	caption: string;
 	captionStyles?: React.CSSProperties;
-}) {
+} ) {
 	return (
-		<figure {...innerBlocksProps}>
-			{children}
-			<figcaption style={captionStyles}>{caption}</figcaption>
+		<figure { ...innerBlocksProps }>
+			{ children }
+			<figcaption style={ captionStyles }>{ caption }</figcaption>
 		</figure>
 	);
 }

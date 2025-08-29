@@ -1,32 +1,40 @@
 import globals from 'globals';
 import { fixupConfigRules, includeIgnoreFile } from '@eslint/compat';
 import wordpressConfig from '@wordpress/eslint-plugin';
-import prettierConfig from 'eslint-config-prettier';
+
 /* eslint-disable import/no-unresolved */
 import { globalIgnores, defineConfig } from 'eslint/config';
 /* eslint-enable import/no-unresolved */
+
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath, URL } from 'url';
 
-const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+const gitignorePath = fileURLToPath( new URL( '.gitignore', import.meta.url ) );
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = path.dirname( __filename );
 
-const compat = new FlatCompat({
+const compat = new FlatCompat( {
 	baseDirectory: __dirname,
-});
+} );
 
-export default defineConfig([
-	prettierConfig,
-	globalIgnores([
+export default defineConfig( [
+	globalIgnores( [
 		'webpack.config.js',
 		'wp-content/themes/**/src/js/gutenberg/mediapress-filters/types.ts',
-	]),
-	includeIgnoreFile(gitignorePath, 'Ignore .gitignore files'),
-	...fixupConfigRules(compat.config(wordpressConfig.configs.recommended)),
+		'wp-content/themes/**/src/js/**/*.d.ts',
+	] ),
+	includeIgnoreFile( gitignorePath, 'Ignore .gitignore files' ),
+	...fixupConfigRules(
+		compat.config( wordpressConfig.configs[ 'recommended-with-formatting' ] )
+	),
 	{
+		files: [ 'wp-content/themes/**/src/js/**/*.{js,ts,jsx,tsx}' ],
+		languageOptions: {
+			globals: globals.browser,
+		},
+
 		rules: {
 			'jsdoc/require-jsdoc': 'off',
 			'jsdoc/require-param': 'off',
@@ -36,20 +44,20 @@ export default defineConfig([
 			'jsdoc/require-returns-description': 'off',
 			'jsdoc/check-param-names': 'off',
 			'no-console': 'warn',
-		},
-	},
-	{
-		files: ['wp-content/themes/**/src/js/**/*.{js,ts,jsx,tsx}'],
-		languageOptions: {
-			globals: globals.browser,
+			'no-duplicate-imports': 'off',
+			'import/no-duplicates': 'error',
+			'no-unused-vars': 'off',
+			'no-undef': 'off',
+			'no-shadow': 'off',
 		},
 		settings: {
 			'import/resolver': {
 				node: {
-					extensions: ['.js', '.jsx', '.ts', '.tsx'],
+					extensions: [ '.js', '.jsx', '.ts', '.tsx' ],
 				},
 				typescript: {},
 			},
 		},
 	},
-]);
+] );
+

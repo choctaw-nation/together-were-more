@@ -5,39 +5,39 @@ import './shared/style.scss';
 import Edit from './editor/edit';
 import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 
-registerBlockType(metadata.name, {
+registerBlockType( metadata.name, {
 	icon,
 	edit: Edit,
-	save: ({ attributes }) => {
+	save: ( { attributes } ) => {
 		const paginationColor = {
-			'--swiper-pagination-color': `var(--wp--preset--color--${attributes.paginationColor})`,
+			'--swiper-pagination-color': `var(--wp--preset--color--${ attributes.paginationColor })`,
 		} as Record<string, string>;
 		return (
-			<div {...useBlockProps.save()} id="profile-swiper">
+			<div { ...useBlockProps.save() } id="profile-swiper">
 				<div className="swiper-row">
 					<div className="swiper">
 						<div
 							className="swiper-wrapper"
-							{...useInnerBlocksProps.save()}
+							{ ...useInnerBlocksProps.save() }
 						/>
 						<span
 							className="font-script position-absolute fs-3 z-3 text-dark"
 							id="swipe-text"
 							data-aos="fade-in"
 							data-aos-offset="200"
-							dangerouslySetInnerHTML={{
+							dangerouslySetInnerHTML={ {
 								__html: `Swipe &rarr;`,
-							}}
+							} }
 						/>
 					</div>
 				</div>
 				<div className="swiper-row">
 					<div
 						className="swiper-pagination"
-						style={paginationColor}
+						style={ paginationColor }
 					/>
 				</div>
 			</div>
 		);
 	},
-});
+} );
