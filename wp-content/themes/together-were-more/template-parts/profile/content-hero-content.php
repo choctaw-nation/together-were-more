@@ -7,7 +7,7 @@
 
 $color = isset( $args['color'] ) ? $args['color'] : 'white';
 ?>
-<span class="h5 ls-3 text-uppercase mb-0 fw-normal">Our stories make us more</span>
+<span class="hero__subtitle h5 ls-3 text-uppercase mb-0 fw-normal">Our stories make us more</span>
 <?php
 get_template_part(
 	'template-parts/ui/hr',
@@ -18,7 +18,7 @@ get_template_part(
 	)
 );
 ?>
-<h2 class="display-2 text-uppercase mb-0 text-center"><?php the_title(); ?></h2>
+<h2 class="hero__title text-uppercase mb-0 text-center"><?php the_title(); ?></h2>
 <p class="text-center fw-light display-6 text-uppercase mb-3">
 	<?php
 	$mp_title = mp_get_field( 'meta_profile_title' );
