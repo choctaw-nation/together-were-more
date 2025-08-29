@@ -31,7 +31,7 @@ $hover_color    = cno_get_primary_color();
 				</div>
 				<div class="row">
 					<div class="col text-gray text-center">
-						<span class="display-2 fw-normal text-uppercase">
+						<span class="display-3 fw-normal text-uppercase">
 							<b>Follow and Subscribe </b> to See and Share our stories on social media.
 						</span>
 						<?php
