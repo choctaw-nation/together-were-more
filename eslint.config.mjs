@@ -2,9 +2,8 @@ import globals from 'globals';
 import { fixupConfigRules, includeIgnoreFile } from '@eslint/compat';
 import wordpressConfig from '@wordpress/eslint-plugin';
 
-/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line import/no-unresolved
 import { globalIgnores, defineConfig } from 'eslint/config';
-/* eslint-enable import/no-unresolved */
 
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
@@ -21,7 +20,6 @@ const compat = new FlatCompat( {
 
 export default defineConfig( [
 	globalIgnores( [
-		'webpack.config.js',
 		'wp-content/themes/**/src/js/gutenberg/mediapress-filters/types.ts',
 		'wp-content/themes/**/src/js/**/*.d.ts',
 	] ),

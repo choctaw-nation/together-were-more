@@ -24,7 +24,6 @@ export default {
 		],
 	},
 	ignoreFiles: [
-		'wp-content/themes/**/src/styles/vendors/bootstrap.scss',
 		'wp-content/themes/**/src/styles/abstracts/_bs_breakpoints.scss',
 	],
 	overrides: [
