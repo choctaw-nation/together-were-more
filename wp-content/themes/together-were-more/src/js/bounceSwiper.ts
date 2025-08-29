@@ -5,18 +5,18 @@
  * @param swiperClass    the swiper element class (defaults to `.swiper`). Must include leading `.`
  * @param animationClass the animation CSS class to add
  */
-export function bounceSwiper(args: {
+export function bounceSwiper( args: {
 	containerId: string;
 	swiperClass?: string;
 	animationClass?: 'bounce-left' | 'bounce-left-small';
-}) {
+} ) {
 	const { containerId, swiperClass, animationClass } = {
 		containerId: args.containerId,
 		swiperClass: args.swiperClass || '.swiper',
 		animationClass: args.animationClass || 'bounce-left',
 	};
-	const swiperContainer = document.getElementById(containerId);
-	if (!swiperContainer) {
+	const swiperContainer = document.getElementById( containerId );
+	if ( ! swiperContainer ) {
 		// eslint-disable-next-line no-console
 		console.error(
 			"Bounce Swiper Error: Couldn't find expected element!",
@@ -24,8 +24,8 @@ export function bounceSwiper(args: {
 		);
 		return;
 	}
-	const swiper = swiperContainer.querySelector<HTMLElement>(swiperClass);
-	if (!swiper) {
+	const swiper = swiperContainer.querySelector<HTMLElement>( swiperClass );
+	if ( ! swiper ) {
 		// eslint-disable-next-line no-console
 		console.error(
 			"Bounce Swiper Error: Couldn't find expected elements!",
@@ -35,22 +35,22 @@ export function bounceSwiper(args: {
 	}
 	const ANIMATION_DURATION = 1000 * 0.75;
 	const observer = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
+		( entries ) => {
+			entries.forEach( ( entry ) => {
+				if ( entry.isIntersecting ) {
 					const className = animationClass || 'bounce-left';
-					swiper.classList.add(className);
+					swiper.classList.add( className );
 					// Remove the class after the animation to allow it to re-trigger
-					setTimeout(() => {
-						swiper.classList.remove('bounce-left');
-					}, ANIMATION_DURATION);
+					setTimeout( () => {
+						swiper.classList.remove( 'bounce-left' );
+					}, ANIMATION_DURATION );
 				}
-			});
+			} );
 		},
 		{ threshold: 0.2 } // Adjust the threshold as needed
 	);
 
-	if (swiper) {
-		observer.observe(swiper);
+	if ( swiper ) {
+		observer.observe( swiper );
 	}
 }

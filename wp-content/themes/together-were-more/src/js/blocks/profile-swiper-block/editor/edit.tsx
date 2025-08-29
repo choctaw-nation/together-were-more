@@ -11,51 +11,51 @@ import { innerBlocksArgs } from './constants';
 
 import { SwiperInit } from '../shared/SwiperInit';
 
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit( { attributes, setAttributes } ) {
 	const paginationColor = {
-		'--swiper-pagination-color': `var(--wp--preset--color--${attributes.paginationColor})`,
+		'--swiper-pagination-color': `var(--wp--preset--color--${ attributes.paginationColor })`,
 	} as Record<string, string>;
 
-	const categoryName = useSelect((select) => {
-		const post = select('core/editor').getCurrentPost();
-		if (!post || !post.categories || post.categories.length === 0) {
+	const categoryName = useSelect( ( select ) => {
+		const post = select( 'core/editor' ).getCurrentPost();
+		if ( ! post || ! post.categories || post.categories.length === 0 ) {
 			return null;
 		}
-		const { getEntityRecords } = select('core');
-		const categories = getEntityRecords('taxonomy', 'category', {
+		const { getEntityRecords } = select( 'core' );
+		const categories = getEntityRecords( 'taxonomy', 'category', {
 			include: post.categories,
-		});
-		return categories && categories.length > 0 ? categories[0].slug : null;
-	}, []);
+		} );
+		return categories && categories.length > 0 ? categories[ 0 ].slug : null;
+	}, [] );
 
-	useEffect(() => {
-		if (!categoryName) {
+	useEffect( () => {
+		if ( ! categoryName ) {
 			return;
 		}
-		setAttributes({ paginationColor: categoryName });
-	}, [categoryName, setAttributes]);
+		setAttributes( { paginationColor: categoryName } );
+	}, [ categoryName, setAttributes ] );
 
-	const swiperRef = useRefEffect((swiper) => {
-		if (swiper) {
+	const swiperRef = useRefEffect( ( swiper ) => {
+		if ( swiper ) {
 			try {
-				SwiperInit(swiper, {
-					modules: [Pagination],
+				SwiperInit( swiper, {
+					modules: [ Pagination ],
 					pagination: {
 						clickable: false,
 					},
 
 					on: {
-						init: (swi) => {
+						init: ( swi ) => {
 							swi.disable();
 						},
 					},
-				});
-			} catch (error) {
+				} );
+			} catch ( error ) {
 				// eslint-disable-next-line no-console
-				console.error('Swiper initialization failed:', error);
+				console.error( 'Swiper initialization failed:', error );
 			}
 		}
-	}, []);
+	}, [] );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{ className: 'swiper-wrapper' },
@@ -63,16 +63,16 @@ export default function Edit({ attributes, setAttributes }) {
 	);
 	return (
 		<>
-			<div {...useBlockProps()}>
+			<div { ...useBlockProps() }>
 				<div className="swiper-row">
-					<div className="swiper" ref={swiperRef}>
-						<div {...innerBlocksProps} />
+					<div className="swiper" ref={ swiperRef }>
+						<div { ...innerBlocksProps } />
 					</div>
 				</div>
 				<div className="swiper-row">
 					<div
 						className="swiper-pagination"
-						style={paginationColor}
+						style={ paginationColor }
 					></div>
 				</div>
 			</div>

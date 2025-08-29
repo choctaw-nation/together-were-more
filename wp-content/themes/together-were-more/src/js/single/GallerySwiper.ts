@@ -9,10 +9,10 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/navigation';
 import { bootstrapBreakpoints } from '../utilities';
 
-const gallerySwiper = document.querySelector<HTMLElement>('#gallery-swiper');
-if (gallerySwiper) {
-	new Swiper(gallerySwiper, {
-		modules: [A11y, Pagination, Navigation, Mousewheel],
+const gallerySwiper = document.querySelector<HTMLElement>( '#gallery-swiper' );
+if ( gallerySwiper ) {
+	new Swiper( gallerySwiper, {
+		modules: [ A11y, Pagination, Navigation, Mousewheel ],
 		slidesPerView: 1,
 		direction: 'horizontal',
 		spaceBetween: 20,
@@ -33,14 +33,14 @@ if (gallerySwiper) {
 			prevEl: '.gallery-swiper-button-prev',
 		},
 		breakpoints: {
-			[bootstrapBreakpoints.md]: {
+			[ bootstrapBreakpoints.md ]: {
 				slidesPerView: 2,
 				slidesPerGroup: 2,
 			},
-			[bootstrapBreakpoints.xl]: {
+			[ bootstrapBreakpoints.xl ]: {
 				slidesPerView: 3,
 				slidesPerGroup: 3,
 			},
 		},
-	});
+	} );
 }
