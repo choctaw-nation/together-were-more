@@ -19,7 +19,16 @@ $bg_color  = cno_get_category_color( $spotlight->name );
 			<div class="row">
 				<div class="col-lg-4 text-center">
 					<h2 class="text-white display-2 text-uppercase"><?php echo $spotlight->name; ?></h2>
-					<?php get_template_part( 'template-parts/ui/hr', 'diamonds', array( 'color' => 'white' ) ); ?>
+					<?php
+					get_template_part(
+						'template-parts/ui/hr',
+						'diamonds',
+						array(
+							'color' => 'white',
+							'class' => 'mb-0',
+						)
+					);
+					?>
 				</div>
 			</div>
 		</div>
