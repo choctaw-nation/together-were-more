@@ -4,13 +4,13 @@ export default {
 	rules: {
 		'color-named': 'always-where-possible',
 		'scss/at-function-pattern': [
-			'^(-?[a-z][a-z0-9]*)(-[a-z0-9]+)*$',
+			'^_?(-?[a-z][a-z0-9]*)(-[a-z0-9]+)*$',
 			{
 				message: 'Expected function name to be kebab-case',
 			},
 		],
 		'scss/at-mixin-pattern': [
-			'^(-?[a-z][a-z0-9]*)(-[a-z0-9]+)*$',
+			'^_?(-?[a-z][a-z0-9]*)(-[a-z0-9]+)*$',
 			{
 				message: 'Expected mixin name to be kebab-case',
 			},
