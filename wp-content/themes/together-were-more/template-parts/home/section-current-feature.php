@@ -31,7 +31,8 @@ $image_args          = array(
 	<div class="row row-cols-1 row-cols-lg-2 align-items-stretch justify-content-between">
 		<div class="col-lg-5 gx-0 featured__image overflow-hidden">
 			<?php
-			the_post_thumbnail(
+			echo get_the_post_thumbnail(
+				$featured_profile,
 				'full',
 				$image_args
 			)

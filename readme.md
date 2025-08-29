@@ -13,9 +13,10 @@ const colorMap = {
 
 # Changelog
 
-## 2.4.1 - [August 28, 2025]
+## 2.4.1 - [August 25, 2025]
 
-- Chore: Add new config files to prep for large repo changes
+-   Fixed: Home page pulls the correct photo for currently featured profile
+-   Chore: Update packages
 
 ## 2.4.0
 
