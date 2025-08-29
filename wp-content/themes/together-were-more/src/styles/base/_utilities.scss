@@ -53,14 +53,14 @@
 }
 
 $letter-spacing: (
-	1: 2,
-	2: 4,
-	3: 8,
+	1: 1,
+	2: 2,
+	3: 4,
 );
 
 @each $key, $value in $letter-spacing {
 	.ls-#{$key} {
-		letter-spacing: #{$value}px;
+		letter-spacing: #{calc($value / 16)}em;
 	}
 }
 
