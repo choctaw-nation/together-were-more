@@ -144,53 +144,77 @@
 					"slug": "root",
 					"size": "1rem",
 					"name": "Root",
-					"fluid": false
+					"fluid": {
+						"min": "1rem",
+						"max": "1.25rem"
+					}
 				},
 				{
 					"slug": "base",
-					"size": "1.35rem",
+					"size": "1rem",
 					"name": "Body",
-					"fluid": false
+					"fluid": {
+						"min": "1rem",
+						"max": "1.25rem"
+					}
 				},
 				{
 					"slug": "h6",
-					"size": "25.92px",
+					"size": "1.2rem",
 					"name": "Small (H6)",
-					"fluid": true
+					"fluid": {
+						"min": "1.2rem",
+						"max": "1.5rem"
+					}
 				},
 				{
 					"slug": "h5",
-					"size": "31.1px",
+					"size": "1.44rem",
 					"name": "Medium (H5)",
-					"fluid": true
+					"fluid": {
+						"min": "1.44rem",
+						"max": "1.88rem"
+					}
 				},
 				{
 					"slug": "h4",
-					"size": "37.32px",
+					"size": "1.728rem",
 					"name": "Large (H4)",
-					"fluid": true
+					"fluid": {
+						"min": "1.728rem",
+						"max": "2.16rem"
+					}
 				},
 				{
 					"slug": "h3",
-					"size": "44.79px",
+					"size": "2.074rem",
 					"name": "XL (H3)",
-					"fluid": true
+					"fluid": {
+						"min": "2.074rem",
+						"max": "2.592rem"
+					}
 				},
 				{
 					"slug": "h2",
-					"size": "53.75px",
+					"size": "2.488rem",
 					"name": "2XL (H2)",
-					"fluid": true
+					"fluid": {
+						"min": "2.488rem",
+						"max": "3.11rem"
+					}
 				},
 				{
 					"slug": "h1",
-					"size": "64.5px",
+					"size": "2.986rem",
 					"name": "3XL (H1)",
-					"fluid": true
+					"fluid": {
+						"min": "2.986rem",
+						"max": "3.73rem"
+					}
 				}
 			],
 			"fontWeight": true,
-			"lineHeight": false,
+			"lineHeight": true,
 			"textDecoration": false
 		},
 		"border": {
@@ -328,7 +352,7 @@
 			},
 			"h4": {
 				"typography": {
-					"fontSize": "var:preset|font-size|g-4"
+					"fontSize": "var:preset|font-size|h-4"
 				}
 			},
 			"h5": {

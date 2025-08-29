@@ -37,8 +37,8 @@ $texture_bg_url = get_template_directory_uri() . '/src/assets/white-texture.jpeg
 					</figure>
 				</div>
 				<div class="col px-4">
-					<h2 class="text-uppercase text-gray text-center">
-						<span class="display-1">We are</span><br /><?php echo $category; ?>
+					<h2 class="fs-3 text-uppercase text-gray text-center">
+						<span class="display-2">We are</span><br /><?php echo $category; ?>
 					</h2>
 					<?php
 					get_template_part(

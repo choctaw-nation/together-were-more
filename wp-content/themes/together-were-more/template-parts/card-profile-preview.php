@@ -31,10 +31,10 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 	</figure>
 	<?php endif; ?>
 	<div class="p-3 px-lg-0 d-flex flex-column h-100">
-		<h3 class="fs-2 fw-bold text-uppercase mb-0">
+		<h3 class="fw-bold text-uppercase mb-0">
 			<?php the_title(); ?>
 		</h3>
-		<p class="fs-5 text-uppercase mb-0">
+		<p class="fs-6 text-uppercase mb-0">
 			<?php echo get_field( 'meta' )['title']; ?>
 		</p>
 		<?php
@@ -58,7 +58,7 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 					'template-parts/ui/button',
 					'video-modal-trigger',
 					array(
-						'class'               => 'btn-gray fs-6',
+						'class'               => 'btn-gray',
 						'featured_profile_id' => get_the_ID(),
 					)
 				);
@@ -67,7 +67,7 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 				'template-parts/ui/button',
 				'read-story',
 				array(
-					'class' => 'btn-outline-gray fs-6',
+					'class' => 'btn-outline-gray',
 				)
 			);
 			?>

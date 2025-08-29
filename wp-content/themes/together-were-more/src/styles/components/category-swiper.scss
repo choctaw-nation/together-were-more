@@ -17,5 +17,14 @@
 		--swiper-pagination-bullet-inactive-color: var(--bs-white);
 		--swiper-pagination-bullet-inactive-opacity: 0.4;
 		--swiper-pagination-bottom: -35px;
+
+		.swiper-slide a {
+			color:rgb(var(--bs-link-color-rgb));
+
+			&:visited {
+				color:rgb(var(--bs-link-color-rgb));
+			}
+		}
 	}
 }
+

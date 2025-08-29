@@ -38,7 +38,7 @@ $acf_fields = get_field( strtolower( $category->name ), 'options' );
 				)
 			);
 			?>
-			<h3 class="text-uppercase fs-2 my-3 fw-normal ls-1">
+			<h3 class="text-uppercase fs-3 my-3 fw-normal ls-1">
 				<?php echo esc_textarea( $category->name ); ?>
 			</h3>
 		</div>

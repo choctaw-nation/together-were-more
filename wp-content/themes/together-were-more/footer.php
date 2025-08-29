@@ -17,7 +17,7 @@ $hover_color = cno_get_primary_color();
 	<div class="container-xxl">
 		<div class="row row-gap-4 column-gap-2 gx-0 flex-row-reverse justify-content-center justify-content-lg-between align-items-center py-5">
 			<div class="col-sm-12 col-md-5 text-center text-md-start">
-				<p class="h1 text-uppercase text-white">Are you Choctaw Proud?</p>
+				<p class="display-4 text-uppercase text-white mb-2">Are you Choctaw Proud?</p>
 				<!-- Button trigger modal -->
 				<button type="button" class="<?php echo "btn btn-{$hover_color} text-uppercase"; ?>" data-bs-toggle="modal" data-bs-target="#shareStoryModal">
 					Share your story with us

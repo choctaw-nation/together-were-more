@@ -31,10 +31,10 @@ $image_args         = array(
 		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
 		<figcaption class="h-auto text-white position-relative z-2 mx-5 mb-3">
-			<h3 class="fs-2 fw-bold text-uppercase mb-0">
+			<h3 class="fw-bold text-uppercase mb-0">
 				<?php the_title(); ?>
 			</h3>
-			<p class="fs-5 text-uppercase mb-0">
+			<p class="fs-6 text-uppercase mb-0">
 				<?php
 				$subtitle = mp_get_field( 'meta_profile_title' );
 				echo ! empty( $subtitle ) ? $subtitle : get_field( 'meta' )['title'];
@@ -57,7 +57,7 @@ $image_args         = array(
 		<?php
 		$category       = get_the_category();
 		$color_overlay  = cno_get_category_color( $category[0]->name );
-		$button_classes = "btn-outline-{$color_overlay} mt-auto align-self-start fs-6 post-preview-card__cta-button";
+		$button_classes = "btn-outline-{$color_overlay} mt-auto align-self-start post-preview-card__cta-button";
 
 		if ( get_post_status() === 'future' ) {
 			$button_text = 'Read Story in ' . get_the_date( 'M' );

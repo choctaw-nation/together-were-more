@@ -1,13 +1,15 @@
 @use "../abstracts/mixins" as m;
+@use "../abstracts/fluid-type-utils" as fluid-type;
+@use "sass:map";
+@use "sass:math";
+
 
 .hero {
 	&__bg-image {
 		object-position: center;
 	}
 
-	.display-1 {
-		@include m.media-breakpoint-up(xl) {
-			font-size: 140px;
-		}
+	&__title {
+		font-size: #{fluid-type.clamped(50px, 140px)} !important;
 	}
 }

@@ -24,10 +24,10 @@ wp_enqueue_script( 'category-swiper' );
 	<div class="container position-relative d-flex flex-column justify-content-center h-100">
 		<div class="row justify-content-center my-5 align-items-center position-relative">
 			<div class="col-lg-6">
-				<p class="display-1 text-white fw-normal text-center mb-0">
+				<p class="display-2 text-white fw-normal text-center mb-0">
 					<?php echo esc_textarea( $acf_fields['subheadline'] ); ?>
 				</p>
-				<p class="font-script text-white text-center fs-3 mb-0" data-aos="fade-in" data-aos-delay="300">Swipe &rightarrow;</p>
+				<p class="font-script text-white text-center fs-4 mb-0" data-aos="fade-in" data-aos-delay="300">Swipe &rightarrow;</p>
 			</div>
 			<div class="offset-lg-5 col-lg-5 position-absolute z-2">
 				<div class="swiper overflow-visible">

@@ -1,4 +1,5 @@
 @use "../abstracts/mixins" as m;
+@use "../abstracts/fluid-type-utils" as fluid-type;
 
 .featured {
 	&__image {
@@ -10,18 +11,8 @@
 	}
 
 	&__title {
-		--upper-font-size: 9rem;
-
-		font-size: clamp(3rem, 90vw, var(--upper-font-size));
-		line-height: 0.95;
-
-		@include m.media-breakpoint-down(xl) {
-			--upper-font-size: 7rem;
-		}
-
-		@include m.media-breakpoint-down(md) {
-			--upper-font-size: 4rem;
-		}
+		font-size: fluid-type.clamped(64px,144px);
+		line-height: calc(2ex);
 	}
 
 	&__subtitle {

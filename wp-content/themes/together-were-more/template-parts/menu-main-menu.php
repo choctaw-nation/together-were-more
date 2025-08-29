@@ -13,7 +13,7 @@ if ( is_single() || is_category() ) {
 	}
 }
 ?>
-<ul class="navbar-nav ms-lg-0 text-uppercase fs-5 align-items-center gap-5" id="main-menu">
+<ul class="navbar-nav ms-lg-0 text-uppercase fs-6 align-items-center gap-5" id="main-menu">
 	<?php foreach ( $categories as $category ) : ?>
 		<?php $hover_color = cno_get_category_color( $category->name ); ?>
 	<li class="<?php echo ( $category->slug === $active_category ) ? 'nav-item active fw-bold' : 'nav-item'; ?>"
