@@ -4,9 +4,11 @@
 export default function handleLightboxClicks() {
 	const main = document.querySelector( 'main' );
 	const overlay = document.querySelector( '.wp-lightbox-overlay' );
-	if ( ! main || ! overlay ) return;
+	if ( ! main || ! overlay ) {
+		return;
+	}
 
-	main.addEventListener( 'click', function ( ev ) {
+	main.addEventListener( 'click', function( ev ) {
 		const target = ev.target as HTMLElement;
 		if ( canObserve( target ) ) {
 			const targetObserver = new MutationObserver( ( _, obs ) => {
@@ -44,7 +46,7 @@ export default function handleLightboxClicks() {
 /**
  * Checks if the target exists, is an image and has a parent figure with `data-wp-interactive` attributes
  * @param target
- * @returns
+ * @return
  */
 function canObserve( target: HTMLElement ): boolean {
 	const container = target.closest( 'figure' );
@@ -52,7 +54,6 @@ function canObserve( target: HTMLElement ): boolean {
 		container && container.hasAttribute( 'data-wp-interactive' );
 	if ( ! isInteractive ) {
 		return false;
-	} else {
-		return target && 'IMG' === target.tagName && isInteractive;
 	}
+	return target && 'IMG' === target.tagName && isInteractive;
 }

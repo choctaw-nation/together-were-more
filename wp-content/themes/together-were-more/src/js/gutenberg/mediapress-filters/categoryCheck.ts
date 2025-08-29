@@ -9,8 +9,7 @@ export default function categoryCheck( item: ChecklistItem ): ChecklistItem {
 	if ( item.name !== 'category_is_valid' ) {
 		return item;
 	}
-	const categories =
-		select( editorStore ).getEditedPostAttribute( 'categories' );
+	const categories = select( editorStore ).getEditedPostAttribute( 'categories' );
 	if ( ! categories || categories.length === 0 ) {
 		return {
 			...item,
@@ -25,9 +24,7 @@ export default function categoryCheck( item: ChecklistItem ): ChecklistItem {
 			message: 'Please select only one category for the post.',
 		};
 	}
-	const uncategorized = categories.some(
-		( category: number ) => category === 1
-	);
+	const uncategorized = categories.some( ( category: number ) => category === 1 );
 	if ( uncategorized ) {
 		return {
 			...item,

@@ -15,12 +15,9 @@ export default class HeroOffsetCalc {
 			single: '.profile-hero',
 		};
 		Object.values( heroEls ).forEach( ( heroEl ) => {
-			const hero = document.querySelector< HTMLElement >( heroEl );
+			const hero = document.querySelector<HTMLElement>( heroEl );
 			if ( hero ) {
-				hero.style.setProperty(
-					'--header-height',
-					`${ heroOffset }px`
-				);
+				hero.style.setProperty( '--header-height', `${ heroOffset }px` );
 			}
 		} );
 	}

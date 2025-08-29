@@ -44,11 +44,9 @@ export function SwiperInit(
 /**
  * Converts passed params into Swiper options.
  * @param options The options to be passed to the Swiper instance.
- * @returns SwiperOptions
+ * @return SwiperOptions
  */
-export function mergeParams( options: {
-	[ key: string ]: any;
-} ): SwiperOptions {
+export function mergeParams( options: { [key: string]: any } ): SwiperOptions {
 	const parameters = {
 		modules: [ Autoplay, Pagination, A11y ],
 		autoHeight: options?.autoHeight ?? false,
@@ -82,8 +80,7 @@ export function mergeParams( options: {
 			parameters.breakpoints[ 991 ].slidesPerView = options.slidesPerView;
 		}
 		if ( options?.slidesPerGroup ) {
-			parameters.breakpoints[ 991 ].slidesPerGroup =
-				options.slidesPerGroup;
+			parameters.breakpoints[ 991 ].slidesPerGroup = options.slidesPerGroup;
 		}
 	}
 	return parameters;

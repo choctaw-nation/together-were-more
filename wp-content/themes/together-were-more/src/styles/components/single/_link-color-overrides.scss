@@ -8,7 +8,7 @@ $categories: ("artists", "culture", "inspirational", "competitors");
 	:root :where(.single .category-#{$category}) a {
 		color: fn.get-category-color($category);
 
-		@include m.interaction() {
+		@include m.interaction {
 			filter: var(--cno-accessible-color-filter);
 		}
 	}
@@ -17,7 +17,8 @@ $categories: ("artists", "culture", "inspirational", "competitors");
 .social-share-bar {
 	.socials a {
 		filter: var(--cno-accessible-color-filter);
-		@include m.interaction() {
+
+		@include m.interaction {
 			filter: unset;
 		}
 	}

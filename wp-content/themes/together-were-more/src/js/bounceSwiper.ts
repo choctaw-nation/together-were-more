@@ -1,8 +1,8 @@
 /**
  * Bounces a swiper by triggering some CSS classes when it's scrolled into view
  *
- * @param containerId the ID of the container element (no #)
- * @param swiperClass the swiper element class (defaults to `.swiper`). Must include leading `.`
+ * @param containerId    the ID of the container element (no #)
+ * @param swiperClass    the swiper element class (defaults to `.swiper`). Must include leading `.`
  * @param animationClass the animation CSS class to add
  */
 export function bounceSwiper( args: {
@@ -17,14 +17,16 @@ export function bounceSwiper( args: {
 	};
 	const swiperContainer = document.getElementById( containerId );
 	if ( ! swiperContainer ) {
+		// eslint-disable-next-line no-console
 		console.error(
 			"Bounce Swiper Error: Couldn't find expected element!",
 			swiperContainer
 		);
 		return;
 	}
-	const swiper = swiperContainer.querySelector< HTMLElement >( swiperClass );
+	const swiper = swiperContainer.querySelector<HTMLElement>( swiperClass );
 	if ( ! swiper ) {
+		// eslint-disable-next-line no-console
 		console.error(
 			"Bounce Swiper Error: Couldn't find expected elements!",
 			swiper

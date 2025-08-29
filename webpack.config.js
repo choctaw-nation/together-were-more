@@ -13,7 +13,7 @@ module.exports = {
 		entry: () => {
 			return {
 				...defaultConfig.entry(),
-				global: `.${ THEME_DIR }/src/index.js`,
+				global: `.${ THEME_DIR }/src/index.ts`,
 				'vendors/bootstrap': `.${ THEME_DIR }/src/js/vendors/bootstrap.js`,
 				'vendors/lite-vimeo': `.${ THEME_DIR }/src/js/vendors/lite-vimeo.js`,
 				'modules/who-we-are': `.${ THEME_DIR }/src/js/WhoWeAre.ts`,

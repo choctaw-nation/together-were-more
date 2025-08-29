@@ -1,13 +1,13 @@
 import { bootstrapBreakpoints } from '../utilities';
 
 export default class ParallaxController {
-	private parallaxElements: NodeListOf< HTMLElement >;
+	private parallaxElements: NodeListOf<HTMLElement>;
 
 	private observer: IntersectionObserver;
 
 	constructor() {
 		const parallaxElements =
-			document.querySelectorAll< HTMLElement >( '.parallax' );
+			document.querySelectorAll<HTMLElement>( '.parallax' );
 		if ( ! parallaxElements ) {
 			return;
 		}
@@ -33,10 +33,8 @@ export default class ParallaxController {
 			return;
 		}
 		this.parallaxElements.forEach( ( element ) => {
-			const parent = element.closest< HTMLElement >(
-				'.parallax-container'
-			);
-			const img = element.querySelector< HTMLImageElement >( 'img' );
+			const parent = element.closest<HTMLElement>( '.parallax-container' );
+			const img = element.querySelector<HTMLImageElement>( 'img' );
 			if ( ! parent || ! img ) {
 				return;
 			}
@@ -93,7 +91,7 @@ export default class ParallaxController {
 			const speed = 0.5; // Adjust the speed of the parallax effect
 			const rect = element.getBoundingClientRect();
 			const offsetDistance =
-				window.innerHeight / 2 - ( rect.top + rect.height / 2 ); // Calculate the distance from the center of the element to the center of the viewport
+				( window.innerHeight / 2 ) - ( rect.top + ( rect.height / 2 ) ); // Calculate the distance from the center of the element to the center of the viewport
 			const offset =
 				offsetDistance * speed < 0 ? 0 : offsetDistance * speed;
 			element.style.transform = `translateY(${ offset }px)`;

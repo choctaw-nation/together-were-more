@@ -36,8 +36,8 @@ export default class PostPreviewHandler {
 
 		const overlay = postPreviewCard
 			? ( postPreviewCard.querySelector(
-					'.post-preview-card__overlay'
-			  ) as HTMLElement )
+				'.post-preview-card__overlay'
+			) as HTMLElement )
 			: null;
 		return overlay;
 	}
