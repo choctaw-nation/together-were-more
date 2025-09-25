@@ -27,7 +27,7 @@ $color_overlay = cno_get_category_color( $category );
 	</div>
 	<div class="col px-4">
 		<h2 class="text-uppercase text-gray text-center">
-			<span class="display-1">We are</span><br /><?php echo $category; ?>
+			<span class="display-2">We are</span><br /><?php echo $category; ?>
 		</h2>
 		<?php
 		get_template_part(

@@ -27,7 +27,7 @@ $statements = array_map( fn( $word ) => esc_textarea( $word['statement'] ), $sec
 	<div class="container position-relative z-1">
 		<div class="row row-cols-1 justify-content-center">
 			<div class="col-xl-6 text-center statements" aria-label="We are <?php echo implode( ',', $statements ); ?>">
-				<div class="statement text-white text-uppercase fw-bold display-1 ls-2" aria-hidden="true">
+				<div class="statement text-white text-uppercase fw-bold ls-1" aria-hidden="true">
 					We are
 				</div>
 				<p class="display-2 text-white text-uppercase" id="statement-word" data-statements="<?php echo implode( ',', $statements ); ?>" aria-hidden="true">

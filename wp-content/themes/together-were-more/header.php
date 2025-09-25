@@ -22,9 +22,9 @@
 	<header class="container-fluid text-bg-dark position-sticky py-3" id="site-header">
 		<div class="row gx-0 justify-content-between align-items-center w-100">
 			<div class="col-auto flex-shrink-1">
-				<h2 class="my-2 align-items-center fw-bold d-flex column-gap-3 flex-wrap">
+				<h2 class="align-items-center fw-bold d-flex column-gap-3 flex-wrap">
 					<?php $hover_color = cno_get_primary_color(); ?>
-					<a class="navbar-brand fs-5 font-gill-sans" href="<?php echo esc_url( site_url() ); ?>" class="logo" aria-label="to Home Page"
+					<a class="navbar-brand fs-6 font-gill-sans" href="<?php echo esc_url( site_url() ); ?>" class="logo" aria-label="to Home Page"
 						style="--bs-navbar-brand-hover-color:var(--bs-<?php echo $hover_color; ?>);">
 						Choctaw Nation
 					</a>

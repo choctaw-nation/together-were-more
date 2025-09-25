@@ -12,21 +12,14 @@
 	--cno-accessible-color-filter: brightness(130%) saturate(120%);
 }
 
-html {
-	text-wrap: pretty;
-}
-
 ul,
 ol {
 	margin-left: 1.25rem;
-
-	@include rfs.font-size(1.35rem);
+	font-size:var(--wp--preset--font-size--base);
 }
 
-body,
-p,
 .text-content {
-	@include rfs.font-size(1.35rem);
+	font-size:var(--wp--preset--font-size--base);
 }
 
 .btn svg {

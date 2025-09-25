@@ -53,7 +53,7 @@ $image_args          = array(
 						)
 					);
 					?>
-				<p class="featured__subtitle text-uppercase font-pill-gothic text-gray fs-4 fw-normal">
+				<p class="featured__subtitle text-uppercase font-pill-gothic text-gray display-6 fw-normal">
 					<?php
 					$homepage_alt_description = mp_get_field( 'homepage_alternate_description', $featured_profile_id );
 					if ( ! empty( $homepage_alt_description ) ) {
