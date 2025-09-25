@@ -48,7 +48,13 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 		);
 		?>
 		<p>
-			<?php the_field( 'archive_content' ); ?>
+			<?php
+			$description = get_the_excerpt();
+			if ( empty( $description ) ) {
+				$description = get_field( 'archive_content' );
+			}
+			echo $description;
+			?>
 		</p>
 		<div class="mt-auto d-flex flex-wrap gap-3 align-items-center">
 			<?php

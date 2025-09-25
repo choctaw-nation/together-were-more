@@ -13,6 +13,11 @@ const colorMap = {
 
 # Changelog
 
+## 2.4.2 - [September 25, 2025]
+
+- Fixed: Profile preview cards now use the correct lookups for excerpt/brief_descriptions
+- Chore: Update packages
+
 ## 2.4.1 - [August 25, 2025]
 
 -   Fixed: Home page pulls the correct photo for currently featured profile
