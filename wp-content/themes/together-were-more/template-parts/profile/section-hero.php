@@ -36,10 +36,16 @@
 	</div>
 </div>
 <?php
-$modal_title      = get_the_title();
-$video_url        = mp_get_field( 'meta_vimeo_url' );
-$video_id         = $video_url ? cno_extract_vimeo_id( $video_url ) : null;
-$custom_thumbnail = mp_get_field( 'meta_vimeo_custom_thumbnail' );
+$modal_title         = get_the_title();
+$video_url           = mp_get_field( 'meta_vimeo_url' );
+$video_id            = $video_url ? cno_extract_vimeo_id( $video_url ) : null;
+$custom_thumbnail_id = mp_get_field( 'meta_vimeo_custom_thumbnail' );
+if ( is_int( $custom_thumbnail_id ) ) {
+	$custom_thumbnail = wp_get_attachment_image_src( $custom_thumbnail_id, 'full' );
+	$custom_thumbnail = $custom_thumbnail ? $custom_thumbnail[0] : null;
+} else {
+	$custom_thumbnail = null;
+}
 if ( ! $video_id ) {
 	while ( have_rows( 'meta_video_details' ) ) {
 		the_row();

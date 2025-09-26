@@ -146,15 +146,18 @@ class MediaPress_Fields {
 		if ( ! $this->field_exists( $field_name ) ) {
 			return null; // Field not found.
 		}
-		foreach ( $this->fields as $name => $details ) {
-			if ( $this->string_contains_url_keywords( $name ) ||
-				$this->string_contains_url_keywords( $details['label'] ) ||
-				$this->string_contains_url_keywords( $details['source'] )
-			) {
+		if ( in_array(
+			$field_name,
+			array_keys( $this->fields ),
+			true
+		) ) {
+			$is_url = $this->string_contains_url_keywords( $field_name ) ||
+				$this->string_contains_url_keywords( $this->fields[ $field_name ]['label'] ) ||
+				$this->string_contains_url_keywords( $this->fields[ $field_name ]['source'] );
+			if ( $is_url ) {
 				return 'url';
-			}
-			if ( $name === $field_name ) {
-				return $details['type'];
+			} else {
+				return $this->fields[ $field_name ]['type'];
 			}
 		}
 		return null; // Return null if the field type is not found.
