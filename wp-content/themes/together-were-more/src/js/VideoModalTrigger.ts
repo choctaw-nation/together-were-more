@@ -62,7 +62,7 @@ new ( class VideoModalTrigger {
 		liteVimeo.setAttribute( 'enableTracking', 'true' );
 
 		if ( customThumbnail ) {
-			liteVimeo.setAttribute( 'custom-thumb', customThumbnail );
+			liteVimeo.setAttribute( 'customPlaceholder', customThumbnail );
 			liteVimeo.setAttribute( 'unlisted', 'true' );
 		}
 		return liteVimeo;

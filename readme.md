@@ -13,6 +13,11 @@ const colorMap = {
 
 # Changelog
 
+## 2.4.3 - [September 25, 2025]
+
+- Fixed: Custom thumbnails for lite-vimeo load again.
+- Fixed: mediapress-fields now correctly escape images
+
 ## 2.4.2 - [September 25, 2025]
 
 - Fixed: Profile preview cards now use the correct lookups for excerpt/brief_descriptions

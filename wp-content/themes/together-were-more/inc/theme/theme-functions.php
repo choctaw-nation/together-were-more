@@ -165,3 +165,21 @@ function mp_get_field( string $field_name, int|null $post_id = null, bool $shoul
 function mp_the_field( string $field_name, int|null $post_id = null, bool $should_escape = true ): void {
 	echo mp_get_field( $field_name, $post_id, $should_escape );
 }
+
+/**
+ * Get the custom thumbnail URL for the selected custom thumbnail from MediaPress.
+ *
+ * @param string   $size The size of the image to retrieve. Defaults to 'full'.
+ * @param int|null $post_id The ID of the post to retrieve the thumbnail for. Defaults to null (current post).
+ * @return string|null The URL of the custom thumbnail image, or null if not set.
+ */
+function cno_get_custom_mp_thumbnail( string $size = 'full', int|null $post_id = null ): ?string {
+	$custom_thumbnail_id = mp_get_field( 'meta_vimeo_custom_thumbnail', $post_id );
+	if ( is_int( $custom_thumbnail_id ) ) {
+		$custom_thumbnail = wp_get_attachment_image_src( $custom_thumbnail_id, $size );
+		$custom_thumbnail = $custom_thumbnail ? $custom_thumbnail[0] : null;
+	} else {
+		$custom_thumbnail = null;
+	}
+	return $custom_thumbnail;
+}

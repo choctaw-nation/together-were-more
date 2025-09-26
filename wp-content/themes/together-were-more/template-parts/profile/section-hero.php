@@ -39,7 +39,7 @@
 $modal_title      = get_the_title();
 $video_url        = mp_get_field( 'meta_vimeo_url' );
 $video_id         = $video_url ? cno_extract_vimeo_id( $video_url ) : null;
-$custom_thumbnail = mp_get_field( 'meta_vimeo_custom_thumbnail' );
+$custom_thumbnail = cno_get_custom_mp_thumbnail();
 if ( ! $video_id ) {
 	while ( have_rows( 'meta_video_details' ) ) {
 		the_row();
