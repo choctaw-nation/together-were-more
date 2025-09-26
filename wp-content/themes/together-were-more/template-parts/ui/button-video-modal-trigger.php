@@ -8,7 +8,7 @@
 $featured_profile_id = isset( $args['featured_profile_id'] ) ? $args['featured_profile_id'] : false;
 $video_url           = mp_get_field( 'meta_vimeo_url', $featured_profile_id );
 $video_id            = $video_url ? cno_extract_vimeo_id( $video_url ) : null;
-$custom_thumbnail    = mp_get_field( 'meta_custom_thumbnail', $featured_profile_id );
+$custom_thumbnail    = cno_get_custom_mp_thumbnail( 'full', $featured_profile_id );
 if ( empty( $video_id ) ) {
 	while ( have_rows( 'meta_video_details', $featured_profile_id ) ) {
 		the_row();
