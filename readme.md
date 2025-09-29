@@ -16,6 +16,7 @@ const colorMap = {
 ## 2.4.5 - [September 29, 2025]
 
 - Fixed: Homepage hero image is no longer positioned.
+- Fixed: Category spotlight (penultimate homepage section) pulls the posts' featured images again. (regression introduced by KJ and now he fixed it.)
 
 ## 2.4.4
 
