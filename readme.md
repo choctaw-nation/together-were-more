@@ -13,6 +13,11 @@ const colorMap = {
 
 # Changelog
 
+## 2.4.4 - [September 29, 2025]
+
+- Fixed: Current Feature section uses the meta photo from the profile and falls back to the post's featured image when not set.
+- Chore: Update packages
+
 ## 2.4.3 - [September 25, 2025]
 
 - Fixed: Custom thumbnails for lite-vimeo load again.
