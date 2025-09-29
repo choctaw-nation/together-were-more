@@ -12,28 +12,34 @@ if ( ! $featured_profile ) {
 wp_enqueue_style( 'current-feature' );
 $featured_profile_id = is_int( $featured_profile ) ? $featured_profile : $featured_profile->ID;
 $bg_image            = get_template_directory_uri() . '/src/assets/white-texture.jpeg';
-$srcset_str          = wp_get_attachment_image_srcset( get_post_thumbnail_id( $featured_profile_id ), 'full' );
-$srcset_by_w         = explode( ',', $srcset_str );
-$srcset_by_h         = array_map(
+$featured_image      = mp_get_field( 'homepage_current_feature_image', $featured_profile_id );
+if ( ! $featured_image ) {
+	$featured_image = get_post_thumbnail_id( $featured_profile_id );
+}
+$srcset_str         = wp_get_attachment_image_srcset( $featured_image, 'full' );
+$srcset_by_w        = explode( ',', $srcset_str );
+$srcset_by_h        = array_map(
 	function ( $srcset ) {
 		return substr( $srcset, 0, -1 ) . 'h';
 	},
 	$srcset_by_w
 );
-$image_args          = array(
+$image_args         = array(
 	'class'   => 'w-100 h-100 object-fit-cover',
 	'loading' => 'lazy',
 	'srcset'  => implode( ', ', $srcset_by_h ),
 );
+$featured_image_src = wp_get_attachment_image_src( $featured_image, 'full' )[0];
 ?>
 <section class="featured container-fluid gx-0 overflow-hidden position-relative">
 	<img src="<?php echo $bg_image; ?>" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover z-n1" alt="" aria-hidden="true" loading="lazy" />
 	<div class="row row-cols-1 row-cols-lg-2 align-items-stretch justify-content-between">
 		<div class="col-lg-5 gx-0 featured__image overflow-hidden">
 			<?php
-			echo get_the_post_thumbnail(
-				$featured_profile,
+			echo wp_get_attachment_image(
+				$featured_image,
 				'full',
+				false,
 				$image_args
 			)
 			?>
