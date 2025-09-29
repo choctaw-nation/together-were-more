@@ -5,9 +5,8 @@
  * @package ChoctawNation
  */
 
-$alternate_image_id = mp_get_field( 'homepage_current_feature_image' );
-$image_size         = 'profile-preview-card';
-$image_args         = array(
+$image_size = 'profile-preview-card';
+$image_args = array(
 	'class'   => 'w-100 object-fit-cover',
 	'loading' => 'lazy',
 );
@@ -15,19 +14,10 @@ $image_args         = array(
 <div class="post-preview-card d-flex flex-column h-100 position-relative">
 	<figure class="post-preview-card__cover mb-0 ratio ratio-16x9">
 		<?php
-		if ( $alternate_image_id ) {
-			echo wp_get_attachment_image(
-				$alternate_image_id,
-				$image_size,
-				false,
-				$image_args
-			);
-		} else {
-			the_post_thumbnail(
-				$image_size,
-				$image_args
-			);
-		}
+		the_post_thumbnail(
+			$image_size,
+			$image_args
+		);
 		?>
 		<div class="post-preview-card__overlay bg-dark bg-opacity-50 w-100 h-100 z-1"></div>
 		<figcaption class="h-auto text-white position-relative z-2 mx-5 mb-3">

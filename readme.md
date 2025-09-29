@@ -13,7 +13,12 @@ const colorMap = {
 
 # Changelog
 
-## 2.4.4 - [September 29, 2025]
+## 2.4.5 - [September 29, 2025]
+
+- Fixed: Homepage hero image is no longer positioned.
+- Fixed: Category spotlight (penultimate homepage section) pulls the posts' featured images again. (regression introduced by KJ and now he fixed it.)
+
+## 2.4.4
 
 - Fixed: Current Feature section uses the meta photo from the profile and falls back to the post's featured image when not set.
 - Chore: Update packages
