@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.4.6 - [September 30, 2025]
+
+- Fixed: Social icons now display correctly on WebKit browsers
+
 ## 2.4.5 - [September 29, 2025]
 
 - Fixed: Homepage hero image is no longer positioned.

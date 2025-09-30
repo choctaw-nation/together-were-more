@@ -22,7 +22,7 @@ $hover_color    = cno_get_primary_color();
 						$icon = $social['social_icon'];
 						?>
 					<div class="social-icon__container bg-gray rounded-circle p-2 position-relative">
-						<a class="social-icon h-100 d-block text-white fs-6 stretched-link" href="<?php echo $url; ?>" target="_blank" title="<?php echo "Follow us on {$name}"; ?>"
+						<a class="social-icon h-100 mw-100 d-block text-white fs-6 stretched-link" href="<?php echo $url; ?>" target="_blank" title="<?php echo "Follow us on {$name}"; ?>"
 							rel="noopener noreferrer">
 							<?php echo $icon; ?>
 						</a>
