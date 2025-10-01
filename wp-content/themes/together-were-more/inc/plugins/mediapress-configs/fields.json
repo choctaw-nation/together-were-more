@@ -5,10 +5,21 @@
 			"name": "homepage_current_feature_image",
 			"type": "image",
 			"label": "Homepage Hero Image",
-			"description": "The image used on the homepage hero section when the post is featured",
+			"description": "The image used on the homepage hero section when the post is featured (second section)",
 			"source": {
 				"type": "postMeta",
 				"key": "homepage_current_feature_image",
+				"registerFor": [ "post" ]
+			}
+		},
+		{
+			"name": "homepage_category_preview_image",
+			"type": "image",
+			"label": "Homepage Category Preview Image",
+			"description": "The image used on the homepage category preview section when the post is featured (second-to-last section)",
+			"source": {
+				"type": "postMeta",
+				"key": "homepage_category_preview_image",
 				"registerFor": [ "post" ]
 			}
 		},
@@ -74,7 +85,8 @@
 			"label": "Homepage",
 			"fields": [
 				"homepage_current_feature_image",
-				"homepage_alternate_description"
+				"homepage_alternate_description",
+				"homepage_category_preview_image"
 			],
 			"context": {
 				"type": "postType",

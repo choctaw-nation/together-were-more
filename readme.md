@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.5.0 - [October 1, 2025]
+
+- Added: New, third option for customizing the home page images for the profiles.
+
 ## 2.4.6 - [September 30, 2025]
 
 - Fixed: Social icons now display correctly on WebKit browsers

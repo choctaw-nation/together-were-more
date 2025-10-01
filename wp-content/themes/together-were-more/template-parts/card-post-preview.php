@@ -10,12 +10,18 @@ $image_args = array(
 	'class'   => 'w-100 object-fit-cover',
 	'loading' => 'lazy',
 );
+$image_id   = mp_get_field( 'homepage_category_preview_image' );
+if ( ! $image_id ) {
+	$image_id = get_post_thumbnail_id();
+}
 ?>
 <div class="post-preview-card d-flex flex-column h-100 position-relative">
 	<figure class="post-preview-card__cover mb-0 ratio ratio-16x9">
 		<?php
-		the_post_thumbnail(
+		echo wp_get_attachment_image(
+			$image_id,
 			$image_size,
+			false,
 			$image_args
 		);
 		?>
