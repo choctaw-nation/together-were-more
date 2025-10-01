@@ -38,6 +38,19 @@
 			"postTypes": [ "post" ]
 		},
 		{
+			"name": "homepage_category_preview",
+			"type": "non_blocking",
+			"check": {
+				"type": "exists",
+				"sourceKey": "meta.homepage_category_preview_image"
+			},
+			"messages": {
+				"pass": "Homepage category preview image is set",
+				"fail": "Homepage category preview image not set! Will use featured image instead."
+			},
+			"postTypes": [ "post" ]
+		},
+		{
 			"name": "homepage_alternate_description",
 			"type": "non_blocking",
 			"check": {
