@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.5.1 - [October 21, 2025]
+
+- Tweak: Updated names for homepage image meta fields for tighter alignment with what Creative delivers
+
 ## 2.5.0 - [October 1, 2025]
 
 - Added: New, third option for customizing the home page images for the profiles.

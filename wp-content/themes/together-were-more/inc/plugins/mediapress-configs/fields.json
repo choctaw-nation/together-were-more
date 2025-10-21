@@ -4,7 +4,7 @@
 		{
 			"name": "homepage_current_feature_image",
 			"type": "image",
-			"label": "Homepage Hero Image",
+			"label": "Story Portrait",
 			"description": "The image used on the homepage hero section when the post is featured (second section)",
 			"source": {
 				"type": "postMeta",
@@ -15,7 +15,7 @@
 		{
 			"name": "homepage_category_preview_image",
 			"type": "image",
-			"label": "Homepage Category Preview Image",
+			"label": "Profile Preview Image",
 			"description": "The image used on the homepage category preview section when the post is featured (second-to-last section)",
 			"source": {
 				"type": "postMeta",
@@ -26,7 +26,7 @@
 		{
 			"name": "homepage_alternate_description",
 			"type": "textarea",
-			"label": "Homepage Alternate Description",
+			"label": "Story Portrait Alternate Description",
 			"description": "The alternate description for the homepage hero section when the post is featured",
 			"source": {
 				"type": "postMeta",
@@ -82,7 +82,7 @@
 	"fieldGroups": [
 		{
 			"name": "homepage",
-			"label": "Homepage",
+			"label": "Homepage Images",
 			"fields": [
 				"homepage_current_feature_image",
 				"homepage_alternate_description",
