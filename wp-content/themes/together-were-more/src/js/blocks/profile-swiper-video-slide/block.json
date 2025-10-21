@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "cno/twm-profile-swiper-video-slide",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"title": "Profile Swiper Video Slide",
 	"category": "theme",
 	"icon": "video-alt3",
