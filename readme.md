@@ -13,6 +13,10 @@ const colorMap = {
 
 # Changelog
 
+## 2.6.1 - [October 24, 2025]
+
+- Fix: Refactor 'disallowed blocks' to use anti-pattern for non-admins and allow all blocks for admins
+
 ## 2.6.0 - [October 21, 2025]
 
 - Fix: Profile Swiper Video Block is written better
