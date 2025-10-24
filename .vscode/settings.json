@@ -31,7 +31,18 @@
 		"source.fixAll.stylelint": "always"
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": false,
+	"[javascript]": {
+		"editor.formatOnSave": false,
+	},
+	"[javascriptreact]": {
+		"editor.formatOnSave": false,
+	},
+	"[typescriptreact]": {
+		"editor.formatOnSave": false,
+	},
+	"[typescript]": {
+		"editor.formatOnSave": false,
+	},
 	"eslint.enable": true,
 	"eslint.useESLintClass": true,
 	"eslint.validate": [

@@ -13,15 +13,20 @@ const colorMap = {
 
 # Changelog
 
-## 2.6.1 - [October 24, 2025]
+## 2.6.2 - [October 24, 2025]
+
+- Fix: Card Profile Preview uses MediaPress before ACF fallback
+- Fix: Prevent color overrides on `single-gutenberg` pages from overriding button color styles coming from Gutenberg
+
+## 2.6.1
 
 - Fix: Refactor 'disallowed blocks' to use anti-pattern for non-admins and allow all blocks for admins
 
 ## 2.6.0 - [October 21, 2025]
 
 - Fix: Profile Swiper Video Block is written better
-  - Uses `RichText` component to allow for inline-block editing (instead of a `textarea` in the sidebar)
-- Chore: Update calls to data stores to use the exported `store` from related packages (instead of strings e.g. `core/editor`) in profile swiper block 
+    - Uses `RichText` component to allow for inline-block editing (instead of a `textarea` in the sidebar)
+- Chore: Update calls to data stores to use the exported `store` from related packages (instead of strings e.g. `core/editor`) in profile swiper block
 
 ## 2.5.1
 
@@ -57,8 +62,8 @@ const colorMap = {
 
 ## 2.4.1 - [August 25, 2025]
 
--   Fixed: Home page pulls the correct photo for currently featured profile
--   Chore: Update packages
+- Fixed: Home page pulls the correct photo for currently featured profile
+- Chore: Update packages
 
 ## 2.4.0
 

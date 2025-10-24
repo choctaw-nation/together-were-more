@@ -35,7 +35,10 @@ $diamonds_color = $color ?: 'gray'; // phpcs:ignore Universal.Operators.Disallow
 			<?php the_title(); ?>
 		</h3>
 		<p class="fs-5 text-uppercase mb-0">
-			<?php echo get_field( 'meta' )['title']; ?>
+			<?php
+			$subtitle = mp_get_field( 'meta_profile_title' );
+			echo empty( $subtitle ) ? get_field( 'meta' )['title'] : $subtitle;
+			?>
 		</p>
 		<?php
 		get_template_part(

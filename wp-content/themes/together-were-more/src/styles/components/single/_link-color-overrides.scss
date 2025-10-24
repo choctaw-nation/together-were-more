@@ -6,10 +6,14 @@ $categories: ("artists", "culture", "inspirational", "competitors");
 
 @each $category in $categories {
 	:root :where(.single .category-#{$category}) a {
-		color: fn.get-category-color($category);
+		transition: all var(--transition-standard);
 
 		@include m.interaction {
 			filter: var(--cno-accessible-color-filter);
+		}
+
+		&:not(.wp-block-button__link) {
+			color: fn.get-category-color($category);
 		}
 	}
 }
