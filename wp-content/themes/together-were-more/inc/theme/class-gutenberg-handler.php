@@ -135,8 +135,7 @@ class Gutenberg_Handler {
 			$registered_blocks   = \WP_Block_Type_Registry::get_instance()->get_all_registered();
 			$allowed_block_types = array_keys( $registered_blocks );
 		}
-		// phpcs:disable Squiz.PHP.CommentedOutCode.Found
-		if ( $is_administrator ) {
+		if ( ! $is_administrator ) {
 			$disallowed_blocks = array(
 				'core/archives',
 				'core/avatar',
@@ -155,7 +154,6 @@ class Gutenberg_Handler {
 				'core/comments-pagination-next',
 				'core/comments-pagination-numbers',
 				'core/comments-title',
-				'core/gallery',
 				'core/home-link',
 				'core/file',
 				'core/latest-comments',
@@ -187,47 +185,16 @@ class Gutenberg_Handler {
 				'core/site-title',
 				'core/social-link',
 				'core/social-links',
-				'core/spacer',
 				'core/tag-cloud',
 				'core/term-description',
 				'core/video',
 			);
-
-			// Create a new array for the allowed blocks.
-			$filtered_blocks = array();
-
-			// Loop through each block in the allowed blocks list.
-			foreach ( $allowed_block_types as $block ) {
-
-				// Check if the block is not in the disallowed blocks list.
-				if ( ! in_array( $block, $disallowed_blocks, true ) ) {
-
-					// If it's not disallowed, add it to the filtered list.
-					$filtered_blocks[] = $block;
+			return array_filter(
+				$allowed_block_types,
+				function ( $block ) use ( $disallowed_blocks ) {
+					return ! in_array( $block, $disallowed_blocks, true );
 				}
-			}
-
-			// Return the filtered list of allowed blocks
-			return $filtered_blocks;
-		}
-		// phpcs:enable Squiz.PHP.CommentedOutCode.Found
-		if ( ! $is_administrator ) {
-			$allowed_block_types = array(
-				'core/block',
-				'core/gallery',
-				'core/freeform',
-				'core/group',
-				'core/heading',
-				'core/image',
-				'core/list',
-				'core/paragraph',
-				'core/pattern',
-				'core/quote',
-				'core/shortcode',
-				'core/table',
-				'gravityforms/form',
 			);
-			return $allowed_block_types;
 		}
 		return $allowed_block_types;
 	}
