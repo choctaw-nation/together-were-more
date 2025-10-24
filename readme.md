@@ -13,7 +13,13 @@ const colorMap = {
 
 # Changelog
 
-## 2.5.1 - [October 21, 2025]
+## 2.6.0 - [October 21, 2025]
+
+- Fix: Profile Swiper Video Block is written better
+  - Uses `RichText` component to allow for inline-block editing (instead of a `textarea` in the sidebar)
+- Chore: Update calls to data stores to use the exported `store` from related packages (instead of strings e.g. `core/editor`) in profile swiper block 
+
+## 2.5.1
 
 - Tweak: Updated names for homepage image meta fields for tighter alignment with what Creative delivers
 

@@ -1,4 +1,6 @@
 import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
+import { store as editorStore } from '@wordpress/editor';
+import { store as coreStore } from '@wordpress/core-data';
 import { useEffect } from '@wordpress/element';
 import { useRefEffect } from '@wordpress/compose';
 import { useSelect } from '@wordpress/data';
@@ -17,11 +19,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	} as Record<string, string>;
 
 	const categoryName = useSelect( ( select ) => {
-		const post = select( 'core/editor' ).getCurrentPost();
+		const post = select( editorStore ).getCurrentPost();
 		if ( ! post || ! post.categories || post.categories.length === 0 ) {
 			return null;
 		}
-		const { getEntityRecords } = select( 'core' );
+		const { getEntityRecords } = select( coreStore );
 		const categories = getEntityRecords( 'taxonomy', 'category', {
 			include: post.categories,
 		} );
