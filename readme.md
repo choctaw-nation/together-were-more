@@ -13,6 +13,14 @@ const colorMap = {
 
 # Changelog
 
+## 2.6.3 - [December 8, 2025]
+
+- Tweak: Add Core Web Vitals Configs to Theme_Init
+- Tweak: Disable certain plugins on non-prod environments
+- Tweak: Force auto-update for plugins on non-prod environments
+- Chore: Add Lints and Configs
+- Chore: Update Packages
+
 ## 2.6.2 - [October 24, 2025]
 
 - Fix: Card Profile Preview uses MediaPress before ACF fallback
