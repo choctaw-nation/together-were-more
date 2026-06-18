@@ -5,7 +5,7 @@
  * @package ChoctawNation
  */
 
-namespace ChoctawNation;
+namespace ChoctawNation\Admin;
 
 /**
  * Class Post_Override
@@ -14,13 +14,6 @@ namespace ChoctawNation;
  * @package ChoctawNation
  */
 class Post_Override {
-	/**
-	 * Constructor Function
-	 */
-	public function __construct() {
-		add_action( 'init', array( $this, 'alter_post_types' ) );
-	}
-
 	/**
 	 * Alters the post type
 	 */

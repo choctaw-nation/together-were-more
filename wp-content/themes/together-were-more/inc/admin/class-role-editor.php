@@ -5,19 +5,12 @@
  * @package ChoctawNation
  */
 
-namespace ChoctawNation;
+namespace ChoctawNation\Admin;
 
 /**
  * Role Editor
  */
 class Role_Editor {
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		add_action( 'admin_init', array( $this, 'add_editor_caps' ) );
-	}
-
 	/**
 	 * Add Editor Capabilities
 	 */

@@ -5,8 +5,8 @@
  * @package ChoctawNation
  */
 
-use ChoctawNation\Asset_Loader;
-use ChoctawNation\Enqueue_Type;
+use ChoctawNation\Utils\Asset_Loader;
+use ChoctawNation\Utils\Enqueue_Type;
 
 $is_gutenberg = ! empty( get_the_content() );
 if ( $is_gutenberg ) {

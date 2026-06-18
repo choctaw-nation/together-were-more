@@ -6,8 +6,8 @@
  * @subpackage ACF
  */
 
-use ChoctawNation\Asset_Loader;
-use ChoctawNation\Enqueue_Type;
+use ChoctawNation\Utils\Asset_Loader;
+use ChoctawNation\Utils\Enqueue_Type;
 
 new Asset_Loader( 'profile-swiper', Enqueue_Type::both, 'pages' );
 $bg_image = get_template_directory_uri() . '/src/assets/white-texture.jpeg';

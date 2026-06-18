@@ -6,25 +6,15 @@
  * @package ChoctawNation
  */
 
-namespace ChoctawNation;
+namespace ChoctawNation\Admin;
+
+use ChoctawNation\Utils\Asset_Loader;
+use ChoctawNation\Utils\Enqueue_Type;
 
 /**
  * Gutenberg Handler
  */
 class Gutenberg_Handler {
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_assets' ), 30 );
-		add_action( 'after_setup_theme', array( $this, 'cno_block_theme_support' ), 50 );
-		add_action( 'init', array( $this, 'register_block_assets' ) );
-		add_filter( 'block_editor_settings_all', array( $this, 'restrict_gutenberg_ui' ), 10, 1 );
-		add_filter( 'allowed_block_types_all', array( $this, 'restrict_block_types' ), 10, 2 );
-		add_filter( 'use_block_editor_for_post_type', array( $this, 'handle_page_templates' ) );
-		add_filter( 'image_size_names_choose', array( $this, 'custom_image_sizes' ), );
-	}
-
 	/**
 	 * Check if the current user is an administrator.
 	 *
