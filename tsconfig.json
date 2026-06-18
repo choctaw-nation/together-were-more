@@ -14,7 +14,12 @@
 		"noImplicitAny": false,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"paths": {
+			"@styles/*": [
+				"./wp-content/themes/together-were-more/src/styles/*"
+			]
+		}
 	},
 	"include": ["./wp-content/themes/together-were-more/src/**/*"],
 	"exclude": ["node_modules"]

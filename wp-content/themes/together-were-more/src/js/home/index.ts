@@ -1,4 +1,4 @@
-import '../../styles/pages/home.scss';
+import '@styles/pages/home.scss';
 import PostPreviewHandler from './PostPreviewHandler';
 import AOS from 'aos';
 

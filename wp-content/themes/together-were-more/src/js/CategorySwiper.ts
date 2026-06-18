@@ -3,11 +3,11 @@ import { bounceSwiper } from './bounceSwiper';
 
 import Swiper from 'swiper';
 import { A11y, Mousewheel, FreeMode, Pagination } from 'swiper/modules';
-import 'swiper/scss';
-import 'swiper/scss/a11y';
-import 'swiper/scss/mousewheel';
-import 'swiper/scss/free-mode';
-import 'swiper/scss/pagination';
+import 'swiper/css';
+import 'swiper/css/a11y';
+import 'swiper/css/mousewheel';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 
 new Swiper( '#category-preview .swiper', {
 	modules: [ A11y, Mousewheel, FreeMode, Pagination ],

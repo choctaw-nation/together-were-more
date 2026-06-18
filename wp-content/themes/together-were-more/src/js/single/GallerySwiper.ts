@@ -2,11 +2,11 @@ import Swiper from 'swiper';
 import { A11y, Mousewheel, Pagination, Navigation } from 'swiper/modules';
 
 // Styles
-import 'swiper/scss';
-import 'swiper/scss/a11y';
-import 'swiper/scss/mousewheel';
-import 'swiper/scss/pagination';
-import 'swiper/scss/navigation';
+import 'swiper/css';
+import 'swiper/css/a11y';
+import 'swiper/css/mousewheel';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { bootstrapBreakpoints } from '../utilities';
 
 const gallerySwiper = document.querySelector<HTMLElement>( '#gallery-swiper' );
