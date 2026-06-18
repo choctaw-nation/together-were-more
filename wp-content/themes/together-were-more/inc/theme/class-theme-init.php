@@ -188,7 +188,7 @@ class Theme_Init {
 			'vendors',
 			array(
 				'scripts' => array(),
-				'styles'  => array( 'wp-block-library', 'global-styles' ),
+				'styles'  => array(),
 			)
 		);
 
@@ -464,10 +464,10 @@ class Theme_Init {
 	/**
 	 * Handle automatic plugin updates based on environment.
 	 *
-	 * @param bool $update Whether to update the plugin.
-	 * @return bool
+	 * @param ?bool $update Whether to update the plugin.
+	 * @return ?bool
 	 */
-	public function handle_auto_update_plugin( $update ): bool {
+	public function handle_auto_update_plugin( ?bool $update ): ?bool {
 		if ( 'production' === wp_get_environment_type() ) {
 			return $update;
 		}
