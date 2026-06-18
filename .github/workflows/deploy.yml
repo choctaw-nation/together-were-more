@@ -7,28 +7,31 @@ jobs:
     deploy-prod:
         name: Deploy to Production
         if: github.ref == 'refs/heads/main'
-        uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@1.1.0
+        uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
             WPE_ENV: twmprod
             theme_name: together-were-more
+            with_autoload: true
         secrets: inherit
 
     deploy-stg:
         name: Deploy to Staging
         if: github.ref == 'refs/heads/stg'
-        uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@1.1.0
+        uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
             WPE_ENV: twmstg
             theme_name: together-were-more
+            with_autoload: true
         secrets: inherit
 
     deploy-dev:
         name: Deploy to Development
         if: github.ref == 'refs/heads/dev'
-        uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@1.1.0
+        uses: choctaw-nation/shared-github-actions/.github/workflows/deploy.yml@main
         with:
             WPE_ENV: cnotwmdev
             theme_name: together-were-more
+            with_autoload: true
         secrets: inherit
 
     # Run Playwright tests on Dev

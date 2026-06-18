@@ -29,10 +29,14 @@
 		"autoptimize",
 		"autoupdater",
 		"choctawnation",
+		"choctawnationofoklahoma",
+		"classmap",
 		"Customizer",
+		"instantiator",
 		"mediapress",
 		"trackbacks",
-		"wordfence"
+		"wordfence",
+		"wpengine"
 	],
 	"css.format.spaceAroundSelectorSeparator": true,
 	"editor.codeActionsOnSave": {

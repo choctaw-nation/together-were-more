@@ -10,15 +10,11 @@
 		"noEmit": true,
 		"esModuleInterop": true,
 		"module": "esnext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"noImplicitAny": false,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
-		"typeRoots": [
-			"./node_modules/@types",
-			"./wp-content/themes/together-were-more/src/js/**/types"
-		]
+		"jsx": "preserve"
 	},
 	"include": ["./wp-content/themes/together-were-more/src/**/*"],
 	"exclude": ["node_modules"]
