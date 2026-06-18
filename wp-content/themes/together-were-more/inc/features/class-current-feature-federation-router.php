@@ -5,26 +5,20 @@
  * @package ChoctawNation
  */
 
-namespace ChoctawNation;
+namespace ChoctawNation\Features;
 
 use WP_Error;
 use WP_REST_Response;
 use WP_HTML_Tag_Processor;
+use WP_REST_Controller;
 
 
 /**
- * Class Rest_Router
+ * Class Current_Feature_Federation_Router
  *
  * This class handles the registration of REST API routes for the Choctaw Nation theme.
  */
-class Rest_Router {
-	/**
-	 * The namespace for the REST API.
-	 *
-	 * @var string $namespace
-	 */
-	private string $namespace;
-
+class Current_Feature_Federation_Router extends WP_REST_Controller {
 	/**
 	 * The version for the REST API.
 	 *
@@ -38,7 +32,6 @@ class Rest_Router {
 	public function __construct() {
 		$this->namespace = 'cno';
 		$this->version   = 1;
-		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
 	}
 
 	/**

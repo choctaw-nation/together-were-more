@@ -92,11 +92,6 @@
 			"padding": true,
 			"spacingSizes": [
 				{
-					"name": "None",
-					"size": "0",
-					"slug": "none"
-				},
-				{
 					"name": "Extra Small",
 					"size": ".25rem",
 					"slug": "xs"
@@ -363,11 +358,6 @@
 				":hover": {
 					"color": {
 						"text": "#c5ae52cc"
-					}
-				},
-				":visited": {
-					"color": {
-						"text": "var:preset|color|artists"
 					}
 				}
 			},

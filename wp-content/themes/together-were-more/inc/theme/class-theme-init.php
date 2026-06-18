@@ -6,6 +6,7 @@
  */
 
 namespace ChoctawNation;
+
 use ChoctawNation\Utils\Asset_Loader;
 use ChoctawNation\Utils\Enqueue_Type;
 
@@ -37,6 +38,7 @@ class Theme_Init {
 		$this->handle_plugins();
 		$this->handle_gutenberg();
 		$this->override_posts();
+		$this->load_features();
 		$this->cno_theme_support();
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_cno_scripts' ) );
 		add_action( 'init', array( $this, 'alter_post_types' ) );
@@ -145,6 +147,21 @@ class Theme_Init {
 	public function override_posts() {
 		$post_override = new Admin\Post_Override();
 		add_action( 'init', array( $post_override, 'alter_post_types' ) );
+	}
+
+	/**
+	 * Load Site Features
+	 */
+	private function load_features() {
+		add_action(
+			'rest_api_init',
+			function () {
+				$current_feature_federation_router = new Features\Current_Feature_Federation_Router();
+				$site_search_router                = new Features\Site_Search_Router();
+				$current_feature_federation_router->register_routes();
+				$site_search_router->register_routes();
+			}
+		);
 	}
 
 	/** Remove comments, pings and trackbacks support from posts types. */

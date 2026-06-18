@@ -19,7 +19,7 @@ class Gravity_Forms_Handler {
 	 * @param string $button The button HTML.
 	 * @return string
 	 */
-	public function update_submit_button_classes( $button, ): string {
+	public function update_submit_button_classes( $button ): string {
 		$dom = new \DOMDocument();
 		$dom->loadHTML( $button );
 		$input     = $dom->getElementsByTagName( 'input' )->item( 0 );

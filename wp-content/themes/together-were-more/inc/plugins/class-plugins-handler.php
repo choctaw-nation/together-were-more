@@ -24,7 +24,7 @@ class Plugins_Handler {
 	public function __construct() {
 		$this->environment = wp_get_environment_type();
 	}
-	
+
 	/**
 	 * Disable certain plugins based on the environment type.
 	 */
@@ -87,7 +87,7 @@ class Plugins_Handler {
 			return;
 		}
 		$gravity_forms_handler = new Gravity_Forms_Handler();
-		add_filter( 'gform_submit_button', array( $gravity_forms_handler, 'handle_additional_gform_button_classes' ), 10, 1 );
+		add_filter( 'gform_submit_button', array( $gravity_forms_handler, 'update_submit_button_classes' ), 10, 1 );
 		add_action( 'wp_enqueue_scripts', array( $gravity_forms_handler, 'dequeue_recaptcha_scripts' ), 30 );
 	}
 
