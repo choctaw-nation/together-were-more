@@ -16,9 +16,7 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"paths": {
-			"@styles/*": [
-				"./wp-content/themes/together-were-more/src/styles/*"
-			]
+			"@styles/*": ["./wp-content/themes/together-were-more/src/styles/*"]
 		}
 	},
 	"include": ["./wp-content/themes/together-were-more/src/**/*"],

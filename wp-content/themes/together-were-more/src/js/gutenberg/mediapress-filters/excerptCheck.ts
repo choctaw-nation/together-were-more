@@ -5,26 +5,26 @@ import { ChecklistItem } from './types';
 /**
  * Checks if the excerpt is valid
  */
-export default function excerptCheck( item: ChecklistItem ): ChecklistItem {
-	if ( item.name !== 'excerpt_is_valid' ) {
+export default function excerptCheck(item: ChecklistItem): ChecklistItem {
+	if (item.name !== 'excerpt_is_valid') {
 		return item;
 	}
-	const excerpt = select( editorStore ).getEditedPostAttribute( 'excerpt' );
-	if ( ! excerpt || excerpt.length === 0 ) {
+	const excerpt = select(editorStore).getEditedPostAttribute('excerpt');
+	if (!excerpt || excerpt.length === 0) {
 		return {
 			...item,
 			status: 'BLOCKING',
 			message: 'Please provide a valid excerpt for the post.',
 		};
 	}
-	if ( excerpt.length > 160 ) {
+	if (excerpt.length > 160) {
 		return {
 			...item,
 			status: 'BLOCKING',
 			message: 'Excerpt must be 160 characters or less.',
 		};
 	}
-	if ( excerpt.length < 120 ) {
+	if (excerpt.length < 120) {
 		return {
 			...item,
 			status: 'BLOCKING',

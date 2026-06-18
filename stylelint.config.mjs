@@ -1,6 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-	extends: [ 'stylelint-config-standard-scss' ],
+	extends: ['stylelint-config-standard-scss'],
 	rules: {
 		'color-named': 'always-where-possible',
 		'scss/at-function-pattern': [
@@ -25,8 +25,7 @@ export default {
 		'selector-class-pattern': [
 			'^[a-z]+(?:-[a-z0-9]+)*(?:__(?:[a-z]+(?:-[a-z0-9]+)*))?(?:--(?:[a-z]+(?:-[a-z0-9]+)*))?$',
 			{
-				message:
-					'Expected class selector to be kebab-case or BEM',
+				message: 'Expected class selector to be kebab-case or BEM',
 			},
 		],
 	},
@@ -35,15 +34,15 @@ export default {
 	],
 	overrides: [
 		{
-			files: [ '**/*.scss' ],
+			files: ['**/*.scss'],
 			customSyntax: 'postcss-scss',
 		},
 		{
-			files: [ '**/*.html', '**/*.php' ],
+			files: ['**/*.html', '**/*.php'],
 			customSyntax: 'postcss-html',
 		},
 		{
-			files: [ '**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts' ],
+			files: ['**/*.jsx', '**/*.tsx', '**/*.js', '**/*.ts'],
 			customSyntax: 'postcss-js',
 		},
 	],
