@@ -41,6 +41,7 @@ class Theme_Init {
 		$this->load_features();
 		$this->cno_theme_support();
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_cno_scripts' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_global_scripts' ) );
 		add_action( 'init', array( $this, 'alter_post_types' ) );
 		add_action( 'init', array( $this, 'remove_editor_capabilities' ) );
 		add_action( 'init', array( $this, 'alter_categories' ) );
@@ -193,16 +194,22 @@ class Theme_Init {
 	}
 
 	/**
-	 * Adds scripts with the appropriate dependencies
+	 * Enqueue scripts to block editor & frontend.
 	 */
-	public function enqueue_cno_scripts() {
-		$this->register_scripts();
+	public function enqueue_global_scripts() {
 		wp_enqueue_style(
 			'typekit',
 			'https://use.typekit.net/mud5elq.css',
 			array(),
-			null // phpcs:ignore
+			null // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		);
+	}
+
+	/**
+	 * Adds scripts with the appropriate dependencies
+	 */
+	public function enqueue_cno_scripts() {
+		$this->register_scripts();
 
 		new Asset_Loader(
 			'bootstrap',
