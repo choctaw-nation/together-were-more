@@ -61,6 +61,7 @@ const addEditorEntry = ( webpackConfig ) => {
 		...updatedConfig,
 		entry: async () => {
 			return {
+				...( await webpackConfig.entry() ),
 				global: path.resolve( THEME_SRC, 'index.ts' ),
 				'vendors/bootstrap': path.resolve(
 					THEME_SRC,
