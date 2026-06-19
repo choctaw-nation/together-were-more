@@ -24,7 +24,7 @@ export function bounceSwiper( args: {
 		);
 		return;
 	}
-	const swiper = swiperContainer.querySelector<HTMLElement>( swiperClass );
+	const swiper = swiperContainer.querySelector< HTMLElement >( swiperClass );
 	if ( ! swiper ) {
 		// eslint-disable-next-line no-console
 		console.error(

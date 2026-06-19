@@ -35,14 +35,22 @@ class MediaPress_Handler {
 		if ( ! file_exists( $this->config_dir ) ) {
 			return;
 		}
-		$this->load_media_press_configs();
-		require_once get_template_directory() . '/inc/plugins/class-mediapress-fields.php';
+	}
+
+	/**
+	 * Check if MediaPress is active
+	 */
+	public function plugin_is_active(): bool {
+		$plugin_dir         = WP_PLUGIN_DIR;
+		$mediapress_plugins = glob( $plugin_dir . '/mediapress*/plugin.php' );
+		$mediapress_dir     = ! empty( $mediapress_plugins ) ? basename( dirname( $mediapress_plugins[0] ) ) . '/plugin.php' : '';
+		return is_plugin_active( $mediapress_dir );
 	}
 
 	/**
 	 * Load Media Press Configurations
 	 */
-	private function load_media_press_configs() {
+	public function load_media_press_configs() {
 		$files = array(
 			'checklist' => 'checklist.json',
 			'fields'    => 'fields.json',

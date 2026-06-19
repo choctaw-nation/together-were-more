@@ -33,7 +33,7 @@
 			<div class="col-auto">
 				<nav class="navbar navbar-expand-lg py-0">
 					<button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-							aria-label="Toggle navigation">
+						aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="offcanvas offcanvas-end ms-auto" id='navbarNav' tabindex="-1">

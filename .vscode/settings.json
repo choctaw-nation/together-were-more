@@ -23,16 +23,21 @@
 		"editor.useTabStops": true,
 		"prettier.useTabs": false
 	},
-	"bootstrapAutocomplete.version": "5.3.2",
 	"cSpell.words": [
 		"Appender",
 		"autoptimize",
 		"autoupdater",
+		"bloginfo",
 		"choctawnation",
+		"choctawnationofoklahoma",
+		"classmap",
 		"Customizer",
+		"gforms",
+		"instantiator",
 		"mediapress",
 		"trackbacks",
-		"wordfence"
+		"wordfence",
+		"wpengine"
 	],
 	"css.format.spaceAroundSelectorSeparator": true,
 	"editor.codeActionsOnSave": {
@@ -41,16 +46,16 @@
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[javascript]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[javascriptreact]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[typescriptreact]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[typescript]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"eslint.enable": true,
 	"eslint.useESLintClass": true,
@@ -64,7 +69,8 @@
 		"scss"
 	],
 	"html.format.templating": true,
-	"phpSniffer.standard": "phpcs.xml.dist",
+	"phpSniffer.standard": "wp-content/themes/together-were-more/phpcs.xml.dist",
+	"phpSniffer.executablesFolder": "wp-content/themes/together-were-more/vendor/bin",
 	"scss.format.spaceAroundSelectorSeparator": true,
 	"stylelint.snippet": ["css", "scss"],
 	"stylelint.validate": ["css", "scss"]

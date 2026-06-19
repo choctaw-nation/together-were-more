@@ -1,4 +1,4 @@
-import '../../styles/pages/single.scss';
+import '@styles/pages/single.scss';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import ParallaxController from './ParallaxController';

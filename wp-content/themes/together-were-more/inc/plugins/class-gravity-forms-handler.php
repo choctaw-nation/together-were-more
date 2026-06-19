@@ -14,20 +14,12 @@ namespace ChoctawNation\Plugins;
  */
 class Gravity_Forms_Handler {
 	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		add_filter( 'gform_submit_button', array( $this, 'update_submit_button_classes' ), 10, 1 );
-		add_action( 'admin_init', array( $this, 'allow_editors_to_manage_gf' ) );
-	}
-
-	/**
 	 * Update Submit Button Classes
 	 *
 	 * @param string $button The button HTML.
 	 * @return string
 	 */
-	public function update_submit_button_classes( $button, ): string {
+	public function update_submit_button_classes( $button ): string {
 		$dom = new \DOMDocument();
 		$dom->loadHTML( $button );
 		$input     = $dom->getElementsByTagName( 'input' )->item( 0 );
@@ -39,10 +31,16 @@ class Gravity_Forms_Handler {
 	}
 
 	/**
-	 * Add Gravity Forms Capabilities to Editors
+	 * Dequeue Gravity Forms Recaptcha Scripts where possible.
+	 * The blocks should enqueue it when needed.
 	 */
-	public function allow_editors_to_manage_gf() {
-		$role = get_role( 'editor' );
-		$role->add_cap( 'gform_full_access' );
+	public function dequeue_recaptcha_scripts() {
+		if ( is_admin() ) {
+			return;
+		}
+		if ( is_home() || is_front_page() || is_archive() ) {
+			wp_dequeue_script( 'gforms_recaptcha_recaptcha' );
+			wp_dequeue_script( 'gforms_recaptcha_frontend' );
+		}
 	}
 }
