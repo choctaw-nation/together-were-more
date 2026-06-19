@@ -46,16 +46,16 @@
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[javascript]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[javascriptreact]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[typescriptreact]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"[typescript]": {
-		"editor.formatOnSave": false
+		"editor.formatOnSave": true
 	},
 	"eslint.enable": true,
 	"eslint.useESLintClass": true,

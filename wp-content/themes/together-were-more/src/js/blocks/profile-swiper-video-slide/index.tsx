@@ -9,20 +9,20 @@ import metadata from './block.json';
 import './style.scss';
 import Edit from './Edit';
 
-registerBlockType(metadata.name, {
+registerBlockType( metadata.name, {
 	edit: Edit,
-	save: ({ attributes }) => {
+	save: ( { attributes } ) => {
 		const blockProps = useBlockProps.save();
 		const { children, ...innerBlocksProps } =
-			useInnerBlocksProps.save(blockProps);
+			useInnerBlocksProps.save( blockProps );
 		return (
-			<figure {...innerBlocksProps}>
-				{children}
+			<figure { ...innerBlocksProps }>
+				{ children }
 				<RichText.Content
 					tagName="figcaption"
-					value={attributes.videoCaption}
+					value={ attributes.videoCaption }
 				/>
 			</figure>
 		);
 	},
-});
+} );

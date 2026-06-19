@@ -2,25 +2,25 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import config from '@wordpress/scripts/config/webpack.config.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const configs = Array.isArray(config) ? config : [config];
+const __filename = fileURLToPath( import.meta.url );
+const __dirname = path.dirname( __filename );
+const configs = Array.isArray( config ) ? config : [ config ];
 
 const THEME_ROOT = path.resolve(
 	__dirname,
 	'wp-content/themes/together-were-more'
 );
-const THEME_SRC = path.resolve(THEME_ROOT, 'src');
-const THEME_DIST = path.resolve(THEME_ROOT, 'dist');
+const THEME_SRC = path.resolve( THEME_ROOT, 'src' );
+const THEME_DIST = path.resolve( THEME_ROOT, 'dist' );
 
 /**
  * Array of strings modeled after folder names (e.g. 'about-choctaw'). Inside of these folders, an `index.ts` file is expected. If that's not what you want, consider editing the `addEntries` function below.
  *
  * **Be sure to import page scss in these files**
  */
-const appNames = ['home', 'single', 'single-gutenberg'];
+const appNames = [ 'home', 'single', 'single-gutenberg' ];
 const modules = []; // for global js files
-const blockEditor = ['editDefaultBlocks', 'mediapressCustomFilters'];
+const blockEditor = [ 'editDefaultBlocks', 'mediapressCustomFilters' ];
 
 /**
  * For SCSS files (no leading `_`)
@@ -28,17 +28,17 @@ const blockEditor = ['editDefaultBlocks', 'mediapressCustomFilters'];
  */
 const styleSheets = []; // for scss only
 
-const addAlias = (webpackConfig) => ({
+const addAlias = ( webpackConfig ) => ( {
 	...webpackConfig,
 	resolve: {
 		...webpackConfig.resolve,
 		alias: {
 			...webpackConfig.resolve?.alias,
-			'@styles': path.resolve(THEME_SRC, 'styles'),
+			'@styles': path.resolve( THEME_SRC, 'styles' ),
 		},
 	},
-});
-const addEditorEntry = (webpackConfig) => {
+} );
+const addEditorEntry = ( webpackConfig ) => {
 	const isModuleBuild = webpackConfig.output?.module;
 
 	const updatedConfig = {
@@ -53,7 +53,7 @@ const addEditorEntry = (webpackConfig) => {
 		},
 	};
 
-	if (isModuleBuild) {
+	if ( isModuleBuild ) {
 		return updatedConfig;
 	}
 
@@ -61,7 +61,7 @@ const addEditorEntry = (webpackConfig) => {
 		...updatedConfig,
 		entry: async () => {
 			return {
-				global: path.resolve(THEME_SRC, 'index.ts'),
+				global: path.resolve( THEME_SRC, 'index.ts' ),
 				'vendors/bootstrap': path.resolve(
 					THEME_SRC,
 					'js/vendors/bootstrap.js'
@@ -70,7 +70,10 @@ const addEditorEntry = (webpackConfig) => {
 					THEME_SRC,
 					'js/vendors/lite-vimeo.js'
 				),
-				'modules/who-we-are': path.resolve(THEME_SRC, 'js/WhoWeAre.ts'),
+				'modules/who-we-are': path.resolve(
+					THEME_SRC,
+					'js/WhoWeAre.ts'
+				),
 				'modules/current-feature': path.resolve(
 					THEME_SRC,
 					'styles/components/current-feature.scss'
@@ -91,64 +94,66 @@ const addEditorEntry = (webpackConfig) => {
 					THEME_SRC,
 					'js/single/GallerySwiper.ts'
 				),
-				...addEntries(appNames, 'pages'),
-				...addEntries(modules, 'modules'),
-				...addEntries(styleSheets, 'styles'),
-				...addEntries(blockEditor, 'admin'),
+				...addEntries( appNames, 'pages' ),
+				...addEntries( modules, 'modules' ),
+				...addEntries( styleSheets, 'styles' ),
+				...addEntries( blockEditor, 'admin' ),
 			};
 		},
 	};
 };
 
-export default configs.map(addAlias).map(addEditorEntry);
+export default configs.map( addAlias ).map( addEditorEntry );
 
 /**
  * Helper function to add entries to the entries object. It takes an array of strings in either kebab-case or snake_case and returns an object with the key as the entry name and the value as the path to the entry file.
  * @param {Array}  array - Array of strings
  * @param {string} type  - The type of entry. Either 'pages' or 'styles'
  */
-function addEntries(array, type) {
-	if (!Array.isArray(array)) {
-		throw new Error(`Expecting an array, received ${typeof array}!`);
+function addEntries( array, type ) {
+	if ( ! Array.isArray( array ) ) {
+		throw new Error( `Expecting an array, received ${ typeof array }!` );
 	}
-	if (0 >= array.length) {
+	if ( 0 >= array.length ) {
 		return {};
 	}
 	const entries = {};
 	const typeOutput = {
 		styles: {
-			outputDir: (assetOutput) => `pages/${assetOutput}`,
-			path: (asset) =>
-				path.resolve(THEME_SRC, `styles/pages/${asset}.scss`),
+			outputDir: ( assetOutput ) => `pages/${ assetOutput }`,
+			path: ( asset ) =>
+				path.resolve( THEME_SRC, `styles/pages/${ asset }.scss` ),
 		},
 		pages: {
-			outputDir: (assetOutput) => `pages/${assetOutput}`,
-			path: (asset) => path.resolve(THEME_SRC, `js/${asset}/index.ts`),
+			outputDir: ( assetOutput ) => `pages/${ assetOutput }`,
+			path: ( asset ) =>
+				path.resolve( THEME_SRC, `js/${ asset }/index.ts` ),
 		},
 		admin: {
-			outputDir: (assetOutput) => `admin/${assetOutput}`,
-			path: (asset) =>
-				path.resolve(THEME_SRC, `js/gutenberg/${asset}.ts`),
+			outputDir: ( assetOutput ) => `admin/${ assetOutput }`,
+			path: ( asset ) =>
+				path.resolve( THEME_SRC, `js/gutenberg/${ asset }.ts` ),
 		},
 		modules: {
-			outputDir: (assetOutput) => `modules/${assetOutput}`,
-			path: (asset) => path.resolve(THEME_SRC, `js/modules/${asset}.js`),
+			outputDir: ( assetOutput ) => `modules/${ assetOutput }`,
+			path: ( asset ) =>
+				path.resolve( THEME_SRC, `js/modules/${ asset }.js` ),
 		},
 	};
-	array.forEach((asset) => {
-		const assetOutput = snakeToCamel(asset);
+	array.forEach( ( asset ) => {
+		const assetOutput = snakeToCamel( asset );
 
-		if (Object.hasOwn(typeOutput, type)) {
-			const output = typeOutput[type];
-			entries[output.outputDir(assetOutput)] = output.path(asset);
+		if ( Object.hasOwn( typeOutput, type ) ) {
+			const output = typeOutput[ type ];
+			entries[ output.outputDir( assetOutput ) ] = output.path( asset );
 		} else {
 			throw new Error(
-				`Invalid type! Expected one of ${Object.keys(typeOutput).join(
-					', '
-				)}, received "${type}"`
+				`Invalid type! Expected one of ${ Object.keys(
+					typeOutput
+				).join( ', ' ) }, received "${ type }"`
 			);
 		}
-	});
+	} );
 	return entries;
 }
 
@@ -157,8 +162,8 @@ function addEntries(array, type) {
  *
  * @param {string} str - The string to be converted
  */
-function snakeToCamel(str) {
-	return str.replace(/([-_][a-z])/g, (group) =>
-		group.toUpperCase().replace('-', '').replace('_', '')
+function snakeToCamel( str ) {
+	return str.replace( /([-_][a-z])/g, ( group ) =>
+		group.toUpperCase().replace( '-', '' ).replace( '_', '' )
 	);
 }

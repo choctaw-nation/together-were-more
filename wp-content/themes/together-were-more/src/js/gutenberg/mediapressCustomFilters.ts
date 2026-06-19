@@ -9,6 +9,6 @@ const filters = {
 	vimeo_url_check: vimeoUrlCheck,
 };
 
-Object.entries(filters).forEach(([name, filter]) => {
-	addFilter(`mediaPress.checklist.item`, `twm/${name}`, filter);
-});
+Object.entries( filters ).forEach( ( [ name, filter ] ) => {
+	addFilter( `mediaPress.checklist.item`, `twm/${ name }`, filter );
+} );

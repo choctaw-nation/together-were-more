@@ -2,6 +2,6 @@ import addFlexReverseToggle from '@choctawnationofoklahoma/wp-flex-reverse-toggl
 
 function alterBlocks(): void {
 	const namespace = 'cno-starter-theme';
-	addFlexReverseToggle(namespace);
+	addFlexReverseToggle( namespace );
 }
 alterBlocks();
