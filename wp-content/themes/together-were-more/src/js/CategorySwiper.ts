@@ -42,7 +42,7 @@ new Swiper( '#category-preview .swiper', {
  * Toggles the opacity of the headline when the slider is/isn't on slide 1. Only fires on desktop sizes.
  */
 function makeHeadlineTextInvisible( ev: Swiper ) {
-	const headlineEls = document.querySelectorAll<HTMLParagraphElement>(
+	const headlineEls = document.querySelectorAll< HTMLParagraphElement >(
 		'#category-preview .col-lg-6 > p'
 	);
 

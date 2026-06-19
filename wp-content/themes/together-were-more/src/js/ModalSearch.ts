@@ -165,7 +165,7 @@ new ( class SiteSearchHandler {
 	 * @param category The category to get the color for.
 	 * @return string
 	 */
-	private categoryColor( category: SiteSearchResult['category'] ): string {
+	private categoryColor( category: SiteSearchResult[ 'category' ] ): string {
 		const categoryMap = {
 			artists: 'gold',
 			culture: 'plum',

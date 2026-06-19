@@ -3,14 +3,14 @@ import { includeIgnoreFile } from '@eslint/compat';
 import { globalIgnores, defineConfig } from 'eslint/config';
 import { fileURLToPath, URL } from 'url';
 
-const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url));
+const gitignorePath = fileURLToPath( new URL( '.gitignore', import.meta.url ) );
 
-export default defineConfig([
-	includeIgnoreFile(gitignorePath, 'Ignore .gitignore files'),
-	globalIgnores([
+export default defineConfig( [
+	includeIgnoreFile( gitignorePath, 'Ignore .gitignore files' ),
+	globalIgnores( [
 		'wp-content/themes/**/src/js/gutenberg/mediapress-filters/types.ts',
 		'wp-content/themes/**/src/js/**/*.d.ts',
-	]),
+	] ),
 	...wordpress.configs.recommended,
 	{
 		files: [
@@ -32,4 +32,4 @@ export default defineConfig([
 			'no-shadow': 'off',
 		},
 	},
-]);
+] );

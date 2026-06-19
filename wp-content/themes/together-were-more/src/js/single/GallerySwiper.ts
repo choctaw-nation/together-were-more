@@ -9,7 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { bootstrapBreakpoints } from '../utilities';
 
-const gallerySwiper = document.querySelector<HTMLElement>( '#gallery-swiper' );
+const gallerySwiper =
+	document.querySelector< HTMLElement >( '#gallery-swiper' );
 if ( gallerySwiper ) {
 	new Swiper( gallerySwiper, {
 		modules: [ A11y, Pagination, Navigation, Mousewheel ],
