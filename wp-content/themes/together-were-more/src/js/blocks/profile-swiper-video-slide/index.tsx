@@ -1,5 +1,9 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { useInnerBlocksProps, useBlockProps, RichText } from '@wordpress/block-editor';
+import {
+	useInnerBlocksProps,
+	useBlockProps,
+	RichText,
+} from '@wordpress/block-editor';
 import metadata from './block.json';
 
 import './style.scss';
@@ -10,7 +14,7 @@ registerBlockType( metadata.name, {
 	save: ( { attributes } ) => {
 		const blockProps = useBlockProps.save();
 		const { children, ...innerBlocksProps } =
-		useInnerBlocksProps.save( blockProps );
+			useInnerBlocksProps.save( blockProps );
 		return (
 			<figure { ...innerBlocksProps }>
 				{ children }
@@ -19,7 +23,6 @@ registerBlockType( metadata.name, {
 					value={ attributes.videoCaption }
 				/>
 			</figure>
-
 		);
 	},
 } );

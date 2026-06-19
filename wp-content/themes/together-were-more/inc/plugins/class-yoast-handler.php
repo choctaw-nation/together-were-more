@@ -13,14 +13,6 @@ namespace ChoctawNation\Plugins;
  */
 class Yoast_Handler {
 	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		add_filter( 'wpseo_metadesc', array( $this, 'meta_description_handler' ) );
-		add_filter( 'wpseo_metabox_prio', fn() => 'low' );
-	}
-
-	/**
 	 * Use the excerpt as the meta description if none is set.
 	 * Alternatively, use the ACF brief description if available.
 	 *

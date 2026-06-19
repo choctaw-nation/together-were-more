@@ -16,7 +16,7 @@ import { SwiperInit } from '../shared/SwiperInit';
 export default function Edit( { attributes, setAttributes } ) {
 	const paginationColor = {
 		'--swiper-pagination-color': `var(--wp--preset--color--${ attributes.paginationColor })`,
-	} as Record<string, string>;
+	} as Record< string, string >;
 
 	const categoryName = useSelect( ( select ) => {
 		const post = select( editorStore ).getCurrentPost();
@@ -27,7 +27,9 @@ export default function Edit( { attributes, setAttributes } ) {
 		const categories = getEntityRecords( 'taxonomy', 'category', {
 			include: post.categories,
 		} );
-		return categories && categories.length > 0 ? categories[ 0 ].slug : null;
+		return categories && categories.length > 0
+			? categories[ 0 ].slug
+			: null;
 	}, [] );
 
 	useEffect( () => {

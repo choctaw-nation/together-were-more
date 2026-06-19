@@ -2,12 +2,12 @@ import Swiper from 'swiper';
 import { A11y, Mousewheel, FreeMode, Pagination } from 'swiper/modules';
 
 // Styles
-import 'swiper/scss';
-import 'swiper/scss/a11y';
-import 'swiper/scss/mousewheel';
-import 'swiper/scss/free-mode';
-import 'swiper/scss/pagination';
-import '../../styles/components/single/swiper.scss';
+import 'swiper/css';
+import 'swiper/css/a11y';
+import 'swiper/css/mousewheel';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import '@styles/components/single/swiper.scss';
 
 new ( class ProfileSwiperHandler {
 	/**
@@ -21,7 +21,7 @@ new ( class ProfileSwiperHandler {
 	private swiper: Swiper;
 
 	constructor() {
-		const swiperEl = document.querySelector<HTMLElement>(
+		const swiperEl = document.querySelector< HTMLElement >(
 			'#profile-swiper .swiper'
 		);
 		if ( ! swiperEl ) {
@@ -94,7 +94,7 @@ new ( class ProfileSwiperHandler {
 	private easeInOut( progress: number ): number {
 		return progress < 0.5
 			? 4 * progress * progress * progress
-			: 1 - ( Math.pow( ( -2 * progress ) + 2, 3 ) / 2 );
+			: 1 - Math.pow( -2 * progress + 2, 3 ) / 2;
 	}
 
 	/**

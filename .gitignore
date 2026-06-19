@@ -1,7 +1,14 @@
-# Wordpress - ignore core, configuration, examples, uploads and logs.
+# WordPress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
+# npm audit
+.tmp/
 
+# tests
+.wp-tests/
+html-coverage/
+.phpunit.cache/
+.phpunit.result.cache
 
 # Core
 #
@@ -28,7 +35,6 @@ local-xdebuginfo.php
 .env
 .env*
 auth.json
-/vendor
 /bundle-analyzer
 
 # WP Engine
@@ -47,6 +53,7 @@ auth.json
 /wp-content/autoptimize_404_handler.php
 /wp-content/themes/twenty*/
 /wp-content/themes/*/dist/
+/wp-content/themes/*/vendor/
 /wp-content/.htaccess
 /wp-content/db.php
 /wp-content/advanced-cache.php

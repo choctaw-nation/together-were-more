@@ -6,12 +6,12 @@
  * @package ChoctawNation
  */
 
-namespace ChoctawNation;
+namespace ChoctawNation\Features;
 
 /**
  * Site Search Class
  */
-class Site_Search {
+class Site_Search_Router extends \WP_REST_Controller {
 	/**
 	 * Constructor
 	 */

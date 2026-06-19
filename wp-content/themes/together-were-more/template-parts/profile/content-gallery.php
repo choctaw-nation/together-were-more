@@ -5,8 +5,8 @@
  * @package ChoctawNation
  */
 
-use ChoctawNation\Asset_Loader;
-use ChoctawNation\Enqueue_Type;
+use ChoctawNation\Utils\Asset_Loader;
+use ChoctawNation\Utils\Enqueue_Type;
 
 $gallery = $args;
 $photos  = $gallery['photos'];

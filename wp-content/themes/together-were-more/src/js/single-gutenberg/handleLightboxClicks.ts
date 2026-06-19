@@ -8,7 +8,7 @@ export default function handleLightboxClicks() {
 		return;
 	}
 
-	main.addEventListener( 'click', function( ev ) {
+	main.addEventListener( 'click', function ( ev ) {
 		const target = ev.target as HTMLElement;
 		if ( canObserve( target ) ) {
 			const targetObserver = new MutationObserver( ( _, obs ) => {
